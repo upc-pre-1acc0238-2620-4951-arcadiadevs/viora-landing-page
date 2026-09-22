@@ -2,6 +2,11 @@ html {
   color-scheme: light;
   background-color: var(--color-surface);
   scroll-padding-top: var(--header-height);
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
 }
 
 body {

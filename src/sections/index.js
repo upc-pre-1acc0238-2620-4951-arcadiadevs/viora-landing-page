@@ -4,9 +4,8 @@
  * and exports `{ selector, mount(element) }`.
  */
 import { mountAll } from '@/utils/mount.js';
+import { hero } from './hero/Hero.js';
 
-const registry = [
-  // hero,
-];
+const registry = [hero];
 
 export const mountSections = (root = document) => mountAll(registry, root);

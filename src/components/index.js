@@ -5,7 +5,8 @@
  */
 import { mountAll } from '@/utils/mount.js';
 import { legalDialog } from './legal-dialog/legalDialog.js';
+import { navbar } from './navbar/navbar.js';
 
-const registry = [legalDialog];
+const registry = [navbar, legalDialog];
 
 export const mountComponents = (root = document) => mountAll(registry, root);
