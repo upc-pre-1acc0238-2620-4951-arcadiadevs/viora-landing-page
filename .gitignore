@@ -20,3 +20,6 @@ dist/
 
 # Logs
 *.log
+
+# Licensed source fonts (only woff2 builds are published)
+design/fonts/
