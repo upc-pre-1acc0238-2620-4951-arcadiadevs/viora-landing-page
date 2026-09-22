@@ -51,7 +51,8 @@ function detectLocale() {
 }
 
 export function t(key, locale = currentLocale) {
-  const value = key.split('.').reduce((node, part) => node?.[part], dictionaries[locale]);
+  const lookup = (dictionary) => key.split('.').reduce((node, part) => node?.[part], dictionary);
+  const value = lookup(dictionaries[locale]) ?? lookup(dictionaries[DEFAULT_LOCALE]);
   return typeof value === 'string' ? value : key;
 }
 

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en-US">
+<html lang="en-US" data-glass="liquid">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -40,7 +40,158 @@
     <a class="skip-link" href="#main" data-i18n="a11y.skipToContent">Skip to content</a>
 
     <main id="main">
-      <!-- Sections are added here in page order, one feature branch per section. -->
+      <section class="hero" id="hero" aria-labelledby="hero-title" data-hero data-nav-tone="dark">
+        <div class="hero__art" aria-hidden="true">
+          <img
+            class="hero__still"
+            src="/assets/images/hero/layers/still.webp"
+            alt=""
+            fetchpriority="high"
+            width="1536"
+            height="1024"
+          />
+          <div class="hero__scene">
+            <img
+              class="hero__layer"
+              data-depth="5"
+              src="/assets/images/hero/generated/backing.webp"
+              alt=""
+              width="1536"
+              height="1024"
+            />
+            <img
+              class="hero__layer hero__layer--contours"
+              data-depth="8"
+              src="/assets/images/hero/generated/contours.webp"
+              alt=""
+              width="1536"
+              height="1024"
+            />
+            <div class="hero__flight" data-effect="hero-scene"></div>
+            <img
+              class="hero__layer hero__layer--olives"
+              data-depth="36"
+              src="/assets/images/hero/generated/olives.webp"
+              alt=""
+              width="1536"
+              height="1024"
+            />
+            <img
+              class="hero__layer hero__layer--grower"
+              data-depth="28"
+              src="/assets/images/hero/generated/grower.webp"
+              alt=""
+              width="1536"
+              height="1024"
+            />
+            <img
+              class="hero__layer hero__layer--ground"
+              data-depth="16"
+              src="/assets/images/hero/generated/ground.webp"
+              alt=""
+              width="1536"
+              height="1024"
+            />
+          </div>
+        </div>
+        <div class="hero__intro" data-hero-reveal>
+          <p data-i18n="hero.intro">Viora App — Your grove, daily</p>
+          <p class="hero__description" data-i18n="hero.description">
+            Your grove, tree by tree: winter chill, fruit load and thinning, all in one app.
+          </p>
+        </div>
+        <button
+          class="hero__film"
+          type="button"
+          data-hero-dialog="film"
+          aria-label="Watch the Viora film"
+          data-hero-reveal
+        >
+          <span class="hero__film-shell glass"
+            ><span class="hero__film-inner glass"
+              ><img
+                src="/assets/icons/video-placeholder.png"
+                alt=""
+                width="512"
+                height="678" /></span
+          ></span>
+          <span class="hero__film-caption"
+            ><span>01:45</span
+            ><span
+              ><img src="/assets/icons/chevron-light.svg" alt="" width="20" height="20" /><span
+                data-i18n="hero.watch"
+                >Watch</span
+              ></span
+            ></span
+          >
+        </button>
+        <div class="hero__heading">
+          <p class="hero__eyebrow" data-i18n="hero.eyebrow" data-hero-reveal>Alternate bearing</p>
+          <h1 id="hero-title">
+            <span data-i18n="hero.titleFirst" data-split="lines">Anticipate your</span
+            ><span data-i18n="hero.titleSecond" data-split="lines">Next Harvest</span>
+          </h1>
+          <button class="hero__download" type="button" data-hero-dialog="download" data-hero-reveal>
+            <span class="hero__download-label" data-i18n="hero.download">Get the app</span
+            ><span class="hero__download-arrow"
+              ><img src="/assets/icons/chevron.svg" alt="" width="24" height="24"
+            /></span>
+          </button>
+        </div>
+        <div class="hero__widgets" data-hero-reveal>
+          <!-- Classic glass: the clear lens smears artwork lines across this short stack. -->
+          <div class="hero__notification" data-glass="classic">
+            <div class="hero__notification-back glass" aria-hidden="true"></div>
+            <div class="hero__notification-middle glass" aria-hidden="true"></div>
+            <div class="hero__notification-front glass">
+              <img src="/assets/icons/notification.png" alt="" width="43" height="43" />
+              <div>
+                <p class="hero__notification-title" data-i18n="hero.notificationTitle">
+                  Thinning window
+                </p>
+                <p data-i18n="hero.notificationBody">Plot 3 · closes Dec 15</p>
+              </div>
+            </div>
+          </div>
+          <div class="hero__app-icon glass">
+            <img src="/assets/logos/viora-icon.png" alt="Viora app" width="92" height="92" />
+          </div>
+        </div>
+        <div class="hero__story">
+          <h2>
+            <span class="hero__story-first" data-i18n="hero.storyFirst" data-split="lines"
+              >BALANCE</span
+            ><span class="hero__story-second" data-i18n="hero.storySecond" data-split="lines"
+              >YOUR GROVE</span
+            >
+          </h2>
+          <p data-i18n="hero.storyDescription" data-hero-reveal>
+            A story of good years, difficult years, and the platform that learned to balance them.
+          </p>
+        </div>
+        <button
+          class="hero__explore"
+          type="button"
+          data-hero-dialog="story"
+          aria-label="Explore the Viora story"
+          data-hero-reveal
+        >
+          <img src="/assets/icons/arrow-back.svg" alt="" width="64" height="64" />
+        </button>
+      </section>
+      <dialog
+        class="hero-dialog"
+        data-hero-modal
+        aria-labelledby="hero-dialog-title"
+        data-lenis-prevent
+      >
+        <button class="hero-dialog__close" type="button" data-hero-close data-i18n="hero.close">
+          Close
+        </button>
+        <p class="hero-dialog__eyebrow">VIORA</p>
+        <h2 id="hero-dialog-title">Every harvest has a story.</h2>
+        <p class="hero-dialog__body"></p>
+      </dialog>
     </main>
 
     <!-- Legal documents (US39): opened from the footer via #terms / #privacy -->
