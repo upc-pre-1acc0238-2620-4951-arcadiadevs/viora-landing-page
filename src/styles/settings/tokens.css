@@ -1,0 +1,121 @@
+/*
+ * Design tokens — mirrored from the Figma variables (Viora202602_Landing-Page).
+ * Names match Figma (`--viora-*`) so design-context output maps 1:1.
+ *
+ * Responsive strategy: the design exists at 1440px (desktop) and 393px (mobile).
+ * Fluid tokens interpolate linearly between both frames:
+ *   clamp(min@393, intercept + slope·vw, max@1440)
+ */
+:root {
+  /* ── Primitives: color ─────────────────────────────── */
+  --viora-green-50: #f4f8f5;
+  --viora-green-800: #2e4a3a;
+  --viora-green-900: #1f2c26;
+  --viora-harvest-300: #e8b923;
+  --viora-terracotta-500: #c15a2e;
+  --viora-neutral-100: #f3f0ea;
+  --viora-neutral-200: #d7d4ce;
+  --viora-neutral-800: #2a2926;
+  --viora-neutral-900: #1b1916;
+  --viora-white: #fff;
+
+  /* ── Semantic: color ───────────────────────────────── */
+  --color-brand: var(--viora-green-800);
+  --color-brand-dark: var(--viora-green-900);
+  --color-accent: var(--viora-harvest-300);
+  --color-secondary: var(--viora-terracotta-500);
+  --color-surface: var(--viora-neutral-100);
+  --color-surface-raised: var(--viora-white);
+  --color-surface-inverse: var(--viora-green-800);
+  --color-text: var(--viora-neutral-900);
+  --color-text-muted: var(--viora-neutral-800);
+  --color-text-inverse: var(--viora-neutral-100);
+  --color-text-inverse-muted: var(--viora-neutral-200);
+  --color-border: var(--viora-neutral-200);
+
+  /* ── Typography: families ──────────────────────────── */
+  --font-sans: 'Axiforma', 'Roboto', system-ui, sans-serif;
+  --font-display: 'Playfair Display Variable', 'Playfair Display', Georgia, serif;
+  --font-serif: 'The Foriene Serif', 'Playfair Display Variable', Georgia, serif;
+  --font-system: -apple-system, BlinkMacSystemFont, 'SF Pro Text', system-ui, sans-serif;
+
+  /* ── Typography: weights ───────────────────────────── */
+  --weight-light: 300;
+  --weight-book: 350;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* ── Typography: fluid scale (393 → 1440) ──────────── */
+  --text-xs: 0.75rem; /* 12 */
+  --text-sm: 0.875rem; /* 14 */
+  --text-base: 1rem; /* 16 */
+  --text-lg: clamp(1.125rem, 1.078rem + 0.191vw, 1.25rem); /* 18 → 20 */
+  --text-xl: clamp(1.25rem, 1.156rem + 0.382vw, 1.5rem); /* 20 → 24 */
+  --text-2xl: clamp(1.5rem, 1.265rem + 0.955vw, 2.125rem); /* 24 → 34 */
+  --text-3xl: clamp(2rem, 1.624rem + 1.528vw, 3rem); /* 32 → 48 */
+  --text-4xl: clamp(2.5rem, 1.937rem + 2.292vw, 4rem); /* 40 → 64 */
+  --text-5xl: clamp(3rem, 2.061rem + 3.821vw, 5.5rem); /* 48 → 88 */
+
+  --leading-tight: 1;
+  --leading-snug: 1.15;
+  --leading-normal: 1.5;
+  --tracking-wide: 0.3125rem; /* 5px — ArcadiaDevs wordmark */
+
+  /* ── Spacing: 4px scale (style guide) ──────────────── */
+  --space-1: 0.25rem; /* 4 */
+  --space-2: 0.5rem; /* 8 */
+  --space-3: 0.75rem; /* 12 */
+  --space-4: 1rem; /* 16 */
+  --space-5: 1.25rem; /* 20 */
+  --space-6: 1.5rem; /* 24 */
+  --space-8: 2rem; /* 32 */
+  --space-10: 2.5rem; /* 40 */
+  --space-12: 3rem; /* 48 */
+  --space-16: 4rem; /* 64 */
+
+  /* ── Layout ────────────────────────────────────────── */
+  --container-max: 90rem; /* 1440 */
+  --gutter: clamp(1rem, -0.501rem + 6.113vw, 5rem); /* 16 → 80 */
+  --section-space: clamp(4rem, 2.873rem + 4.585vw, 7rem); /* 64 → 112 */
+  --header-height: clamp(4rem, 3.624rem + 1.528vw, 5.5rem); /* 64 → 88 */
+  --grid-gap: clamp(1rem, 0.812rem + 0.764vw, 1.5rem); /* 16 → 24 */
+
+  /* ── Shape ─────────────────────────────────────────── */
+  --radius-sm: 0.5rem; /* 8 */
+  --radius-md: 0.75rem; /* 12 */
+  --radius-lg: 1.4375rem; /* 23 */
+  --radius-xl: 1.75rem; /* 28 */
+  --radius-2xl: 2.375rem; /* 38 */
+  --radius-pill: 62.5rem;
+
+  /* ── Elevation (tinted with brand dark, never pure black) ── */
+  --shadow-1: 0 1px 2px rgb(31 44 38 / 6%), 0 1px 3px rgb(31 44 38 / 10%);
+  --shadow-2: 0 4px 12px rgb(31 44 38 / 8%);
+  --shadow-3: 0 12px 32px rgb(31 44 38 / 12%);
+
+  /* ── Liquid glass (Figma "Liquid Glass" variables) ──── */
+  --glass-frost: 6px;
+  --glass-fill-dark: rgb(70 70 70 / 33%);
+  --glass-fill-light: rgb(255 255 255 / 94%);
+  --glass-edge:
+    1.25px 0 0 -0.75px #d0d0d0, -1.25px 0 0 -0.75px #d0d0d0, 0 0 0 0.5px #ccc,
+    0 8px 15px rgb(0 0 0 / 2%);
+
+  /* ── Motion (mirrored in src/config/motion.js) ─────── */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-in-out-circ: cubic-bezier(0.85, 0, 0.15, 1);
+  --duration-fast: 200ms;
+  --duration-base: 400ms;
+  --duration-slow: 800ms;
+
+  /* ── Layers ────────────────────────────────────────── */
+  --z-below: -1;
+  --z-base: 1;
+  --z-overlay: 50;
+  --z-header: 100;
+  --z-menu: 200;
+  --z-loader: 1000;
+}

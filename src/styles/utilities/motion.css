@@ -1,0 +1,28 @@
+/*
+ * Initial states for motion directives. Applied only once JS is running
+ * (html.has-js) so content stays visible without JavaScript.
+ */
+.has-js [data-reveal] {
+  opacity: 0;
+}
+
+.has-js [data-split] {
+  visibility: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .has-js [data-reveal],
+  .has-js [data-split] {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

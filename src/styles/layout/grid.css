@@ -1,0 +1,20 @@
+/* 4 columns (mobile) → 8 (tablet) → 12 (desktop), per Material 3 window classes */
+.grid {
+  --grid-columns: 4;
+
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
+  gap: var(--grid-gap);
+}
+
+@media (width >= 37.5rem) {
+  .grid {
+    --grid-columns: 8;
+  }
+}
+
+@media (width >= 52.5rem) {
+  .grid {
+    --grid-columns: 12;
+  }
+}
