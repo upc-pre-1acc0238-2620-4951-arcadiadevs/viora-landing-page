@@ -1,8 +1,9 @@
 /**
  * Client-side i18n (US41).
  *
- * - Detects the browser language on first visit (English if the browser uses
- *   it, Spanish otherwise) and persists manual choices in localStorage.
+ * - English is the default language (course statement: en-US, es-419). On the
+ *   first visit Spanish is used only if the browser prefers it; manual choices
+ *   are persisted in localStorage.
  * - Translates without reloading:
  *     data-i18n="nav.home"                         → textContent (also works on <title>)
  *     data-i18n-html="hero.title"                  → innerHTML (trusted locale strings only)
@@ -16,7 +17,7 @@ import es from './locales/es.json';
 import { qsa } from '@/utils/dom.js';
 
 const dictionaries = { es, en };
-const DEFAULT_LOCALE = 'es';
+const DEFAULT_LOCALE = 'en';
 const STORAGE_KEY = 'viora:locale';
 
 export const I18N_BEFORE_CHANGE = 'i18n:beforechange';
@@ -45,8 +46,8 @@ function storeLocale(locale) {
 function detectLocale() {
   const stored = readStoredLocale();
   if (isSupported(stored)) return stored;
-  const prefersEnglish = navigator.languages?.[0]?.toLowerCase().startsWith('en');
-  return prefersEnglish ? 'en' : DEFAULT_LOCALE;
+  const prefersSpanish = navigator.languages?.[0]?.toLowerCase().startsWith('es');
+  return prefersSpanish ? 'es' : DEFAULT_LOCALE;
 }
 
 export function t(key, locale = currentLocale) {

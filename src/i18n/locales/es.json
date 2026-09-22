@@ -1,6 +1,7 @@
 {
   "meta": {
-    "lang": "es-PE",
+    "lang": "es-419",
+    "ogLocale": "es_419",
     "home": {
       "title": "Viora: gestión del olivar y aclareo guiado",
       "description": "Gestiona tus parcelas de olivo, registra muestreos y consulta orientación de aclareo con Viora. Conoce las opciones para productores y cooperativas."
