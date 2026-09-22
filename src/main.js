@@ -1,4 +1,5 @@
 import '@fontsource-variable/playfair-display';
+import '@fontsource/reenie-beanie/latin-400.css';
 import '@/styles/main.css';
 import { App } from '@/app/App.js';
 
