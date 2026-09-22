@@ -25,6 +25,7 @@ html.lenis body {
   height: auto;
 }
 
+/* stylelint-disable-next-line selector-class-pattern -- class set by Lenis */
 .lenis:not(.lenis-autoToggle).lenis-stopped {
   overflow: clip;
 }

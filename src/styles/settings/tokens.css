@@ -17,7 +17,7 @@
   --viora-neutral-200: #d7d4ce;
   --viora-neutral-800: #2a2926;
   --viora-neutral-900: #1b1916;
-  --viora-white: #ffffff;
+  --viora-white: #fff;
 
   /* ── Semantic: color ───────────────────────────────── */
   --color-brand: var(--viora-green-800);
@@ -91,17 +91,17 @@
   --radius-pill: 62.5rem;
 
   /* ── Elevation (tinted with brand dark, never pure black) ── */
-  --shadow-1: 0 1px 2px rgb(31 44 38 / 0.06), 0 1px 3px rgb(31 44 38 / 0.1);
-  --shadow-2: 0 4px 12px rgb(31 44 38 / 0.08);
-  --shadow-3: 0 12px 32px rgb(31 44 38 / 0.12);
+  --shadow-1: 0 1px 2px rgb(31 44 38 / 6%), 0 1px 3px rgb(31 44 38 / 10%);
+  --shadow-2: 0 4px 12px rgb(31 44 38 / 8%);
+  --shadow-3: 0 12px 32px rgb(31 44 38 / 12%);
 
   /* ── Liquid glass (Figma "Liquid Glass" variables) ──── */
   --glass-frost: 6px;
-  --glass-fill-dark: rgb(70 70 70 / 0.33);
-  --glass-fill-light: rgb(255 255 255 / 0.94);
+  --glass-fill-dark: rgb(70 70 70 / 33%);
+  --glass-fill-light: rgb(255 255 255 / 94%);
   --glass-edge:
     1.25px 0 0 -0.75px #d0d0d0, -1.25px 0 0 -0.75px #d0d0d0, 0 0 0 0.5px #ccc,
-    0 8px 15px rgb(0 0 0 / 0.02);
+    0 8px 15px rgb(0 0 0 / 2%);
 
   /* ── Motion (mirrored in src/config/motion.js) ─────── */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);

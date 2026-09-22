@@ -10,6 +10,7 @@
 }
 
 html {
+  /* stylelint-disable-next-line property-no-vendor-prefix -- still required by iOS Safari */
   -webkit-text-size-adjust: none;
   text-size-adjust: none;
 }
@@ -19,7 +20,7 @@ body {
   line-height: var(--leading-normal);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
+  text-rendering: optimizelegibility;
 }
 
 img,
