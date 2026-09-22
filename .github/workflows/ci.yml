@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [develop, main]
+  push:
+    branches: [develop]
+
+jobs:
+  validate:
+    name: Lint and build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Static validation (HTML, CSS, JavaScript)
+        run: |
+          npm run lint
+          npm run format:check
+
+      - name: Build
+        run: npm run build
