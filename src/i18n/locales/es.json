@@ -5,14 +5,6 @@
     "home": {
       "title": "Viora: gestión del olivar y aclareo guiado",
       "description": "Gestiona tus parcelas de olivo, registra muestreos y consulta orientación de aclareo con Viora. Conoce las opciones para productores y cooperativas."
-    },
-    "terms": {
-      "title": "Términos y condiciones de uso | Viora",
-      "description": "Consulta los términos y condiciones de uso de Viora y las condiciones de acceso a sus servicios para productores y cooperativas olivícolas."
-    },
-    "privacy": {
-      "title": "Política de privacidad | Viora",
-      "description": "Consulta la política de privacidad de Viora y la información sobre el tratamiento de datos personales de sus usuarios."
     }
   },
   "a11y": {
@@ -25,11 +17,15 @@
     "plans": "Planes",
     "team": "Equipo",
     "download": "Descargar app",
-    "language": "Idioma",
-    "backHome": "Volver al inicio"
+    "language": "Idioma"
   },
   "legal": {
-    "terms": "Términos y condiciones",
-    "privacy": "Política de privacidad"
+    "close": "Cerrar",
+    "terms": {
+      "title": "Términos y condiciones"
+    },
+    "privacy": {
+      "title": "Política de privacidad"
+    }
   }
 }
