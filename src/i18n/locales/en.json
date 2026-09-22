@@ -1,0 +1,23 @@
+{
+  "meta": {
+    "lang": "en",
+    "title": "Viora: olive orchard management and guided thinning",
+    "description": "Manage your olive plots, record field samples and get thinning guidance with Viora. Explore the options for growers and cooperatives."
+  },
+  "a11y": {
+    "skipToContent": "Skip to content"
+  },
+  "nav": {
+    "home": "Home",
+    "product": "Product",
+    "audience": "Who it's for",
+    "plans": "Plans",
+    "team": "Team",
+    "download": "Get the app",
+    "language": "Language"
+  },
+  "legal": {
+    "terms": "Terms and conditions",
+    "privacy": "Privacy"
+  }
+}
