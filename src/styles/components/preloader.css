@@ -1,0 +1,357 @@
+/*
+ * Preloader — stop-motion field notebook, editorial stage and olive window.
+ * Only rendered with JS (html.has-js); the choreography lives in
+ * src/components/preloader/preloader.js.
+ */
+.preloader {
+  --paper: var(--color-surface);
+  --ink: var(--viora-neutral-900);
+  --grid-line: rgb(27 25 22 / 9%);
+  --stage-line: rgb(243 240 234 / 20%);
+  --edge: clamp(1.25rem, 0.9rem + 1.8vh, 3.25rem);
+
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-loader);
+  display: none;
+}
+
+.has-js .preloader:not([hidden]) {
+  display: block;
+}
+
+/* ── 1 · Notebook ─────────────────────────────────────────────────────── */
+.preloader__sheet {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+/* Paper grain: a static turbulence tile, multiplied over the grid. */
+.preloader__sheet::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.4;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .1 0 0 0 0 .09 0 0 0 0 .08 0 0 0 .22 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.preloader__grid {
+  --cell: max(3.5rem, 7.15vw);
+
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: var(--cell) var(--cell);
+
+  /* Tiles are centred, so a whole cell always sits in the middle of the screen. */
+  background-position: center;
+}
+
+.preloader__figure {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: min(50vh, 27rem);
+  aspect-ratio: 280 / 320;
+  translate: -50% -52%;
+}
+
+.grower {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.grower--still .grower__ink {
+  filter: none;
+}
+
+.grower .g-line {
+  fill: var(--paper);
+  stroke: currentcolor;
+  stroke-width: 1.7;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.grower .g-ink {
+  fill: currentcolor;
+  stroke: currentcolor;
+  stroke-width: 1.2;
+  stroke-linejoin: round;
+}
+
+.grower .g-stroke {
+  fill: none;
+  stroke: currentcolor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.grower .g-fine {
+  stroke-width: 1;
+}
+
+.grower .g-bold {
+  stroke-width: 2.4;
+}
+
+.grower .g-paper-stroke {
+  fill: none;
+  stroke: var(--paper);
+  stroke-width: 1.2;
+  stroke-linecap: round;
+}
+
+.preloader__note {
+  --written: 100%;
+  --fade: 1;
+
+  position: absolute;
+  font-family: 'Reenie Beanie', 'Segoe Print', cursive;
+  font-size: calc(var(--size, 1) * clamp(1.35rem, 0.95rem + 1.1vw, 2.25rem));
+  line-height: 1;
+  white-space: nowrap;
+  opacity: calc(var(--tone, 1) * var(--fade));
+  translate: -50% -50%;
+  rotate: var(--tilt, 0deg);
+  clip-path: inset(-40% var(--written) -40% -20%);
+  filter: url('#grower-boil');
+}
+
+.preloader__meta,
+.preloader__count {
+  position: absolute;
+  bottom: var(--edge);
+}
+
+.preloader__meta {
+  left: var(--gutter);
+  display: flex;
+  gap: 0.9em;
+  font: var(--weight-semibold) var(--text-xs) / 1 var(--font-sans);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  opacity: 0.55;
+}
+
+.preloader__count {
+  right: var(--gutter);
+  font-family: 'Reenie Beanie', 'Segoe Print', cursive;
+  font-size: clamp(2.5rem, 1.9rem + 2.2vw, 4.25rem);
+  line-height: 0.75;
+  filter: url('#grower-boil');
+}
+
+.preloader__count::after {
+  content: '%';
+  margin-left: 0.08em;
+  font-size: 0.55em;
+}
+
+/* ── 2–4 · Editorial stage and olive window ───────────────────────────── */
+.preloader__stage {
+  --wx: 0px;
+  --wy: 0px;
+  --wc: 52%;
+  --ink-top: 50%;
+  --ink-x: 50%;
+  --ink-bottom: 50%;
+
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  visibility: hidden;
+  background: var(--viora-green-900);
+  color: var(--color-text-inverse);
+  clip-path: inset(var(--ink-top) var(--ink-x) var(--ink-bottom));
+}
+
+.preloader.is-window .preloader__stage {
+  mask-image: radial-gradient(
+    ellipse var(--wx) var(--wy) at 50% var(--wc),
+    transparent calc(100% - 1px),
+    #000 100%
+  );
+}
+
+.preloader__frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: var(--stage-line);
+  stroke-width: 1;
+  pointer-events: none;
+}
+
+.preloader__watermark {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  translate: -50% -54%;
+  font: italic var(--weight-regular) clamp(12rem, 40vw, 46rem) / 0.8 var(--font-serif);
+  color: rgb(243 240 234 / 3.5%);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.preloader__mark {
+  position: absolute;
+  left: 50%;
+  top: calc(var(--edge) + 0.5rem);
+  width: clamp(2.5rem, 2rem + 1.4vw, 3.5rem);
+  height: auto;
+  translate: -50% 0;
+}
+
+.preloader__title {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: max-content;
+  translate: -50% -50%;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.preloader__name {
+  font: var(--weight-regular) clamp(4.25rem, 2.6rem + 6.6vw, 10.5rem) / 0.9 var(--font-serif);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.preloader__script {
+  margin-top: -0.3em;
+  font: italic var(--weight-regular) clamp(1.9rem, 1.3rem + 2.4vw, 3.75rem) / 1 var(--font-serif);
+  color: var(--viora-harvest-300);
+  translate: 14% 0;
+  rotate: -7deg;
+}
+
+.preloader__side {
+  position: absolute;
+  top: 50%;
+  translate: 0 -50%;
+  font: var(--weight-regular) clamp(0.95rem, 0.75rem + 0.9vw, 1.6rem) / 1 var(--font-serif);
+  letter-spacing: 0.95em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.preloader__side--start {
+  left: 16.5%;
+}
+
+.preloader__side--end {
+  right: 16.5%;
+  margin-right: -0.95em;
+}
+
+.preloader__ring {
+  --gap: clamp(0.9rem, 0.5rem + 1.6vh, 1.75rem);
+
+  /*
+   * Centred by offsets, not `translate`: GSAP folds CSS translate into its
+   * transform as fixed px when it scales the ring, which drifts off-centre
+   * while the ring keeps growing with the window.
+   */
+  position: absolute;
+  left: calc(50% - var(--wx) - var(--gap));
+  top: calc(var(--wc) - var(--wy) - var(--gap));
+  width: calc(2 * (var(--wx) + var(--gap)));
+  height: calc(2 * (var(--wy) + var(--gap)));
+  border: 1px solid var(--stage-line);
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.preloader__ring--outer {
+  --gap: clamp(2rem, 1.2rem + 3.4vh, 3.75rem);
+
+  border-color: rgb(243 240 234 / 11%);
+}
+
+.preloader__rule {
+  position: absolute;
+  left: 50%;
+  bottom: calc(var(--edge) + 3.25rem);
+  width: 1px;
+  height: clamp(4rem, 11vh, 7.5rem);
+  background: linear-gradient(currentcolor 55%, var(--stage-line) 55%);
+  transform-origin: top;
+}
+
+.preloader__tagline {
+  position: absolute;
+  left: 50%;
+  bottom: var(--edge);
+  translate: -50% 0;
+  overflow: hidden;
+  font: var(--weight-bold) var(--text-xs) / 1.55 var(--font-sans);
+  letter-spacing: 0.12em;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.preloader__tagline > span {
+  display: block;
+}
+
+/* Difference blending keeps the control legible on paper, ink and artwork. */
+.preloader__skip {
+  position: fixed;
+  top: var(--edge);
+  right: var(--gutter);
+  z-index: 1;
+  padding: var(--space-3);
+  margin: calc(var(--space-3) * -1);
+  border: 0;
+  background: none;
+  color: #fff;
+  mix-blend-mode: difference;
+  font: var(--weight-semibold) var(--text-xs) / 1 var(--font-sans);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.preloader__skip:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.preloader__skip:focus-visible {
+  outline: 1px solid currentcolor;
+  outline-offset: 2px;
+}
+
+@media (width < 600px) {
+  .preloader__side {
+    left: 50%;
+    right: auto;
+    translate: -50% 0;
+  }
+
+  .preloader__side--start {
+    top: 24%;
+  }
+
+  .preloader__side--end {
+    top: auto;
+    bottom: 26%;
+    margin-right: 0;
+  }
+}
