@@ -1,0 +1,38 @@
+html {
+  color-scheme: light;
+  background-color: var(--color-surface);
+  scroll-padding-top: var(--header-height);
+}
+
+body {
+  background-color: var(--color-surface);
+  overflow-x: clip;
+}
+
+::selection {
+  background-color: var(--color-accent);
+  color: var(--color-brand-dark);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+/* Lenis smooth scroll — required styles */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis:not(.lenis-autoToggle).lenis-stopped {
+  overflow: clip;
+}
+
+.lenis [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}

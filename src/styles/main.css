@@ -1,0 +1,23 @@
+/*
+ * Viora — CSS entry point
+ * Cascade layers keep specificity predictable (ITCSS-inspired):
+ * settings → base → layout → components → sections → utilities
+ * Later layers always win, regardless of selector specificity.
+ */
+@layer settings, base, layout, components, sections, utilities;
+
+@import './settings/fonts.css' layer(settings);
+@import './settings/tokens.css' layer(settings);
+
+@import './base/reset.css' layer(base);
+@import './base/typography.css' layer(base);
+@import './base/global.css' layer(base);
+
+@import './layout/container.css' layer(layout);
+@import './layout/grid.css' layer(layout);
+
+@import './components/index.css' layer(components);
+@import './sections/index.css' layer(sections);
+
+@import './utilities/utilities.css' layer(utilities);
+@import './utilities/motion.css' layer(utilities);

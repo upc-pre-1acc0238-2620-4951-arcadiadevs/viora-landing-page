@@ -1,0 +1,51 @@
+/*
+ * Brand fonts (self-hosted). Files live in /public/fonts — see public/fonts/README.md.
+ * Playfair Display is loaded from @fontsource-variable in src/main.js.
+ */
+@font-face {
+  font-family: 'Axiforma';
+  src: url('/fonts/axiforma/axiforma-light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Axiforma';
+  src: url('/fonts/axiforma/axiforma-book.woff2') format('woff2');
+  font-weight: 350;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Axiforma';
+  src: url('/fonts/axiforma/axiforma-regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Axiforma';
+  src: url('/fonts/axiforma/axiforma-bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'The Foriene Serif';
+  src: url('/fonts/foriene-serif/foriene-serif-regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'The Foriene Serif';
+  src: url('/fonts/foriene-serif/foriene-serif-italic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
