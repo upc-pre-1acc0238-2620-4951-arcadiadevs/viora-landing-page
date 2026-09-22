@@ -8,7 +8,7 @@
  */
 import { gsap } from '@/core/gsap.js';
 import { media } from '@/config/breakpoints.js';
-import { qsa } from '@/utils/dom.js';
+import { mountAll } from '@/utils/mount.js';
 import { parallax } from './parallax.js';
 import { reveal } from './reveal.js';
 import { split } from './split.js';
@@ -17,13 +17,6 @@ const registry = [reveal, split, parallax];
 
 export function mountDirectives(root = document) {
   const mm = gsap.matchMedia();
-
-  mm.add(media.motionOk, () => {
-    const cleanups = registry.flatMap(({ selector, mount }) =>
-      qsa(selector, root).map((element) => mount(element)),
-    );
-    return () => cleanups.forEach((cleanup) => cleanup?.());
-  });
-
+  mm.add(media.motionOk, () => mountAll(registry, root));
   return () => mm.revert();
 }

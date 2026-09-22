@@ -13,7 +13,11 @@ export class WebGLStage {
     this.container = container;
     this.isVisible = false;
 
-    this.renderer = new WebGLRenderer({ alpha: true, antialias: true, powerPreference: 'high-performance' });
+    this.renderer = new WebGLRenderer({
+      alpha: true,
+      antialias: true,
+      powerPreference: 'high-performance',
+    });
     this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, MAX_PIXEL_RATIO));
     this.container.append(this.renderer.domElement);
 
