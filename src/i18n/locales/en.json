@@ -17,7 +17,20 @@
     "plans": "Plans",
     "team": "Team",
     "download": "Get the app",
-    "language": "Language"
+    "language": "Language",
+    "brand": "Viora home",
+    "menu": "Menu",
+    "close": "Close",
+    "sections": "Sections",
+    "settings": "Settings",
+    "plansTitle": "Compare plans for your grove",
+    "plansAction": "See plans"
+  },
+  "settings": {
+    "title": "Settings",
+    "distortion": "Distortion",
+    "sound": "Sound",
+    "soon": "Soon"
   },
   "hero": {
     "intro": "Viora App — Your grove, daily",

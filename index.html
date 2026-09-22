@@ -39,6 +39,218 @@
   <body>
     <a class="skip-link" href="#main" data-i18n="a11y.skipToContent">Skip to content</a>
 
+    <header class="navbar" data-navbar data-tone="dark">
+      <a
+        class="navbar__brand"
+        href="#hero"
+        aria-label="Viora home"
+        data-i18n-attr="aria-label:nav.brand"
+        ><span class="navbar__wordmark" aria-hidden="true"></span
+      ></a>
+      <div class="navbar__controls">
+        <div class="navbar__item">
+          <button
+            class="navbar__button navbar__button--icon"
+            type="button"
+            aria-label="Settings"
+            aria-expanded="false"
+            aria-controls="navbar-settings"
+            data-i18n-attr="aria-label:nav.settings"
+            data-navbar-toggle
+          >
+            <svg class="navbar__icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+              <path d="M3 8h9.25M17.75 8H21M3 16h3.25M11.75 16H21" />
+              <circle class="navbar__knob" cx="15" cy="8" r="2.75" />
+              <circle class="navbar__knob navbar__knob--low" cx="9" cy="16" r="2.75" />
+            </svg>
+          </button>
+          <div
+            class="navbar__panel navbar__panel--settings glass glass--frosted"
+            id="navbar-settings"
+            hidden
+            data-navbar-panel
+          >
+            <p class="navbar__eyebrow" data-i18n="settings.title">Settings</p>
+            <ul class="navbar__settings">
+              <li class="navbar__setting" data-navbar-reveal>
+                <svg
+                  class="navbar__setting-icon"
+                  viewBox="0 0 24 24"
+                  width="20"
+                  height="20"
+                  aria-hidden="true"
+                >
+                  <path d="M3 12c1.5-3.5 3-3.5 4.5 0s3 3.5 4.5 0 3-3.5 4.5 0 3 3.5 4.5 0" />
+                </svg>
+                <span id="setting-distortion" data-i18n="settings.distortion">Distortion</span>
+                <button
+                  class="switch"
+                  type="button"
+                  role="switch"
+                  aria-checked="true"
+                  aria-labelledby="setting-distortion"
+                  data-preference="distortion"
+                ></button>
+              </li>
+              <li class="navbar__setting" data-navbar-reveal>
+                <svg
+                  class="navbar__setting-icon"
+                  viewBox="0 0 24 24"
+                  width="20"
+                  height="20"
+                  aria-hidden="true"
+                >
+                  <path d="M4 9.5h3l4.5-4v13L7 14.5H4z" />
+                  <path d="M15 9.5a3.5 3.5 0 0 1 0 5M17.5 7a7 7 0 0 1 0 10" />
+                </svg>
+                <span id="setting-sound"
+                  ><span data-i18n="settings.sound">Sound</span>
+                  <span class="navbar__badge" data-i18n="settings.soon">Soon</span></span
+                >
+                <button
+                  class="switch"
+                  type="button"
+                  role="switch"
+                  aria-checked="false"
+                  aria-labelledby="setting-sound"
+                  aria-disabled="true"
+                  data-preference="sound"
+                ></button>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="navbar__item">
+          <button
+            class="navbar__button navbar__button--icon"
+            type="button"
+            aria-label="Language"
+            aria-expanded="false"
+            aria-controls="navbar-language"
+            data-i18n-attr="aria-label:nav.language"
+            data-navbar-toggle
+          >
+            <svg
+              class="navbar__icon navbar__icon--globe"
+              viewBox="0 0 24 24"
+              width="24"
+              height="24"
+              aria-hidden="true"
+            >
+              <circle cx="12" cy="12" r="9.25" />
+              <ellipse class="navbar__meridian" cx="12" cy="12" rx="4" ry="9.25" />
+              <path d="M2.75 12h18.5" />
+            </svg>
+          </button>
+          <div
+            class="navbar__panel navbar__panel--language glass glass--frosted"
+            id="navbar-language"
+            hidden
+            data-navbar-panel
+          >
+            <p class="navbar__eyebrow" data-i18n="nav.language">Language</p>
+            <ul class="navbar__options">
+              <li data-navbar-reveal>
+                <button
+                  class="navbar__option"
+                  type="button"
+                  lang="en"
+                  data-locale-switch="en"
+                  aria-pressed="true"
+                >
+                  English <span class="navbar__code" aria-hidden="true">EN</span>
+                </button>
+              </li>
+              <li data-navbar-reveal>
+                <button
+                  class="navbar__option"
+                  type="button"
+                  lang="es"
+                  data-locale-switch="es"
+                  aria-pressed="false"
+                >
+                  Español <span class="navbar__code" aria-hidden="true">ES</span>
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="navbar__item">
+          <button
+            class="navbar__button navbar__button--menu glass"
+            type="button"
+            aria-expanded="false"
+            aria-controls="navbar-menu"
+            data-navbar-toggle
+            data-navbar-menu
+          >
+            <span class="navbar__menu-label" data-i18n="nav.menu">Menu</span>
+            <span class="navbar__dots" aria-hidden="true"></span>
+          </button>
+          <div class="navbar__panel navbar__panel--menu" id="navbar-menu" hidden data-navbar-panel>
+            <nav
+              class="navbar__card"
+              aria-label="Sections"
+              data-i18n-attr="aria-label:nav.sections"
+              data-navbar-reveal
+            >
+              <ul class="navbar__links">
+                <li>
+                  <a class="navbar__link" href="#hero" data-i18n="nav.home">Home</a>
+                </li>
+                <li>
+                  <a class="navbar__link" href="#product" data-i18n="nav.product">Product</a>
+                </li>
+                <li>
+                  <a class="navbar__link" href="#audience" data-i18n="nav.audience">Who it's for</a>
+                </li>
+                <li>
+                  <a class="navbar__link" href="#plans" data-i18n="nav.plans">Plans</a>
+                </li>
+                <li>
+                  <a class="navbar__link" href="#team" data-i18n="nav.team">Team</a>
+                </li>
+              </ul>
+            </nav>
+            <div class="navbar__card navbar__card--cta" data-navbar-reveal>
+              <p class="navbar__cta-title" data-i18n="nav.plansTitle">
+                Compare plans for your grove
+              </p>
+              <a class="navbar__cta-action" href="#plans">
+                <span data-i18n="nav.plansAction">See plans</span>
+                <svg
+                  class="navbar__arrow"
+                  viewBox="0 0 24 24"
+                  width="20"
+                  height="20"
+                  aria-hidden="true"
+                >
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </a>
+            </div>
+            <div class="navbar__card navbar__card--download" data-navbar-reveal>
+              <p class="navbar__download-title" data-i18n="nav.download">Get the app</p>
+              <div class="navbar__stores">
+                <button class="navbar__store" type="button" data-hero-dialog="download">
+                  <img src="/assets/icons/play-store.webp" alt="" width="22" height="22" />
+                  <span class="navbar__store-label"
+                    ><span class="navbar__store-hint">Android</span> Google Play</span
+                  >
+                </button>
+                <button class="navbar__store" type="button" data-hero-dialog="download">
+                  <img src="/assets/icons/app-store.webp" alt="" width="22" height="22" />
+                  <span class="navbar__store-label"
+                    ><span class="navbar__store-hint">iOS</span> App Store</span
+                  >
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
     <main id="main">
       <section class="hero" id="hero" aria-labelledby="hero-title" data-hero data-nav-tone="dark">
         <div class="hero__art" aria-hidden="true">

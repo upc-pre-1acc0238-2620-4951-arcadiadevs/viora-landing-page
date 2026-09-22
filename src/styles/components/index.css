@@ -1,3 +1,4 @@
 /* Reusable UI components — one file per component, imported here. */
 @import './glass.css';
+@import './navbar.css';
 @import './legal-dialog.css';
