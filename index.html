@@ -34,10 +34,81 @@
     <script>
       document.documentElement.classList.add('has-js');
     </script>
+    <style>
+      /* Critical: the notebook curtain paints before the stylesheet arrives. */
+      .has-js .preloader {
+        position: fixed;
+        inset: 0;
+        z-index: 1000;
+      }
+
+      .has-js .preloader__sheet {
+        position: fixed;
+        inset: 0;
+        background: #f3f0ea;
+      }
+    </style>
     <script type="module" src="/src/main.js"></script>
   </head>
   <body>
     <a class="skip-link" href="#main" data-i18n="a11y.skipToContent">Skip to content</a>
+
+    <!-- Preloader: stop-motion field notebook → editorial stage → olive window -->
+    <div class="preloader" data-preloader>
+      <div class="preloader__sheet" data-preloader-sheet>
+        <div class="preloader__grid" data-preloader-grid aria-hidden="true"></div>
+        <div class="preloader__figure" data-preloader-figure aria-hidden="true"></div>
+        <p class="preloader__meta" data-preloader-meta aria-hidden="true">
+          <span>Viora</span> <span data-i18n="preloader.fieldNotes">Field notes</span>
+        </p>
+        <p class="preloader__count" data-preloader-meta aria-hidden="true">
+          <span data-preloader-count>0</span>
+        </p>
+        <progress
+          class="visually-hidden"
+          max="100"
+          value="0"
+          aria-label="Loading Viora"
+          data-i18n-attr="aria-label:preloader.loading"
+          data-preloader-progress
+        ></progress>
+      </div>
+      <div class="preloader__stage" data-preloader-stage aria-hidden="true">
+        <p class="preloader__watermark" data-preloader-watermark>Olea</p>
+        <svg class="preloader__frame" preserveAspectRatio="none" focusable="false">
+          <path data-preloader-frame />
+        </svg>
+        <span class="preloader__ring" data-preloader-ring></span>
+        <span class="preloader__ring preloader__ring--outer" data-preloader-ring></span>
+        <img
+          class="preloader__mark"
+          data-preloader-mark
+          src="/assets/logos/viora-isotipo-white.webp"
+          alt=""
+          width="192"
+          height="192"
+        />
+        <p class="preloader__side preloader__side--start" data-preloader-side>Tacna</p>
+        <p
+          class="preloader__side preloader__side--end"
+          data-preloader-side
+          data-i18n="preloader.country"
+        >
+          Peru
+        </p>
+        <div class="preloader__title">
+          <p class="preloader__name" data-preloader-name>Viora</p>
+          <p class="preloader__script" data-preloader-script>Olea europaea</p>
+        </div>
+        <span class="preloader__rule" data-preloader-rule></span>
+        <p class="preloader__tagline" data-preloader-tagline>
+          <span>Viora</span><span data-i18n="preloader.tagline">Your grove, daily.</span>
+        </p>
+      </div>
+      <button class="preloader__skip" type="button" data-preloader-skip data-i18n="preloader.skip">
+        Skip intro
+      </button>
+    </div>
 
     <header class="navbar" data-navbar data-tone="dark">
       <a

@@ -26,6 +26,14 @@
     "plansTitle": "Compare plans for your grove",
     "plansAction": "See plans"
   },
+  "preloader": {
+    "loading": "Loading Viora",
+    "fieldNotes": "Field notes",
+    "notes": "on-year|off-year|fruit load|chill hours|thinning|bloom|harvest|yield|tree by tree|Tacna|340 h|12 kg/tree|±38%",
+    "country": "Peru",
+    "tagline": "Your grove, daily.",
+    "skip": "Skip intro"
+  },
   "settings": {
     "title": "Settings",
     "distortion": "Distortion",

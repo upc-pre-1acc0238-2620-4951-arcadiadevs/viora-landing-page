@@ -4,6 +4,9 @@
  * Markup: <div data-effect="effect-name"></div>
  * Each loader resolves to a module whose default export is a class extending
  * WebGLStage. Three.js is only downloaded when a page actually uses an effect.
+ *
+ * The returned cleanup carries `ready`: a promise that settles once every
+ * scene has its textures on the GPU (the preloader waits for it).
  */
 import { media } from '@/config/breakpoints.js';
 import { qsa } from '@/utils/dom.js';
@@ -13,7 +16,9 @@ const loaders = {
 };
 
 export async function mountEffects(root = document) {
-  if (window.matchMedia(media.reducedMotion).matches) return () => {};
+  if (window.matchMedia(media.reducedMotion).matches) {
+    return Object.assign(() => {}, { ready: Promise.resolve() });
+  }
 
   const instances = await Promise.all(
     qsa('[data-effect]', root).map(async (container) => {
@@ -30,5 +35,8 @@ export async function mountEffects(root = document) {
     }),
   );
 
-  return () => instances.forEach((instance) => instance?.destroy());
+  const cleanup = () => instances.forEach((instance) => instance?.destroy());
+  return Object.assign(cleanup, {
+    ready: Promise.allSettled(instances.map((instance) => instance?.ready)),
+  });
 }

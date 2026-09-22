@@ -10,6 +10,7 @@
 import { mountGlass } from '@/components/glass/glass.js';
 import { media } from '@/config/breakpoints.js';
 import { gsap, ScrollTrigger } from '@/core/gsap.js';
+import { INTRO_REVEAL, introReached, whenIntro } from '@/core/intro.js';
 import { getPreference, PREFERENCES_CHANGE, setPreference } from '@/core/preferences.js';
 import { I18N_CHANGE, t } from '@/i18n/index.js';
 import { qsa } from '@/utils/dom.js';
@@ -157,6 +158,23 @@ export const navbar = {
       });
     });
 
+    // Drops in as the preloader reveals the page (skipped on HMR remounts).
+    let entrance = null;
+    if (!introReached(INTRO_REVEAL) && !reducedMotion.matches) {
+      const parts = [element.querySelector('.navbar__brand'), ...qsa('.navbar__item', element)];
+      entrance = gsap.from(parts, {
+        opacity: 0,
+        y: -18,
+        duration: 1.2,
+        stagger: 0.08,
+        delay: 0.7,
+        ease: 'expo.out',
+        paused: true,
+        clearProps: 'opacity,transform',
+      });
+      whenIntro(INTRO_REVEAL).then(() => entrance?.play());
+    }
+
     element.addEventListener('click', onToggle);
     element.addEventListener('click', onPanelClick);
     document.addEventListener('click', onDocumentClick);
@@ -165,6 +183,8 @@ export const navbar = {
     document.addEventListener(I18N_CHANGE, syncMenuLabel);
 
     return () => {
+      entrance?.revert();
+      entrance = null;
       close();
       destroyGlass();
       [...toneTriggers, ...sectionTriggers].forEach((trigger) => trigger.kill());

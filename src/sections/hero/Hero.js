@@ -1,4 +1,5 @@
 import { gsap } from '@/core/gsap.js';
+import { INTRO_OPEN, INTRO_REVEAL, introReached, whenIntro } from '@/core/intro.js';
 import { t } from '@/i18n/index.js';
 import { mountGlass } from '@/components/glass/glass.js';
 
@@ -23,16 +24,36 @@ export const hero = {
     const motion = gsap.matchMedia();
     const layers = [...element.querySelectorAll('[data-depth]')];
     motion.add('(prefers-reduced-motion: no-preference)', () => {
+      let alive = true;
+      let settle;
+      // Seen through the preloader's olive window, the art pulls back into place.
+      if (!introReached(INTRO_OPEN)) gsap.set(art, { scale: 1.28 });
       const entrance = gsap.from(element.querySelectorAll('[data-hero-reveal]'), {
         opacity: 0,
         y: 16,
         duration: 1.35,
         stagger: 0.09,
-        delay: 0.25,
+        delay: 0.45,
         ease: 'power3.out',
         clearProps: 'transform,opacity',
+        paused: true,
       });
-      return () => entrance.revert();
+      whenIntro(INTRO_OPEN).then(() => {
+        if (!alive) return;
+        settle = gsap.to(art, {
+          scale: 1,
+          duration: 2.8,
+          ease: 'power3.inOut',
+          clearProps: 'scale',
+        });
+      });
+      whenIntro(INTRO_REVEAL).then(() => alive && entrance.play());
+      return () => {
+        alive = false;
+        settle?.kill();
+        gsap.set(art, { clearProps: 'scale' });
+        entrance.revert();
+      };
     });
     motion.add('(prefers-reduced-motion: no-preference) and (pointer: fine)', () => {
       const setters = layers.map((layer) => ({
