@@ -5,7 +5,7 @@ Landing page pública de **Viora**, plataforma SaaS B2B de ArcadiaDevs para la g
 - **Tipo:** sitio estático de una sola página (SPA). Sin navegación entre páginas; los documentos legales se abren como diálogos.
 - **Stack:** HTML5, CSS3 y JavaScript (ES modules) empaquetados con Vite
 - **Motion:** GSAP (ScrollTrigger, SplitText), Lenis y Three.js (carga diferida)
-- **Despliegue:** Vercel mediante GitHub Actions (salida en `dist/`)
+- **Despliegue:** Vercel con integración Git (salida en `dist/`)
 - **Idiomas:** English (en-US, predeterminado) y Español (es-419)
 - **Diseño:** [Figma — Viora202602_Landing-Page](https://www.figma.com/design/MLkFDnRX3jcUlbqxL0CIOp/Viora202602_Landing-Page) (Desktop 1440 · Mobile 393)
 
@@ -47,7 +47,7 @@ src/
     ├── components/        Un archivo por componente
     ├── sections/          Un archivo por sección
     └── utilities/         Helpers y estados iniciales de motion
-.github/workflows/         CI (PRs) y despliegue a Vercel (main)
+.github/workflows/         CI: lint y build en Pull Requests
 ```
 
 ## Convenciones
@@ -75,5 +75,5 @@ Commits con [Conventional Commits 1.0.0](https://www.conventionalcommits.org): `
 
 ## CI/CD
 
+- **Despliegue:** el repositorio está conectado a Vercel. Cada push a `main` publica producción y las demás ramas generan previews. No requiere secretos.
 - **`ci.yml`:** en cada Pull Request hacia `develop`/`main` y en cada push a `develop`, ejecuta lint, verificación de formato y build.
-- **`deploy-landing.yml`:** en cada push a `main`, valida y despliega a producción en Vercel con la CLI oficial. Necesita los secretos `VERCEL_TOKEN`, `VERCEL_ORG_ID` y `VERCEL_PROJECT_ID`. El despliegue automático de la integración Git de Vercel está desactivado en `vercel.json` para que solo publique el pipeline.
