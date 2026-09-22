@@ -11,6 +11,7 @@ import {
   WebGLRenderTarget,
 } from 'three';
 import { gsap } from '@/core/gsap.js';
+import { INTRO_REVEAL, whenIntro } from '@/core/intro.js';
 import { getPreference, PREFERENCES_CHANGE } from '@/core/preferences.js';
 import { FluidSimulation } from '../webgl/FluidSimulation.js';
 import { WebGLStage } from '../webgl/WebGLStage.js';
@@ -119,7 +120,8 @@ export default class HeroScene extends WebGLStage {
       .then(() => {
         if (this.disposed) return;
         this.hero.classList.add('hero--live');
-        this.intro();
+        // The sweep brushes the art while the preloader's window expands.
+        whenIntro(INTRO_REVEAL).then(() => !this.disposed && this.intro());
       })
       .catch((error) => {
         this.hero.classList.remove('hero--live');
