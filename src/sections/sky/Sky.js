@@ -27,7 +27,7 @@ export const sky = {
       clouds.forEach((cloud) => {
         const depth = Number(cloud.dataset.skyCloud);
         gsap.to(cloud, {
-          yPercent: 10 * depth,
+          yPercent: 6 * depth,
           ease: 'none',
           scrollTrigger: { trigger: element, start: 'top bottom', end: 'top top', scrub: true },
         });

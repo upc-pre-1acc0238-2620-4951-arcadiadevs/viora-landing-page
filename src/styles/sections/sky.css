@@ -67,12 +67,12 @@
 
 /* ── Clouds ───────────────────────────────────────────── */
 
-/* The layers start at the seam, under the haze: any overhang above it reads
-   as a paler band on the previous section's cream. */
+/* The layers straddle the seam: they rise over the previous section's cream
+   and the haze band (below) swallows the edge between both. */
 .sky__clouds {
   position: absolute;
   inset-inline: 0;
-  top: 0;
+  top: calc(-12vw * var(--k));
   z-index: 2;
   height: calc(46vw * var(--k));
   pointer-events: none;
@@ -129,16 +129,20 @@
   }
 }
 
-/* Cream melting into the sky: two stacked falloffs, as on the reference. */
+/* Cream band centred on the seam: it fades in over the clouds' overhang,
+   is solid where the sections meet, then melts into the sky below. No edge
+   of it is ever hard, so the cut between sections never shows. */
 .sky__haze {
+  --clear: rgb(243 240 234 / 0%);
+
   position: absolute;
   inset-inline: 0;
-  top: -1px;
+  top: calc(-12vw * var(--k));
   z-index: 3;
-  height: calc(22vw * var(--k));
+  height: calc(34vw * var(--k));
   background:
-    linear-gradient(var(--haze), rgb(243 240 234 / 0%) 70%),
-    linear-gradient(var(--haze), rgb(243 240 234 / 0%));
+    linear-gradient(var(--clear), var(--haze) 40%, var(--clear) 78%),
+    linear-gradient(var(--clear) 25%, var(--haze) 36%, var(--clear));
   pointer-events: none;
 }
 
