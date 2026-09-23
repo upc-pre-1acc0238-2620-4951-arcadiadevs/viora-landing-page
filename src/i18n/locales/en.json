@@ -118,7 +118,6 @@
     "cta": "see the module",
     "prev": "Previous case",
     "next": "Next case",
-    "drag": "Drag",
     "status": "Case {current} of {total}: {label}",
     "off": {
       "label": "Off year",

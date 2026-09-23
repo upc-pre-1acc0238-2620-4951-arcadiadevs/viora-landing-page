@@ -82,7 +82,6 @@ export const cases = {
     const book = element.querySelector('[data-cases-book]');
     const articles = [...book.querySelectorAll('[data-case]')];
     const status = element.querySelector('[data-cases-status]');
-    const badge = element.querySelector('[data-cases-drag]');
     const compact = window.matchMedia(SINGLE);
     const reduced = window.matchMedia(media.reducedMotion);
     const total = articles.length;
@@ -221,23 +220,9 @@ export const cases = {
     const open = (event) => turnTo(event.detail.index);
     const relabel = () => sync();
 
-    // ── Drag badge (fine pointers) ────────────────────────
-    const fine = window.matchMedia(media.finePointer);
-    const badgeX = gsap.quickTo(badge, 'x', { duration: 0.35, ease: 'power3.out' });
-    const badgeY = gsap.quickTo(badge, 'y', { duration: 0.35, ease: 'power3.out' });
-    const hover = (event) => {
-      const show = fine.matches && !event.target.closest('button, a');
-      badge.style.visibility = show ? 'visible' : 'hidden';
-      badgeX(event.clientX + 18);
-      badgeY(event.clientY + 18);
-    };
-    const leave = () => (badge.style.visibility = 'hidden');
-
     build();
     book.addEventListener('pointerdown', down);
     book.addEventListener('pointermove', move);
-    book.addEventListener('pointermove', hover);
-    book.addEventListener('pointerleave', leave);
     book.addEventListener('pointerup', up);
     book.addEventListener('pointercancel', up);
     element.addEventListener('click', click);
@@ -287,8 +272,6 @@ export const cases = {
       tween?.kill();
       book.removeEventListener('pointerdown', down);
       book.removeEventListener('pointermove', move);
-      book.removeEventListener('pointermove', hover);
-      book.removeEventListener('pointerleave', leave);
       book.removeEventListener('pointerup', up);
       book.removeEventListener('pointercancel', up);
       element.removeEventListener('click', click);

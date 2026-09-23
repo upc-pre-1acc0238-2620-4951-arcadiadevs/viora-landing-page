@@ -13,6 +13,9 @@
   --paper: #f9f6f1;
   --ink: var(--color-brand);
   --ink-dark: var(--color-brand-dark);
+  --cursor-grab: url('/assets/cursors/grab.svg') 16 16, grab;
+  --cursor-grab-active: url('/assets/cursors/grab.svg') 16 16, grabbing;
+  --cursor-pointer: url('/assets/cursors/pointer.svg') 14 2, pointer;
 
   position: relative;
   overflow: clip;
@@ -197,7 +200,7 @@
   font-size: calc(15 * var(--u));
   font-weight: var(--weight-semibold);
   line-height: 1;
-  cursor: pointer;
+  cursor: var(--cursor-pointer);
   transition: scale 500ms var(--ease-out-expo);
 }
 
@@ -253,7 +256,7 @@
   color: var(--ink-dark);
   font-size: calc(20 * var(--u));
   line-height: 1;
-  cursor: pointer;
+  cursor: var(--cursor-pointer);
   transition: background 250ms;
 }
 
@@ -286,8 +289,7 @@
   min-height: calc(560 * var(--u));
 }
 
-.cases__stack,
-.cases__drag {
+.cases__stack {
   display: none;
 }
 
@@ -305,12 +307,12 @@
   z-index: 20;
   perspective: calc(2600 * var(--u));
   touch-action: pan-y;
-  cursor: grab;
+  cursor: var(--cursor-grab);
   user-select: none;
 }
 
 .cases--book .cases__book.is-dragging {
-  cursor: grabbing;
+  cursor: var(--cursor-grab-active);
 }
 
 .cases--book .cases__book::before {
@@ -401,12 +403,13 @@
 
 .cases__tab {
   --d: 0;
+  --peek: 0px;
   --tab-bg: var(--paper);
   --tab-ink: var(--ink);
 
   position: absolute;
   top: 0;
-  left: 0;
+  left: calc(-1 * var(--peek));
   z-index: calc(10 - var(--d));
   display: flex;
   align-items: center;
@@ -419,7 +422,17 @@
   color: var(--tab-ink);
   translate: calc(-440 * var(--u) - 54 * var(--u) * (var(--d) + 1)) -50%;
   rotate: calc(-2deg * (var(--d) + 1));
-  cursor: pointer;
+  cursor: var(--cursor-pointer);
+  transition: left 500ms var(--ease-out-expo);
+}
+
+/*
+ * The hovered tab slides out of its stack, away from the book. It moves on
+ * `left`: the scroll entrance in Cases.js hands translate/rotate to GSAP.
+ */
+.cases__tab:hover,
+.cases__tab:focus-visible {
+  --peek: calc(22 * var(--u));
 }
 
 .cases__tab:nth-child(2) {
@@ -448,28 +461,9 @@
 
 .cases__stack--end .cases__tab {
   justify-content: flex-end;
+  left: var(--peek);
   translate: calc(440 * var(--u) + 54 * var(--u) * (var(--d) + 1) - 210 * var(--u)) -50%;
   rotate: calc(2deg * (var(--d) + 1));
-}
-
-.cases__drag {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: var(--z-overlay);
-  padding: 0.5rem 1rem;
-  border-radius: var(--radius-pill);
-  background: var(--color-accent);
-  color: var(--color-brand-dark);
-  font-weight: var(--weight-semibold);
-  line-height: 1;
-  pointer-events: none;
-  box-shadow: 0 8px 20px rgb(12 18 15 / 25%);
-}
-
-.cases--book .cases__drag {
-  display: block;
-  visibility: hidden;
 }
 
 /* ── Portrait phones and tablets: one page that turns away to the left ────── */
