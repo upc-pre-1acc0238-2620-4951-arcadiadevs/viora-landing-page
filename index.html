@@ -589,7 +589,7 @@
                   </h3>
                   <p class="visually-hidden" data-i18n="intro.shapesLabel">What Viora measures</p>
                   <ul class="intro__shapes">
-                    <li class="intro__shape intro__shape--tile" data-intro-shape>
+                    <li class="intro__shape intro__shape--tile" data-intro-shape="olive">
                       <img
                         src="/assets/icons/shapes/olivo-symbol.svg"
                         alt="Olive grove"
@@ -598,7 +598,7 @@
                         height="37"
                       />
                     </li>
-                    <li class="intro__shape" data-intro-shape>
+                    <li class="intro__shape" data-intro-shape="thinning">
                       <img
                         src="/assets/icons/shapes/aclareo.svg"
                         alt="Thinning"
@@ -607,7 +607,7 @@
                         height="66"
                       />
                     </li>
-                    <li class="intro__shape" data-intro-shape>
+                    <li class="intro__shape" data-intro-shape="yield">
                       <img
                         src="/assets/icons/shapes/rendimiento.svg"
                         alt="Yield"
@@ -616,7 +616,7 @@
                         height="66"
                       />
                     </li>
-                    <li class="intro__shape" data-intro-shape>
+                    <li class="intro__shape" data-intro-shape="chill">
                       <img
                         src="/assets/icons/shapes/frio.svg"
                         alt="Winter chill"
@@ -625,7 +625,7 @@
                         height="66"
                       />
                     </li>
-                    <li class="intro__shape intro__shape--tile" data-intro-shape>
+                    <li class="intro__shape intro__shape--tile" data-intro-shape="balance">
                       <img
                         src="/assets/icons/shapes/equilibrio-symbol.svg"
                         alt="Crop balance"
@@ -673,6 +673,83 @@
           </video>
         </dialog>
       </section>
+      <!-- Features: the About shapes take colour, fall in, gather and land in the statement -->
+      <section class="features" id="features" data-features data-nav-tone="light">
+        <div class="features__stage" data-features-stage>
+          <h2 class="features__statement">
+            <span class="features__line"
+              ><span class="features__line-text" data-features-line data-i18n-html="features.line1"
+                >Viora reads the load
+                <span class="features__slot" data-shape="olive" aria-hidden="true"></span> of your
+                grove,</span
+              ></span
+            >
+            <span class="features__line"
+              ><span class="features__line-text" data-features-line data-i18n-html="features.line2"
+                >tracks the chill
+                <span class="features__slot" data-shape="chill" aria-hidden="true"></span> of every
+                winter</span
+              ></span
+            >
+            <span class="features__line"
+              ><span class="features__line-text" data-features-line data-i18n-html="features.line3"
+                >and tells you when to thin.
+                <span class="features__slot" data-shape="thinning" aria-hidden="true"></span></span
+            ></span>
+            <span class="features__line"
+              ><span class="features__line-text" data-features-line data-i18n-html="features.line4"
+                >Steadier
+                <span class="features__slot" data-shape="balance" aria-hidden="true"></span>
+                <span class="features__slot" data-shape="yield" aria-hidden="true"></span>
+                harvests.</span
+              ></span
+            >
+          </h2>
+        </div>
+        <div class="features__flock" data-features-flock aria-hidden="true">
+          <span class="features__bird" data-features-bird="olive"
+            ><img src="/assets/icons/shapes/olivo.svg" alt="" width="66" height="66" /><img
+              class="features__bird-color"
+              src="/assets/icons/shapes/olivo-color.svg"
+              alt=""
+              width="66"
+              height="66"
+          /></span>
+          <span class="features__bird" data-features-bird="thinning"
+            ><img src="/assets/icons/shapes/aclareo.svg" alt="" width="66" height="66" /><img
+              class="features__bird-color"
+              src="/assets/icons/shapes/aclareo-color.svg"
+              alt=""
+              width="66"
+              height="66"
+          /></span>
+          <span class="features__bird" data-features-bird="yield"
+            ><img src="/assets/icons/shapes/rendimiento.svg" alt="" width="66" height="66" /><img
+              class="features__bird-color"
+              src="/assets/icons/shapes/rendimiento-color.svg"
+              alt=""
+              width="66"
+              height="66"
+          /></span>
+          <span class="features__bird" data-features-bird="chill"
+            ><img src="/assets/icons/shapes/frio.svg" alt="" width="66" height="66" /><img
+              class="features__bird-color"
+              src="/assets/icons/shapes/frio-color.svg"
+              alt=""
+              width="66"
+              height="66"
+          /></span>
+          <span class="features__bird" data-features-bird="balance"
+            ><img src="/assets/icons/shapes/equilibrio.svg" alt="" width="66" height="66" /><img
+              class="features__bird-color"
+              src="/assets/icons/shapes/equilibrio-color.svg"
+              alt=""
+              width="66"
+              height="66"
+          /></span>
+        </div>
+      </section>
+
       <dialog
         class="hero-dialog"
         data-hero-modal

@@ -1,0 +1,133 @@
+/*
+ * Features statement — Figma desktop 37:3953.
+ *
+ * Static / reduced-motion: the statement with the coloured shapes drawn in
+ * its slots. `.features--motion` (sections/features/Features.js) pins the
+ * stage and hides the slots; the fixed flock of shapes arrives from the
+ * intro's About, gathers and lands in them (crency.agency).
+ */
+
+.features {
+  position: relative;
+  overflow-x: clip; /* the lines slide in from beyond the edges */
+  background: var(--color-surface);
+  color: var(--color-brand);
+}
+
+.features__stage {
+  display: grid;
+  place-items: center;
+  min-height: min(100svh, 46.625rem); /* 746 */
+  padding: var(--section-space) var(--gutter);
+}
+
+/* The four lines keep their composition at every width, so the type scales
+ * with the viewport instead of reflowing. */
+.features__statement {
+  font-family: var(--font-sans);
+  font-size: clamp(
+    1.125rem,
+    calc((100vw - 2rem) / 18.8),
+    4rem
+  ); /* 64 @1440; widest line ≈ 18.5em */
+
+  /* Figma sets Medium; Semibold carries the statement at display size (crency). */
+  font-weight: var(--weight-semibold);
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  text-align: center;
+}
+
+.features__line {
+  display: block;
+  white-space: nowrap;
+}
+
+.features__half {
+  display: inline-block;
+}
+
+.features__slot {
+  display: inline-block;
+  width: 1.03em; /* 66 @ 64px */
+  height: 1.03em;
+  margin-inline: 0.03em;
+  vertical-align: -0.22em;
+  background: center / contain no-repeat;
+}
+
+.features__slot[data-shape='olive'] {
+  background-image: url('/assets/icons/shapes/olivo-color.svg');
+}
+
+.features__slot[data-shape='chill'] {
+  background-image: url('/assets/icons/shapes/frio-color.svg');
+}
+
+.features__slot[data-shape='thinning'] {
+  background-image: url('/assets/icons/shapes/aclareo-color.svg');
+}
+
+.features__slot[data-shape='balance'] {
+  background-image: url('/assets/icons/shapes/equilibrio-color.svg');
+}
+
+.features__slot[data-shape='yield'] {
+  background-image: url('/assets/icons/shapes/rendimiento-color.svg');
+}
+
+.features__flock {
+  display: none;
+}
+
+/* ── Motion ───────────────────────────────────────────── */
+
+.features--motion {
+  height: 320svh;
+}
+
+.features--motion .features__stage {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  min-height: 0;
+  padding-block: 0;
+}
+
+.features--motion .features__slot {
+  visibility: hidden;
+}
+
+.features--live .features__flock {
+  position: fixed;
+  inset: 0;
+  z-index: 3;
+  display: block;
+  pointer-events: none;
+}
+
+.features__bird {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 66px;
+  height: 66px;
+  will-change: transform;
+}
+
+.features__bird img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.features__bird-color {
+  opacity: 0;
+}
+
+@media (width < 600px) {
+  .features--motion {
+    height: 280svh;
+  }
+}
