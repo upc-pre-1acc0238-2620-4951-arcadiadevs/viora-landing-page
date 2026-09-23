@@ -52,13 +52,15 @@
   background: linear-gradient(var(--sky-top), var(--sky-edge));
 }
 
+/* Sized by the viewport, not the photo's ratio: the whole section (grown sky
+   included) reads in about a scroll and a half, like the reference, on any
+   width. The crop comes off the bottom so the horizon keeps its clouds. */
 .sky__view img {
   display: block;
   width: 100%;
-  height: auto;
-  min-height: 100svh;
+  height: max(calc(110svh - 16vw * var(--k)), 60svh);
   object-fit: cover;
-  object-position: 50% 70%;
+  object-position: 50% 20%;
   mask-image: linear-gradient(transparent, #000 4vw);
   transform-origin: 50% 30%; /* the horizon stays put while the view settles */
 }
@@ -187,7 +189,7 @@
   }
 
   .sky__view img {
-    min-height: 88svh;
+    height: 88svh;
   }
 
   .sky__place {
