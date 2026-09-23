@@ -16,7 +16,8 @@ function wavePath(t) {
 /**
  * Modules (crency.agency): the forest band rises on a wave under the title
  * and the lead card spins once around its vertical axis as it drops from
- * just below the title into the row; the other cards rise from beneath.
+ * under the copy, straddling the cream and the wave, into the row; the
+ * other cards rise from beneath.
  * The lead is the centre card, or the first one when the cards stack.
  */
 export const modules = {
@@ -24,7 +25,7 @@ export const modules = {
   mount(element) {
     const motion = gsap.matchMedia();
     motion.add(media.motionOk, () => {
-      const head = element.querySelector('.modules__head');
+      const copy = element.querySelector('.modules__lead');
       const body = element.querySelector('.modules__body');
       const list = element.querySelector('[data-modules-cards]');
       const cards = [...list.querySelectorAll('[data-modules-card]')];
@@ -46,21 +47,23 @@ export const modules = {
         timeline?.revert();
         const lead = cards[stacked() ? 0 : 1];
         const others = cards.filter((card) => card !== lead);
-        // Offsets ignore transforms, so the start is measured from the resting layout.
+        // The card starts just under the copy, straddling the cream and the wave.
+        // Offsets ignore transforms, so it is measured from the resting layout.
         const drop = () =>
           -(
             body.offsetTop +
             list.offsetTop +
             lead.offsetTop -
-            (head.offsetTop + head.offsetHeight)
+            (copy.offsetTop + copy.offsetHeight)
           ) +
-          window.innerHeight * 0.04;
+          window.innerHeight * 0.08;
         timeline = gsap
           .timeline({
             defaults: { ease: 'none' },
             scrollTrigger: {
-              trigger: list,
-              start: 'top bottom',
+              trigger: copy,
+              start: 'bottom 55%',
+              endTrigger: list,
               end: stacked() ? 'top 12%' : 'top 22%',
               scrub: 0.8,
               invalidateOnRefresh: true,
