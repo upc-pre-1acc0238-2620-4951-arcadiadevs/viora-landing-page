@@ -163,5 +163,36 @@
       "module": "Intake projection",
       "moduleSub": "Cooperative view"
     }
+  },
+  "tacna": {
+    "eyebrow": "The context",
+    "statement": "Tacna grows 81% of Peru's olives, yet every season is decided blind: one year there's fruit to spare, the next there's not enough.",
+    "copy": "In 2024, growers in La Yarada reported losses of up to 90%. In September 2025, a record rebound. They aren't two different stories: they're the two faces of the same ON/OFF cycle.",
+    "statArea": "81%",
+    "statAreaLabel": "of Peru's olive acreage",
+    "statLoss": "90%",
+    "statLossLabel": "lost in the 2024 season",
+    "statOff": "1 in 2",
+    "statOffLabel": "seasons end in an OFF year",
+    "pictureAlt": "A young grower looks up, dreaming of a branch heavy with olives",
+    "lineOne": "Even",
+    "lineTwo": "harvest",
+    "lineThree": "ahead",
+    "plans": "See<br />the plans",
+    "placeTitle": "Between La Yarada and Los Palos",
+    "placeCopy": "Sand, sun and wells: this is where most of the country's olives are grown. Viora orders this grove's season — it measures the load, tracks the chill and sets the thinning window — so next year stops depending on chance.",
+    "wishOne": "The harvest you wanted",
+    "wishTwo": "yours",
+    "wishThree": "this year",
+    "stepChill": "Chill builds up",
+    "stepChillWhen": "May – Aug",
+    "stepBloom": "Bloom",
+    "stepBloomWhen": "September",
+    "stepSet": "Fruit-set sampling",
+    "stepSetWhen": "November",
+    "stepThin": "Thinning window",
+    "stepThinWhen": "December",
+    "stepHarvest": "Harvest",
+    "stepHarvestWhen": "Apr – May"
   }
 }

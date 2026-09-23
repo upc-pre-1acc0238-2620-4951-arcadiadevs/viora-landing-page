@@ -1,0 +1,717 @@
+/*
+ * Tacna — Figma desktop 48:3313 (context), 48:3217 (campaign), 48:3242 (season).
+ *
+ * era-residence.com: the three panels ride one pinned horizontal rail on wide
+ * screens, with looping olive branches hanging from the corners. Each panel is
+ * the 1440 × 900 Figma frame scaled by --u to fit the viewport. Without the
+ * rail (no JS, reduced motion) the panels stack; compact screens reflow.
+ * Motion lives in sections/tacna/Tacna.js.
+ */
+
+.tacna {
+  --u: min(calc(100vw / 1440), calc(100vh / 900));
+  --ink: var(--color-brand);
+  --ink-soft: rgb(46 74 58 / 78%);
+  --ink-faint: rgb(46 74 58 / 20%);
+
+  position: relative;
+  background: var(--color-surface);
+  color: var(--ink);
+}
+
+.tacna__track {
+  display: grid;
+}
+
+.tacna__panel {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  overflow: clip;
+}
+
+.tacna__stage {
+  position: relative;
+  z-index: 1;
+  width: calc(1440 * var(--u));
+  height: calc(900 * var(--u));
+}
+
+/* ── Rail (wide screens with motion) ──────────────────── */
+
+.tacna--rail .tacna__rail {
+  height: 100vh;
+  overflow: clip;
+}
+
+.tacna--rail .tacna__track {
+  display: flex;
+  width: max-content;
+  height: 100%;
+  will-change: transform;
+}
+
+.tacna--rail .tacna__panel {
+  flex: none;
+  width: 100vw;
+  height: 100%;
+  min-height: 0;
+}
+
+/* ── Olive branches ───────────────────────────────────── */
+
+/* Looping VP9-alpha clips over the type, like the era-residence flowers: the
+   poster stands in until the clip plays, and for good without motion or
+   alpha support. The wrapper leans with the scroll (Tacna.js). */
+.tacna__branch {
+  position: absolute;
+  z-index: 2;
+  width: calc(var(--size) * var(--u));
+  aspect-ratio: 1;
+  pointer-events: none;
+}
+
+.tacna__branch video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.tacna__branch--top-start {
+  --size: 880;
+
+  top: calc(-90 * var(--u));
+  left: calc(-70 * var(--u));
+  transform-origin: 0 0;
+}
+
+/* Straddles the seam between the context and the campaign, growing up: the
+   clip hangs from its right edge, so a quarter turn plants it on the ground. */
+.tacna__branch--seam {
+  --size: 720;
+
+  right: calc(-360 * var(--u));
+  bottom: calc(-60 * var(--u));
+  transform-origin: 50% 100%;
+}
+
+.tacna__branch--seam video {
+  rotate: 90deg;
+}
+
+.tacna__branch--top-end {
+  --size: 660;
+
+  top: calc(-70 * var(--u));
+  right: calc(-70 * var(--u));
+  transform-origin: 100% 0;
+}
+
+/* On the rail the seam branch spills over into the next panel. */
+.tacna--rail .tacna__panel--context {
+  overflow: visible;
+}
+
+/* ── 01 · Context ─────────────────────────────────────── */
+
+.tacna__context {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: calc(150 * var(--u));
+  text-align: center;
+}
+
+.tacna__eyebrow {
+  font-size: max(11px, calc(12 * var(--u)));
+  font-weight: var(--weight-medium);
+  line-height: 1.2;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.tacna__statement {
+  width: calc(1160 * var(--u));
+  margin-top: calc(62 * var(--u));
+  font-size: calc(44 * var(--u));
+  font-weight: var(--weight-bold);
+  line-height: 1.18;
+  text-wrap: balance;
+}
+
+.tacna__copy {
+  width: calc(520 * var(--u));
+  margin-top: calc(64 * var(--u));
+  color: var(--ink-soft);
+  font-size: max(13px, calc(15 * var(--u)));
+  font-weight: var(--weight-medium);
+  line-height: 1.7;
+}
+
+.tacna__stats {
+  display: flex;
+  margin-top: calc(48 * var(--u));
+}
+
+.tacna__stat {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: calc(10 * var(--u));
+  width: calc(306 * var(--u));
+  padding-inline: calc(40 * var(--u));
+}
+
+.tacna__stat + .tacna__stat::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: calc(64 * var(--u));
+  background: var(--ink-faint);
+}
+
+.tacna__stat-value {
+  font-family: var(--font-serif);
+  font-size: calc(46 * var(--u));
+  font-variant-numeric: tabular-nums;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.tacna__stat dd {
+  color: rgb(46 74 58 / 70%);
+  font-size: max(11px, calc(13 * var(--u)));
+  font-weight: var(--weight-medium);
+  line-height: 1.5;
+}
+
+.tacna__mark {
+  width: calc(70 * var(--u));
+  height: auto;
+  margin-top: calc(77 * var(--u));
+}
+
+/* ── 02 · Campaign ────────────────────────────────────── */
+
+.tacna__picture {
+  position: absolute;
+  top: calc(100 * var(--u));
+  left: calc(520 * var(--u));
+  width: calc(480 * var(--u));
+  height: calc(700 * var(--u));
+  margin: 0;
+  overflow: hidden;
+  border-radius: 2px;
+  background: #9fb07e;
+}
+
+.tacna__picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  scale: 1.12;
+}
+
+.tacna__headline {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  font-size: calc(118 * var(--u));
+  line-height: 1;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+.tacna__headline > * {
+  position: absolute;
+  white-space: nowrap;
+}
+
+.tacna__headline-top,
+.tacna__headline-end {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+}
+
+.tacna__headline-top {
+  top: calc(212 * var(--u));
+  left: calc(127 * var(--u));
+}
+
+.tacna__headline-mid {
+  top: calc(319 * var(--u));
+  left: calc(194 * var(--u));
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: var(--weight-regular);
+}
+
+.tacna__headline-end {
+  top: calc(432 * var(--u));
+  left: calc(129 * var(--u));
+}
+
+.tacna__plans {
+  position: absolute;
+  top: calc(150 * var(--u));
+  left: calc(1160 * var(--u));
+  display: grid;
+  place-items: center;
+  width: calc(190 * var(--u));
+  aspect-ratio: 1;
+  border-radius: 50%;
+  color: var(--ink);
+  font-size: max(11px, calc(13 * var(--u)));
+  font-weight: var(--weight-medium);
+  line-height: 1.6;
+  letter-spacing: 0.09em;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  isolation: isolate;
+}
+
+.tacna__plans::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: var(--ink);
+  scale: 0;
+  transition: scale 700ms var(--ease-out-expo);
+}
+
+.tacna__plans:hover,
+.tacna__plans:focus-visible {
+  color: var(--color-surface);
+}
+
+.tacna__plans:hover::before,
+.tacna__plans:focus-visible::before {
+  scale: 1;
+}
+
+.tacna__plans span {
+  transition: color 400ms;
+}
+
+.tacna__plans-ring {
+  position: absolute;
+  inset: 0;
+  overflow: visible;
+  fill: none;
+  stroke: rgb(46 74 58 / 45%);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+  stroke-dasharray: 1;
+  stroke-dashoffset: var(--ring, 0);
+  rotate: -90deg;
+}
+
+.tacna__place {
+  position: absolute;
+  top: calc(470 * var(--u));
+  left: calc(1040 * var(--u));
+  width: calc(320 * var(--u));
+}
+
+.tacna__place-title {
+  font-family: var(--font-display);
+  font-size: calc(26 * var(--u));
+  font-weight: var(--weight-medium);
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.tacna__place-copy {
+  margin-top: calc(24 * var(--u));
+  color: rgb(46 74 58 / 80%);
+  font-size: max(12px, calc(15 * var(--u)));
+  font-weight: var(--weight-medium);
+  line-height: 1.7;
+}
+
+/* ── 03 · Season ──────────────────────────────────────── */
+
+.tacna__wish {
+  position: absolute;
+  inset: 0 0 auto;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.tacna__wish > * {
+  position: absolute;
+  inset-inline: 0;
+  white-space: nowrap;
+}
+
+.tacna__wish-top {
+  top: calc(144 * var(--u));
+  font-size: calc(86 * var(--u));
+  font-weight: var(--weight-bold);
+  line-height: 1.2;
+}
+
+.tacna__wish-mid {
+  top: calc(206 * var(--u));
+  font-family: var(--font-display);
+  font-size: calc(110 * var(--u));
+  font-style: italic;
+  font-weight: var(--weight-regular);
+  line-height: 1.1;
+  text-transform: none;
+}
+
+.tacna__wish-end {
+  top: calc(313 * var(--u));
+  font-family: var(--font-display);
+  font-size: calc(86 * var(--u));
+  font-weight: var(--weight-medium);
+  line-height: 1.2;
+}
+
+.tacna__mark--season {
+  position: absolute;
+  top: calc(573 * var(--u));
+  left: calc(668 * var(--u));
+  width: calc(103 * var(--u));
+  margin: 0;
+}
+
+.tacna__timeline {
+  position: absolute;
+  top: calc(734.7 * var(--u));
+  left: calc(200 * var(--u));
+  width: calc(1040 * var(--u));
+  height: calc(56.5 * var(--u));
+}
+
+.tacna__line {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 2;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.tacna__line path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: var(--draw, 0);
+}
+
+.tacna__traveller {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(22 * var(--u));
+  height: calc(17 * var(--u));
+  border-radius: 50%;
+  background: radial-gradient(circle at 38% 32%, #d1c65e, #949b35 55%, #4f5f22);
+  box-shadow: 0 calc(4 * var(--u)) calc(10 * var(--u)) rgb(31 44 38 / 25%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.tacna__steps {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tacna__step {
+  position: absolute;
+  top: calc(var(--y) / 58.5075 * 100%);
+  left: calc(var(--x) * 100%);
+}
+
+.tacna__step::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(9 * var(--u));
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--ink);
+  translate: -50% -50%;
+  transition: scale 600ms var(--ease-out-expo);
+}
+
+.tacna__step strong,
+.tacna__step span {
+  position: absolute;
+  left: 0;
+  width: calc(230 * var(--u));
+  text-align: center;
+  translate: -50% 0;
+  transition:
+    opacity 600ms,
+    translate 800ms var(--ease-out-expo);
+}
+
+.tacna__step strong {
+  bottom: calc(48 * var(--u));
+  font-size: max(10px, calc(13 * var(--u)));
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.085em;
+  text-transform: uppercase;
+}
+
+.tacna__step span {
+  bottom: calc(26 * var(--u));
+  color: rgb(46 74 58 / 70%);
+  font-size: max(10px, calc(13 * var(--u)));
+}
+
+/* The olive itself is the last stop of the line. */
+.tacna--rail .tacna__step:last-child::before {
+  display: none;
+}
+
+/* The season plays along the line: steps wait until the olive reaches them. */
+.tacna--season .tacna__step:not(.is-reached)::before {
+  scale: 0;
+}
+
+.tacna--season .tacna__step:not(.is-reached) :is(strong, span) {
+  opacity: 0;
+  translate: -50% 40%;
+}
+
+/* ── Compact: phones, portrait tablets, landscape phones ── */
+
+/* Mirrors media.compact in config/breakpoints.js. */
+@media (width < 840px), (height <= 500px) and (orientation: landscape) {
+  .tacna__panel {
+    min-height: 0;
+    padding: clamp(5rem, 3rem + 8vw, 7rem) var(--gutter);
+  }
+
+  .tacna__stage {
+    width: min(100%, 40rem);
+    height: auto;
+  }
+
+  .tacna__branch--top-start,
+  .tacna__branch--top-end {
+    top: -1.5rem;
+    width: min(62vw, 20rem);
+  }
+
+  .tacna__branch--top-start {
+    left: -1.5rem;
+  }
+
+  .tacna__branch--top-end {
+    right: -1.5rem;
+  }
+
+  .tacna__branch--seam {
+    right: -2rem;
+    bottom: -1rem;
+    width: min(70vw, 22rem);
+  }
+
+  .tacna__context {
+    padding-block: 5rem 3rem;
+  }
+
+  .tacna__statement {
+    width: 100%;
+    margin-top: 1.5rem;
+    font-size: clamp(1.5rem, 1rem + 2.6vw, 2.25rem);
+  }
+
+  .tacna__copy {
+    width: min(100%, 30rem);
+    margin-top: 1.5rem;
+    font-size: 0.9375rem;
+  }
+
+  .tacna__stats {
+    width: 100%;
+    margin-top: 2.5rem;
+  }
+
+  .tacna__stat {
+    flex: 1;
+    width: auto;
+    gap: 0.5rem;
+    padding-inline: 0.5rem;
+  }
+
+  .tacna__stat + .tacna__stat::before {
+    height: 3.5rem;
+  }
+
+  .tacna__stat-value {
+    font-size: clamp(1.75rem, 1.2rem + 3vw, 2.5rem);
+  }
+
+  .tacna__stat dd {
+    font-size: 0.75rem;
+  }
+
+  .tacna__mark {
+    width: 3.5rem;
+    margin-top: 2.5rem;
+  }
+
+  .tacna__campaign {
+    display: grid;
+    gap: 2rem;
+  }
+
+  .tacna__headline {
+    position: relative;
+    inset: auto;
+    display: grid;
+    font-size: clamp(3rem, 1.5rem + 9vw, 5.5rem);
+  }
+
+  .tacna__headline > * {
+    position: relative;
+    inset: auto;
+  }
+
+  .tacna__headline-mid {
+    margin-left: 0.5em;
+  }
+
+  .tacna__picture {
+    position: relative;
+    inset: auto;
+    order: 1;
+    justify-self: center;
+    width: min(100%, 26rem);
+    height: auto;
+    aspect-ratio: 480 / 700;
+  }
+
+  .tacna__plans {
+    position: relative;
+    inset: auto;
+    order: 3;
+    justify-self: end;
+    width: clamp(7rem, 5rem + 6vw, 8.5rem);
+    font-size: 0.6875rem;
+  }
+
+  .tacna__place {
+    position: relative;
+    inset: auto;
+    order: 2;
+    width: 100%;
+  }
+
+  .tacna__place-title {
+    font-size: 1.375rem;
+  }
+
+  .tacna__place-copy {
+    margin-top: 1rem;
+    font-size: 0.9375rem;
+  }
+
+  .tacna__season {
+    display: grid;
+    justify-items: center;
+    gap: 2.5rem;
+    padding-block: 3rem 1rem;
+  }
+
+  .tacna__wish {
+    position: relative;
+    inset: auto;
+    display: grid;
+  }
+
+  .tacna__wish > * {
+    position: relative;
+    inset: auto;
+    white-space: normal;
+  }
+
+  .tacna__wish-top,
+  .tacna__wish-end {
+    font-size: clamp(1.75rem, 1rem + 4.6vw, 3.25rem);
+  }
+
+  .tacna__wish-mid {
+    font-size: clamp(2.5rem, 1.5rem + 6.5vw, 4.5rem);
+  }
+
+  .tacna__mark--season {
+    position: relative;
+    inset: auto;
+    width: 4rem;
+  }
+
+  /* The season line turns into a vertical calendar. */
+  .tacna__timeline {
+    position: relative;
+    inset: auto;
+    width: min(100%, 22rem);
+    height: auto;
+  }
+
+  .tacna__line,
+  .tacna__traveller {
+    display: none;
+  }
+
+  .tacna__steps {
+    position: relative;
+    display: grid;
+    gap: 1.75rem;
+    padding-left: 1.75rem;
+    border-left: 2px solid var(--ink);
+  }
+
+  .tacna__step {
+    position: relative;
+    inset: auto;
+    display: grid;
+    gap: 0.25rem;
+  }
+
+  .tacna__step::before {
+    top: 0.45rem;
+    left: calc(-1.75rem - 1px);
+    width: 0.75rem;
+  }
+
+  .tacna__step strong,
+  .tacna__step span {
+    position: static;
+    width: auto;
+    text-align: left;
+    translate: none;
+  }
+
+  .tacna__step strong {
+    font-size: 0.8125rem;
+  }
+
+  .tacna__step span {
+    font-size: 0.8125rem;
+  }
+
+  .tacna--season .tacna__step:not(.is-reached) :is(strong, span) {
+    translate: 0 40%;
+  }
+}

@@ -9,7 +9,8 @@ import { cases } from './cases/Cases.js';
 import { features } from './features/Features.js';
 import { intro } from './intro/Intro.js';
 import { modules } from './modules/Modules.js';
+import { tacna } from './tacna/Tacna.js';
 
-const registry = [hero, intro, features, modules, cases];
+const registry = [hero, intro, features, modules, cases, tacna];
 
 export const mountSections = (root = document) => mountAll(registry, root);
