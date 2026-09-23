@@ -12,7 +12,10 @@ export const hero = {
       const width = art.clientWidth;
       const height = art.clientHeight;
       const scale = Math.max(width / 1536, height / 1024) * 1.035;
-      const position = window.matchMedia('(max-width: 600px)').matches ? 0.72 : 0.5;
+      // Portrait screens keep the grower in frame (mirrors hero.css object-position).
+      const position = window.matchMedia('(orientation: portrait) and (max-width: 840px)').matches
+        ? 0.72
+        : 0.5;
       art.style.setProperty('--art-width', `${1536 * scale}px`);
       art.style.setProperty('--art-height', `${1024 * scale}px`);
       art.style.setProperty('--art-left', `${(width - 1536 * scale) * position}px`);

@@ -61,6 +61,27 @@
     "storyTitle": "Good years. Difficult years. A better balance.",
     "storyBody": "Viora brings winter chill, fruit load and thinning guidance together, helping olive growers plan the next harvest, tree by tree."
   },
+  "intro": {
+    "titleFirst": "<strong>Field</strong> <em>Data</em>,",
+    "titleSecond": "<em>Timely</em> <strong>Decisions</strong>",
+    "description": "We combine field sensors, weather forecasts and tree-by-tree sampling to turn alternate bearing into decisions. From the first chill alert to the end of the season, Viora tells you what to do and how much to expect from your harvest.",
+    "download": "Get the app",
+    "play": "Play",
+    "reel": "Reel",
+    "playLabel": "Play the Viora reel",
+    "playReel": "Play reel",
+    "watch": "Watch video",
+    "aboutTitle": "We're Viora.",
+    "aboutBody": "A Peruvian platform that manages alternate bearing in olive groves. We measure winter chill, fruit load and thinning with field nodes and offline sampling, so every season depends on data, not on each year's luck.",
+    "shapesLabel": "What Viora measures",
+    "shapeOlive": "Olive grove",
+    "shapeThinning": "Thinning",
+    "shapeYield": "Yield",
+    "shapeChill": "Winter chill",
+    "shapeBalance": "Crop balance",
+    "dialogLabel": "Viora reel",
+    "close": "Close"
+  },
   "legal": {
     "close": "Close",
     "terms": {

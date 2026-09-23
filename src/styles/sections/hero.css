@@ -555,7 +555,7 @@
   }
 }
 
-@media (601px <= width <= 840px) {
+@media (601px <= width <= 840px) and (orientation: landscape) {
   .hero__widgets {
     width: 40%;
     flex-wrap: nowrap;
@@ -577,6 +577,158 @@
     width: 64px;
     height: 64px;
     flex: 0 0 64px;
+  }
+}
+
+/* Portrait tablets: the phone arrangement (widgets over the story), scaled up. */
+@media (601px <= width <= 840px) and (orientation: portrait) {
+  .hero__still,
+  .hero__layer {
+    object-position: 72% center;
+  }
+
+  .hero__intro {
+    width: 44%;
+    max-width: 300px;
+    font-size: 15px;
+  }
+
+  .hero__film {
+    width: 30%;
+    max-width: 250px;
+  }
+
+  .hero__film-shell {
+    height: min(140px, 13dvh);
+  }
+
+  .hero__heading {
+    top: 30%;
+  }
+
+  .hero__heading h1 {
+    font-size: min(8vw, 64px, 6dvh);
+  }
+
+  .hero__eyebrow {
+    font-size: 18px;
+  }
+
+  .hero__download {
+    font-size: 16px;
+  }
+
+  .hero__widgets {
+    right: 6%;
+    bottom: 26%;
+    left: auto;
+    width: auto;
+    flex-wrap: nowrap;
+    gap: 16px;
+  }
+
+  .hero__notification {
+    flex: none;
+    width: 280px;
+    height: 104px;
+  }
+
+  .hero__notification-front {
+    gap: 12px;
+    padding: 14px;
+    font-size: 16px;
+  }
+
+  .hero__notification-front > img {
+    width: 42px;
+    height: 42px;
+  }
+
+  .hero__app-icon {
+    flex: none;
+    width: 92px;
+    height: 92px;
+    padding: 9px;
+    border-radius: 22px;
+  }
+
+  .hero__story {
+    bottom: 5%;
+    left: 6%;
+    width: 72%;
+  }
+
+  .hero__story-first {
+    font-size: min(60px, 5.5dvh);
+  }
+
+  .hero__story-second {
+    font-size: min(46px, 4.3dvh);
+  }
+
+  .hero__story > p {
+    max-width: 460px;
+    font-size: 17px;
+  }
+}
+
+/* Landscape phones: sizes follow the short height; the widgets would collide
+ * with the heading, so the notification stack steps aside. */
+@media (height <= 500px) and (orientation: landscape) {
+  .hero__intro,
+  .hero__film {
+    top: calc(var(--header-height) + 12px);
+  }
+
+  /* The one-line intro stays; its description would crowd the eyebrow. */
+  .hero__description {
+    display: none;
+  }
+
+  .hero__intro {
+    font-size: min(1.6cqw, 3.1cqh);
+  }
+
+  .hero__film-caption {
+    font-size: min(1.2cqw, 2.6cqh);
+  }
+
+  .hero__heading {
+    top: 38%;
+  }
+
+  .hero__eyebrow {
+    margin-bottom: 6px;
+    font-size: min(1.9cqw, 3.6cqh);
+  }
+
+  .hero__heading h1 {
+    font-size: min(4.2cqw, 8.2cqh);
+  }
+
+  .hero__download {
+    font-size: 13px;
+  }
+
+  .hero__download-label,
+  .hero__download-arrow {
+    min-height: 42px;
+  }
+
+  .hero__widgets {
+    display: none;
+  }
+
+  .hero__story-first {
+    font-size: min(4.444cqw, 9cqh);
+  }
+
+  .hero__story-second {
+    font-size: min(3.333cqw, 6.8cqh);
+  }
+
+  .hero__story > p {
+    font-size: min(1.6cqw, 3.4cqh);
   }
 }
 

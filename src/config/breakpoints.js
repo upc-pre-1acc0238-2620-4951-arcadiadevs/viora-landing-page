@@ -15,4 +15,6 @@ export const media = Object.freeze({
   motionOk: '(prefers-reduced-motion: no-preference)',
   reducedMotion: '(prefers-reduced-motion: reduce)',
   finePointer: '(hover: hover) and (pointer: fine)',
+  /** Phones, portrait tablets and short landscape phones share the compact stage. */
+  compact: `(max-width: ${breakpoints.desktop - 0.02}px), (max-height: 500px) and (orientation: landscape)`,
 });
