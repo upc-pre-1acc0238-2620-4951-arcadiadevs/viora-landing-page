@@ -90,5 +90,11 @@
     "privacy": {
       "title": "Privacy policy"
     }
+  },
+  "features": {
+    "line1": "Viora reads the load <span class=\"features__slot\" data-shape=\"olive\" aria-hidden=\"true\"></span> of your grove,",
+    "line2": "tracks the chill <span class=\"features__slot\" data-shape=\"chill\" aria-hidden=\"true\"></span> of every winter",
+    "line3": "and tells you when to thin. <span class=\"features__slot\" data-shape=\"thinning\" aria-hidden=\"true\"></span>",
+    "line4": "Steadier <span class=\"features__slot\" data-shape=\"balance\" aria-hidden=\"true\"></span> <span class=\"features__slot\" data-shape=\"yield\" aria-hidden=\"true\"></span> harvests."
   }
 }
