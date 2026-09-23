@@ -750,6 +750,671 @@
         </div>
       </section>
 
+      <!-- Modules: the lead card spins out from under the title into the forest band -->
+      <section class="modules" id="product" aria-labelledby="modules-title" data-modules>
+        <div class="modules__head" data-nav-tone="light">
+          <h2 class="modules__title" id="modules-title">
+            <span class="modules__title-serif" data-i18n="modules.titleFirst">Ready for a</span>
+            <span class="modules__title-bold" data-i18n="modules.titleSecond"
+              >more even harvest</span
+            >
+            <em class="modules__title-italic" data-i18n="modules.titleThird">every year?</em>
+          </h2>
+          <p class="modules__lead" data-reveal="up" data-i18n="modules.lead">
+            This is how Viora supports every stage of your season, from winter to harvest.
+          </p>
+        </div>
+        <div class="modules__body" data-nav-tone="dark">
+          <svg
+            class="modules__wave"
+            viewBox="0 0 1440 160"
+            preserveAspectRatio="none"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <path data-modules-wave d="M0 80C360 20 720 150 1080 80S1440 40 1440 40V160H0Z" />
+          </svg>
+          <ul class="modules__cards" data-modules-cards>
+            <li class="modules__card modules__card--load" data-modules-card>
+              <div class="modules__face">
+                <h3 class="modules__card-title" data-i18n-html="modules.loadTitle">
+                  Fruit<br />load
+                </h3>
+                <p class="modules__card-body" data-i18n="modules.loadBody">
+                  Sample your trees, even without signal, and know the real load of every lot before
+                  the season decides for you.
+                </p>
+                <span class="modules__art" aria-hidden="true"
+                  ><img
+                    src="/assets/images/modules/load.svg"
+                    alt=""
+                    width="240"
+                    height="240"
+                    loading="lazy"
+                /></span>
+                <a class="modules__cta" href="#cases" data-case-link="0" data-i18n="modules.loadCta"
+                  >measure my load</a
+                >
+              </div>
+              <span class="modules__back" aria-hidden="true"></span>
+            </li>
+            <li class="modules__card modules__card--chill" data-modules-card>
+              <div class="modules__face">
+                <h3 class="modules__card-title" data-i18n-html="modules.chillTitle">
+                  Winter<br />chill
+                </h3>
+                <p class="modules__card-body" data-i18n="modules.chillBody">
+                  Viora adds up each winter's chill portions for your variety, table or oil, and
+                  warns you when a warm winter puts your bloom at risk.
+                </p>
+                <span class="modules__art" aria-hidden="true"
+                  ><img
+                    src="/assets/images/modules/chill.svg"
+                    alt=""
+                    width="240"
+                    height="240"
+                    loading="lazy"
+                /></span>
+                <a
+                  class="modules__cta"
+                  href="#cases"
+                  data-case-link="1"
+                  data-i18n="modules.chillCta"
+                  >track my chill</a
+                >
+              </div>
+              <span class="modules__back" aria-hidden="true"></span>
+            </li>
+            <li class="modules__card modules__card--thinning" data-modules-card>
+              <div class="modules__face">
+                <h3 class="modules__card-title" data-i18n-html="modules.thinningTitle">
+                  Thinning<br />plan
+                </h3>
+                <p class="modules__card-body" data-i18n="modules.thinningBody">
+                  Know how much to thin and until when, for more even calibres and a next season
+                  that doesn’t collapse.
+                </p>
+                <span class="modules__art" aria-hidden="true"
+                  ><span class="modules__grid"
+                    ><img
+                      src="/assets/images/modules/fruit.svg"
+                      alt=""
+                      width="60"
+                      height="60"
+                      loading="lazy" /><img
+                      src="/assets/images/modules/fruit-removed.png"
+                      alt=""
+                      width="60"
+                      height="60"
+                      loading="lazy" /><img
+                      src="/assets/images/modules/fruit.svg"
+                      alt=""
+                      width="60"
+                      height="60"
+                      loading="lazy" /><img
+                      src="/assets/images/modules/fruit.svg"
+                      alt=""
+                      width="60"
+                      height="60"
+                      loading="lazy" /><img
+                      src="/assets/images/modules/fruit.svg"
+                      alt=""
+                      width="60"
+                      height="60"
+                      loading="lazy" /><img
+                      src="/assets/images/modules/fruit-removed.png"
+                      alt=""
+                      width="60"
+                      height="60"
+                      loading="lazy" /><img
+                      src="/assets/images/modules/fruit-removed.png"
+                      alt=""
+                      width="60"
+                      height="60"
+                      loading="lazy" /><img
+                      src="/assets/images/modules/fruit.svg"
+                      alt=""
+                      width="60"
+                      height="60"
+                      loading="lazy" /><img
+                      src="/assets/images/modules/fruit.svg"
+                      alt=""
+                      width="60"
+                      height="60"
+                      loading="lazy" /></span
+                ></span>
+                <a
+                  class="modules__cta"
+                  href="#cases"
+                  data-case-link="2"
+                  data-i18n="modules.thinningCta"
+                  >plan my thinning</a
+                >
+              </div>
+              <span class="modules__back" aria-hidden="true"></span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Use cases: a field notebook of four difficult years; drag to turn the page -->
+      <section
+        class="cases"
+        id="cases"
+        aria-labelledby="cases-title"
+        data-cases
+        data-nav-tone="dark"
+      >
+        <img
+          class="cases__burst"
+          src="/assets/images/modules/burst.svg"
+          alt=""
+          width="1250"
+          height="1250"
+          loading="lazy"
+          data-cases-burst
+        />
+        <h2 class="cases__title" id="cases-title">
+          <span data-i18n="cases.titleFirst">Does any of these</span>
+          <em data-i18n="cases.titleSecond">years sound familiar?</em>
+        </h2>
+        <div class="cases__stage">
+          <div class="cases__stack cases__stack--start" aria-hidden="true" data-cases-stack>
+            <button
+              class="cases__tab cases__tab--harvest"
+              type="button"
+              tabindex="-1"
+              data-case-link="0"
+              style="--d: 0"
+            >
+              <span data-i18n="cases.off.label">Off year</span>
+            </button>
+            <button
+              class="cases__tab cases__tab--chill"
+              type="button"
+              tabindex="-1"
+              data-case-link="1"
+              style="--d: 1"
+            >
+              <span data-i18n="cases.chill.label">Low chill</span>
+            </button>
+            <button
+              class="cases__tab cases__tab--thinning"
+              type="button"
+              tabindex="-1"
+              data-case-link="2"
+              style="--d: 2"
+            >
+              <span data-i18n="cases.late.label">Late thinning</span>
+            </button>
+            <button
+              class="cases__tab cases__tab--yield"
+              type="button"
+              tabindex="-1"
+              data-case-link="3"
+              style="--d: 3"
+            >
+              <span data-i18n="cases.intake.label">Uncertain intake</span>
+            </button>
+          </div>
+          <div class="cases__book" data-cases-book>
+            <article class="case case--harvest" aria-roledescription="page" data-case>
+              <div class="case__problem">
+                <div class="case__panel">
+                  <p class="case__who" data-i18n="cases.off.who">Grower · La Yarada</p>
+                  <p class="case__quote" data-i18n="cases.off.quote">
+                    “I don’t know how much I’ll harvest until it’s too late.”
+                  </p>
+                  <p class="case__pain" data-i18n="cases.off.pain">
+                    A loaded year, then an empty one. The season is planned blind.
+                  </p>
+                  <p class="case__shapes" aria-hidden="true">
+                    <img
+                      class="case__shape is-current"
+                      src="/assets/icons/shapes/olivo-color.svg"
+                      alt=""
+                      width="56"
+                      height="56"
+                      loading="lazy"
+                    /><img
+                      class="case__shape"
+                      src="/assets/icons/shapes/frio-color.svg"
+                      alt=""
+                      width="56"
+                      height="56"
+                      loading="lazy"
+                    /><img
+                      class="case__shape"
+                      src="/assets/icons/shapes/aclareo-color.svg"
+                      alt=""
+                      width="56"
+                      height="56"
+                      loading="lazy"
+                    /><img
+                      class="case__shape"
+                      src="/assets/icons/shapes/rendimiento-color.svg"
+                      alt=""
+                      width="56"
+                      height="56"
+                      loading="lazy"
+                    /><img
+                      class="case__shape"
+                      src="/assets/icons/shapes/equilibrio-color.svg"
+                      alt=""
+                      width="56"
+                      height="56"
+                      loading="lazy"
+                    />
+                  </p>
+                </div>
+              </div>
+              <div class="case__solution case--harvest">
+                <p class="case__count" aria-hidden="true">01 / 04</p>
+                <p class="case__tag" data-i18n="cases.off.tag">Grower app</p>
+                <h3 class="case__title" data-i18n="cases.off.title">
+                  Viora gives you the number before harvest.
+                </h3>
+                <p class="case__body" data-i18n="cases.off.body">
+                  Sample a few trees from your phone, even without signal, and the app works out the
+                  target load of the lot and the yield you can expect this season.
+                </p>
+                <button
+                  class="case__cta"
+                  type="button"
+                  data-hero-dialog="download"
+                  data-i18n="cases.cta"
+                >
+                  see the module
+                </button>
+                <div class="case__module">
+                  <img
+                    src="/assets/icons/shapes/olivo-color.svg"
+                    alt=""
+                    width="48"
+                    height="48"
+                    loading="lazy"
+                  />
+                  <p>
+                    <strong data-i18n="cases.off.module">Fruit load</strong>
+                    <span data-i18n="cases.off.moduleSub">Harvest estimate</span>
+                  </p>
+                </div>
+                <div class="case__nav">
+                  <button
+                    class="case__arrow"
+                    type="button"
+                    aria-label="Previous case"
+                    data-i18n-attr="aria-label:cases.prev"
+                    data-case-step="-1"
+                    disabled
+                  >
+                    ‹
+                  </button>
+                  <button
+                    class="case__arrow"
+                    type="button"
+                    aria-label="Next case"
+                    data-i18n-attr="aria-label:cases.next"
+                    data-case-step="1"
+                  >
+                    ›
+                  </button>
+                </div>
+              </div>
+            </article>
+            <article class="case case--chill" aria-roledescription="page" data-case>
+              <div class="case__problem">
+                <div class="case__panel">
+                  <p class="case__who" data-i18n="cases.chill.who">Grower · Magollo</p>
+                  <p class="case__quote" data-i18n="cases.chill.quote">
+                    “This winter just wasn’t cold.”
+                  </p>
+                  <p class="case__pain" data-i18n="cases.chill.pain">
+                    Without enough chill, bloom comes uneven and the fruit set falls short.
+                  </p>
+                  <p class="case__shapes" aria-hidden="true">
+                    <img
+                      class="case__shape"
+                      src="/assets/icons/shapes/olivo-color.svg"
+                      alt=""
+                      width="56"
+                      height="56"
+                      loading="lazy"
+                    /><img
+                      class="case__shape is-current"
+                      src="/assets/icons/shapes/frio-color.svg"
+                      alt=""
+                      width="56"
+                      height="56"
+                      loading="lazy"
+                    /><img
+                      class="case__shape"
+                      src="/assets/icons/shapes/aclareo-color.svg"
+                      alt=""
+                      width="56"
+                      height="56"
+                      loading="lazy"
+                    /><img
+                      class="case__shape"
+                      src="/assets/icons/shapes/rendimiento-color.svg"
+                      alt=""
+                      width="56"
+                      height="56"
+                      loading="lazy"
+                    /><img
+                      class="case__shape"
+                      src="/assets/icons/shapes/equilibrio-color.svg"
+                      alt=""
+                      width="56"
+                      height="56"
+                      loading="lazy"
+                    />
+                  </p>
+                </div>
+              </div>
+              <div class="case__solution case--chill">
+                <p class="case__count" aria-hidden="true">02 / 04</p>
+                <p class="case__tag" data-i18n="cases.chill.tag">Grower app</p>
+                <h3 class="case__title" data-i18n="cases.chill.title">
+                  Viora counts every hour of cold.
+                </h3>
+                <p class="case__body" data-i18n="cases.chill.body">
+                  Weather data adds up the chill portions for your variety, table or oil, and warns
+                  you when a warm winter or an El Niño year puts your bloom at risk.
+                </p>
+                <button
+                  class="case__cta"
+                  type="button"
+                  data-hero-dialog="download"
+                  data-i18n="cases.cta"
+                >
+                  see the module
+                </button>
+                <div class="case__module">
+                  <img
+                    src="/assets/icons/shapes/frio-color.svg"
+                    alt=""
+                    width="48"
+                    height="48"
+                    loading="lazy"
+                  />
+                  <p>
+                    <strong data-i18n="cases.chill.module">Winter chill</strong>
+                    <span data-i18n="cases.chill.moduleSub">Chill and ENSO risk</span>
+                  </p>
+                </div>
+                <div class="case__nav">
+                  <button
+                    class="case__arrow"
+                    type="button"
+                    aria-label="Previous case"
+                    data-i18n-attr="aria-label:cases.prev"
+                    data-case-step="-1"
+                  >
+                    ‹
+                  </button>
+                  <button
+                    class="case__arrow"
+                    type="button"
+                    aria-label="Next case"
+                    data-i18n-attr="aria-label:cases.next"
+                    data-case-step="1"
+                  >
+                    ›
+                  </button>
+                </div>
+              </div>
+            </article>
+            <article class="case case--thinning" aria-roledescription="page" data-case>
+              <div class="case__problem">
+                <div class="case__panel">
+                  <p class="case__who" data-i18n="cases.late.who">Grower · Los Palos</p>
+                  <p class="case__quote" data-i18n="cases.late.quote">
+                    “By the time I wanted to thin, it was already late.”
+                  </p>
+                  <p class="case__pain" data-i18n="cases.late.pain">
+                    Too much fruit on the tree: small calibres now, a collapse next season.
+                  </p>
+                  <p class="case__shapes" aria-hidden="true">
+                    <img
+                      class="case__shape"
+                      src="/assets/icons/shapes/olivo-color.svg"
+                      alt=""
+                      width="56"
+                      height="56"
+                      loading="lazy"
+                    /><img
+                      class="case__shape"
+                      src="/assets/icons/shapes/frio-color.svg"
+                      alt=""
+                      width="56"
+                      height="56"
+                      loading="lazy"
+                    /><img
+                      class="case__shape is-current"
+                      src="/assets/icons/shapes/aclareo-color.svg"
+                      alt=""
+                      width="56"
+                      height="56"
+                      loading="lazy"
+                    /><img
+                      class="case__shape"
+                      src="/assets/icons/shapes/rendimiento-color.svg"
+                      alt=""
+                      width="56"
+                      height="56"
+                      loading="lazy"
+                    /><img
+                      class="case__shape"
+                      src="/assets/icons/shapes/equilibrio-color.svg"
+                      alt=""
+                      width="56"
+                      height="56"
+                      loading="lazy"
+                    />
+                  </p>
+                </div>
+              </div>
+              <div class="case__solution case--thinning">
+                <p class="case__count" aria-hidden="true">03 / 04</p>
+                <p class="case__tag" data-i18n="cases.late.tag">Grower app</p>
+                <h3 class="case__title" data-i18n="cases.late.title">
+                  Viora opens your thinning window.
+                </h3>
+                <p class="case__body" data-i18n="cases.late.body">
+                  It tells you how much fruit to remove and by when, tree by tree, so calibres even
+                  out and next year’s crop holds.
+                </p>
+                <button
+                  class="case__cta"
+                  type="button"
+                  data-hero-dialog="download"
+                  data-i18n="cases.cta"
+                >
+                  see the module
+                </button>
+                <div class="case__module">
+                  <img
+                    src="/assets/icons/shapes/aclareo-color.svg"
+                    alt=""
+                    width="48"
+                    height="48"
+                    loading="lazy"
+                  />
+                  <p>
+                    <strong data-i18n="cases.late.module">Thinning plan</strong>
+                    <span data-i18n="cases.late.moduleSub">Intervention window</span>
+                  </p>
+                </div>
+                <div class="case__nav">
+                  <button
+                    class="case__arrow"
+                    type="button"
+                    aria-label="Previous case"
+                    data-i18n-attr="aria-label:cases.prev"
+                    data-case-step="-1"
+                  >
+                    ‹
+                  </button>
+                  <button
+                    class="case__arrow"
+                    type="button"
+                    aria-label="Next case"
+                    data-i18n-attr="aria-label:cases.next"
+                    data-case-step="1"
+                  >
+                    ›
+                  </button>
+                </div>
+              </div>
+            </article>
+            <article class="case case--yield" aria-roledescription="page" data-case>
+              <div class="case__problem">
+                <div class="case__panel">
+                  <p class="case__who" data-i18n="cases.intake.who">Cooperative manager · Tacna</p>
+                  <p class="case__quote" data-i18n="cases.intake.quote">
+                    “I don’t know how much we’ll collect this year.”
+                  </p>
+                  <p class="case__pain" data-i18n="cases.intake.pain">
+                    Contracts, crews and storage are all set on guesswork.
+                  </p>
+                  <p class="case__shapes" aria-hidden="true">
+                    <img
+                      class="case__shape"
+                      src="/assets/icons/shapes/olivo-color.svg"
+                      alt=""
+                      width="56"
+                      height="56"
+                      loading="lazy"
+                    /><img
+                      class="case__shape"
+                      src="/assets/icons/shapes/frio-color.svg"
+                      alt=""
+                      width="56"
+                      height="56"
+                      loading="lazy"
+                    /><img
+                      class="case__shape"
+                      src="/assets/icons/shapes/aclareo-color.svg"
+                      alt=""
+                      width="56"
+                      height="56"
+                      loading="lazy"
+                    /><img
+                      class="case__shape is-current"
+                      src="/assets/icons/shapes/rendimiento-color.svg"
+                      alt=""
+                      width="56"
+                      height="56"
+                      loading="lazy"
+                    /><img
+                      class="case__shape"
+                      src="/assets/icons/shapes/equilibrio-color.svg"
+                      alt=""
+                      width="56"
+                      height="56"
+                      loading="lazy"
+                    />
+                  </p>
+                </div>
+              </div>
+              <div class="case__solution case--yield">
+                <p class="case__count" aria-hidden="true">04 / 04</p>
+                <p class="case__tag" data-i18n="cases.intake.tag">Cooperative panel</p>
+                <h3 class="case__title" data-i18n="cases.intake.title">
+                  Viora projects your whole intake.
+                </h3>
+                <p class="case__body" data-i18n="cases.intake.body">
+                  It rolls every member’s estimate into one projection, so contracts, crews and
+                  storage are planned before the harvest starts.
+                </p>
+                <button
+                  class="case__cta"
+                  type="button"
+                  data-hero-dialog="download"
+                  data-i18n="cases.cta"
+                >
+                  see the module
+                </button>
+                <div class="case__module">
+                  <img
+                    src="/assets/icons/shapes/rendimiento-color.svg"
+                    alt=""
+                    width="48"
+                    height="48"
+                    loading="lazy"
+                  />
+                  <p>
+                    <strong data-i18n="cases.intake.module">Intake projection</strong>
+                    <span data-i18n="cases.intake.moduleSub">Cooperative view</span>
+                  </p>
+                </div>
+                <div class="case__nav">
+                  <button
+                    class="case__arrow"
+                    type="button"
+                    aria-label="Previous case"
+                    data-i18n-attr="aria-label:cases.prev"
+                    data-case-step="-1"
+                  >
+                    ‹
+                  </button>
+                  <button
+                    class="case__arrow"
+                    type="button"
+                    aria-label="Next case"
+                    data-i18n-attr="aria-label:cases.next"
+                    data-case-step="1"
+                    disabled
+                  >
+                    ›
+                  </button>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="cases__stack cases__stack--end" aria-hidden="true" data-cases-stack>
+            <button
+              class="cases__tab cases__tab--harvest"
+              type="button"
+              tabindex="-1"
+              data-case-link="0"
+              style="--d: 0"
+            >
+              <span data-i18n="cases.off.label">Off year</span>
+            </button>
+            <button
+              class="cases__tab cases__tab--chill"
+              type="button"
+              tabindex="-1"
+              data-case-link="1"
+              style="--d: 1"
+            >
+              <span data-i18n="cases.chill.label">Low chill</span>
+            </button>
+            <button
+              class="cases__tab cases__tab--thinning"
+              type="button"
+              tabindex="-1"
+              data-case-link="2"
+              style="--d: 2"
+            >
+              <span data-i18n="cases.late.label">Late thinning</span>
+            </button>
+            <button
+              class="cases__tab cases__tab--yield"
+              type="button"
+              tabindex="-1"
+              data-case-link="3"
+              style="--d: 3"
+            >
+              <span data-i18n="cases.intake.label">Uncertain intake</span>
+            </button>
+          </div>
+        </div>
+        <p class="visually-hidden" aria-live="polite" data-cases-status></p>
+      </section>
+
       <dialog
         class="hero-dialog"
         data-hero-modal

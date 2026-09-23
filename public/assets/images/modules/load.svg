@@ -1,0 +1,13 @@
+<svg width="240" height="240" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Shape">
+<path id="Branch" d="M24 92C88 50.6667 152 50.6667 216 92" stroke="#F4F8F5" stroke-width="10" stroke-linecap="round"/>
+<ellipse id="Leaf" cx="82" cy="44" rx="12" ry="40" transform="rotate(62 82 44)" fill="#F4F8F5"/>
+<ellipse id="Leaf_2" cx="158" cy="44" rx="12" ry="40" transform="rotate(-62 158 44)" fill="#F4F8F5"/>
+<path id="Stem" d="M62 74V114" stroke="#F4F8F5" stroke-width="6" stroke-linecap="round"/>
+<ellipse id="Olive" cx="62" cy="147" rx="27" ry="35" fill="#F4F8F5"/>
+<path id="Stem_2" d="M120 61V131" stroke="#F4F8F5" stroke-width="6" stroke-linecap="round"/>
+<ellipse id="Olive_2" cx="120" cy="164" rx="27" ry="35" fill="#F4F8F5"/>
+<path id="Stem_3" d="M178 74V114" stroke="#F4F8F5" stroke-width="6" stroke-linecap="round"/>
+<ellipse id="Olive_3" cx="178" cy="147" rx="27" ry="35" fill="#F4F8F5"/>
+</g>
+</svg>

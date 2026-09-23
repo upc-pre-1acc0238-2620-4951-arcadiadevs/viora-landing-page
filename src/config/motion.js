@@ -21,8 +21,18 @@ export const stagger = Object.freeze({
   loose: 0.15,
 });
 
+/**
+ * Smooth-scroll feel. `buttery` travels less per wheel tick and glides longer,
+ * so scrubbed scenes (features flock, modules card) play out over more input;
+ * set SCROLL_FEEL to 'snappy' to go back to the original tuning.
+ */
+const scrollFeels = {
+  snappy: { lerp: 0.1, wheelMultiplier: 1 },
+  buttery: { lerp: 0.075, wheelMultiplier: 0.75 },
+};
+const SCROLL_FEEL = 'buttery';
+
 export const scroll = Object.freeze({
-  lerp: 0.1,
-  wheelMultiplier: 1,
+  ...scrollFeels[SCROLL_FEEL],
   revealStart: 'top 85%',
 });

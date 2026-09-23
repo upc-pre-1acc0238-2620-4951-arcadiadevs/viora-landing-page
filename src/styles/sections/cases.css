@@ -1,0 +1,540 @@
+/*
+ * Use cases — Figma desktop 41:2854 (crency.agency "cases" notebook).
+ *
+ * Without JS the four cases read as a list of cards. sections/cases/Cases.js
+ * adds `.cases--book` and rebuilds them into a notebook: on wide screens an
+ * open spread whose right page turns over the spine, on compact screens a
+ * single page that turns away to the left. Everything inside the book is
+ * drawn in `--u`, one Figma pixel of the 880 × 560 spread.
+ */
+
+.cases {
+  --u: min(1px, calc((100vw - 4rem) / 880));
+  --paper: #f9f6f1;
+  --ink: var(--color-brand);
+  --ink-dark: var(--color-brand-dark);
+  --cursor-grab: url('/assets/cursors/grab.svg') 16 16, grab;
+  --cursor-grab-active: url('/assets/cursors/grab.svg') 16 16, grabbing;
+  --cursor-pointer: url('/assets/cursors/pointer.svg') 14 2, pointer;
+
+  position: relative;
+  overflow: clip;
+  padding: clamp(4.5rem, 2rem + 6vw, 7.5rem) var(--gutter);
+  background: var(--color-brand);
+  color: var(--color-text-inverse);
+}
+
+.cases__burst {
+  position: absolute;
+  top: calc(50% + 7.5rem);
+  left: 50%;
+  width: max(86.8vw, 46rem);
+  max-width: none;
+  height: auto;
+  translate: -50% -50%;
+  rotate: 10deg;
+  pointer-events: none;
+}
+
+.cases__title {
+  position: relative;
+  display: grid;
+  font-size: clamp(2.25rem, 1.4rem + 3.4vw, 3.625rem); /* 58 @1440 */
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+  text-align: center;
+}
+
+.cases__title span {
+  color: var(--color-surface);
+  font-weight: var(--weight-bold);
+}
+
+.cases__title em {
+  color: #fff;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: var(--weight-regular);
+}
+
+.cases__stage {
+  position: relative;
+  margin-top: clamp(3rem, 1rem + 5vw, 6.5rem);
+}
+
+/* ── Case pages ───────────────────────────────────────── */
+
+.case__problem {
+  display: flex;
+  padding: calc(20 * var(--u));
+}
+
+.case__panel {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: calc(32 * var(--u));
+  border-radius: calc(28 * var(--u));
+  background: var(--ink-dark);
+  color: var(--paper);
+}
+
+.case__who {
+  padding: calc(7 * var(--u)) calc(14 * var(--u));
+  border-radius: var(--radius-pill);
+  background: rgb(249 246 241 / 12%);
+  font-size: calc(12 * var(--u));
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.06em;
+}
+
+.case__quote {
+  max-width: calc(356 * var(--u));
+  margin-top: calc(44 * var(--u));
+  font-family: var(--font-display);
+  font-size: calc(34 * var(--u));
+  font-style: italic;
+  line-height: 1.26;
+}
+
+.case__pain {
+  max-width: calc(340 * var(--u));
+  margin-top: calc(28 * var(--u));
+  color: rgb(249 246 241 / 72%);
+  font-size: calc(15 * var(--u));
+  line-height: 1.5;
+}
+
+.case__shapes {
+  display: flex;
+  gap: calc(14 * var(--u));
+  margin-top: auto;
+  padding-top: calc(24 * var(--u));
+}
+
+.case__shape {
+  width: calc(56 * var(--u));
+  height: calc(56 * var(--u));
+  transition: translate 600ms var(--ease-out-expo);
+}
+
+.case__shape.is-current {
+  translate: 0 calc(-8 * var(--u));
+}
+
+.case__solution {
+  --accent: #e8b923;
+  --accent-ink: var(--ink-dark);
+
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto auto auto auto 1fr auto;
+  align-items: start;
+  padding: calc(38 * var(--u)) calc(28 * var(--u)) calc(40 * var(--u));
+  color: var(--ink);
+}
+
+.case--chill {
+  --accent: #d4dbd7;
+  --accent-ink: var(--ink);
+}
+
+.case--thinning {
+  --accent: #c15a2e;
+  --accent-ink: #ffe5d8;
+}
+
+.case--yield {
+  --accent: #e9a284;
+  --accent-ink: var(--ink-dark);
+}
+
+.case__count {
+  align-self: center;
+  color: rgb(31 44 38 / 55%);
+  font-size: calc(13 * var(--u));
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.12em;
+}
+
+.case__tag {
+  padding: calc(9 * var(--u)) calc(16 * var(--u));
+  border-radius: var(--radius-pill);
+  background: #d4dbd7;
+  font-size: calc(12 * var(--u));
+  font-weight: var(--weight-semibold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.case__title {
+  grid-column: 1 / -1;
+  max-width: calc(352 * var(--u));
+  margin-top: calc(34 * var(--u));
+  font-size: calc(32 * var(--u));
+  font-weight: var(--weight-bold);
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+}
+
+.case__body {
+  grid-column: 1 / -1;
+  max-width: calc(352 * var(--u));
+  margin-top: calc(24 * var(--u));
+  color: rgb(46 74 58 / 80%);
+  font-size: calc(16 * var(--u));
+  font-weight: var(--weight-medium);
+  line-height: 1.58;
+}
+
+.case__cta {
+  grid-column: 1 / -1;
+  justify-self: start;
+  margin-top: calc(28 * var(--u));
+  padding: calc(16 * var(--u)) calc(28 * var(--u));
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-size: calc(15 * var(--u));
+  font-weight: var(--weight-semibold);
+  line-height: 1;
+  cursor: var(--cursor-pointer);
+  transition: scale 500ms var(--ease-out-expo);
+}
+
+.case__cta:hover {
+  scale: 1.05;
+}
+
+.case__module {
+  grid-row: 6;
+  display: flex;
+  align-items: center;
+  gap: calc(14 * var(--u));
+  align-self: end;
+}
+
+.case__module img {
+  width: calc(48 * var(--u));
+  height: calc(48 * var(--u));
+}
+
+.case__module p {
+  display: grid;
+  gap: calc(2 * var(--u));
+  font-size: calc(13 * var(--u));
+}
+
+.case__module strong {
+  font-size: calc(16 * var(--u));
+}
+
+.case__module span {
+  color: rgb(46 74 58 / 65%);
+}
+
+.case__nav {
+  display: none;
+  grid-row: 6;
+  grid-column: 2;
+  gap: calc(10 * var(--u));
+  align-self: end;
+}
+
+.case__arrow {
+  display: grid;
+  place-items: center;
+  width: calc(36 * var(--u));
+  min-width: 32px;
+  aspect-ratio: 1;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgb(31 44 38 / 7%);
+  color: var(--ink-dark);
+  font-size: calc(20 * var(--u));
+  line-height: 1;
+  cursor: var(--cursor-pointer);
+  transition: background 250ms;
+}
+
+.case__arrow:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.case__arrow:hover:not(:disabled) {
+  background: rgb(31 44 38 / 16%);
+}
+
+/* ── Static list (no JS) ──────────────────────────────── */
+
+:where(.cases:not(.cases--book)) .cases__book {
+  display: grid;
+  gap: 1.5rem;
+  justify-items: center;
+}
+
+:where(.cases:not(.cases--book)) .case {
+  display: grid;
+  grid-template-columns: repeat(2, calc(440 * var(--u)));
+  border-radius: calc(36 * var(--u));
+  background: var(--paper);
+  box-shadow: 0 24px 60px -10px rgb(18 26 22 / 35%);
+}
+
+:where(.cases:not(.cases--book)) .case__problem {
+  min-height: calc(560 * var(--u));
+}
+
+.cases__stack {
+  display: none;
+}
+
+/* ── Book ─────────────────────────────────────────────── */
+
+.cases--book .case__nav {
+  display: flex;
+}
+
+.cases--book .cases__book {
+  position: relative;
+  width: calc(880 * var(--u));
+  height: calc(560 * var(--u));
+  margin-inline: auto;
+  z-index: 20;
+  perspective: calc(2600 * var(--u));
+  touch-action: pan-y;
+  cursor: var(--cursor-grab);
+  user-select: none;
+}
+
+.cases--book .cases__book.is-dragging {
+  cursor: var(--cursor-grab-active);
+}
+
+.cases--book .cases__book::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: calc(36 * var(--u));
+  box-shadow: 0 24px 60px -10px rgb(18 26 22 / 35%);
+}
+
+.cases--book .case {
+  display: none;
+}
+
+.book__leaf {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  transform-origin: left center;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.book__face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--paper);
+  backface-visibility: hidden;
+}
+
+.book__face > * {
+  flex: 1;
+}
+
+/* Turning shade and the fold of the spine. */
+.book__face::before,
+.book__face::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.book__face::before {
+  background: rgb(18 26 22 / var(--shade, 0));
+}
+
+.book__face--left {
+  border-radius: calc(36 * var(--u)) 0 0 calc(36 * var(--u));
+}
+
+.book__face--right {
+  border-radius: 0 calc(36 * var(--u)) calc(36 * var(--u)) 0;
+}
+
+.book__face--left::after {
+  background: linear-gradient(270deg, rgb(31 44 38 / 14%), transparent 7%);
+}
+
+.book__face--right::after {
+  background: linear-gradient(90deg, rgb(31 44 38 / 14%), transparent 7%);
+}
+
+.book__back {
+  transform: rotateY(180deg);
+}
+
+.book__base {
+  width: 50%;
+}
+
+.book__base--end {
+  left: 50%;
+}
+
+.cases--book .cases__stack {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+}
+
+.cases__tab {
+  --d: 0;
+  --peek: 0px;
+  --tab-bg: var(--paper);
+  --tab-ink: var(--ink);
+
+  position: absolute;
+  top: 0;
+  left: calc(-1 * var(--peek));
+  z-index: calc(10 - var(--d));
+  display: flex;
+  align-items: center;
+  width: calc(210 * var(--u));
+  height: calc((504 - 16 * var(--d)) * var(--u));
+  padding: 0 calc(18 * var(--u));
+  border: 0;
+  border-radius: calc(28 * var(--u));
+  background: var(--tab-bg);
+  color: var(--tab-ink);
+  translate: calc(-440 * var(--u) - 54 * var(--u) * (var(--d) + 1)) -50%;
+  rotate: calc(-2deg * (var(--d) + 1));
+  cursor: var(--cursor-pointer);
+  transition: left 500ms var(--ease-out-expo);
+}
+
+/*
+ * The hovered tab slides out of its stack, away from the book. It moves on
+ * `left`: the scroll entrance in Cases.js hands translate/rotate to GSAP.
+ */
+.cases__tab:hover,
+.cases__tab:focus-visible {
+  --peek: calc(22 * var(--u));
+}
+
+.cases__tab:nth-child(2) {
+  --tab-bg: #d4dbd7;
+}
+
+.cases__tab:nth-child(3) {
+  --tab-bg: #a8481d;
+  --tab-ink: #ffe5d8;
+}
+
+.cases__tab:nth-child(4) {
+  --tab-bg: #e8b923;
+  --tab-ink: var(--ink-dark);
+}
+
+.cases__tab span {
+  font-size: calc(14 * var(--u));
+  font-weight: var(--weight-semibold);
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  writing-mode: vertical-rl;
+  rotate: 180deg;
+}
+
+.cases__stack--end .cases__tab {
+  justify-content: flex-end;
+  left: var(--peek);
+  translate: calc(440 * var(--u) + 54 * var(--u) * (var(--d) + 1) - 210 * var(--u)) -50%;
+  rotate: calc(2deg * (var(--d) + 1));
+}
+
+/* ── Portrait phones and tablets: one page that turns away to the left ────── */
+
+/* Mirrors SINGLE in sections/cases/Cases.js. */
+@media (width < 840px) and (height > 500px) {
+  .cases {
+    --u: min(1px, calc((100vw - 2rem) / 440));
+  }
+
+  :where(.cases:not(.cases--book)) .case {
+    grid-template-columns: calc(440 * var(--u));
+  }
+
+  :where(.cases:not(.cases--book)) .case__problem {
+    min-height: calc(380 * var(--u));
+  }
+
+  .cases--book .cases__book {
+    width: calc(440 * var(--u));
+    height: calc(930 * var(--u));
+    perspective: calc(1800 * var(--u));
+  }
+
+  .cases--book .cases__book::before {
+    /* Pages beneath: the edges of the notebook peek out at the bottom. */
+    box-shadow:
+      0 calc(10 * var(--u)) 0 calc(-6 * var(--u)) #d4dbd7,
+      0 calc(20 * var(--u)) 0 calc(-12 * var(--u)) #a8481d,
+      0 24px 60px -10px rgb(18 26 22 / 35%);
+  }
+
+  .book__leaf {
+    left: 0;
+    width: 100%;
+  }
+
+  .book__face {
+    border-radius: calc(36 * var(--u));
+  }
+
+  .book__face > .case__problem {
+    flex: 0 0 calc(370 * var(--u));
+  }
+
+  .book__back {
+    background:
+      radial-gradient(circle at 50% 42%, rgb(46 74 58 / 8%), transparent 60%), var(--paper);
+  }
+
+  .case__quote {
+    margin-top: calc(28 * var(--u));
+    font-size: calc(30 * var(--u));
+  }
+
+  .case__solution {
+    padding-top: calc(20 * var(--u));
+  }
+
+  .case__title {
+    margin-top: calc(22 * var(--u));
+  }
+
+  .cases--book .cases__stack {
+    display: none;
+  }
+}
+
+/* Landscape phones keep the open spread, sized to the short height. */
+@media (height <= 500px) and (orientation: landscape) {
+  .cases {
+    --u: min(1px, calc((100vw - 4rem) / 880), calc((100svh - 2rem) / 560));
+  }
+}
