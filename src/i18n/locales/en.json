@@ -96,5 +96,73 @@
     "line2": "tracks the chill <span class=\"features__slot\" data-shape=\"chill\" aria-hidden=\"true\"></span> of every winter",
     "line3": "and tells you when to thin. <span class=\"features__slot\" data-shape=\"thinning\" aria-hidden=\"true\"></span>",
     "line4": "Steadier <span class=\"features__slot\" data-shape=\"balance\" aria-hidden=\"true\"></span> <span class=\"features__slot\" data-shape=\"yield\" aria-hidden=\"true\"></span> harvests."
+  },
+  "modules": {
+    "titleFirst": "Ready for a",
+    "titleSecond": "more even harvest",
+    "titleThird": "every year?",
+    "lead": "This is how Viora supports every stage of your season, from winter to harvest.",
+    "loadTitle": "Fruit<br />load",
+    "loadBody": "Sample your trees, even without signal, and know the real load of every lot before the season decides for you.",
+    "loadCta": "measure my load",
+    "chillTitle": "Winter<br />chill",
+    "chillBody": "Viora adds up each winter's chill portions for your variety, table or oil, and warns you when a warm winter puts your bloom at risk.",
+    "chillCta": "track my chill",
+    "thinningTitle": "Thinning<br />plan",
+    "thinningBody": "Know how much to thin and until when, for more even calibres and a next season that doesn’t collapse.",
+    "thinningCta": "plan my thinning"
+  },
+  "cases": {
+    "titleFirst": "Does any of these",
+    "titleSecond": "years sound familiar?",
+    "cta": "see the module",
+    "prev": "Previous case",
+    "next": "Next case",
+    "drag": "Drag",
+    "status": "Case {current} of {total}: {label}",
+    "off": {
+      "label": "Off year",
+      "who": "Grower · La Yarada",
+      "quote": "“I don’t know how much I’ll harvest until it’s too late.”",
+      "pain": "A loaded year, then an empty one. The season is planned blind.",
+      "tag": "Grower app",
+      "title": "Viora gives you the number before harvest.",
+      "body": "Sample a few trees from your phone, even without signal, and the app works out the target load of the lot and the yield you can expect this season.",
+      "module": "Fruit load",
+      "moduleSub": "Harvest estimate"
+    },
+    "chill": {
+      "label": "Low chill",
+      "who": "Grower · Magollo",
+      "quote": "“This winter just wasn’t cold.”",
+      "pain": "Without enough chill, bloom comes uneven and the fruit set falls short.",
+      "tag": "Grower app",
+      "title": "Viora counts every hour of cold.",
+      "body": "Weather data adds up the chill portions for your variety, table or oil, and warns you when a warm winter or an El Niño year puts your bloom at risk.",
+      "module": "Winter chill",
+      "moduleSub": "Chill and ENSO risk"
+    },
+    "late": {
+      "label": "Late thinning",
+      "who": "Grower · Los Palos",
+      "quote": "“By the time I wanted to thin, it was already late.”",
+      "pain": "Too much fruit on the tree: small calibres now, a collapse next season.",
+      "tag": "Grower app",
+      "title": "Viora opens your thinning window.",
+      "body": "It tells you how much fruit to remove and by when, tree by tree, so calibres even out and next year’s crop holds.",
+      "module": "Thinning plan",
+      "moduleSub": "Intervention window"
+    },
+    "intake": {
+      "label": "Uncertain intake",
+      "who": "Cooperative manager · Tacna",
+      "quote": "“I don’t know how much we’ll collect this year.”",
+      "pain": "Contracts, crews and storage are all set on guesswork.",
+      "tag": "Cooperative panel",
+      "title": "Viora projects your whole intake.",
+      "body": "It rolls every member’s estimate into one projection, so contracts, crews and storage are planned before the harvest starts.",
+      "module": "Intake projection",
+      "moduleSub": "Cooperative view"
+    }
   }
 }
