@@ -1415,6 +1415,224 @@
         <p class="visually-hidden" aria-live="polite" data-cases-status></p>
       </section>
 
+      <!-- Tacna: the context, the new campaign and the season, on one horizontal rail -->
+      <section
+        class="tacna"
+        id="tacna"
+        aria-labelledby="tacna-title"
+        data-tacna
+        data-nav-tone="light"
+      >
+        <div class="tacna__rail" data-tacna-rail>
+          <div class="tacna__track" data-tacna-track>
+            <!-- 01 · The context -->
+            <article class="tacna__panel tacna__panel--context" data-tacna-panel>
+              <div
+                class="tacna__branch tacna__branch--top-start"
+                aria-hidden="true"
+                data-tacna-branch
+              >
+                <video
+                  poster="/assets/effects/posters/olive-branches_01.avif"
+                  width="1080"
+                  height="1080"
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  data-src="/assets/effects/videos/olive-branches_01.webm"
+                ></video>
+              </div>
+              <!-- One branch on the seam: it grows out of the context into the campaign. -->
+              <div class="tacna__branch tacna__branch--seam" aria-hidden="true" data-tacna-branch>
+                <video
+                  poster="/assets/effects/posters/olive-branches_02.avif"
+                  width="1080"
+                  height="1080"
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  data-src="/assets/effects/videos/olive-branches_02.webm"
+                ></video>
+              </div>
+              <div class="tacna__stage tacna__context">
+                <p class="tacna__eyebrow" data-i18n="tacna.eyebrow">The context</p>
+                <h2 class="tacna__statement" id="tacna-title" data-i18n="tacna.statement">
+                  Tacna grows 81% of Peru's olives, yet every season is decided blind: one year
+                  there's fruit to spare, the next there's not enough.
+                </h2>
+                <p class="tacna__copy" data-i18n="tacna.copy">
+                  In 2024, growers in La Yarada reported losses of up to 90%. In September 2025, a
+                  record rebound. They aren't two different stories: they're the two faces of the
+                  same ON/OFF cycle.
+                </p>
+                <dl class="tacna__stats">
+                  <div class="tacna__stat">
+                    <dt class="tacna__stat-value" data-i18n="tacna.statArea" data-tacna-count>
+                      81%
+                    </dt>
+                    <dd data-i18n="tacna.statAreaLabel">of Peru's olive acreage</dd>
+                  </div>
+                  <div class="tacna__stat">
+                    <dt class="tacna__stat-value" data-i18n="tacna.statLoss" data-tacna-count>
+                      90%
+                    </dt>
+                    <dd data-i18n="tacna.statLossLabel">lost in the 2024 season</dd>
+                  </div>
+                  <div class="tacna__stat">
+                    <dt class="tacna__stat-value" data-i18n="tacna.statOff">1 in 2</dt>
+                    <dd data-i18n="tacna.statOffLabel">seasons end in an OFF year</dd>
+                  </div>
+                </dl>
+                <img
+                  class="tacna__mark"
+                  src="/assets/images/tacna/isotipo.svg"
+                  alt=""
+                  width="70"
+                  height="42"
+                  loading="lazy"
+                />
+              </div>
+            </article>
+
+            <!-- 02 · The new campaign -->
+            <article
+              class="tacna__panel tacna__panel--campaign"
+              aria-labelledby="tacna-campaign-title"
+              data-tacna-panel
+            >
+              <div class="tacna__stage tacna__campaign">
+                <figure class="tacna__picture" data-tacna-picture>
+                  <img
+                    src="/assets/images/tacna/grower.webp"
+                    srcset="
+                      /assets/images/tacna/grower-480.webp 480w,
+                      /assets/images/tacna/grower.webp     960w
+                    "
+                    sizes="(width < 840px) 90vw, 34vw"
+                    alt="A young grower looks up, dreaming of a branch heavy with olives"
+                    width="960"
+                    height="1280"
+                    loading="lazy"
+                    data-i18n-attr="alt:tacna.pictureAlt"
+                  />
+                </figure>
+                <h3 class="tacna__headline" id="tacna-campaign-title">
+                  <span class="tacna__headline-top" data-tacna-line="-1" data-i18n="tacna.lineOne"
+                    >Even</span
+                  >
+                  <em class="tacna__headline-mid" data-tacna-line="1" data-i18n="tacna.lineTwo"
+                    >harvest</em
+                  >
+                  <span
+                    class="tacna__headline-end"
+                    data-tacna-line="-0.6"
+                    data-i18n="tacna.lineThree"
+                    >ahead</span
+                  >
+                </h3>
+                <a class="tacna__plans" href="#plans" data-tacna-plans>
+                  <svg class="tacna__plans-ring" viewBox="0 0 190 190" aria-hidden="true">
+                    <circle cx="95" cy="95" r="94.5" pathLength="1" />
+                  </svg>
+                  <span data-i18n-html="tacna.plans">See<br />the plans</span>
+                </a>
+                <div class="tacna__place">
+                  <h4 class="tacna__place-title" data-i18n="tacna.placeTitle">
+                    Between La Yarada and Los Palos
+                  </h4>
+                  <p class="tacna__place-copy" data-i18n="tacna.placeCopy">
+                    Sand, sun and wells: this is where most of the country's olives are grown. Viora
+                    orders this grove's season — it measures the load, tracks the chill and sets the
+                    thinning window — so next year stops depending on chance.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <!-- 03 · The season you wanted -->
+            <article
+              class="tacna__panel tacna__panel--season"
+              aria-labelledby="tacna-season-title"
+              data-tacna-panel
+              data-tacna-season
+            >
+              <div
+                class="tacna__branch tacna__branch--top-end"
+                aria-hidden="true"
+                data-tacna-branch
+              >
+                <video
+                  poster="/assets/effects/posters/olive-branches_07.avif"
+                  width="1080"
+                  height="1080"
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  data-src="/assets/effects/videos/olive-branches_07.webm"
+                ></video>
+              </div>
+              <div class="tacna__stage tacna__season">
+                <h3 class="tacna__wish" id="tacna-season-title">
+                  <span class="tacna__wish-top" data-i18n="tacna.wishOne"
+                    >The harvest you wanted</span
+                  >
+                  <em class="tacna__wish-mid" data-i18n="tacna.wishTwo">yours</em>
+                  <span class="tacna__wish-end" data-i18n="tacna.wishThree">this year</span>
+                </h3>
+                <img
+                  class="tacna__mark tacna__mark--season"
+                  src="/assets/images/tacna/isotipo.svg"
+                  alt=""
+                  width="103"
+                  height="62"
+                  loading="lazy"
+                />
+                <div class="tacna__timeline">
+                  <svg
+                    class="tacna__line"
+                    viewBox="0 0 1042 58.5075"
+                    preserveAspectRatio="none"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M1.00026 48.2839C101 6.28391 181 8.2839 261 30.2839C361 58.2839 441 -13.7161 521 18.2839C601 50.2839 701 78.2839 781 36.2839C861 -3.71609 961 -7.7161 1041 14.2839"
+                      pathLength="1"
+                      data-tacna-line-path
+                    />
+                  </svg>
+                  <span class="tacna__traveller" aria-hidden="true" data-tacna-traveller></span>
+                  <ol class="tacna__steps">
+                    <li class="tacna__step" style="--x: 0; --y: 48.3" data-tacna-step>
+                      <strong data-i18n="tacna.stepChill">Chill builds up</strong>
+                      <span data-i18n="tacna.stepChillWhen">May – Aug</span>
+                    </li>
+                    <li class="tacna__step" style="--x: 0.25; --y: 30.3" data-tacna-step>
+                      <strong data-i18n="tacna.stepBloom">Bloom</strong>
+                      <span data-i18n="tacna.stepBloomWhen">September</span>
+                    </li>
+                    <li class="tacna__step" style="--x: 0.5; --y: 18.3" data-tacna-step>
+                      <strong data-i18n="tacna.stepSet">Fruit-set sampling</strong>
+                      <span data-i18n="tacna.stepSetWhen">November</span>
+                    </li>
+                    <li class="tacna__step" style="--x: 0.75; --y: 36.3" data-tacna-step>
+                      <strong data-i18n="tacna.stepThin">Thinning window</strong>
+                      <span data-i18n="tacna.stepThinWhen">December</span>
+                    </li>
+                    <li class="tacna__step" style="--x: 1; --y: 14.3" data-tacna-step>
+                      <strong data-i18n="tacna.stepHarvest">Harvest</strong>
+                      <span data-i18n="tacna.stepHarvestWhen">Apr – May</span>
+                    </li>
+                  </ol>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <dialog
         class="hero-dialog"
         data-hero-modal
