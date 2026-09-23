@@ -462,6 +462,217 @@
           <img src="/assets/icons/arrow-back.svg" alt="" width="64" height="64" />
         </button>
       </section>
+
+      <!-- Intro: headline → the reel flies to centre (WebGL bend) → full-bleed "About" -->
+      <section class="intro" id="intro" aria-labelledby="intro-title" data-intro>
+        <div class="intro__lead" data-nav-tone="light">
+          <h2 class="intro__title" id="intro-title">
+            <span
+              class="intro__line intro__line--first"
+              data-intro-line
+              data-i18n-html="intro.titleFirst"
+              ><strong>Field</strong> <em>Data</em>,</span
+            >
+            <span class="intro__line" data-intro-line data-i18n-html="intro.titleSecond"
+              ><em>Timely</em> <strong>Decisions</strong></span
+            >
+          </h2>
+          <div class="intro__copy">
+            <p class="intro__description" data-intro-words data-i18n="intro.description">
+              We combine field sensors, weather forecasts and tree-by-tree sampling to turn
+              alternate bearing into decisions. From the first chill alert to the end of the season,
+              Viora tells you what to do and how much to expect from your harvest.
+            </p>
+            <button
+              class="intro__download"
+              type="button"
+              data-hero-dialog="download"
+              data-reveal="up"
+            >
+              <span class="intro__download-label" data-i18n="intro.download">Get the app</span
+              ><span class="intro__download-arrow"
+                ><img src="/assets/icons/chevron.svg" alt="" width="24" height="24"
+              /></span>
+            </button>
+          </div>
+          <div class="intro__slot" data-intro-slot aria-hidden="true">
+            <img
+              src="/assets/images/intro/dock.webp"
+              alt=""
+              width="736"
+              height="973"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        </div>
+
+        <div class="intro__reel" data-intro-reel>
+          <span class="intro__tone" data-nav-tone="light" aria-hidden="true"></span>
+          <span
+            class="intro__tone intro__tone--dark"
+            data-nav-tone="dark"
+            aria-hidden="true"
+          ></span>
+          <div class="intro__stage" data-intro-stage>
+            <div class="intro__marquee intro__marquee--top" aria-hidden="true">
+              <div class="intro__marquee-track" data-intro-marquee>
+                <span class="intro__marquee-item"
+                  ><svg viewBox="0 0 30 10" width="30" height="10" focusable="false">
+                    <path d="M0 0l8 5-8 5zM11 0l8 5-8 5zM22 0l8 5-8 5z" /></svg
+                  ><span data-i18n="intro.playReel">Play reel</span></span
+                >
+              </div>
+            </div>
+            <div class="intro__marquee intro__marquee--bottom" aria-hidden="true">
+              <div class="intro__marquee-track" data-intro-marquee>
+                <span class="intro__marquee-item"
+                  ><svg viewBox="0 0 30 10" width="30" height="10" focusable="false">
+                    <path d="M0 0l8 5-8 5zM11 0l8 5-8 5zM22 0l8 5-8 5z" /></svg
+                  ><span data-i18n="intro.playReel">Play reel</span></span
+                >
+              </div>
+            </div>
+            <div class="intro__screen" data-intro-screen aria-hidden="true">
+              <video
+                class="intro__video"
+                muted
+                loop
+                playsinline
+                preload="metadata"
+                poster="/assets/images/intro/reel-poster.webp"
+                data-intro-video
+              >
+                <source src="/assets/video/intro/reel.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="intro__canvas" data-intro-canvas aria-hidden="true"></div>
+
+            <div class="intro__play" data-intro-play>
+              <span class="intro__word" data-intro-word aria-hidden="true" data-i18n="intro.play"
+                >Play</span
+              >
+              <button
+                class="intro__play-button"
+                type="button"
+                aria-label="Play the Viora reel"
+                data-i18n-attr="aria-label:intro.playLabel"
+                data-intro-open
+              >
+                <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
+                  <path
+                    d="M8 5.6v12.8a1 1 0 0 0 1.52.85l10.2-6.4a1 1 0 0 0 0-1.7L9.52 4.75A1 1 0 0 0 8 5.6Z"
+                  />
+                </svg>
+              </button>
+              <span class="intro__word" data-intro-word aria-hidden="true" data-i18n="intro.reel"
+                >Reel</span
+              >
+            </div>
+
+            <div class="intro__about" data-intro-about>
+              <button class="intro__watch glass" type="button" data-intro-open data-intro-reveal>
+                <span data-i18n="intro.watch">Watch video</span>
+                <img
+                  class="intro__watch-icon"
+                  src="/assets/icons/chevron-white.svg"
+                  alt=""
+                  width="24"
+                  height="24"
+                />
+              </button>
+              <div class="intro__about-body">
+                <span class="intro__rule" data-intro-rule aria-hidden="true"></span>
+                <div class="intro__about-lead">
+                  <h3 class="intro__about-title" data-intro-reveal data-i18n="intro.aboutTitle">
+                    We're Viora.
+                  </h3>
+                  <p class="visually-hidden" data-i18n="intro.shapesLabel">What Viora measures</p>
+                  <ul class="intro__shapes">
+                    <li class="intro__shape intro__shape--tile" data-intro-shape>
+                      <img
+                        src="/assets/icons/shapes/olivo-symbol.svg"
+                        alt="Olive grove"
+                        data-i18n-attr="alt:intro.shapeOlive"
+                        width="37"
+                        height="37"
+                      />
+                    </li>
+                    <li class="intro__shape" data-intro-shape>
+                      <img
+                        src="/assets/icons/shapes/aclareo.svg"
+                        alt="Thinning"
+                        data-i18n-attr="alt:intro.shapeThinning"
+                        width="66"
+                        height="66"
+                      />
+                    </li>
+                    <li class="intro__shape" data-intro-shape>
+                      <img
+                        src="/assets/icons/shapes/rendimiento.svg"
+                        alt="Yield"
+                        data-i18n-attr="alt:intro.shapeYield"
+                        width="66"
+                        height="66"
+                      />
+                    </li>
+                    <li class="intro__shape" data-intro-shape>
+                      <img
+                        src="/assets/icons/shapes/frio.svg"
+                        alt="Winter chill"
+                        data-i18n-attr="alt:intro.shapeChill"
+                        width="66"
+                        height="66"
+                      />
+                    </li>
+                    <li class="intro__shape intro__shape--tile" data-intro-shape>
+                      <img
+                        src="/assets/icons/shapes/equilibrio-symbol.svg"
+                        alt="Crop balance"
+                        data-i18n-attr="alt:intro.shapeBalance"
+                        width="37"
+                        height="37"
+                      />
+                    </li>
+                  </ul>
+                </div>
+                <p class="intro__about-text" data-intro-reveal data-i18n="intro.aboutBody">
+                  A Peruvian platform that manages alternate bearing in olive groves. We measure
+                  winter chill, fruit load and thinning with field nodes and offline sampling, so
+                  every season depends on data, not on each year's luck.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <dialog
+          class="intro-dialog"
+          aria-label="Viora reel"
+          data-i18n-attr="aria-label:intro.dialogLabel"
+          data-intro-dialog
+          data-lenis-prevent
+        >
+          <button
+            class="intro-dialog__close"
+            type="button"
+            data-intro-close
+            data-i18n="intro.close"
+          >
+            Close
+          </button>
+          <video
+            class="intro-dialog__video"
+            controls
+            playsinline
+            preload="none"
+            poster="/assets/images/intro/reel-poster.webp"
+            data-intro-player
+          >
+            <source src="/assets/video/intro/reel.mp4" type="video/mp4" />
+          </video>
+        </dialog>
+      </section>
       <dialog
         class="hero-dialog"
         data-hero-modal

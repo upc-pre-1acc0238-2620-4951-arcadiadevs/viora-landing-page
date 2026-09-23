@@ -5,7 +5,8 @@
  */
 import { mountAll } from '@/utils/mount.js';
 import { hero } from './hero/Hero.js';
+import { intro } from './intro/Intro.js';
 
-const registry = [hero];
+const registry = [hero, intro];
 
 export const mountSections = (root = document) => mountAll(registry, root);
