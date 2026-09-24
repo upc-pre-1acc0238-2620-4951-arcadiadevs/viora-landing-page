@@ -1,17 +1,8 @@
 import { media } from '@/config/breakpoints.js';
 import { gsap, ScrollTrigger } from '@/core/gsap.js';
 import { I18N_CHANGE } from '@/i18n/index.js';
+import { supportsAlphaVideo } from '@/utils/alphaVideo.js';
 import { clamp } from '@/utils/math.js';
-
-/**
- * The branch clips are VP9 with alpha. Safari decodes VP9 but drops the
- * alpha (the clip turns into a black square), so it keeps the posters.
- */
-const alphaVideo = () => {
-  const probe = document.createElement('video');
-  const safari = /^((?!chrome|android|crios|fxios).)*safari/i.test(navigator.userAgent);
-  return !safari && probe.canPlayType('video/webm; codecs="vp9"') !== '';
-};
 
 /** Degrees a branch leans at full scroll speed, swinging from its anchor. */
 const LEAN = 2.2;
@@ -34,7 +25,7 @@ export const tacna = {
     // ── Branches: looping clips that only play while on screen ──
     const branches = [...element.querySelectorAll('[data-tacna-branch]')];
     const clips = branches.map((branch) => branch.querySelector('video'));
-    const playable = alphaVideo();
+    const playable = supportsAlphaVideo();
     const shown = new Set();
     const play = (branch) => {
       const video = clips[branches.indexOf(branch)];
