@@ -148,14 +148,37 @@ export const bottle = {
     // ── Drag ────────────────────────────────────────────
     let start = null;
     let dx = 0;
+    // The whole stage is the handle; its buttons and links stay clickable.
+    const interactive = (event) => event.target.closest('a, button');
+    let over = false;
+    const showCursor = (on) => {
+      if (on === over) return;
+      over = on;
+      gsap.to(cursor, {
+        scale: on ? 1 : 0,
+        duration: on ? 0.5 : 0.3,
+        ease: on ? 'back.out(2)' : 'power2.in',
+        overwrite: 'auto',
+      });
+    };
     const down = (event) => {
-      if (busy || event.button > 0) return;
+      if (busy || event.button > 0 || interactive(event)) return;
       start = { x: event.clientX, y: event.clientY, id: event.pointerId };
       dx = 0;
     };
     const move = (event) => {
+      const box = stage.getBoundingClientRect();
+      const inside =
+        event.clientX >= box.left &&
+        event.clientX <= box.right &&
+        event.clientY >= box.top &&
+        event.clientY <= box.bottom;
+      // Resting pointer: the bottle leans towards it, like the reference.
+      if (inside && event.pointerType === 'mouse') {
+        scene?.hover(((event.clientX - box.left) / box.width) * 2 - 1);
+      }
       if (fine.matches && cursor) {
-        const box = stage.getBoundingClientRect();
+        showCursor(inside && !interactive(event));
         gsap.to(cursor, {
           x: event.clientX - box.left - cursor.offsetWidth / 2,
           y: event.clientY - box.top - cursor.offsetHeight / 2,
@@ -171,7 +194,7 @@ export const bottle = {
         // Only a horizontal pull is a drag; vertical is the page scrolling.
         if (Math.abs(dx) < 8 || Math.abs(dx) < Math.abs(dy)) return;
         element.classList.add('is-dragging');
-        holder.setPointerCapture?.(event.pointerId);
+        stage.setPointerCapture?.(event.pointerId);
       }
       const amount = Math.max(-1, Math.min(1, dx / RANGE));
       scene?.preview(amount);
@@ -190,18 +213,18 @@ export const bottle = {
         scatter(0);
       }
     };
-    const enter = () => gsap.to(cursor, { scale: 1, duration: 0.5, ease: 'back.out(2)' });
-    const leave = () => gsap.to(cursor, { scale: 0, duration: 0.3, ease: 'power2.in' });
-    holder.addEventListener('pointerdown', down);
-    holder.addEventListener('pointerenter', enter);
-    holder.addEventListener('pointerleave', leave);
+    const leave = () => {
+      showCursor(false);
+      scene?.hover(0);
+    };
+    stage.addEventListener('pointerdown', down);
+    stage.addEventListener('pointerleave', leave);
     window.addEventListener('pointermove', move);
     window.addEventListener('pointerup', up);
     window.addEventListener('pointercancel', up);
     cleanups.push(() => {
-      holder.removeEventListener('pointerdown', down);
-      holder.removeEventListener('pointerenter', enter);
-      holder.removeEventListener('pointerleave', leave);
+      stage.removeEventListener('pointerdown', down);
+      stage.removeEventListener('pointerleave', leave);
       window.removeEventListener('pointermove', move);
       window.removeEventListener('pointerup', up);
       window.removeEventListener('pointercancel', up);

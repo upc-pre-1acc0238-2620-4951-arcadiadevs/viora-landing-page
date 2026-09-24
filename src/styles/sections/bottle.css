@@ -35,6 +35,7 @@
   min-height: 100svh;
   padding: calc(var(--header-height) + var(--space-8)) var(--gutter) var(--space-12);
   overflow: clip;
+  cursor: grab; /* the whole stage is the drag handle */
   touch-action: pan-y;
 }
 
@@ -71,7 +72,7 @@
   grid-area: art;
   position: relative;
   z-index: 1;
-  cursor: grab;
+  pointer-events: none;
 }
 
 .bottle__canvas canvas {
@@ -81,7 +82,7 @@
   height: 100%;
 }
 
-.bottle.is-dragging .bottle__canvas {
+.bottle.is-dragging .bottle__stage {
   cursor: grabbing;
 }
 
@@ -273,9 +274,13 @@
     display: grid;
   }
 
-  .bottle__canvas,
-  .bottle.is-dragging .bottle__canvas {
+  .bottle__stage,
+  .bottle.is-dragging .bottle__stage {
     cursor: none;
+  }
+
+  .bottle__stage :is(a, button) {
+    cursor: pointer;
   }
 }
 

@@ -310,6 +310,9 @@ export default class BottleScene extends WebGLStage {
       entry: 0, // 0 below the stage → 1 in place
       drag: 0, // −1…1 while the pointer pulls the bottle
     };
+    // Where the pointer rests across the section (−1 left … 1 right), eased.
+    this.hoverTarget = 0;
+    this.hoverValue = 0;
     this.from = 0;
     this.to = 0;
     this.drift = 0;
@@ -432,6 +435,11 @@ export default class BottleScene extends WebGLStage {
     this.dirty = true;
   }
 
+  /** Pointer position across the section, −1…1: the bottle leans towards it. */
+  hover(amount) {
+    this.hoverTarget = amount;
+  }
+
   /** Dragging: `amount` in −1…1, before the swap is decided. */
   preview(amount) {
     gsap.to(this.state, { drag: amount, duration: 0.45, ease: 'power3.out', overwrite: 'auto' });
@@ -522,10 +530,16 @@ export default class BottleScene extends WebGLStage {
 
     const rise = 1 - state.entry;
     const y = -rise * 4.2 + Math.sin(time * 0.9) * 0.04;
-    const shift = state.shift + state.drag * 0.55;
-    const tilt = state.tilt - state.drag * 0.42;
+    this.hoverValue += (this.hoverTarget - this.hoverValue) * (1 - Math.exp(-dt * 3.2));
+    const hover = this.hoverValue;
+    const shift = state.shift + state.drag * 0.55 + hover * 0.42;
+    const tilt = state.tilt - state.drag * 0.42 - hover * 0.32;
     this.bottle.position.set(shift, y, 0);
-    this.bottle.rotation.set(0, state.spin + this.drift + state.drag * 0.9, tilt + rise * 0.35);
+    this.bottle.rotation.set(
+      hover * 0.12,
+      state.spin + this.drift + state.drag * 0.9 + hover * 0.35,
+      tilt + rise * 0.35,
+    );
     this.bottle.updateMatrixWorld();
 
     // Accelerations push the oil; the spring brings it back, slowly — oil is heavy.
