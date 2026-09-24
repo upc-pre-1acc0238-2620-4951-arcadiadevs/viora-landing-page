@@ -54,5 +54,31 @@
     "title": "Datos del Campo, Decisiones a Tiempo",
     "description": "Unimos sensores en campo, pronóstico del clima y muestreo árbol por árbol para convertir la vecería en decisiones. Desde la primera alerta de frío hasta el cierre de campaña, Viora te dice qué hacer y cuánto esperar de tu cosecha.",
     "download_button": "Descarga la app"
-  }
+  },
+  "about_viora_section": {
+    "title": "Somos Viora.",
+    "description": "Una plataforma peruana que gestiona la vecería del olivo. Medimos frío invernal, carga frutal y aclareo con nodos en campo y muestreo sin conexión, para que cada campaña dependa de datos y no de la suerte de cada año.",
+    "interactive_text": "Viora lee la carga de tu olivar, sigue el frío de cada invierno y te dice cuándo aclarear. Cosechas más parejas."
+  },
+  "call_to_action_closing_section": {
+    "question": "¿Listo para una cosecha más pareja cada año?",
+    "subtext": "Así acompaña Viora cada etapa de tu campaña, del invierno a la cosecha."
+  },
+  "value_proposition_pillars": [
+    {
+      "title": "Carga frutal",
+      "description": "Muestra tus árboles, incluso sin señal, y conoce la carga real de cada lote antes de que la campaña decida por ti.",
+      "button_text": "medir mi carga"
+    },
+    {
+      "title": "Frío invernal",
+      "description": "Viora suma las porciones de frío de cada invierno y te avisa cuando un invierno cálido pone en riesgo tu floración.",
+      "button_text": "seguir mi frío"
+    },
+    {
+      "title": "Plan de aclareo",
+      "description": "Sabes cuánto aclarear y hasta cuándo. Registras lo hecho y tu próxima campaña deja de ser una apuesta.",
+      "button_text": "planear mi aclareo"
+    }
+  ]
 }
