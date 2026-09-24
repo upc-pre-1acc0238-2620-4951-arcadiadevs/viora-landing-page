@@ -62,6 +62,7 @@ export const reasons = {
     const title = element.querySelector('[data-reasons-title]');
     const copy = element.querySelector('[data-reasons-copy]');
     const header = element.querySelector('[data-reasons-header]');
+    const veil = element.querySelector('[data-reasons-veil]');
     const last = cards.length - 1;
     const cleanups = [];
 
@@ -112,10 +113,12 @@ export const reasons = {
 
         // Heading: the copy clears for the first card, the title eases back.
         copy.style.opacity = String(1 - clamp((v - 0.25) / 0.35, 0, 1));
-        const exit = clamp((v - 4.3) / 0.9, 0, 1);
-        gsap.set(title, { scale: 1 - 0.14 * clamp(v / 3.6, 0, 1) - 0.28 * exit });
+        // The heading bows out while the last card still covers it, before the
+        // stack lifts; then a veil in the page colour fades the stack away.
+        const exit = clamp((v - 3.9) / 0.5, 0, 1);
+        gsap.set(title, { scale: 1 - 0.14 * clamp(v / 3.6, 0, 1) - 0.1 * exit });
         header.style.opacity = String(1 - exit);
-        deck.style.opacity = String(1 - clamp((v - 4.6) / 0.6, 0, 1));
+        veil.style.opacity = String(clamp((v - 4.6) / 0.6, 0, 1));
       };
 
       const trigger = ScrollTrigger.create({
@@ -137,7 +140,7 @@ export const reasons = {
       return () => {
         element.classList.remove('reasons--deck');
         deck.style.perspective = '';
-        deck.style.opacity = '';
+        veil.style.opacity = '';
         header.style.opacity = '';
         copy.style.opacity = '';
         gsap.set([...cards, title], { clearProps: 'transform' });

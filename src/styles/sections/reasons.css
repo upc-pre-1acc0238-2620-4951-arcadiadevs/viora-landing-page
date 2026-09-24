@@ -158,6 +158,21 @@
   will-change: transform;
 }
 
+/* Fades the lifting stack into the page without making any card see-through
+   (a translucent card would show the heading and the cards behind it). */
+.reasons__veil {
+  display: none;
+}
+
+.reasons--deck .reasons__veil {
+  position: absolute;
+  inset: 0;
+  display: block;
+  background: var(--color-surface);
+  opacity: 0;
+  pointer-events: none;
+}
+
 @media (width < 840px), (height <= 500px) and (orientation: landscape) {
   .reasons {
     --card-w: min(88vw, 62vh * 496 / 637, 30rem);
