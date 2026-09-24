@@ -1,0 +1,221 @@
+/*
+ * Sky — Figma desktop 48:3325 (location over a full-bleed aerial view).
+ *
+ * era-residence.com: three cloud layers loop sideways across the seam with the
+ * previous section and a cream haze melts them into it, so there is no visible
+ * cut. Scrolling on, the aerial view of La Yarada opens under the clouds and a
+ * location label closes it. Motion lives in sections/sky/Sky.js; the loops are
+ * CSS and only run while the section is on screen.
+ */
+
+.sky {
+  --haze: var(--color-surface);
+  --k: 1; /* cloud scale: vw-based sizes need a boost on narrow screens */
+
+  position: relative;
+  z-index: 2;
+  overflow-x: clip;
+  background: var(--color-surface);
+  color: var(--viora-white);
+}
+
+/* ── Navbar tone: cream haze first, then the photo ─────── */
+
+.sky__tone {
+  position: absolute;
+  inset-inline: 0;
+  pointer-events: none;
+}
+
+.sky__tone--haze {
+  top: 0;
+  height: calc(16vw * var(--k));
+}
+
+.sky__tone--view {
+  top: calc(16vw * var(--k));
+  bottom: 0;
+}
+
+/* ── Aerial view ──────────────────────────────────────── */
+
+/* The photo keeps only a strip of sky, so the view grows it upwards in the
+   photo's own blue: that is the room the clouds float in, above the horizon. */
+.sky__view {
+  --sky-top: rgb(18 112 214);
+  --sky-edge: rgb(25 134 234);
+
+  position: relative;
+  margin: 0;
+  padding-top: calc(16vw * var(--k));
+  overflow: clip;
+  background: linear-gradient(var(--sky-top), var(--sky-edge));
+}
+
+/* Sized by the viewport, not the photo's ratio: the whole section (grown sky
+   included) reads in about a scroll and a half, like the reference, on any
+   width. The crop comes off the bottom so the horizon keeps its clouds. */
+.sky__view img {
+  display: block;
+  width: 100%;
+  height: max(calc(110svh - 16vw * var(--k)), 60svh);
+  object-fit: cover;
+  object-position: 50% 20%;
+  mask-image: linear-gradient(transparent, #000 4vw);
+  transform-origin: 50% 30%; /* the horizon stays put while the view settles */
+}
+
+/* ── Clouds ───────────────────────────────────────────── */
+
+/* The layers straddle the seam: they rise over the previous section's cream
+   and the haze band (below) swallows the edge between both. Their tops thin
+   out to nothing on the way up so they never wash over that section's type. */
+.sky__clouds {
+  position: absolute;
+  inset-inline: 0;
+  top: calc(-12vw * var(--k));
+  z-index: 2;
+  height: calc(46vw * var(--k));
+  pointer-events: none;
+  mask-image: linear-gradient(
+    transparent,
+    rgb(0 0 0 / 35%) calc(7vw * var(--k)),
+    #000 calc(13vw * var(--k))
+  );
+}
+
+.sky__cloud {
+  position: absolute;
+  inset-inline: 0;
+  top: calc(var(--top) * var(--k));
+}
+
+.sky__cloud--33 {
+  --w: 68vw;
+  --top: 0vw;
+  --speed: 36s;
+}
+
+.sky__cloud--47 {
+  --w: 58vw;
+  --top: 3vw;
+  --speed: 46s;
+}
+
+.sky__cloud--02 {
+  --w: 52vw;
+  --top: 8vw;
+  --speed: 58s;
+}
+
+/* Four copies, every other one mirrored, so -50% loops without a seam. */
+.sky__drift {
+  display: flex;
+  width: max-content;
+  animation: sky-drift var(--speed) linear infinite reverse paused;
+}
+
+.sky__drift img {
+  flex: none;
+  width: calc(var(--w) * var(--k));
+  height: auto;
+}
+
+.sky__drift img:nth-child(even) {
+  scale: -1 1;
+}
+
+.sky.is-drifting .sky__drift {
+  animation-play-state: running;
+}
+
+@keyframes sky-drift {
+  to {
+    translate: -50% 0;
+  }
+}
+
+/* Cream band around the seam: it fades in just above it, is solid right
+   where the sections meet (15.4% = 4 of its 26vw), then melts into the sky. No edge
+   of it is ever hard, so the cut between sections never shows. */
+.sky__haze {
+  --clear: rgb(243 240 234 / 0%);
+
+  position: absolute;
+  inset-inline: 0;
+  top: calc(-4vw * var(--k));
+  z-index: 3;
+  height: calc(26vw * var(--k));
+  background:
+    linear-gradient(var(--clear), var(--haze) 15.4%, var(--haze) 22%, var(--clear) 75%),
+    linear-gradient(var(--clear), var(--haze) 15.4%, var(--clear));
+  pointer-events: none;
+}
+
+/* ── Location label ───────────────────────────────────── */
+
+.sky__place {
+  position: absolute;
+  bottom: clamp(3rem, 8vw, 8.5rem);
+  left: 68.4%;
+  z-index: 4;
+  display: grid;
+  gap: 0.75rem;
+  padding-block: 0.25rem;
+  padding-left: 1.125rem;
+  font-family: var(--font-sans);
+  line-height: 1.2;
+  text-shadow: 0 1px 14px rgb(31 44 38 / 45%);
+}
+
+.sky__place-line {
+  position: absolute;
+  inset-block: 0;
+  left: 0;
+  width: 1px;
+  background: currentcolor;
+  box-shadow: 0 0 10px rgb(31 44 38 / 35%);
+  transform-origin: 50% 0;
+}
+
+.sky__place-title {
+  margin: 0 0 0.75rem;
+  font-size: 1rem;
+  font-weight: var(--weight-medium);
+}
+
+.sky__place-region,
+.sky__place-country {
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: var(--weight-regular);
+}
+
+/* ── Compact (phones, portrait tablets, short landscape) ── */
+
+@media (width < 840px), (height <= 500px) and (orientation: landscape) {
+  .sky {
+    --k: 1.9;
+  }
+
+  .sky__view img {
+    height: 88svh;
+  }
+
+  .sky__place {
+    bottom: var(--space-12);
+    left: var(--gutter);
+  }
+}
+
+@media (height <= 500px) and (orientation: landscape) {
+  .sky {
+    --k: 1.2;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sky__drift {
+    animation: none;
+  }
+}

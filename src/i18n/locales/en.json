@@ -194,5 +194,11 @@
     "stepThinWhen": "December",
     "stepHarvest": "Harvest",
     "stepHarvestWhen": "Apr – May"
+  },
+  "sky": {
+    "place": "Yarada los Palos",
+    "region": "Tacna",
+    "country": "Peru",
+    "alt": "Aerial view of olive groves and irrigation ponds along the road through La Yarada, Tacna"
   }
 }
