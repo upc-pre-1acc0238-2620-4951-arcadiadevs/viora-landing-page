@@ -117,5 +117,36 @@
         "label": "campañas termina en año OFF"
       }
     ]
+  },
+  "location_highlight_section": {
+    "main_title": "NUEVA COSECHA PAREJA",
+    "floating_badge": "CONOCE LOS PLANES",
+    "subtitle": "ENTRE LA YARADA Y LOS PALOS",
+    "description": "Arena, sol y pozos: aquí se produce la mayor parte de la aceituna del país. Viora ordena la campaña de este olivar —mide la carga, sigue el frío y fija la ventana de aclareo— para que el próximo año deje de depender del azar."
+  },
+  "timeline_section": {
+    "main_headline": "LA COSECHA QUE QUERÍAS tuya ESTE AÑO",
+    "timeline_steps": [
+      {
+        "phase": "FRÍO ACUMULADO",
+        "timeframe": "may – ago"
+      },
+      {
+        "phase": "FLORACIÓN",
+        "timeframe": "setiembre"
+      },
+      {
+        "phase": "MUESTREO DE CUAJADO",
+        "timeframe": "noviembre"
+      },
+      {
+        "phase": "VENTANA DE ACLAREO",
+        "timeframe": "diciembre"
+      },
+      {
+        "phase": "COSECHA",
+        "timeframe": "abr – may"
+      }
+    ]
   }
 }
