@@ -2,7 +2,7 @@ import { media } from '@/config/breakpoints.js';
 import { gsap } from '@/core/gsap.js';
 import { clamp } from '@/utils/math.js';
 
-/** Every illustration draws in a 300 × 300 box (the Figma "Shape Set" slot). */
+/** Default drawing box: 300 × 300 units (the Figma "Shape Set" slot). */
 export const BOX = 300;
 
 export const palette = Object.freeze({
@@ -52,10 +52,11 @@ export const polar = (ctx, cx, cy, radius, rotation = 0, steps = 180) => {
  * its own clock so a paused loop resumes where it stopped, caps DPR at 2 and
  * redraws a single still frame under reduced motion.
  *
- * `draw(ctx, seconds)` paints the 300-unit box; `still` is the moment shown
- * without motion.
+ * `draw(ctx, seconds)` paints a `width` × `height` unit box (300 × 300 by
+ * default) that is scaled to the canvas; `still` is the moment shown without
+ * motion.
  */
-export function animateCanvas(canvas, draw, { still = 2 } = {}) {
+export function animateCanvas(canvas, draw, { still = 2, width = BOX, height = BOX } = {}) {
   const ctx = canvas.getContext('2d');
   const reduced = window.matchMedia(media.reducedMotion);
   let clock = 0;
@@ -66,7 +67,7 @@ export function animateCanvas(canvas, draw, { still = 2 } = {}) {
 
   const paint = () => {
     ctx.setTransform(scale, 0, 0, scale, 0, 0);
-    ctx.clearRect(0, 0, BOX, BOX);
+    ctx.clearRect(0, 0, width, height);
     draw(ctx, reduced.matches ? still : clock);
   };
 
@@ -74,12 +75,13 @@ export function animateCanvas(canvas, draw, { still = 2 } = {}) {
     const size = canvas.clientWidth;
     if (!size) return;
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    const pixels = Math.round(size * dpr);
-    if (canvas.width !== pixels || canvas.height !== pixels) {
-      canvas.width = pixels;
-      canvas.height = pixels;
+    const pixelsWide = Math.round(size * dpr);
+    const pixelsHigh = Math.round((size * height * dpr) / width);
+    if (canvas.width !== pixelsWide || canvas.height !== pixelsHigh) {
+      canvas.width = pixelsWide;
+      canvas.height = pixelsHigh;
     }
-    scale = pixels / BOX;
+    scale = pixelsWide / width;
     paint();
   };
 

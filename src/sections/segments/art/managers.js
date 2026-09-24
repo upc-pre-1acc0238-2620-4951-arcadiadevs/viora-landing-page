@@ -1,4 +1,4 @@
-import { easeOut, palette, polar, roundRect } from './canvas.js';
+import { easeOut, palette, polar, roundRect } from '@/effects/art/canvas.js';
 
 const SWEEP = 3.6; // seconds per radar turn
 const CELL = 19;

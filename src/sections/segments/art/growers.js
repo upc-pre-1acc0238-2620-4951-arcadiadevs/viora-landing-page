@@ -1,4 +1,12 @@
-import { easeInOut, easeOut, easeOutBack, palette, polar, roundRect, span } from './canvas.js';
+import {
+  easeInOut,
+  easeOut,
+  easeOutBack,
+  palette,
+  polar,
+  roundRect,
+  span,
+} from '@/effects/art/canvas.js';
 
 const LOOP = 7.5;
 /** Tree loads, as bar heights; the middle one is overloaded and gets thinned. */

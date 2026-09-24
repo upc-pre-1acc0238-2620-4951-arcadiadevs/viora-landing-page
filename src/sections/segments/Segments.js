@@ -3,7 +3,7 @@ import { gsap, ScrollTrigger, SplitText } from '@/core/gsap.js';
 import { I18N_BEFORE_CHANGE, I18N_CHANGE } from '@/i18n/index.js';
 import { supportsAlphaVideo } from '@/utils/alphaVideo.js';
 import { lerp } from '@/utils/math.js';
-import { animateCanvas } from './art/canvas.js';
+import { animateCanvas } from '@/effects/art/canvas.js';
 import { drawField } from './art/field.js';
 import { drawGrowers } from './art/growers.js';
 import { drawManagers } from './art/managers.js';
