@@ -2891,6 +2891,112 @@
         </div>
       </section>
 
+      <!-- Closing CTA (santionispirits.com): one olive oil bottle per segment, drag to switch -->
+      <section
+        class="bottle"
+        id="download"
+        aria-labelledby="bottle-title"
+        data-bottle
+        data-segment="0"
+        data-nav-tone="dark"
+      >
+        <div class="bottle__stage" data-bottle-stage>
+          <h2 class="bottle__title" id="bottle-title" aria-live="polite" data-bottle-title>
+            <span class="bottle__line" data-i18n="bottle.growerLine1" data-bottle-line="1"
+              >Fewer off years</span
+            >
+            <span class="bottle__line" data-i18n="bottle.growerLine2" data-bottle-line="2"
+              >More harvest</span
+            >
+            <span class="bottle__line" data-i18n="bottle.growerLine3" data-bottle-line="3"
+              >Every season</span
+            >
+          </h2>
+
+          <div
+            class="bottle__canvas"
+            role="img"
+            aria-label="A bottle of Viora olive oil"
+            data-i18n-attr="aria-label:bottle.canvasLabel"
+            data-bottle-canvas
+          ></div>
+
+          <div class="bottle__store bottle__store--apple">
+            <p data-i18n-html="bottle.appStore">Download on<br />App Store</p>
+            <button
+              class="bottle__store-button"
+              type="button"
+              aria-label="App Store"
+              data-hero-dialog="download"
+            >
+              <img src="/assets/icons/app-store.webp" alt="" width="64" height="64" />
+            </button>
+          </div>
+          <div class="bottle__store bottle__store--google">
+            <p data-i18n-html="bottle.googlePlay">Available on<br />Google Play</p>
+            <button
+              class="bottle__store-button"
+              type="button"
+              aria-label="Google Play"
+              data-hero-dialog="download"
+            >
+              <img src="/assets/icons/play-store.webp" alt="" width="64" height="64" />
+            </button>
+          </div>
+
+          <div class="bottle__foot">
+            <p class="bottle__meta" data-bottle-meta>
+              <span class="bottle__meta-side">
+                <span data-i18n="bottle.growerKind" data-bottle-swap="Kind">Grower</span>
+                <span data-i18n="bottle.growerBatch" data-bottle-swap="Batch">N.01</span>
+              </span>
+              <img src="/assets/logos/viora-isotipo-white.webp" alt="" width="36" height="36" />
+              <span class="bottle__meta-side">
+                <span data-i18n="bottle.growerHarvest" data-bottle-swap="Harvest"
+                  >Early harvest</span
+                >
+                <span data-i18n="bottle.volume">500 ml</span>
+              </span>
+            </p>
+            <div
+              class="bottle__switch"
+              role="tablist"
+              aria-label="Choose your segment"
+              data-i18n-attr="aria-label:bottle.choose"
+            >
+              <button
+                class="bottle__tab"
+                type="button"
+                role="tab"
+                aria-selected="true"
+                data-bottle-tab="0"
+              >
+                <span data-i18n="bottle.growerKind">Grower</span>
+              </button>
+              <button
+                class="bottle__tab"
+                type="button"
+                role="tab"
+                aria-selected="false"
+                data-bottle-tab="1"
+              >
+                <span data-i18n="bottle.coopKind">Cooperative</span>
+              </button>
+            </div>
+            <a class="bottle__plan" href="#pricing">
+              <span data-i18n="bottle.growerPlan" data-bottle-swap="Plan">See the grower plan</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6" /></svg>
+            </a>
+          </div>
+
+          <p class="bottle__hint" data-i18n="bottle.hint">Drag the bottle to switch</p>
+          <span class="bottle__cursor" aria-hidden="true" data-bottle-cursor>
+            <svg class="bottle__cursor-icon" viewBox="0 0 24 24"><path d="M8 7 3 12l5 5M16 7l5 5-5 5" /></svg>
+            <span data-i18n="bottle.drag">Drag</span>
+          </span>
+        </div>
+      </section>
+
       <dialog
         class="hero-dialog"
         data-hero-modal
