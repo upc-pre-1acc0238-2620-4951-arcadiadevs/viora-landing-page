@@ -319,5 +319,30 @@
     "roleJahat": "CTO & DevOps Integrator",
     "rolePiero": "COO, Researcher & QA",
     "videoLabel": "ArcadiaDevs team video"
+  },
+  "bottle": {
+    "growerLine1": "Fewer off years",
+    "growerLine2": "More harvest",
+    "growerLine3": "Every season",
+    "coopLine1": "Every member",
+    "coopLine2": "One map",
+    "coopLine3": "No guesswork",
+    "appStore": "Download on<br />App Store",
+    "googlePlay": "Available on<br />Google Play",
+    "growerKind": "Grower",
+    "growerBatch": "N.01",
+    "growerHarvest": "Early harvest",
+    "coopKind": "Cooperative",
+    "coopBatch": "N.02",
+    "coopHarvest": "Ripe harvest",
+    "volume": "500 ml",
+    "growerPlan": "See the grower plan",
+    "coopPlan": "See the cooperative plan",
+    "drag": "Drag",
+    "hint": "Drag the bottle to switch",
+    "choose": "Choose your segment",
+    "labelTop": "Extra virgin · Tacna, Peru",
+    "labelBottom": "Harvest 2026",
+    "canvasLabel": "A bottle of Viora olive oil"
   }
 }

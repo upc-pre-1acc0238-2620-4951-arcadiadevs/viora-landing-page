@@ -6,6 +6,7 @@
 import { mountAll } from '@/utils/mount.js';
 import { hero } from './hero/Hero.js';
 import { about } from './about/About.js';
+import { bottle } from './bottle/Bottle.js';
 import { cases } from './cases/Cases.js';
 import { features } from './features/Features.js';
 import { intro } from './intro/Intro.js';
@@ -30,6 +31,7 @@ const registry = [
   plans,
   plansPhone,
   about,
+  bottle,
 ];
 
 export const mountSections = (root = document) => mountAll(registry, root);
