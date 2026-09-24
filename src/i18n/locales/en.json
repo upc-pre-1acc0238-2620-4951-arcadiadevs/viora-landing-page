@@ -200,5 +200,19 @@
     "region": "Tacna",
     "country": "Peru",
     "alt": "Aerial view of olive groves and irrigation ponds along the road through La Yarada, Tacna"
+  },
+  "segments": {
+    "title": "Who it's for",
+    "panelAlt": "A grower and a technical manager check an olive branch together in the grove",
+    "growerAlt": "Portrait of an olive grower in his hat, with the grove behind him",
+    "managerAlt": "Portrait of a technical manager with glasses and a clipboard at the collection centre",
+    "growersTitle": "Olive growers",
+    "growersCopy": "Know your grove's chill, each tree's load and when to thin, from your phone and even with no signal in the field.",
+    "swingTitle": "One year too much, the next too little",
+    "swingCopy": "Selling well one season and barely covering costs the next shouldn't be normal. Viora was born to smooth out that swing.",
+    "managersTitle": "Technical managers",
+    "managersCopy": "See the alternate-bearing risk of every member on a map by sector, and forecast the intake before the harvest arrives.",
+    "fieldTitle": "You can't be at every plot",
+    "fieldCopy": "Visiting every farm, writing it in a notebook and typing it into Excel costs you weeks. Viora brings the field to your screen, on time."
   }
 }

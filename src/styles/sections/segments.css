@@ -1,0 +1,294 @@
+/*
+ * Who it's for — Figma desktop 57:3358 (two windows), 57:3438 (growers),
+ * 57:3485 (technical managers).
+ *
+ * era-residence.com: two windows on one picture line up, close into one and
+ * open to full bleed while the title rises inside it. Then the picture shrinks
+ * into the grower's portrait slot and the cards rise in (oryzo.ai); a sweep
+ * swaps in the manager's row. That scene is `.segments--rail` (wide screens
+ * with motion; Segments.js pins it). Without it the section stacks: the
+ * picture with its title, then each row of portrait and cards.
+ */
+
+.segments {
+  --u: min(calc(100vw / 1440), calc(100vh / 900));
+  --card-ink: var(--color-text);
+
+  position: relative;
+  padding-block: var(--section-space);
+  background: var(--color-surface);
+}
+
+.segments__stage {
+  display: grid;
+  gap: clamp(3rem, 7vw, 6rem);
+}
+
+/* ── Picture and title ────────────────────────────────── */
+
+.segments__scene {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  margin-inline: var(--gutter);
+  overflow: clip;
+  border-radius: 2px;
+}
+
+.segments__window {
+  position: absolute;
+  inset: 0;
+}
+
+.segments__panel {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 45%;
+}
+
+.segments__title {
+  position: absolute;
+  inset-inline: 0;
+  top: 5%;
+  margin: 0;
+  color: var(--viora-white);
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 13vw, 10.5rem);
+  font-weight: var(--weight-regular);
+  line-height: 0.9;
+  letter-spacing: -0.01em;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
+  text-shadow: 0 2px 30px rgb(31 44 38 / 18%);
+}
+
+/* The pair window, the portraits riding window A and the branches only
+   belong to the pinned scene. */
+.segments__window--pair,
+.segments__face,
+.segments__branch {
+  display: none;
+}
+
+/* ── Rows: portrait and two cards ─────────────────────── */
+
+.segments__rows {
+  display: grid;
+  gap: clamp(3rem, 6vw, 5rem);
+  padding-inline: var(--gutter);
+}
+
+.segments__row {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.segments__portrait {
+  margin: 0;
+  aspect-ratio: 4 / 5;
+  overflow: clip;
+  border-radius: 2px;
+}
+
+.segments__portrait img,
+.segments__face {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 30%;
+}
+
+.segments__card {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: var(--space-6);
+  padding: clamp(1.5rem, 2.6vw, 2.375rem) clamp(1.25rem, 2.2vw, 2rem) clamp(1.5rem, 2.8vw, 2.5rem);
+  border-radius: clamp(1.5rem, 2.6vw, 2.375rem);
+  background: var(--viora-white);
+  color: var(--card-ink);
+}
+
+.segments__card-title {
+  max-width: 8em;
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: clamp(1.5rem, 1.3rem + 0.8vw, 2rem);
+  font-weight: var(--weight-medium);
+  line-height: 0.94;
+  letter-spacing: -0.01em;
+}
+
+.segments__art {
+  display: block;
+  width: min(300px, 78%);
+  aspect-ratio: 1;
+  place-self: center;
+}
+
+.segments__card-copy {
+  max-width: 26em;
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: clamp(1rem, 0.94rem + 0.25vw, 1.25rem);
+  font-weight: var(--weight-book);
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+}
+
+@media (width >= 600px) {
+  .segments__scene {
+    aspect-ratio: 16 / 10;
+  }
+
+  .segments__row {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .segments__portrait {
+    grid-row: span 2;
+    aspect-ratio: auto;
+  }
+}
+
+@media (width >= 840px) {
+  .segments__row {
+    grid-template-columns: 362fr 507fr 467fr;
+    gap: 1.25rem;
+  }
+
+  .segments__portrait {
+    grid-row: auto;
+    aspect-ratio: 362 / 637;
+  }
+}
+
+/* ── Pinned scene (wide screens with motion) ──────────── */
+
+.segments--rail {
+  padding-block: 0;
+}
+
+.segments--rail .segments__stage {
+  position: relative;
+  display: block;
+  height: 100vh;
+  overflow: clip;
+}
+
+.segments--rail .segments__scene {
+  position: absolute;
+  inset: 0;
+  aspect-ratio: auto;
+  margin: 0;
+  overflow: visible;
+  border-radius: 0;
+}
+
+/* Windows are cut by clip-path insets written each frame from Segments.js. */
+.segments--rail .segments__window {
+  clip-path: inset(50%);
+  will-change: clip-path;
+}
+
+.segments--rail .segments__window--pair {
+  display: block;
+}
+
+.segments--rail .segments__title {
+  top: calc(50% - 450 * var(--u) + 44 * var(--u));
+  font-size: calc(216 * var(--u));
+  transform-origin: 50% 100%;
+}
+
+/* Title letters rise inside their own masks; the padding keeps accents and
+   the apostrophe from being shaved off by the mask. */
+.segments__title div:has(> .segments__char) {
+  padding-block: 0.22em 0.06em;
+  margin-block: -0.22em -0.06em;
+}
+
+.segments--rail .segments__face {
+  position: absolute;
+  display: block;
+  width: auto;
+  height: auto;
+  opacity: 0;
+}
+
+.segments--rail .segments__branch {
+  position: absolute;
+  z-index: 3;
+  display: block;
+  width: calc(620 * var(--u));
+  aspect-ratio: 1;
+  pointer-events: none;
+}
+
+.segments__branch video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  rotate: 180deg;
+}
+
+.segments__branch--start {
+  bottom: calc(-190 * var(--u));
+  left: calc(-170 * var(--u));
+}
+
+.segments__branch--end {
+  right: calc(-170 * var(--u));
+  bottom: calc(-190 * var(--u));
+}
+
+/* Rows sit on the 1440 × 900 Figma frame, one over the other. */
+.segments--rail .segments__rows {
+  position: absolute;
+  top: calc(50% - 450 * var(--u));
+  left: calc(50% - 720 * var(--u));
+  z-index: 2;
+  display: block;
+  width: calc(1440 * var(--u));
+  height: calc(900 * var(--u));
+  padding: 0;
+  pointer-events: none;
+}
+
+.segments--rail .segments__row {
+  position: absolute;
+  top: calc(128 * var(--u));
+  left: calc(43 * var(--u));
+  grid-template-columns: calc(362 * var(--u)) calc(507 * var(--u)) calc(467 * var(--u));
+  gap: calc(20 * var(--u));
+  height: calc(637 * var(--u));
+}
+
+/* Window A frames the portrait in the scene; the slot only gives its place. */
+.segments--rail .segments__portrait {
+  aspect-ratio: auto;
+  visibility: hidden;
+}
+
+.segments--rail .segments__card {
+  gap: 0;
+  padding: calc(38 * var(--u)) calc(31 * var(--u)) calc(40 * var(--u));
+  border-radius: calc(38 * var(--u));
+  pointer-events: auto;
+}
+
+.segments--rail .segments__card-title {
+  font-size: calc(32 * var(--u));
+}
+
+.segments--rail .segments__art {
+  width: calc(300 * var(--u));
+}
+
+.segments--rail .segments__card-copy {
+  padding-left: calc(10 * var(--u));
+  font-size: max(13px, calc(20 * var(--u)));
+  line-height: 1.5;
+}
