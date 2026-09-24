@@ -214,5 +214,17 @@
     "managersCopy": "See the alternate-bearing risk of every member on a map by sector, and forecast the intake before the harvest arrives.",
     "fieldTitle": "You can't be at every plot",
     "fieldCopy": "Visiting every farm, writing it in a notebook and typing it into Excel costs you weeks. Viora brings the field to your screen, on time."
+  },
+  "reasons": {
+    "title": "A bad season costs more than Viora",
+    "copy": "Pick the access that fits your grove: one plan for growers and another for cooperatives that bring their advisors along.",
+    "scienceTitle": "Agronomic science",
+    "scienceCopy": "Winter chill, alternate-bearing index and ENSO risk, calculated with agronomic models built for the olive tree.",
+    "windowTitle": "Decisions with a date",
+    "windowCopy": "Viora tells you when the thinning window opens and closes, so the right moment never slips by.",
+    "fieldTitle": "Made for the field",
+    "fieldCopy": "Record samples tree by tree with no signal and sync when you're back online.",
+    "coopTitle": "With your cooperative",
+    "coopCopy": "Your cooperative and its advisor work from the same data you do, without waiting for the next visit."
   }
 }
