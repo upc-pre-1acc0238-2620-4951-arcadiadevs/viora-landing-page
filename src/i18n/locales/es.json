@@ -337,5 +337,124 @@
       "copyright": "© 2026 ArcadiaDevs — Viora. Proyecto académico UPC.",
       "language_selector": "ES / EN"
     }
+  },
+  "privacy_policy_es": {
+    "sections": [
+      {
+        "section_number": 1,
+        "title": "Declaración de cero rastreo",
+        "content": "Este sitio web estático no utiliza cookies de rastreo, píxeles publicitarios ni herramientas de analítica de terceros. Únicamente utilizamos el almacenamiento local de su navegador (localStorage) para guardar sus preferencias de idioma y configuración de interfaz. Estos datos son estrictamente necesarios para el funcionamiento técnico del sitio, no se transmiten a servidores externos y pueden ser borrados por usted en cualquier momento desde la configuración de su navegador.",
+        "verification": "DevTools no muestra llamadas a Google Analytics, Meta Pixel, Hotjar ni Mixpanel al cargar el sitio."
+      },
+      {
+        "section_number": 2,
+        "title": "Qué guardamos en su navegador (localStorage)",
+        "legal_basis": "Necesidad técnica / interés legítimo (art. 7). No hay perfilado ni cesión. Borre estas claves desde la configuración de su navegador cuando quiera.",
+        "storage_items": [
+          {
+            "key": "data-locale-switch (en | es)",
+            "purpose": "Recordar el idioma elegido",
+            "expiration": "Persistente hasta borrado manual",
+            "justification": "Evita reconfigurar el idioma en cada vista de la SPA (Ley N° 29733, art. 7: proporcionalidad)"
+          },
+          {
+            "key": "viora_pref_distortion",
+            "purpose": "Efectos visuales / reducir movimiento",
+            "expiration": "Persistente hasta borrado manual",
+            "justification": "Accesibilidad (WCAG 2.1 AA), previene cinetosis"
+          },
+          {
+            "key": "viora_pref_sound",
+            "purpose": "Preferencia de audio",
+            "expiration": "Persistente hasta borrado manual",
+            "justification": "Respeta el volumen elegido de forma persistente"
+          }
+        ]
+      },
+      {
+        "section_number": 3,
+        "title": "Logs de infraestructura (Vercel)",
+        "content": "Al visitar el sitio, el CDN de Vercel procesa pasivamente registros técnicos (IP, User-Agent, fecha/hora) para entregar el contenido y mitigar DDoS. Conservación típica: 30 días en infraestructura Vercel. Vercel Inc. actúa como encargado del tratamiento (Ley N° 29733, art. 2 num. 6 y art. 28); al operar en EE. UU. / CDN global, configura flujo transfronterizo (art. 15) amparado en sus cláusulas contractuales y medidas equivalentes al D.S. N° 003-2013-JUS."
+      },
+      {
+        "section_number": 4,
+        "title": "Lo que esta landing NO le pide (pasarela a la app)",
+        "content": "Esta landing no tiene formularios, newsletter, cuentas ni pagos: no nos entrega nombre, DNI/RUC, email, teléfono E.164, parcelas GeoJSON, cosechas, tokens FCM ni datos de tarjeta. Si descarga la app y se registra, ese tratamiento se rige por la Política de la App (consentimiento expreso, arts. 5 y 13): identidad y roles (ROLE_PRODUCTOR, ROLE_GESTOR), parcelas PostGIS con aislamiento RLS, métricas BBI / frío Erez, notificaciones FCM, pagos Mercado Pago (sin almacenamiento de PAN/CVV en ArcadiaDevs), WhatsApp/SMS vía Twilio, clima SENAMHI/OpenWeather (solo coordenadas, sin datos personales), reportes PDF/Excel para SENASA y exportaciones que usted active (Chile/Brasil)."
+      },
+      {
+        "section_number": 5,
+        "title": "Derechos ARCO y reclamación ante la ANPD (Ley N° 29733, arts. 18–22; D.S. N° 003-2013-JUS, arts. 47 y 55)",
+        "content": "Puede ejercer Acceso, Rectificación, Cancelación y Oposición escribiendo a privacidad@viora.pe [NEEDS COUNSEL] con: identidad (DNI/CE), derecho que ejerce, datos o motivo claro y dirección de notificación.",
+        "sla_table": [
+          {
+            "right": "Acceso",
+            "statutory_deadline": "20 días hábiles",
+            "internal_target_sla": "10 días hábiles"
+          },
+          {
+            "right": "Rectificación",
+            "statutory_deadline": "10 días hábiles",
+            "internal_target_sla": "5 días hábiles"
+          },
+          {
+            "right": "Cancelación (supresión)",
+            "statutory_deadline": "10 días hábiles",
+            "internal_target_sla": "5 días hábiles"
+          },
+          {
+            "right": "Oposición",
+            "statutory_deadline": "10 días hábiles",
+            "internal_target_sla": "5 días hábiles"
+          }
+        ],
+        "notes": "Los derechos ARCO son irrenunciables. Si se deniega, se atiende parcialmente o vence el plazo sin respuesta, puede reclamar ante la Autoridad Nacional de Protección de Datos Personales (Registro Nacional, Ministerio de Justicia y Derechos Humanos, Calle Scipión Llona 350, Miraflores, Lima; plataforma gob.pe/minjus)."
+      },
+      {
+        "section_number": 6,
+        "title": "Encargados y transferencias",
+        "processors": [
+          {
+            "provider": "Vercel Inc.",
+            "function": "Hosting/CDN landing",
+            "location": "EE. UU. / global",
+            "status": "Encargo + flujo transfronterizo"
+          },
+          {
+            "provider": "Mercado Pago Perú S.A.C.",
+            "function": "Pagos en la app (Checkout Pro)",
+            "location": "Perú / Brasil / EE. UU.",
+            "status": "Encargo (art. 28); PCI-DSS"
+          },
+          {
+            "provider": "Twilio Inc.",
+            "function": "WhatsApp/SMS en la app",
+            "location": "EE. UU.",
+            "status": "Encargo + flujo transfronterizo"
+          },
+          {
+            "provider": "Google LLC (FCM)",
+            "function": "Push en la app",
+            "location": "EE. UU.",
+            "status": "Encargo + flujo transfronterizo"
+          }
+        ],
+        "additional_notes": "SENAMHI/OpenWeather: interconexión técnica sin datos personales (solo coordenadas). Exportaciones que usted active a Chile/Brasil: transferencia legítima por ejecución contractual y fines fitosanitarios/comerciales."
+      },
+      {
+        "section_number": 7,
+        "title": "Comunicaciones",
+        "content": "En esta landing no enviamos mensajes. En la app, las alertas de raleo, heladas o riego son ejecución contractual; lo promocional requiere opt-in separado (Ley N° 29571, art. 5 num. 1.2). Puede revocar lo comercial con 'STOP' o desde el panel de notificaciones, gratis y en cualquier momento."
+      },
+      {
+        "section_number": 8,
+        "title": "Seguridad, conservación y menores",
+        "content": "Seguridad razonable de la industria; en la app: TLS 1.3, SQLCipher local, JWT de 15 min con rotación, RLS por cooperativa/predio. Sin promesas absolutas. Conservamos lo necesario para la finalidad; pagos con retención fiscal de 5 años (SUNAT). Este servicio no está dirigido a menores de edad."
+      },
+      {
+        "section_number": 9,
+        "title": "Cambios, versiones y contacto",
+        "content": "Cambios sustanciales con aviso destacado 15 días antes; versión alineada al tag SemVer (vX.Y.Z). Contacto ARCO: privacidad@viora.pe [NEEDS COUNSEL]. Consumo: Libro de Reclamaciones (D.S. N° 011-2011-PCM, 15 días hábiles). Ley aplicable: Perú."
+      }
+    ]
   }
 }
