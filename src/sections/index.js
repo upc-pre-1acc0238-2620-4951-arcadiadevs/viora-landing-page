@@ -9,6 +9,7 @@ import { about } from './about/About.js';
 import { bottle } from './bottle/Bottle.js';
 import { cases } from './cases/Cases.js';
 import { features } from './features/Features.js';
+import { footer } from './footer/Footer.js';
 import { intro } from './intro/Intro.js';
 import { modules } from './modules/Modules.js';
 import { plansPhone } from './plans/phone.js';
@@ -32,6 +33,7 @@ const registry = [
   plansPhone,
   about,
   bottle,
+  footer,
 ];
 
 export const mountSections = (root = document) => mountAll(registry, root);
