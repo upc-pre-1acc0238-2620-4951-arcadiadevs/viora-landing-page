@@ -128,18 +128,28 @@ export const navbar = {
     if (reducedMotion.matches) distortion.setAttribute('aria-disabled', 'true');
     syncSwitches();
 
-    // Tone of the section under the navbar's vertical centre.
+    // Tone of whatever sits under the navbar's vertical centre, read from the
+    // live layout each frame the scroll moves (not from trigger ranges), so
+    // pinned scenes and their spacers can never put it out of step. Among the
+    // zones under that line, the last in the document wins: nested zones and
+    // later sections sliding over earlier ones.
     const setTone = (tone) => {
-      element.dataset.tone = tone;
+      if (element.dataset.tone !== tone) element.dataset.tone = tone;
     };
-    const toneTriggers = qsa('[data-nav-tone]').map((section) =>
-      ScrollTrigger.create({
-        trigger: section,
-        start: () => `top top+=${element.offsetHeight / 2}`,
-        end: () => `bottom top+=${element.offsetHeight / 2}`,
-        onToggle: (self) => self.isActive && setTone(section.dataset.navTone),
-      }),
-    );
+    const zones = qsa('[data-nav-tone]').filter((zone) => !element.contains(zone));
+    let lastScroll = -1;
+    const sampleTone = () => {
+      if (window.scrollY === lastScroll) return;
+      lastScroll = window.scrollY;
+      const y = element.offsetHeight / 2;
+      let tone;
+      zones.forEach((zone) => {
+        const box = zone.getBoundingClientRect();
+        if (box.height && box.top <= y && box.bottom > y) tone = zone.dataset.navTone;
+      });
+      if (tone) setTone(tone);
+    };
+    gsap.ticker.add(sampleTone);
 
     // Current section marker in the menu.
     const links = qsa('.navbar__link', element);
@@ -150,6 +160,7 @@ export const navbar = {
         trigger: section,
         start: 'top center',
         end: 'bottom center',
+        refreshPriority: -1,
         onToggle: (self) => {
           if (!self.isActive) return;
           links.forEach((item) => item.removeAttribute('aria-current'));
@@ -187,7 +198,8 @@ export const navbar = {
       entrance = null;
       close();
       destroyGlass();
-      [...toneTriggers, ...sectionTriggers].forEach((trigger) => trigger.kill());
+      gsap.ticker.remove(sampleTone);
+      sectionTriggers.forEach((trigger) => trigger.kill());
       element.removeEventListener('click', onToggle);
       element.removeEventListener('click', onPanelClick);
       document.removeEventListener('click', onDocumentClick);
