@@ -1761,6 +1761,226 @@
         </div>
       </section>
 
+      <!-- Who it's for: two windows on one grove close into one picture, then open onto each segment -->
+      <section
+        class="segments"
+        id="audience"
+        aria-labelledby="segments-title"
+        data-segments
+        data-nav-tone="light"
+      >
+        <div class="segments__stage" data-segments-stage>
+          <div class="segments__scene">
+            <!-- Window A carries the title and, later, each segment's portrait. -->
+            <div class="segments__window" data-segments-window>
+              <img
+                class="segments__panel"
+                src="/assets/images/segments/panel.webp"
+                srcset="
+                  /assets/images/segments/panel-960.webp  960w,
+                  /assets/images/segments/panel.webp     1448w
+                "
+                sizes="100vw"
+                alt="A grower and a technical manager check an olive branch together in the grove"
+                width="1448"
+                height="1086"
+                loading="lazy"
+                data-i18n-attr="alt:segments.panelAlt"
+              />
+              <span class="segments__scrim" aria-hidden="true" data-segments-scrim></span>
+              <h2 class="segments__title" id="segments-title" data-segments-title>
+                <span data-i18n="segments.title">Who it's for</span>
+              </h2>
+              <img
+                class="segments__face"
+                src="/assets/images/segments/grower.webp"
+                srcset="
+                  /assets/images/segments/grower-640.webp  640w,
+                  /assets/images/segments/grower.webp     1086w
+                "
+                sizes="26vw"
+                alt=""
+                width="1086"
+                height="1448"
+                loading="lazy"
+                data-segments-face
+              />
+              <img
+                class="segments__face"
+                src="/assets/images/segments/manager.webp"
+                srcset="
+                  /assets/images/segments/manager-640.webp  640w,
+                  /assets/images/segments/manager.webp     1161w
+                "
+                sizes="26vw"
+                alt=""
+                width="1161"
+                height="1355"
+                loading="lazy"
+                data-segments-face
+              />
+            </div>
+            <!-- Window B: the same picture's right half, until both close into one. -->
+            <div
+              class="segments__window segments__window--pair"
+              aria-hidden="true"
+              data-segments-window
+            >
+              <img
+                class="segments__panel"
+                src="/assets/images/segments/panel.webp"
+                srcset="
+                  /assets/images/segments/panel-960.webp  960w,
+                  /assets/images/segments/panel.webp     1448w
+                "
+                sizes="100vw"
+                alt=""
+                width="1448"
+                height="1086"
+                loading="lazy"
+              />
+            </div>
+
+            <div
+              class="segments__branch segments__branch--start"
+              aria-hidden="true"
+              data-segments-branch
+            >
+              <video
+                poster="/assets/effects/posters/olive-branches_07.avif"
+                width="1080"
+                height="1080"
+                muted
+                loop
+                playsinline
+                preload="none"
+                data-src="/assets/effects/videos/olive-branches_07.webm"
+              ></video>
+            </div>
+            <div
+              class="segments__branch segments__branch--end"
+              aria-hidden="true"
+              data-segments-branch
+            >
+              <video
+                poster="/assets/effects/posters/olive-branches_01.avif"
+                width="1080"
+                height="1080"
+                muted
+                loop
+                playsinline
+                preload="none"
+                data-src="/assets/effects/videos/olive-branches_01.webm"
+              ></video>
+            </div>
+          </div>
+
+          <div class="segments__rows">
+            <!-- Olive growers -->
+            <article
+              class="segments__row"
+              aria-labelledby="segments-growers-title"
+              data-segments-row
+            >
+              <figure class="segments__portrait" data-segments-slot>
+                <img
+                  src="/assets/images/segments/grower.webp"
+                  srcset="
+                    /assets/images/segments/grower-640.webp  640w,
+                    /assets/images/segments/grower.webp     1086w
+                  "
+                  sizes="(width < 840px) 90vw, 26vw"
+                  alt="Portrait of an olive grower in his hat, with the grove behind him"
+                  width="1086"
+                  height="1448"
+                  loading="lazy"
+                  data-i18n-attr="alt:segments.growerAlt"
+                />
+              </figure>
+              <div class="segments__card" data-segments-card>
+                <h3
+                  class="segments__card-title"
+                  id="segments-growers-title"
+                  data-i18n="segments.growersTitle"
+                >
+                  Olive growers
+                </h3>
+                <canvas
+                  class="segments__art"
+                  aria-hidden="true"
+                  data-segments-art="growers"
+                ></canvas>
+                <p class="segments__card-copy" data-i18n="segments.growersCopy">
+                  Know your grove's chill, each tree's load and when to thin, from your phone and
+                  even with no signal in the field.
+                </p>
+              </div>
+              <div class="segments__card" data-segments-card>
+                <h3 class="segments__card-title" data-i18n="segments.swingTitle">
+                  One year too much, the next too little
+                </h3>
+                <canvas class="segments__art" aria-hidden="true" data-segments-art="swing"></canvas>
+                <p class="segments__card-copy" data-i18n="segments.swingCopy">
+                  Selling well one season and barely covering costs the next shouldn't be normal.
+                  Viora was born to smooth out that swing.
+                </p>
+              </div>
+            </article>
+
+            <!-- Technical managers -->
+            <article
+              class="segments__row"
+              aria-labelledby="segments-managers-title"
+              data-segments-row
+            >
+              <figure class="segments__portrait" data-segments-slot>
+                <img
+                  src="/assets/images/segments/manager.webp"
+                  srcset="
+                    /assets/images/segments/manager-640.webp  640w,
+                    /assets/images/segments/manager.webp     1161w
+                  "
+                  sizes="(width < 840px) 90vw, 26vw"
+                  alt="Portrait of a technical manager with glasses and a clipboard at the collection centre"
+                  width="1161"
+                  height="1355"
+                  loading="lazy"
+                  data-i18n-attr="alt:segments.managerAlt"
+                />
+              </figure>
+              <div class="segments__card" data-segments-card>
+                <h3
+                  class="segments__card-title"
+                  id="segments-managers-title"
+                  data-i18n="segments.managersTitle"
+                >
+                  Technical managers
+                </h3>
+                <canvas
+                  class="segments__art"
+                  aria-hidden="true"
+                  data-segments-art="managers"
+                ></canvas>
+                <p class="segments__card-copy" data-i18n="segments.managersCopy">
+                  See the alternate-bearing risk of every member on a map by sector, and forecast
+                  the intake before the harvest arrives.
+                </p>
+              </div>
+              <div class="segments__card" data-segments-card>
+                <h3 class="segments__card-title" data-i18n="segments.fieldTitle">
+                  You can't be at every plot
+                </h3>
+                <canvas class="segments__art" aria-hidden="true" data-segments-art="field"></canvas>
+                <p class="segments__card-copy" data-i18n="segments.fieldCopy">
+                  Visiting every farm, writing it in a notebook and typing it into Excel costs you
+                  weeks. Viora brings the field to your screen, on time.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <dialog
         class="hero-dialog"
         data-hero-modal
