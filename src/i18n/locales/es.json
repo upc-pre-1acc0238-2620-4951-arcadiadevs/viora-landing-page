@@ -164,5 +164,88 @@
         "pain_point_description": "Visitar cada chacra, anotar en cuaderno y pasarlo a Excel te cuesta semanas. Viora trae el campo a tu pantalla, a tiempo."
       }
     ]
+  },
+  "pricing_intro_section": {
+    "main_title": "Una mala campaña cuesta más que Viora",
+    "subtitle": "Elige el acceso que va con tu olivar: un plan para productores y otro para cooperativas que suman a sus asesores.",
+    "featured_card": {
+      "title": "Hecha para el campo",
+      "description": "Registra muestreos sin señal y sincroniza cuando vuelvas a tener conexión."
+    }
+  },
+  "plans_section": {
+    "section_title": "Planes",
+    "section_description": "Frío. Carga. Aclareo. Cosecha. Todo lo que necesitas para anticipar tu campaña, con planes en soles para el productor y para toda su cooperativa.",
+    "plans_list": [
+      {
+        "plan_title": "Plan Productor",
+        "tagline": "Pagas por lo que siembras.",
+        "description": "Una tarifa en soles según las hectáreas de tu olivar. Pagas en línea y activas al instante el diagnóstico de vecería, el frío acumulado y la prescripción de aclareo.",
+        "price": "S/ XX",
+        "price_note": "POR HECTÁREA AL MES . REFERENCIAL",
+        "button_text": "Lo quiero",
+        "link_text": "Ver qué incluye",
+        "how_it_works": [
+          {
+            "step": "01",
+            "description": "Elige tus hectáreas: la tarifa se calcula según tu olivar"
+          },
+          {
+            "step": "02",
+            "description": "Paga en línea con Mercado Pago, sin intermediarios"
+          },
+          {
+            "step": "03",
+            "description": "Acceso inmediato a todo el plan desde tu celular"
+          }
+        ]
+      },
+      {
+        "plan_title": "Plan Cooperativa",
+        "tagline": "Una licencia para toda la organización.",
+        "description": "La cooperativa contrata un cupo de socios y hectáreas. El gestor técnico supervisa la cartera, sigue el semáforo del territorio y proyecta el acopio de la campaña.",
+        "price": "A medida",
+        "price_note": "SEGÚN SOCIOS Y HECTÁREAS . EN SOLES",
+        "button_text": "Lo quiero",
+        "link_text": "Ver qué incluye",
+        "how_it_works": [
+          {
+            "step": "04",
+            "description": "La cooperativa contrata un cupo de socios y hectáreas"
+          },
+          {
+            "step": "05",
+            "description": "El gestor supervisa la cartera y el semáforo del territorio"
+          },
+          {
+            "step": "06",
+            "description": "Proyecta el acopio verde y negro antes de la cosecha"
+          }
+        ]
+      },
+      {
+        "plan_title": "Código de cooperativa",
+        "tagline": "Si tu cooperativa ya es parte, tú no pagas.",
+        "description": "El gestor genera códigos de activación con fecha de vigencia. El socio lo canjea en la app y queda vinculado a la licencia colectiva, sin costo individual.",
+        "price": "S/ 0",
+        "price_note": "PARA EL SOCIO . LO CUBRE LA LICENCIA",
+        "button_text": "Canjear código",
+        "link_text": "¿Cómo obtengo mi código?",
+        "how_it_works": [
+          {
+            "step": "07",
+            "description": "El gestor genera un lote de códigos con fecha de vigencia"
+          },
+          {
+            "step": "08",
+            "description": "Los comparte con los socios elegibles de la cooperativa"
+          },
+          {
+            "step": "09",
+            "description": "El socio canjea su código y queda vinculado sin pagar"
+          }
+        ]
+      }
+    ]
   }
 }
