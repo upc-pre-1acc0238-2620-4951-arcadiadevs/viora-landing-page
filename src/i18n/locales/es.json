@@ -304,5 +304,38 @@
       "label": "DISPONIBLE EN GOOGLE PLAY"
     },
     "center_placeholder": "RENDER 3D PLACEHOLDER"
+  },
+  "footer_section": {
+    "cta_banner": {
+      "main_title": "Empieza a medir tu próxima campaña",
+      "subtitle": "Carga frutal, frío invernal y aclareo en una sola app, pensada para el olivar de Tacna.",
+      "download_buttons": ["App Store", "Google Play"]
+    },
+    "navigation_columns": [
+      {
+        "category": "PRODUCTO",
+        "links": ["Funcionalidades", "Casos de uso", "Video del producto"]
+      },
+      {
+        "category": "SEGMENTOS",
+        "links": ["Cosechas de Tacna", "Productor", "Gestor / Asesor"]
+      },
+      {
+        "category": "ACCESO",
+        "links": ["Plan Productor", "Plan Cooperativa", "Invitación de asesor"]
+      },
+      {
+        "category": "NOSOTROS",
+        "links": ["Equipo", "ArcadiaDevs", "Video del equipo"]
+      },
+      {
+        "category": "LEGAL",
+        "links": ["Términos de servicio", "Política de privacidad", "Descargar la app"]
+      }
+    ],
+    "bottom_bar": {
+      "copyright": "© 2026 ArcadiaDevs — Viora. Proyecto académico UPC.",
+      "language_selector": "ES / EN"
+    }
   }
 }
