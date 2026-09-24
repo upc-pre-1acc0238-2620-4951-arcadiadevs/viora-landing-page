@@ -2712,8 +2712,8 @@
                   class="about__avatar"
                   src="/assets/images/about/avatar-victor.webp"
                   alt=""
-                  width="240"
-                  height="240"
+                  width="320"
+                  height="320"
                   loading="lazy"
                 />
               </h3>
@@ -2730,8 +2730,8 @@
                   class="about__avatar"
                   src="/assets/images/about/avatar-diana.webp"
                   alt=""
-                  width="240"
-                  height="240"
+                  width="320"
+                  height="320"
                   loading="lazy"
                 />
               </h3>
@@ -2748,8 +2748,8 @@
                   class="about__avatar"
                   src="/assets/images/about/avatar-fabrizio.webp"
                   alt=""
-                  width="240"
-                  height="240"
+                  width="320"
+                  height="320"
                   loading="lazy"
                 />
               </h3>
@@ -2766,8 +2766,8 @@
                   class="about__avatar"
                   src="/assets/images/about/avatar-jahat.webp"
                   alt=""
-                  width="240"
-                  height="240"
+                  width="320"
+                  height="320"
                   loading="lazy"
                 />
               </h3>
@@ -2784,8 +2784,8 @@
                   class="about__avatar"
                   src="/assets/images/about/avatar-piero.webp"
                   alt=""
-                  width="240"
-                  height="240"
+                  width="320"
+                  height="320"
                   loading="lazy"
                 />
               </h3>
@@ -2825,11 +2825,37 @@
             <em data-i18n="about.powerful" data-about-slogan>Powerful</em>
             <span data-i18n="about.teamWord" data-about-slogan>team</span>
           </p>
-          <!-- The team video (and its dialog) is wired by the video owner. -->
           <button class="about__watch glass" type="button" data-about-watch>
             <span data-i18n="about.watch">Watch video</span>
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 6.5 15 12l-5.5 5.5" /></svg>
           </button>
+          <!-- Placeholder: the intro reel until the team video is ready. -->
+          <dialog
+            class="intro-dialog"
+            aria-label="ArcadiaDevs team video"
+            data-i18n-attr="aria-label:about.videoLabel"
+            data-about-dialog
+            data-lenis-prevent
+          >
+            <button
+              class="intro-dialog__close"
+              type="button"
+              data-about-close
+              data-i18n="intro.close"
+            >
+              Close
+            </button>
+            <video
+              class="intro-dialog__video"
+              controls
+              playsinline
+              preload="none"
+              poster="/assets/images/about/video-poster.webp"
+              data-about-player
+            >
+              <source src="/assets/video/intro/reel.mp4" type="video/mp4" />
+            </video>
+          </dialog>
         </div>
 
         <div class="about__mission" data-nav-tone="light">

@@ -1,6 +1,7 @@
 import { media } from '@/config/breakpoints.js';
 import { mountGlass } from '@/components/glass/glass.js';
 import { gsap, SplitText } from '@/core/gsap.js';
+import { startScroll, stopScroll } from '@/core/scroll.js';
 import { I18N_BEFORE_CHANGE, I18N_CHANGE } from '@/i18n/index.js';
 
 const SVG = 'http://www.w3.org/2000/svg';
@@ -55,6 +56,35 @@ export const about = {
     const cleanups = [];
 
     cleanups.push(mountGlass(element.querySelector('[data-about-film]')));
+
+    // ── Team video: the intro reel stands in until the real one lands ──
+    const watch = element.querySelector('[data-about-watch]');
+    const dialog = element.querySelector('[data-about-dialog]');
+    const player = dialog.querySelector('[data-about-player]');
+    const openVideo = () => {
+      dialog.showModal();
+      stopScroll();
+      player.currentTime = 0;
+      player.play().catch(() => {});
+    };
+    const closeVideo = () => dialog.close();
+    const closedVideo = () => {
+      player.pause();
+      startScroll();
+      watch.focus({ preventScroll: true });
+    };
+    const backdrop = (event) => event.target === dialog && closeVideo();
+    const closeButton = dialog.querySelector('[data-about-close]');
+    watch.addEventListener('click', openVideo);
+    closeButton.addEventListener('click', closeVideo);
+    dialog.addEventListener('click', backdrop);
+    dialog.addEventListener('close', closedVideo);
+    cleanups.push(() => {
+      watch.removeEventListener('click', openVideo);
+      closeButton.removeEventListener('click', closeVideo);
+      dialog.removeEventListener('click', backdrop);
+      dialog.removeEventListener('close', closedVideo);
+    });
 
     // ── Member rows: cream wipes in from where the pointer came ──
     const fine = window.matchMedia(media.finePointer);
