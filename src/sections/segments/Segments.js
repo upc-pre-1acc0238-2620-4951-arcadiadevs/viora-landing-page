@@ -18,9 +18,11 @@ const ARTS = {
 };
 
 /** The two windows once lined up, on the 1440 × 900 Figma frame (57:3358). */
-const WINDOW = { top: 150, height: 500, width: 395, left: 318, right: 727 };
-/** How far each window starts off the line, up or down. */
+const WINDOW = { top: 136, height: 504, width: 398, left: 321, right: 734 };
+/** How far each window starts off the line, up or down, as the section enters. */
 const DRIFT = 120;
+/** What's left of that offset when the stage pins (era: ±33 on the frame). */
+const ARRIVAL = 33;
 /** Pinned scroll, in viewport heights. */
 const PIN = 5.2;
 
@@ -170,6 +172,14 @@ export const segments = {
           cut(pairA, mix(mix(joined, { x: 0, y: 0, w: W, h: H }, grow), portrait, collapse));
         };
 
+        // Entering, the windows close most of their offset; the rest happens pinned.
+        gsap.to(state, {
+          align: 1 - ARRIVAL / DRIFT,
+          ease: 'none',
+          onUpdate: render,
+          scrollTrigger: { trigger: element, start: 'top bottom', end: 'top top', scrub: true },
+        });
+
         // The branches rise into the corners as the section scrolls in.
         gsap.fromTo(
           branches,
@@ -198,7 +208,11 @@ export const segments = {
         });
         timeline
           // Once the stage is pinned: the windows line up, then close the gap.
-          .to(state, { align: 1, duration: 0.7, ease: 'power1.inOut' })
+          .fromTo(
+            state,
+            { align: 1 - ARRIVAL / DRIFT },
+            { align: 1, duration: 0.6, ease: 'power1.inOut', immediateRender: false },
+          )
           .to(state, { close: 1, duration: 0.4, ease: 'power1.inOut' })
           .addLabel('grow')
           .to(state, { grow: 1, duration: 1.2, ease: 'power2.inOut' }, 'grow')
