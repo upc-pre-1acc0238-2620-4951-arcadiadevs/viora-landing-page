@@ -247,5 +247,48 @@
         ]
       }
     ]
+  },
+  "about_us_section": {
+    "main_title": "‘PERO SI ES SOLO UN PROYECTO’",
+    "subtitle": "¿Por qué no el mejor?",
+    "team_header": {
+      "title": "Nuestro equipo",
+      "slogan": "Del dato al campo",
+      "members_count": "5 integrantes",
+      "year": "2026"
+    },
+    "story_description": "La idea detrás de Viora es simple: que ninguna campaña se decida a ciegas. Somos ArcadiaDevs, cinco estudiantes de la UPC que convirtieron el problema del olivar tacneño en un producto. Del dato al campo."
+  },
+  "team_members_section": {
+    "title": "Integrantes",
+    "section_code": "05",
+    "subtitle": "Cinco perfiles, un mismo producto. Cada integrante lidera un frente de Viora, del diseño a la arquitectura y la calidad.",
+    "members": [
+      {
+        "name": "Victor",
+        "role": "CEO & Product Owner",
+        "link": "LinkedIn"
+      },
+      {
+        "name": "Diana",
+        "role": "CMO & UX Lead",
+        "link": "LinkedIn"
+      },
+      {
+        "name": "Fabrizio",
+        "role": "CPO & System Architect",
+        "link": "LinkedIn"
+      },
+      {
+        "name": "Jahat",
+        "role": "CTO & Integrador DevOps",
+        "link": "LinkedIn"
+      },
+      {
+        "name": "Piero",
+        "role": "COO, Researcher & QA",
+        "link": "LinkedIn"
+      }
+    ]
   }
 }
