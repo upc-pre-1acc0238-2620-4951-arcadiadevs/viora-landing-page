@@ -1,4 +1,12 @@
-import { easeInOut, easeOut, easeOutBack, palette, polar, roundRect, span } from './canvas.js';
+import {
+  easeInOut,
+  easeOut,
+  easeOutBack,
+  palette,
+  polar,
+  roundRect,
+  span,
+} from '@/effects/art/canvas.js';
 
 const EVERY = 1.25; // seconds between reports
 const FLIGHT = 0.85; // seconds a report travels to the screen

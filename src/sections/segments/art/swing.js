@@ -1,4 +1,4 @@
-import { easeInOut, palette, roundRect, span } from './canvas.js';
+import { easeInOut, palette, roundRect, span } from '@/effects/art/canvas.js';
 
 const LOOP = 8;
 const GAP = 36;

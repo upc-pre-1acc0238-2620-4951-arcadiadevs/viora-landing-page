@@ -1,0 +1,912 @@
+/*
+ * Plans — Figma desktop 38:2845 (header), 57:3441 / 57:3506 / 57:3509 (one
+ * row per plan: plan card, app preview, how it works).
+ *
+ * crency.agency/services: three windows stick in the middle of the screen and
+ * their contents slide up one plan at a time, in step, while the badge turns
+ * and takes each plan's colour (`.plans--rail`, Plans.js). Without it (compact
+ * screens, reduced motion, no JS) every card stacks, grouped by plan.
+ *
+ * Each slide is a size container: its insides are laid out in Figma pixels
+ * through --p (card: 428 wide inside its border) or --s (phone screen: 296).
+ */
+
+.plans {
+  --u: min(calc(100vw / 1440), calc(100vh / 900));
+  --card-border: 6px;
+
+  position: relative;
+  padding-bottom: var(--section-space);
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+
+/* ── Header ───────────────────────────────────────────── */
+
+.plans__header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-6) clamp(2rem, 6vw, 6rem);
+  align-items: center;
+  justify-content: space-between;
+  padding: clamp(4rem, 7vw, 6.25rem) var(--gutter) clamp(3rem, 6vw, 5rem);
+}
+
+.plans__title {
+  display: flex;
+  gap: 0.2em;
+  align-items: center;
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: clamp(3.5rem, 2.4rem + 4.4vw, 6rem);
+  font-weight: var(--weight-regular);
+  line-height: 0.62;
+  letter-spacing: -0.01em;
+}
+
+.plans__title img {
+  width: 0.94em;
+  height: auto;
+}
+
+.plans__lead {
+  max-width: 21.9em;
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: clamp(1.125rem, 0.95rem + 0.6vw, 1.5rem);
+  font-weight: var(--weight-book);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+.plans__lead em {
+  font-family: var(--font-serif);
+  font-style: italic;
+}
+
+/* ── Stacked (default): every slide is a card, grouped by plan ── */
+
+.plans__rail {
+  display: grid;
+  gap: var(--space-4);
+  justify-items: center;
+  padding-inline: var(--gutter);
+}
+
+.plans__column,
+.plans__viewport,
+.plans__track,
+.plans__device,
+.plans__window {
+  display: contents;
+}
+
+.plans__slide {
+  --p: calc(100cqw / 428);
+
+  position: relative;
+  order: var(--order);
+  width: min(100%, 27.5rem);
+  aspect-ratio: 428 / 808;
+  overflow: clip;
+  border: var(--card-border) solid var(--viora-white);
+  border-radius: 2.75rem;
+  container-type: inline-size;
+}
+
+.plans__star {
+  display: none;
+}
+
+/* Wide screens without the rail (reduced motion): one row per plan. */
+@media (width >= 840px) {
+  .plans__rail {
+    grid-template-columns: repeat(3, minmax(0, 27.5rem));
+    gap: var(--space-12) var(--grid-gap);
+    justify-content: center;
+  }
+
+  .plans__plan:not(:first-child) {
+    margin-top: 0;
+  }
+}
+
+/* ── Plan card ────────────────────────────────────────── */
+
+.plans__plan {
+  --ink: var(--viora-green-900);
+  --ink-soft: rgb(31 44 38 / 85%);
+  --cta-ink: var(--viora-green-900);
+  --arrow-bg: var(--viora-green-900);
+  --arrow-ink: var(--color-accent);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--color-accent);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  text-align: center;
+}
+
+.plans__plan--coop {
+  --ink: #f9f6f1;
+  --ink-soft: rgb(249 246 241 / 85%);
+  --cta-ink: var(--color-brand);
+  --arrow-bg: var(--color-accent);
+  --arrow-ink: var(--viora-green-900);
+
+  background: var(--color-brand);
+}
+
+.plans__plan--code {
+  --ink: #ffe5d8;
+  --ink-soft: rgb(255 229 216 / 90%);
+  --cta-ink: #a8481d;
+  --arrow-bg: var(--viora-green-900);
+  --arrow-ink: #ffe5d8;
+
+  background: #a8481d;
+}
+
+/* A new plan starts a little further down. */
+.plans__plan:not(:first-child) {
+  margin-top: var(--space-12);
+}
+
+.plans__icon {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: calc(116 * var(--p));
+  height: calc(116 * var(--p));
+  margin-top: calc(64 * var(--p));
+}
+
+.plans__icon img {
+  width: calc(60 * var(--p));
+  height: auto;
+}
+
+.plans__icon--box {
+  border: calc(4 * var(--p)) solid var(--viora-green-900);
+  border-radius: calc(30 * var(--p));
+  background: #f9f6f1;
+}
+
+.plans__icon--round {
+  border-radius: 50%;
+  background: var(--viora-green-900);
+}
+
+.plans__icon--badge {
+  width: calc(130 * var(--p));
+  background: url('/assets/icons/plans/badge.svg') center / 100% 100% no-repeat;
+}
+
+.plans__icon--badge img {
+  width: calc(56 * var(--p));
+  translate: calc(-6 * var(--p)) 0;
+}
+
+.plans__name {
+  margin: calc(44 * var(--p)) 0 0;
+  font-size: calc(54 * var(--p));
+  font-weight: var(--weight-bold);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+}
+
+.plans__plan--code .plans__name {
+  font-size: calc(52 * var(--p));
+}
+
+.plans__tagline {
+  max-width: calc(360 * var(--p));
+  margin: calc(22 * var(--p)) 0 0;
+  font-size: calc(17 * var(--p));
+  font-weight: var(--weight-medium);
+}
+
+.plans__copy {
+  max-width: calc(340 * var(--p));
+  margin: calc(14 * var(--p)) 0 0;
+  color: var(--ink-soft);
+  font-size: calc(15 * var(--p));
+  font-weight: var(--weight-regular);
+  line-height: 1.56;
+}
+
+.plans__price {
+  margin: calc(10 * var(--p)) 0 0;
+  font-family: var(--font-serif);
+  font-size: calc(64 * var(--p));
+  font-style: italic;
+  line-height: 1.2;
+}
+
+.plans__plan--coop .plans__price {
+  font-size: calc(58 * var(--p));
+}
+
+.plans__unit {
+  margin: calc(4 * var(--p)) 0 0;
+  color: var(--ink-soft);
+  font-size: calc(12 * var(--p));
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.plans__cta {
+  display: flex;
+  gap: calc(6 * var(--p));
+  align-items: center;
+  margin-top: calc(22 * var(--p));
+  color: var(--cta-ink);
+  text-decoration: none;
+}
+
+.plans__cta-label {
+  padding: calc(20 * var(--p)) calc(40 * var(--p));
+  border-radius: 999px;
+  background: var(--viora-white);
+  font-size: calc(24 * var(--p));
+  font-weight: var(--weight-bold);
+  line-height: 1.2;
+  transition: translate var(--duration-base) var(--ease-out-expo);
+}
+
+.plans__plan--code .plans__cta-label {
+  padding-inline: calc(36 * var(--p));
+  font-size: calc(22 * var(--p));
+}
+
+.plans__arrow {
+  flex: none;
+  width: calc(72 * var(--p));
+  height: calc(72 * var(--p));
+  transition: rotate var(--duration-base) var(--ease-out-expo);
+}
+
+.plans__arrow rect {
+  fill: var(--arrow-bg);
+}
+
+.plans__arrow path {
+  fill: none;
+  stroke: var(--arrow-ink);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 4;
+}
+
+.plans__cta:hover .plans__arrow,
+.plans__cta:focus-visible .plans__arrow {
+  rotate: -45deg;
+}
+
+.plans__cta:hover .plans__cta-label,
+.plans__cta:focus-visible .plans__cta-label {
+  translate: calc(-4 * var(--p)) 0;
+}
+
+.plans__more {
+  margin-top: calc(24 * var(--p));
+  color: var(--ink);
+  font-size: calc(16 * var(--p));
+  font-weight: var(--weight-medium);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+/* ── How it works ─────────────────────────────────────── */
+
+.plans__steps {
+  --number: var(--color-accent);
+  --text: #f9f6f1;
+  --line: rgb(232 185 35 / 80%);
+  --dot: var(--color-accent);
+
+  background: var(--color-brand);
+}
+
+.plans__steps--coop {
+  --number: var(--color-brand);
+  --text: var(--viora-green-900);
+  --line: rgb(46 74 58 / 60%);
+  --dot: var(--color-brand);
+
+  background: #f9f6f1;
+}
+
+.plans__steps--code {
+  --number: #e9a284;
+  --text: #f9f6f1;
+  --line: rgb(255 229 216 / 70%);
+  --dot: #e9a284;
+
+  background: var(--viora-green-900);
+}
+
+.plans__curve {
+  position: absolute;
+  top: calc(-22 * var(--p));
+  left: calc(137 * var(--p));
+  width: calc(256 * var(--p));
+  height: calc(850 * var(--p));
+  overflow: visible;
+}
+
+.plans__curve path {
+  fill: none;
+  stroke: var(--line);
+  stroke-dasharray: 1;
+  stroke-dashoffset: var(--draw, 0);
+  stroke-width: 2;
+  vector-effect: non-scaling-stroke;
+}
+
+.plans__dot {
+  position: absolute;
+  width: calc(12 * var(--p));
+  height: calc(12 * var(--p));
+  border-radius: 50%;
+  background: var(--dot);
+  scale: var(--pop, 1);
+}
+
+.plans__steps--code .plans__dot {
+  width: calc(16 * var(--p));
+  height: calc(16 * var(--p));
+  border: calc(1.5 * var(--p)) solid var(--dot);
+  background: radial-gradient(var(--dot) 0 calc(3 * var(--p)), transparent calc(3.5 * var(--p)));
+}
+
+.plans__dot--first {
+  top: calc(244 * var(--p));
+  left: calc(133 * var(--p));
+}
+
+.plans__dot--second {
+  top: calc(450 * var(--p));
+  left: calc(270 * var(--p));
+}
+
+.plans__dot--third {
+  top: calc(682 * var(--p));
+  left: calc(380 * var(--p));
+}
+
+.plans__step-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.plans__step {
+  position: absolute;
+  display: grid;
+  gap: calc(8 * var(--p));
+  width: calc(230 * var(--p));
+  font-family: var(--font-sans);
+}
+
+.plans__step--first {
+  top: calc(158 * var(--p));
+  left: calc(184 * var(--p));
+  width: calc(206 * var(--p));
+}
+
+.plans__step--second {
+  top: calc(388 * var(--p));
+  left: calc(28 * var(--p));
+}
+
+.plans__step--third {
+  top: calc(608 * var(--p));
+  left: calc(28 * var(--p));
+}
+
+.plans__step-number {
+  color: var(--number);
+  font-size: calc(84 * var(--p));
+  font-weight: var(--weight-bold);
+  line-height: 1.4;
+  letter-spacing: -0.035em;
+}
+
+.plans__step-text {
+  padding-left: calc(10 * var(--p));
+  color: var(--text);
+  font-size: calc(16 * var(--p));
+  font-weight: var(--weight-medium);
+  line-height: 1.45;
+}
+
+/* ── App preview (example screens; see sections/plans/phone.js) ── */
+
+.plans__screen {
+  --s: calc(100cqw / 428);
+
+  background: var(--viora-green-900);
+}
+
+/* Stacked, each screen draws its own phone inside its card. */
+.plans__screen-inner {
+  position: absolute;
+  top: calc(44 * var(--s));
+  left: calc(48 * var(--s));
+  width: calc(320 * var(--s));
+  height: calc(700 * var(--s));
+  padding: calc(12 * var(--s));
+  border-radius: calc(48 * var(--s));
+  background: #111814;
+}
+
+.pp {
+  height: 100%;
+  padding: calc(26 * var(--s)) calc(22 * var(--s));
+  overflow: clip;
+  border-radius: calc(38 * var(--s));
+  background: #f9f6f1;
+  color: var(--color-brand);
+  font-family: var(--font-sans);
+}
+
+.pp p {
+  margin: 0;
+}
+
+.pp-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: calc(18 * var(--s));
+  font-weight: var(--weight-bold);
+}
+
+.pp-menu {
+  width: calc(22 * var(--s));
+  height: calc(9 * var(--s));
+  border-block: calc(2 * var(--s)) solid currentcolor;
+}
+
+.pp-eyebrow {
+  margin-top: calc(28 * var(--s)) !important;
+  color: rgb(46 74 58 / 70%);
+  font-size: calc(11 * var(--s));
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.pp-title {
+  margin-top: calc(4 * var(--s)) !important;
+  font-size: calc(25 * var(--s));
+  font-weight: var(--weight-bold);
+  line-height: 1.3;
+}
+
+.pp-hint {
+  margin-top: calc(2 * var(--s)) !important;
+  color: rgb(46 74 58 / 70%);
+  font-size: calc(12 * var(--s));
+  line-height: 1.4;
+}
+
+.pp-box,
+.pp-field {
+  position: relative;
+  margin-top: calc(14 * var(--s));
+  padding: calc(16 * var(--s)) calc(17 * var(--s));
+  border: 1px solid rgb(46 74 58 / 12%);
+  border-radius: calc(20 * var(--s));
+  background: var(--viora-white);
+}
+
+.pp-box--short {
+  margin-top: calc(10 * var(--s));
+  padding-block: calc(12 * var(--s));
+}
+
+.pp-box--dark {
+  border: 0;
+  background: var(--color-brand);
+}
+
+.pp-label {
+  color: rgb(46 74 58 / 70%);
+  font-size: calc(12 * var(--s));
+}
+
+.pp-box--dark .pp-label {
+  color: rgb(249 246 241 / 75%);
+}
+
+.pp-value {
+  margin-top: calc(4 * var(--s)) !important;
+  font-size: calc(30 * var(--s));
+  font-weight: var(--weight-semibold);
+  line-height: 1.2;
+  font-variant-numeric: tabular-nums;
+}
+
+.pp-value--small {
+  font-size: calc(22 * var(--s));
+}
+
+.pp-value--gold {
+  color: var(--color-accent);
+  font-size: calc(28 * var(--s));
+  font-weight: var(--weight-bold);
+}
+
+.pp-value small {
+  margin-left: calc(8 * var(--s));
+  color: rgb(249 246 241 / 75%);
+  font-size: calc(11 * var(--s));
+  font-weight: var(--weight-regular);
+}
+
+.pp-stepper {
+  position: absolute;
+  top: calc(38 * var(--s));
+  right: calc(16 * var(--s));
+  display: flex;
+  gap: calc(10 * var(--s));
+}
+
+.pp-stepper > span {
+  display: grid;
+  place-items: center;
+  width: calc(40 * var(--s));
+  height: calc(40 * var(--s));
+  border-radius: 50%;
+  background: #d4dbd7;
+  color: var(--viora-green-900);
+  font-size: calc(20 * var(--s));
+  font-weight: var(--weight-semibold);
+}
+
+.pp-stepper .pp-plus {
+  background: var(--color-accent);
+}
+
+.pp-bar {
+  display: block;
+  height: calc(5 * var(--s));
+  margin-top: calc(12 * var(--s));
+  overflow: hidden;
+  border-radius: 99px;
+  background: rgb(46 74 58 / 12%);
+}
+
+.pp-bar-fill {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--color-brand);
+  transform-origin: 0 50%;
+  scale: var(--fill) 1;
+}
+
+.pp-box:first-of-type .pp-bar-fill {
+  background: var(--color-accent);
+}
+
+.pp-list {
+  display: grid;
+  gap: calc(14 * var(--s));
+  margin: calc(20 * var(--s)) 0 calc(4 * var(--s));
+  padding: 0;
+  list-style: none;
+  font-size: calc(12.5 * var(--s));
+}
+
+.pp-list li {
+  display: flex;
+  gap: calc(10 * var(--s));
+  align-items: center;
+}
+
+.pp-list li::before {
+  content: '';
+  flex: none;
+  width: calc(8 * var(--s));
+  height: calc(8 * var(--s));
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+
+.pp-caption {
+  margin-top: calc(16 * var(--s)) !important;
+  color: rgb(46 74 58 / 80%);
+  font-size: calc(12 * var(--s));
+  font-weight: var(--weight-medium);
+}
+
+.pp-chips {
+  display: grid;
+  gap: calc(6 * var(--s));
+  justify-items: start;
+  margin-top: calc(8 * var(--s)) !important;
+}
+
+.pp-chip {
+  padding: calc(6 * var(--s)) calc(12 * var(--s));
+  border-radius: 999px;
+  font-size: calc(11 * var(--s));
+  font-weight: var(--weight-medium);
+}
+
+.pp-chip--ok {
+  background: #dcf4e3;
+  color: #067429;
+}
+
+.pp-chip--watch {
+  background: #fff0b4;
+  color: #765500;
+}
+
+.pp-chip--over {
+  background: #ffdfd6;
+  color: #870000;
+}
+
+.pp-button {
+  margin-top: calc(18 * var(--s)) !important;
+  padding: calc(16 * var(--s));
+  border-radius: 999px;
+  font-size: calc(14 * var(--s));
+  font-weight: var(--weight-semibold);
+  text-align: center;
+}
+
+.pp-button--gold {
+  background: var(--color-accent);
+  color: var(--viora-green-900);
+}
+
+.pp-button--forest {
+  margin-top: calc(14 * var(--s)) !important;
+  background: var(--color-brand);
+  color: #f9f6f1;
+}
+
+.pp-field {
+  padding: calc(8 * var(--s)) calc(14 * var(--s)) calc(10 * var(--s));
+  border: 2px solid var(--color-brand);
+  border-radius: calc(16 * var(--s));
+}
+
+.pp-code {
+  display: flex;
+  align-items: center;
+  margin-top: calc(2 * var(--s)) !important;
+  font-size: calc(20 * var(--s));
+  font-weight: var(--weight-semibold);
+  letter-spacing: 0.1em;
+}
+
+.pp-caret {
+  width: 2px;
+  height: 1em;
+  margin-left: 2px;
+  background: currentcolor;
+  animation: pp-blink 1s steps(1) infinite;
+}
+
+@keyframes pp-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.pp-success {
+  margin-top: calc(22 * var(--s));
+  padding: calc(18 * var(--s));
+  border-radius: calc(20 * var(--s));
+  background: #dcf4e3;
+  color: #06401c;
+}
+
+.pp-check {
+  display: block;
+  width: calc(36 * var(--s));
+  height: calc(36 * var(--s));
+}
+
+.pp-check circle {
+  fill: #2e8b57;
+}
+
+.pp-check path {
+  fill: none;
+  stroke: var(--viora-white);
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 3;
+}
+
+.pp-success-title {
+  margin-top: calc(12 * var(--s)) !important;
+  font-size: calc(15 * var(--s));
+  font-weight: var(--weight-semibold);
+}
+
+.pp-success-copy {
+  margin-top: calc(6 * var(--s)) !important;
+  color: rgb(6 64 28 / 85%);
+  font-size: calc(12 * var(--s));
+  line-height: 1.4;
+}
+
+.pp-fine {
+  margin-top: calc(16 * var(--s)) !important;
+  color: rgb(46 74 58 / 55%);
+  font-size: calc(11 * var(--s));
+  text-align: center;
+}
+
+/* The sticky note on the screen, like the reference's. */
+.pp-note {
+  position: absolute;
+  top: calc(150 * var(--s));
+  right: calc(-6 * var(--s));
+  padding: calc(10 * var(--s));
+  background: var(--color-accent);
+  color: var(--viora-green-900);
+  font-size: calc(10 * var(--s));
+  font-weight: var(--weight-semibold);
+  line-height: 1.4;
+  box-shadow: 0 calc(6 * var(--s)) calc(14 * var(--s)) rgb(0 0 0 / 18%);
+  rotate: 4deg;
+}
+
+.pp-note--low {
+  top: auto;
+  bottom: calc(80 * var(--s));
+  background: #ffe5d8;
+}
+
+/* ── Rail (wide screens with motion): three sticky windows ── */
+
+/* The windows are the 440 × 820 Figma cards, scaled (--k) to fit under the
+   navbar: the badge on the last one would collide with the menu otherwise. */
+.plans--rail {
+  --k: min(calc(100vw / 1440), calc((100vh - var(--header-height) - 1.5rem) / 820));
+}
+
+.plans--rail .plans__rail {
+  grid-template-columns: repeat(3, calc(440 * var(--k)));
+  gap: calc(20 * var(--k));
+  place-items: start stretch;
+  justify-content: center;
+  height: calc(820 * var(--k) + 220vh);
+  padding: 0;
+}
+
+.plans--rail .plans__column {
+  position: sticky;
+  top: calc(var(--header-height) + (100vh - var(--header-height) - 820 * var(--k)) / 2);
+  display: block;
+}
+
+.plans--rail .plans__viewport {
+  position: relative;
+  display: block;
+  height: calc(820 * var(--k));
+  overflow: clip;
+  border: var(--card-border) solid var(--viora-white);
+  border-radius: calc(44 * var(--k));
+  background: var(--viora-white);
+}
+
+.plans--rail .plans__track {
+  display: block;
+  height: 100%;
+  will-change: transform;
+}
+
+.plans--rail .plans__slide {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+}
+
+/* The phone stays put; only its screens slide. */
+.plans--rail .plans__viewport--phone {
+  background: var(--viora-green-900);
+}
+
+.plans--rail .plans__device {
+  position: absolute;
+  top: calc(44 * var(--k));
+  left: calc(48 * var(--k));
+  display: block;
+  width: calc(320 * var(--k));
+  height: calc(700 * var(--k));
+  padding: calc(12 * var(--k));
+  border-radius: calc(48 * var(--k));
+  background: #111814;
+}
+
+.plans--rail .plans__window {
+  display: block;
+  height: 100%;
+  overflow: clip;
+  border-radius: calc(38 * var(--k));
+}
+
+.plans--rail .plans__screen {
+  --s: calc(100cqw / 296);
+
+  background: #f9f6f1;
+}
+
+.plans--rail .plans__screen-inner {
+  inset: 0;
+  width: auto;
+  height: auto;
+  padding: 0;
+  border-radius: 0;
+  background: none;
+}
+
+.plans--rail .pp {
+  border-radius: 0;
+}
+
+.plans--rail .plans__star {
+  --star-ink: var(--viora-green-900);
+
+  position: absolute;
+  top: calc(-18 * var(--k));
+  left: calc(304 * var(--k));
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: calc(176 * var(--k));
+  aspect-ratio: 1;
+  color: var(--color-accent);
+  pointer-events: none;
+}
+
+.plans__star svg {
+  grid-area: 1 / 1;
+  width: 100%;
+  fill: currentcolor;
+  animation: plans-spin 40s linear infinite;
+}
+
+.plans__star span {
+  grid-area: 1 / 1;
+  color: var(--star-ink);
+  font-family: var(--font-sans);
+  font-size: calc(14 * var(--k));
+  font-weight: var(--weight-bold);
+  white-space: nowrap;
+  rotate: -8deg;
+}
+
+/* The badge's idle spin; scroll adds its own turn through `transform`. */
+@keyframes plans-spin {
+  to {
+    rotate: 360deg;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pp-caret,
+  .plans__star svg {
+    animation: none;
+  }
+}

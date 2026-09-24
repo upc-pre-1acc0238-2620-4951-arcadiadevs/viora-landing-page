@@ -1981,6 +1981,559 @@
         </div>
       </section>
 
+      <!-- Plans lead-in: why Viora pays for itself, four cards flipping onto one stack -->
+      <section
+        class="reasons"
+        id="plans"
+        aria-labelledby="reasons-title"
+        data-reasons
+        data-nav-tone="light"
+      >
+        <div class="reasons__stage" data-reasons-stage>
+          <header class="reasons__header" data-reasons-header>
+            <h2
+              class="reasons__title"
+              id="reasons-title"
+              data-reasons-title
+              data-i18n="reasons.title"
+            >
+              A bad season costs more than Viora
+            </h2>
+            <p class="reasons__copy" data-reasons-copy data-i18n="reasons.copy">
+              Pick the access that fits your grove: one plan for growers and another for
+              cooperatives that bring their advisors along.
+            </p>
+          </header>
+
+          <ol class="reasons__deck" data-reasons-deck>
+            <li class="reasons__card" data-reasons-card>
+              <div class="reasons__media">
+                <canvas class="reasons__art" aria-hidden="true" data-reasons-art="science"></canvas>
+              </div>
+              <h3 class="reasons__card-title" data-i18n="reasons.scienceTitle">
+                Agronomic science
+              </h3>
+              <p class="reasons__card-copy" data-i18n="reasons.scienceCopy">
+                Winter chill, alternate-bearing index and ENSO risk, calculated with agronomic
+                models built for the olive tree.
+              </p>
+              <span class="reasons__shade" aria-hidden="true" data-reasons-shade></span>
+            </li>
+            <li class="reasons__card" data-reasons-card>
+              <div class="reasons__media">
+                <canvas class="reasons__art" aria-hidden="true" data-reasons-art="window"></canvas>
+              </div>
+              <h3 class="reasons__card-title" data-i18n="reasons.windowTitle">
+                Decisions with a date
+              </h3>
+              <p class="reasons__card-copy" data-i18n="reasons.windowCopy">
+                Viora tells you when the thinning window opens and closes, so the right moment never
+                slips by.
+              </p>
+              <span class="reasons__shade" aria-hidden="true" data-reasons-shade></span>
+            </li>
+            <li class="reasons__card" data-reasons-card>
+              <div class="reasons__media">
+                <canvas class="reasons__art" aria-hidden="true" data-reasons-art="field"></canvas>
+              </div>
+              <h3 class="reasons__card-title" data-i18n="reasons.fieldTitle">Made for the field</h3>
+              <p class="reasons__card-copy" data-i18n="reasons.fieldCopy">
+                Record samples tree by tree with no signal and sync when you're back online.
+              </p>
+              <span class="reasons__shade" aria-hidden="true" data-reasons-shade></span>
+            </li>
+            <li class="reasons__card" data-reasons-card>
+              <div class="reasons__media">
+                <canvas class="reasons__art" aria-hidden="true" data-reasons-art="coop"></canvas>
+              </div>
+              <h3 class="reasons__card-title" data-i18n="reasons.coopTitle">
+                With your cooperative
+              </h3>
+              <p class="reasons__card-copy" data-i18n="reasons.coopCopy">
+                Your cooperative and its advisor work from the same data you do, without waiting for
+                the next visit.
+              </p>
+              <span class="reasons__shade" aria-hidden="true" data-reasons-shade></span>
+            </li>
+          </ol>
+          <span class="reasons__veil" aria-hidden="true" data-reasons-veil></span>
+        </div>
+      </section>
+
+      <!-- Plans (crency.agency/services): three windows scroll through each plan in step -->
+      <section
+        class="plans"
+        id="pricing"
+        aria-labelledby="plans-title"
+        data-plans
+        data-nav-tone="light"
+      >
+        <header class="plans__header">
+          <h2 class="plans__title" id="plans-title">
+            <span data-i18n="plans.title">Plans</span>
+            <img src="/assets/icons/plans/shape.svg" alt="" width="90" height="90" />
+          </h2>
+          <p class="plans__lead" data-i18n-html="plans.lead">
+            Chill. Load. Thinning. Harvest. Everything you need to get ahead of your season, with
+            plans in soles for the grower and <em>for the whole cooperative.</em>
+          </p>
+        </header>
+
+        <div class="plans__rail" data-plans-rail>
+          <div class="plans__column">
+            <div class="plans__viewport">
+              <div class="plans__track" data-plans-track>
+                <article
+                  class="plans__slide plans__plan plans__plan--grower"
+                  style="--order: 0"
+                  aria-labelledby="plans-grower-title"
+                  data-plans-slide
+                >
+                  <span class="plans__icon plans__icon--box"
+                    ><img src="/assets/icons/plans/fruit.svg" alt="" width="60" height="60"
+                  /></span>
+                  <h3 class="plans__name" id="plans-grower-title" data-i18n-html="plans.growerName">
+                    Grower<br />plan
+                  </h3>
+                  <p class="plans__tagline" data-i18n="plans.growerTagline">
+                    You pay for what you grow.
+                  </p>
+                  <p class="plans__copy" data-i18n="plans.growerCopy">
+                    A rate in soles based on your grove's hectares. Pay online and instantly unlock
+                    the alternate-bearing diagnosis, accumulated chill and the thinning
+                    prescription.
+                  </p>
+                  <p class="plans__price" data-i18n="plans.growerPrice">S/ XX</p>
+                  <p class="plans__unit" data-i18n="plans.growerUnit">
+                    per hectare a month · reference
+                  </p>
+                  <a class="plans__cta" href="#download">
+                    <span class="plans__cta-label" data-i18n="plans.growerCta">I want it</span>
+                    <svg class="plans__arrow" viewBox="0 0 72 72" aria-hidden="true">
+                      <rect width="72" height="72" rx="36" />
+                      <path d="M25 25L47 47M29 47H47V29" />
+                    </svg>
+                  </a>
+                  <a class="plans__more" href="#product" data-i18n="plans.growerMore"
+                    >See what's included</a
+                  >
+                </article>
+                <article
+                  class="plans__slide plans__plan plans__plan--coop"
+                  style="--order: 3"
+                  aria-labelledby="plans-coop-title"
+                  data-plans-slide
+                >
+                  <span class="plans__icon plans__icon--round"
+                    ><img src="/assets/icons/plans/groups.svg" alt="" width="60" height="60"
+                  /></span>
+                  <h3 class="plans__name" id="plans-coop-title" data-i18n-html="plans.coopName">
+                    Cooperative<br />plan
+                  </h3>
+                  <p class="plans__tagline" data-i18n="plans.coopTagline">
+                    One licence for the whole organisation.
+                  </p>
+                  <p class="plans__copy" data-i18n="plans.coopCopy">
+                    The cooperative buys a quota of members and hectares. The technical manager
+                    oversees the portfolio, follows the territory traffic light and forecasts the
+                    season's intake.
+                  </p>
+                  <p class="plans__price" data-i18n="plans.coopPrice">Tailored</p>
+                  <p class="plans__unit" data-i18n="plans.coopUnit">
+                    by members and hectares · in soles
+                  </p>
+                  <a class="plans__cta" href="#download">
+                    <span class="plans__cta-label" data-i18n="plans.coopCta">I want it</span>
+                    <svg class="plans__arrow" viewBox="0 0 72 72" aria-hidden="true">
+                      <rect width="72" height="72" rx="36" />
+                      <path d="M25 25L47 47M29 47H47V29" />
+                    </svg>
+                  </a>
+                  <a class="plans__more" href="#product" data-i18n="plans.coopMore"
+                    >See what's included</a
+                  >
+                </article>
+                <article
+                  class="plans__slide plans__plan plans__plan--code"
+                  style="--order: 6"
+                  aria-labelledby="plans-code-title"
+                  data-plans-slide
+                >
+                  <span class="plans__icon plans__icon--badge"
+                    ><img src="/assets/icons/plans/tag.svg" alt="" width="56" height="56"
+                  /></span>
+                  <h3 class="plans__name" id="plans-code-title" data-i18n-html="plans.codeName">
+                    Cooperative<br />code
+                  </h3>
+                  <p class="plans__tagline" data-i18n="plans.codeTagline">
+                    If your cooperative is already in, you don't pay.
+                  </p>
+                  <p class="plans__copy" data-i18n="plans.codeCopy">
+                    The manager issues activation codes with an expiry date. Members redeem theirs
+                    in the app and join the collective licence at no individual cost.
+                  </p>
+                  <p class="plans__price" data-i18n="plans.codePrice">S/ 0</p>
+                  <p class="plans__unit" data-i18n="plans.codeUnit">
+                    for the member · covered by the licence
+                  </p>
+                  <a class="plans__cta" href="#download">
+                    <span class="plans__cta-label" data-i18n="plans.codeCta">Redeem code</span>
+                    <svg class="plans__arrow" viewBox="0 0 72 72" aria-hidden="true">
+                      <rect width="72" height="72" rx="36" />
+                      <path d="M25 25L47 47M29 47H47V29" />
+                    </svg>
+                  </a>
+                  <a class="plans__more" href="#plans-code-steps" data-i18n="plans.codeMore"
+                    >How do I get my code?</a
+                  >
+                </article>
+              </div>
+            </div>
+          </div>
+
+          <!-- Example screens: plain markup + phone.js, easy to swap for real mockups -->
+          <div class="plans__column" aria-hidden="true" data-plans-phone>
+            <div class="plans__viewport plans__viewport--phone">
+              <div class="plans__device">
+                <div class="plans__window">
+                  <div class="plans__track" data-plans-track>
+                    <div
+                      class="plans__slide plans__screen"
+                      style="--order: 1"
+                      data-plans-slide
+                      data-plans-screen="grower"
+                    >
+                      <div class="plans__screen-inner">
+                        <div class="pp">
+                          <p class="pp-top">
+                            <span data-i18n="plans.phoneBrand">Viora</span
+                            ><span class="pp-menu"></span>
+                          </p>
+                          <p class="pp-eyebrow" data-i18n="plans.phoneGrowerEyebrow">
+                            Subscription
+                          </p>
+                          <p class="pp-title" data-i18n="plans.phoneGrowerTitle">Grower plan</p>
+                          <div class="pp-box">
+                            <p class="pp-label" data-i18n="plans.phoneGrowerHectares">
+                              Your hectares
+                            </p>
+                            <p class="pp-value"><span data-pp-hectares>12</span> ha</p>
+                            <span class="pp-stepper"
+                              ><span class="pp-minus">–</span
+                              ><span class="pp-plus" data-pp-plus>+</span></span
+                            >
+                            <span class="pp-bar"
+                              ><span class="pp-bar-fill" style="--fill: 0.44" data-pp-fill></span
+                            ></span>
+                          </div>
+                          <ul class="pp-list">
+                            <li data-i18n="plans.phoneGrowerFeature1" data-pp-item>
+                              Alternate-bearing diagnosis (BBI)
+                            </li>
+                            <li data-i18n="plans.phoneGrowerFeature2" data-pp-item>
+                              Accumulated chill and water-stress alerts
+                            </li>
+                            <li data-i18n="plans.phoneGrowerFeature3" data-pp-item>
+                              Thinning sampling and prescription
+                            </li>
+                          </ul>
+                          <div class="pp-box pp-box--dark">
+                            <p class="pp-label" data-i18n="plans.phoneGrowerTotal">Monthly total</p>
+                            <p class="pp-value pp-value--gold">S/ <span data-pp-total>108</span></p>
+                          </div>
+                          <p
+                            class="pp-button pp-button--gold"
+                            data-i18n="plans.phoneGrowerPay"
+                            data-pp-press
+                          >
+                            Pay with Mercado Pago
+                          </p>
+                          <p class="pp-fine" data-i18n="plans.phoneGrowerFine">
+                            Sample reference price
+                          </p>
+                        </div>
+                        <p class="pp-note" data-i18n-html="plans.phoneGrowerNote">
+                          secure payment ✓<br />instant activation ✓
+                        </p>
+                      </div>
+                    </div>
+                    <div
+                      class="plans__slide plans__screen"
+                      style="--order: 4"
+                      data-plans-slide
+                      data-plans-screen="coop"
+                    >
+                      <div class="plans__screen-inner">
+                        <div class="pp">
+                          <p class="pp-top">
+                            <span data-i18n="plans.phoneBrand">Viora</span
+                            ><span class="pp-menu"></span>
+                          </p>
+                          <p class="pp-eyebrow" data-i18n="plans.phoneCoopEyebrow">
+                            Technical manager
+                          </p>
+                          <p class="pp-title" data-i18n="plans.phoneCoopTitle">
+                            Collective licence
+                          </p>
+                          <div class="pp-box pp-box--short">
+                            <p class="pp-label" data-i18n="plans.phoneCoopMembers">
+                              Linked members
+                            </p>
+                            <p class="pp-value pp-value--small">
+                              <span data-pp-count="38">38</span> / 50
+                            </p>
+                            <span class="pp-bar"
+                              ><span class="pp-bar-fill" style="--fill: 0.76" data-pp-fill></span
+                            ></span>
+                          </div>
+                          <div class="pp-box pp-box--short">
+                            <p class="pp-label" data-i18n="plans.phoneCoopHectares">
+                              Committed hectares
+                            </p>
+                            <p class="pp-value pp-value--small">
+                              <span data-pp-count="412">412</span> / 600 ha
+                            </p>
+                            <span class="pp-bar"
+                              ><span class="pp-bar-fill" style="--fill: 0.69" data-pp-fill></span
+                            ></span>
+                          </div>
+                          <p class="pp-caption" data-i18n="plans.phoneCoopLight">
+                            Territory traffic light
+                          </p>
+                          <p class="pp-chips">
+                            <span class="pp-chip pp-chip--ok" data-pp-item
+                              ><span data-i18n="plans.phoneCoopOptimal">Optimal</span> · 21</span
+                            >
+                            <span class="pp-chip pp-chip--watch" data-pp-item
+                              ><span data-i18n="plans.phoneCoopWatch">Watch</span> · 12</span
+                            >
+                            <span class="pp-chip pp-chip--over" data-pp-item
+                              ><span data-i18n="plans.phoneCoopOverload">Overload</span> · 5</span
+                            >
+                          </p>
+                          <div class="pp-box pp-box--dark">
+                            <p class="pp-label" data-i18n="plans.phoneCoopIntake">
+                              Projected intake
+                            </p>
+                            <p class="pp-value pp-value--gold">
+                              <span data-pp-count="486">486</span> t
+                              <small data-i18n="plans.phoneCoopSplit">62% green · 38% black</small>
+                            </p>
+                          </div>
+                          <p class="pp-fine" data-i18n="plans.phoneCoopFine">Sample data</p>
+                        </div>
+                        <p class="pp-note" data-i18n-html="plans.phoneCoopNote">
+                          portfolio ✓<br />traffic light ✓ intake ✓
+                        </p>
+                      </div>
+                    </div>
+                    <div
+                      class="plans__slide plans__screen"
+                      style="--order: 7"
+                      data-plans-slide
+                      data-plans-screen="code"
+                    >
+                      <div class="plans__screen-inner">
+                        <div class="pp">
+                          <p class="pp-top">
+                            <span data-i18n="plans.phoneBrand">Viora</span
+                            ><span class="pp-menu"></span>
+                          </p>
+                          <p class="pp-eyebrow" data-i18n="plans.phoneCodeEyebrow">Membership</p>
+                          <p class="pp-title" data-i18n="plans.phoneCodeTitle">Redeem your code</p>
+                          <p class="pp-hint" data-i18n="plans.phoneCodeHint">
+                            Your cooperative's technical manager gives it to you.
+                          </p>
+                          <div class="pp-field">
+                            <p class="pp-label" data-i18n="plans.phoneCodeLabel">Activation code</p>
+                            <p class="pp-code">
+                              <span data-pp-code>VIO-7K4Q-29</span
+                              ><span class="pp-caret" data-pp-caret></span>
+                            </p>
+                          </div>
+                          <p
+                            class="pp-button pp-button--forest"
+                            data-i18n="plans.phoneCodeRedeem"
+                            data-pp-press
+                          >
+                            Redeem
+                          </p>
+                          <div class="pp-success" data-pp-success>
+                            <svg class="pp-check" viewBox="0 0 36 36" aria-hidden="true">
+                              <circle cx="18" cy="18" r="18" />
+                              <path
+                                d="M10.5 18.5L16.5 24.5L28.5 10.5"
+                                pathLength="1"
+                                data-pp-tick
+                              />
+                            </svg>
+                            <p class="pp-success-title" data-i18n="plans.phoneCodeDone">
+                              Done! You're a member
+                            </p>
+                            <p class="pp-success-copy" data-i18n="plans.phoneCodeDoneCopy">
+                              Sample cooperative · collective licence active until Dec 2027
+                            </p>
+                          </div>
+                          <p class="pp-fine" data-i18n="plans.phoneCodeFine">Sample data</p>
+                        </div>
+                        <p class="pp-note pp-note--low" data-i18n-html="plans.phoneCodeNote">
+                          no payment ✓<br />one code, one member ✓
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="plans__column">
+            <div class="plans__viewport plans__viewport--steps">
+              <div class="plans__track" data-plans-track>
+                <div
+                  class="plans__slide plans__steps plans__steps--grower"
+                  style="--order: 2"
+                  data-plans-slide
+                >
+                  <svg
+                    class="plans__curve"
+                    viewBox="0 0 258.134 850.907"
+                    preserveAspectRatio="none"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M232.086 0.664364C152.086 90.6644 12.0864 150.664 2.08641 260.664C-7.91359 370.664 52.0864 430.664 142.086 480.664C232.086 530.664 272.086 610.664 252.086 710.664C242.086 770.664 212.086 810.664 202.086 850.664"
+                      pathLength="1"
+                      data-plans-curve
+                    />
+                  </svg>
+                  <span class="plans__dots" aria-hidden="true" data-plans-dots
+                    ><span class="plans__dot plans__dot--first"></span
+                    ><span class="plans__dot plans__dot--second"></span
+                    ><span class="plans__dot plans__dot--third"></span
+                  ></span>
+                  <ol class="plans__step-list">
+                    <li class="plans__step plans__step--first">
+                      <span class="plans__step-number" aria-hidden="true">01</span>
+                      <span class="plans__step-text" data-i18n="plans.growerStep1"
+                        >Choose your hectares: the rate is based on your grove</span
+                      >
+                    </li>
+                    <li class="plans__step plans__step--second">
+                      <span class="plans__step-number" aria-hidden="true">02</span>
+                      <span class="plans__step-text" data-i18n="plans.growerStep2"
+                        >Pay online with Mercado Pago, no middlemen</span
+                      >
+                    </li>
+                    <li class="plans__step plans__step--third">
+                      <span class="plans__step-number" aria-hidden="true">03</span>
+                      <span class="plans__step-text" data-i18n="plans.growerStep3"
+                        >Instant access to the whole plan from your phone</span
+                      >
+                    </li>
+                  </ol>
+                </div>
+                <div
+                  class="plans__slide plans__steps plans__steps--coop"
+                  style="--order: 5"
+                  data-plans-slide
+                >
+                  <svg
+                    class="plans__curve"
+                    viewBox="0 0 258.134 850.907"
+                    preserveAspectRatio="none"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M232.086 0.664364C152.086 90.6644 12.0864 150.664 2.08641 260.664C-7.91359 370.664 52.0864 430.664 142.086 480.664C232.086 530.664 272.086 610.664 252.086 710.664C242.086 770.664 212.086 810.664 202.086 850.664"
+                      pathLength="1"
+                      data-plans-curve
+                    />
+                  </svg>
+                  <span class="plans__dots" aria-hidden="true" data-plans-dots
+                    ><span class="plans__dot plans__dot--first"></span
+                    ><span class="plans__dot plans__dot--second"></span
+                    ><span class="plans__dot plans__dot--third"></span
+                  ></span>
+                  <ol class="plans__step-list">
+                    <li class="plans__step plans__step--first">
+                      <span class="plans__step-number" aria-hidden="true">04</span>
+                      <span class="plans__step-text" data-i18n="plans.coopStep1"
+                        >The cooperative buys a quota of members and hectares</span
+                      >
+                    </li>
+                    <li class="plans__step plans__step--second">
+                      <span class="plans__step-number" aria-hidden="true">05</span>
+                      <span class="plans__step-text" data-i18n="plans.coopStep2"
+                        >The manager oversees the portfolio and the territory traffic light</span
+                      >
+                    </li>
+                    <li class="plans__step plans__step--third">
+                      <span class="plans__step-number" aria-hidden="true">06</span>
+                      <span class="plans__step-text" data-i18n="plans.coopStep3"
+                        >Forecast the green and black olive intake before the harvest</span
+                      >
+                    </li>
+                  </ol>
+                </div>
+                <div
+                  class="plans__slide plans__steps plans__steps--code"
+                  style="--order: 8"
+                  id="plans-code-steps"
+                  data-plans-slide
+                >
+                  <svg
+                    class="plans__curve"
+                    viewBox="0 0 258.134 850.907"
+                    preserveAspectRatio="none"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M232.086 0.664364C152.086 90.6644 12.0864 150.664 2.08641 260.664C-7.91359 370.664 52.0864 430.664 142.086 480.664C232.086 530.664 272.086 610.664 252.086 710.664C242.086 770.664 212.086 810.664 202.086 850.664"
+                      pathLength="1"
+                      data-plans-curve
+                    />
+                  </svg>
+                  <span class="plans__dots" aria-hidden="true" data-plans-dots
+                    ><span class="plans__dot plans__dot--first"></span
+                    ><span class="plans__dot plans__dot--second"></span
+                    ><span class="plans__dot plans__dot--third"></span
+                  ></span>
+                  <ol class="plans__step-list">
+                    <li class="plans__step plans__step--first">
+                      <span class="plans__step-number" aria-hidden="true">07</span>
+                      <span class="plans__step-text" data-i18n="plans.codeStep1"
+                        >The manager issues a batch of codes with an expiry date</span
+                      >
+                    </li>
+                    <li class="plans__step plans__step--second">
+                      <span class="plans__step-number" aria-hidden="true">08</span>
+                      <span class="plans__step-text" data-i18n="plans.codeStep2"
+                        >Shares them with the cooperative's eligible members</span
+                      >
+                    </li>
+                    <li class="plans__step plans__step--third">
+                      <span class="plans__step-number" aria-hidden="true">09</span>
+                      <span class="plans__step-text" data-i18n="plans.codeStep3"
+                        >The member redeems the code and joins without paying</span
+                      >
+                    </li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+            <div class="plans__star" aria-hidden="true" data-plans-star>
+              <svg viewBox="0 0 171.587 176">
+                <path
+                  d="M85.7937 0L101.067 21.0809L123.975 8.71474L128.59 34.3351L154.595 33.1329L147.636 58.2182L171.587 68.4182L154.434 88L171.587 107.582L147.636 117.782L154.595 142.867L128.59 141.665L123.975 167.285L101.067 154.919L85.7937 176L70.5198 154.919L47.6119 167.285L42.9973 141.665L16.9925 142.867L23.9512 117.782L0 107.582L17.1537 88L0 68.4182L23.9512 58.2182L16.9925 33.1329L42.9973 34.3351L47.6119 8.71474L70.5198 21.0809L85.7937 0Z"
+                />
+              </svg>
+              <span data-i18n="plans.star">How it works</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <dialog
         class="hero-dialog"
         data-hero-modal
