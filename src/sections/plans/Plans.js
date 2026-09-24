@@ -27,6 +27,7 @@ export const plans = {
     const tracks = [...element.querySelectorAll('[data-plans-track]')];
     const column = rail.firstElementChild;
     const star = element.querySelector('[data-plans-star]');
+    const starShape = star.querySelector('svg');
     const steps = [...element.querySelectorAll('.plans__steps')];
     const curves = steps.map((slide) => slide.querySelector('[data-plans-curve]'));
     const dots = steps.map((slide) => [...slide.querySelectorAll('.plans__dot')]);
@@ -102,16 +103,27 @@ export const plans = {
           },
         },
       });
+      // Scroll winds the badge on top of its slow idle spin (CSS `rotate`).
       timeline.to(
-        star,
-        { rotation: 75, duration: HOLD * count + SLIDE * (count - 1), ease: 'none' },
+        starShape,
+        { rotation: 240, duration: HOLD * count + SLIDE * (count - 1), ease: 'none' },
         0,
       );
       for (let k = 1; k < count; k += 1) {
         const at = HOLD * k + SLIDE * (k - 1);
         timeline
           .to(tracks, { yPercent: -100 * k, duration: SLIDE }, at)
-          .to(star, { color: STAR[k][0], '--star-ink': STAR[k][1], duration: SLIDE }, at)
+          .fromTo(
+            star,
+            { color: STAR[k - 1][0], '--star-ink': STAR[k - 1][1] },
+            {
+              color: STAR[k][0],
+              '--star-ink': STAR[k][1],
+              duration: SLIDE,
+              immediateRender: false,
+            },
+            at,
+          )
           .fromTo(...draw(k), at + SLIDE * 0.35)
           .fromTo(...pop(k), at + SLIDE * 0.9);
       }
@@ -119,7 +131,7 @@ export const plans = {
 
       return () => {
         element.classList.remove('plans--rail');
-        gsap.set([...tracks, star, ...curves, ...dots.flat()], { clearProps: 'all' });
+        gsap.set([...tracks, star, starShape, ...curves, ...dots.flat()], { clearProps: 'all' });
         announce(-1);
       };
     });

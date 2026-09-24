@@ -866,6 +866,8 @@
 }
 
 .plans--rail .plans__star {
+  --star-ink: var(--viora-green-900);
+
   position: absolute;
   top: calc(-18 * var(--k));
   left: calc(304 * var(--k));
@@ -882,11 +884,12 @@
   grid-area: 1 / 1;
   width: 100%;
   fill: currentcolor;
+  animation: plans-spin 40s linear infinite;
 }
 
 .plans__star span {
   grid-area: 1 / 1;
-  color: var(--star-ink, var(--viora-green-900));
+  color: var(--star-ink);
   font-family: var(--font-sans);
   font-size: calc(14 * var(--k));
   font-weight: var(--weight-bold);
@@ -894,8 +897,16 @@
   rotate: -8deg;
 }
 
+/* The badge's idle spin; scroll adds its own turn through `transform`. */
+@keyframes plans-spin {
+  to {
+    rotate: 360deg;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .pp-caret {
+  .pp-caret,
+  .plans__star svg {
     animation: none;
   }
 }
