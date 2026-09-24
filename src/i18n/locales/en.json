@@ -293,5 +293,30 @@
     "codeStep1": "The manager issues a batch of codes with an expiry date",
     "codeStep2": "Shares them with the cooperative's eligible members",
     "codeStep3": "The member redeems the code and joins without paying"
+  },
+  "about": {
+    "quoteOne": "‘But it’s",
+    "quoteTwo": "just a",
+    "quoteThree": "project’",
+    "question": "Why not the best one?",
+    "artAlt": "Illustration of the five ArcadiaDevs members raising a trophy together",
+    "team": "Our team",
+    "motto": "From data<br />to the field",
+    "count": "5 members",
+    "idea": "The idea behind <em>Viora</em> is simple: no season should be decided blind. We are <em>ArcadiaDevs</em>, five UPC students who turned the Tacna olive grove’s problem into a product. From data to the field.",
+    "members": "Members",
+    "membersCopy": "Five profiles, one product. Each member leads a front of Viora, from design to architecture and quality.",
+    "smallBut": "Small but",
+    "powerful": "Powerful",
+    "teamWord": "team",
+    "watch": "Watch video",
+    "missionOne": "Mission and vision",
+    "missionTwo": "of ArcadiaDevs",
+    "mission": "Viora exists so that alternate bearing stops being a lottery. Our <em>mission</em> is to turn complex agronomic data into simple, timely decisions within reach of any grower. Our <em>vision</em> is that no olive harvest in southern Peru is lost for lack of information or left to the luck of the season.",
+    "roleVictor": "CEO & Product Owner",
+    "roleDiana": "CMO & UX Lead",
+    "roleFabrizio": "CPO & System Architect",
+    "roleJahat": "CTO & DevOps Integrator",
+    "rolePiero": "COO, Researcher & QA"
   }
 }
