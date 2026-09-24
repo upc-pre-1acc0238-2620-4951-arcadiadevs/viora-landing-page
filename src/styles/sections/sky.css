@@ -68,7 +68,8 @@
 /* ── Clouds ───────────────────────────────────────────── */
 
 /* The layers straddle the seam: they rise over the previous section's cream
-   and the haze band (below) swallows the edge between both. */
+   and the haze band (below) swallows the edge between both. Their tops thin
+   out to nothing on the way up so they never wash over that section's type. */
 .sky__clouds {
   position: absolute;
   inset-inline: 0;
@@ -76,6 +77,11 @@
   z-index: 2;
   height: calc(46vw * var(--k));
   pointer-events: none;
+  mask-image: linear-gradient(
+    transparent,
+    rgb(0 0 0 / 35%) calc(7vw * var(--k)),
+    #000 calc(13vw * var(--k))
+  );
 }
 
 .sky__cloud {
@@ -129,20 +135,20 @@
   }
 }
 
-/* Cream band centred on the seam: it fades in over the clouds' overhang,
-   is solid where the sections meet, then melts into the sky below. No edge
+/* Cream band around the seam: it fades in just above it, is solid right
+   where the sections meet (15.4% = 4 of its 26vw), then melts into the sky. No edge
    of it is ever hard, so the cut between sections never shows. */
 .sky__haze {
   --clear: rgb(243 240 234 / 0%);
 
   position: absolute;
   inset-inline: 0;
-  top: calc(-12vw * var(--k));
+  top: calc(-4vw * var(--k));
   z-index: 3;
-  height: calc(34vw * var(--k));
+  height: calc(26vw * var(--k));
   background:
-    linear-gradient(var(--clear), var(--haze) 40%, var(--clear) 78%),
-    linear-gradient(var(--clear) 25%, var(--haze) 36%, var(--clear));
+    linear-gradient(var(--clear), var(--haze) 15.4%, var(--haze) 22%, var(--clear) 75%),
+    linear-gradient(var(--clear), var(--haze) 15.4%, var(--clear));
   pointer-events: none;
 }
 
