@@ -290,5 +290,19 @@
         "link": "LinkedIn"
       }
     ]
+  },
+  "mission_and_vision_section": {
+    "title": "Misión y visión de Arcadiadevs",
+    "description": "Viora nace para que la vecería deje de ser una lotería. Nuestra misión es traducir datos agronómicos complejos en decisiones simples y oportunas, al alcance de cualquier productor. Nuestra visión es que ninguna cosecha de olivo en el sur del Perú se pierda por falta de información ni dependa de la suerte de la campaña."
+  },
+  "footer_banner_section": {
+    "background_headline": "MENOS VECERÍA, MÁS COSECHA CADA CAMPAÑA",
+    "left_download_badge": {
+      "label": "DESCÁRGALA EN APP STORE"
+    },
+    "right_download_badge": {
+      "label": "DISPONIBLE EN GOOGLE PLAY"
+    },
+    "center_placeholder": "RENDER 3D PLACEHOLDER"
   }
 }
