@@ -148,5 +148,21 @@
         "timeframe": "abr – may"
       }
     ]
+  },
+  "stakeholders_and_pain_points_section": {
+    "cards": [
+      {
+        "role_title": "Productores Olivareros",
+        "role_description": "Conoce el frío acumulado de tu olivar, la carga de cada árbol y cuándo aclarar, desde el celular y aun sin señal en campo.",
+        "pain_point_title": "Un año sobra, el otro falta",
+        "pain_point_description": "Vender bien una campaña y apenas cubrir costos en la siguiente no debería ser normal. Viora nace para suavizar ese vaivén."
+      },
+      {
+        "role_title": "Gestores técnicos",
+        "role_description": "Mira el riesgo de vecería de todos tus socios en un mapa por sector y proyecta el acopio antes de que llegue la cosecha.",
+        "pain_point_title": "No puedes estar en cada parcela",
+        "pain_point_description": "Visitar cada chacra, anotar en cuaderno y pasarlo a Excel te cuesta semanas. Viora trae el campo a tu pantalla, a tiempo."
+      }
+    ]
   }
 }
