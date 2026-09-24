@@ -49,5 +49,10 @@
       "title": "Ventana de aclareo",
       "detail": "Parcela 3 - cierra 15 oct"
     }
+  },
+  "field_data_section": {
+    "title": "Datos del Campo, Decisiones a Tiempo",
+    "description": "Unimos sensores en campo, pronóstico del clima y muestreo árbol por árbol para convertir la vecería en decisiones. Desde la primera alerta de frío hasta el cierre de campaña, Viora te dice qué hacer y cuánto esperar de tu cosecha.",
+    "download_button": "Descarga la app"
   }
 }
