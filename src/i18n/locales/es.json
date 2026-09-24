@@ -456,5 +456,69 @@
         "content": "Cambios sustanciales con aviso destacado 15 días antes; versión alineada al tag SemVer (vX.Y.Z). Contacto ARCO: privacidad@viora.pe [NEEDS COUNSEL]. Consumo: Libro de Reclamaciones (D.S. N° 011-2011-PCM, 15 días hábiles). Ley aplicable: Perú."
       }
     ]
+  },
+  "terms_of_service_es": {
+    "sections": [
+      {
+        "section_number": 1,
+        "title": "Identificación de las partes y naturaleza del proyecto",
+        "content": "Viora es un ecosistema SaaS B2B para la gestión de la vecería del olivo en Tacna, desarrollado por ArcadiaDevs como proyecto académico (UPC, curso 1ACC0238, ciclo 2026-20). Este documento regula únicamente el sitio web estático (landing page). 'Usted' es el visitante del sitio. 'Nosotros' es ArcadiaDevs."
+      },
+      {
+        "section_number": 2,
+        "title": "Aceptación y modalidad de contratación",
+        "content": "Navegar por este sitio y consultar estos Términos en el diálogo #terms es navegación informada: no crea cuenta, no inicia suscripción y no otorga acceso a la app. La contratación del servicio SaaS ocurre solo dentro de la app móvil, con registro expreso y aceptación separada de los Términos de la App."
+      },
+      {
+        "section_number": 3,
+        "title": "Alcance del servicio de la landing page",
+        "content": "Sitio exclusivamente informativo: propuesta de valor, módulos (carga frutal, frío invernal, plan de raleo), casos, video, equipo y tabla de precios orientativa. No hay formularios, ni registro, ni pagos, ni soporte agronómico personalizado en este sitio."
+      },
+      {
+        "section_number": 4,
+        "title": "Exención de responsabilidad agronómica (resumen)",
+        "content": "Los contenidos sobre índice BBI de Hoblyn, porciones de frío de Erez, ventana de raleo (20 %–50 %) y proyecciones de cosecha son herramientas de soporte a la decisión, no diagnósticos fitosanitarios ni garantías de toneladas, calibres o fin de la vecería. La variabilidad biológica y la ejecución en campo están fuera de nuestro control. Nada aquí constituye asesoría agronómica profesional."
+      },
+      {
+        "section_number": 5,
+        "title": "Fuerza mayor y dependencia de datos de terceros",
+        "content": "Los modelos dependen de SENAMHI / OpenWeather y de la red de sensores. Interrupciones de esas fuentes, así como El Niño / La Niña y demás eventos climáticos (Código Civil, art. 1315: caso fortuito o fuerza mayor), exoneran a ArcadiaDevs de responsabilidad por pérdidas de cultivo o lucro cesante. Conforme al art. 1328 del Código Civil, ninguna exoneración cubre dolo o culpa inexcusable; los límites solo aplican a culpa leve (margen de error estadístico)."
+      },
+      {
+        "section_number": 6,
+        "title": "Confidencialidad comercial (resumen)",
+        "content": "Este sitio no le pide sus volúmenes, calibres ni precios. Cuando use la app, esos datos se tratan como secreto empresarial (Decisión 486 CAN, art. 260) bajo medidas razonables de reserva. No prometemos invulnerabilidad matemática; aplicamos estándares de la industria (TLS 1.3 en tránsito, SQLCipher en el móvil, JWT rotativos de 15 min en la app, aislamiento RLS en PostGIS). La consolidación cooperativa de métricas requiere su consentimiento expreso; no vendemos datos individuales."
+      },
+      {
+        "section_number": 7,
+        "title": "Precios, moneda y facturación",
+        "content": "Los precios PEN / USD mostrados son referenciales e incluyen IGV (18 %) cuando aplica (Ley N° 29571, art. 5: todo precio en moneda extranjera se muestra también en moneda nacional). Hacer clic en descargar o ver precios no cobra nada. La contratación y el pago ocurren solo en la app vía Mercado Pago Checkout Pro (Yape, Plin, PagoEfectivo, tarjetas). ArcadiaDevs emite comprobante electrónico (boleta / factura con RUC) por cada transacción, según normas SUNAT."
+      },
+      {
+        "section_number": 8,
+        "title": "Descargas, tiendas y enlaces externos",
+        "content": "Los botones de descarga abren un diálogo informativo de disponibilidad; mientras no publiquemos URLs oficiales, no redirigen fuera. Cuando redirijan a Google Play / App Store, esas tiendas tienen sus propios términos y políticas, ajenos a ArcadiaDevs. Los enlaces a YouTube, Facebook, X, Instagram y LinkedIn (cuando se publiquen) son canales informativos, no soporte privado."
+      },
+      {
+        "section_number": 9,
+        "title": "Propiedad intelectual",
+        "content": "Código, algoritmos, marcas, logos y diseños (incl. Figma) pertenecen a ArcadiaDevs. Componentes open source (Three.js, GSAP, Lenis) conservan sus licencias MIT / Apache 2.0. No se concede licencia de uso más allá de visualizar este sitio."
+      },
+      {
+        "section_number": 10,
+        "title": "Libro de Reclamaciones y controversias",
+        "content": "Conforme al D.S. N° 011-2011-PCM, el footer incluye acceso al Libro de Reclamaciones Virtual (reclamos y quejas, respuesta en máximo 15 días hábiles). Estos Términos se rigen por las leyes del Perú (Ley N° 29733, Ley N° 29571, Código Civil). Competencia territorial: jueces de Lima o Tacna, a elección del consumidor según ley."
+      },
+      {
+        "section_number": 11,
+        "title": "Modificaciones y versiones",
+        "content": "Cambios sustanciales se avisan con al menos 15 días de anticipación mediante aviso destacado en el sitio/app o correo (cuando exista registro). El uso posterior a la vigencia implica aceptación. La versión de este texto sigue el tag SemVer del repo (vX.Y.Z en main)."
+      },
+      {
+        "section_number": 12,
+        "title": "Contacto",
+        "content": "Privacidad y derechos ARCO: privacidad@viora.pe [NEEDS COUNSEL: reemplazar por buzón definitivo]. Reclamaciones de consumo: Libro de Reclamaciones del sitio."
+      }
+    ]
   }
 }
