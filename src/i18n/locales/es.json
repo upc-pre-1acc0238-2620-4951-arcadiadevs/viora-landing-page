@@ -80,5 +80,42 @@
       "description": "Sabes cuánto aclarear y hasta cuándo. Registras lo hecho y tu próxima campaña deja de ser una apuesta.",
       "button_text": "planear mi aclareo"
     }
-  ]
+  ],
+  "problem_interactive_section": {
+    "main_title": "¿Te suena alguno de estos years?",
+    "carousel_tabs": ["ACOPIO INCIERTO", "ACLAREO TARDÍO", "FRÍO ESCASO", "AÑO OFF"],
+    "active_card": {
+      "counter": "01 / 04",
+      "tag": "APP DEL PRODUCTOR",
+      "user_role": "Productor . La Yarada",
+      "quote": "“No sé cuánto voy a cosechar hasta que ya es tarde.”",
+      "problem_description": "Un año cargado, el siguiente vacío. La campaña se planifica a ciegas.",
+      "solution_title": "Viora te da el número antes de la cosecha.",
+      "solution_description": "Muestreas unos árboles desde el celular, incluso sin señal, y la app calcula la carga objetivo del lote y el rendimiento que puedes esperar esta campaña.",
+      "action_button": "ver el módulo",
+      "module_info": {
+        "title": "Carga frutal",
+        "subtitle": "Estimación de cosecha"
+      }
+    }
+  },
+  "context_section": {
+    "section_label": "EL CONTEXTO",
+    "headline": "Tacna concentra el 81 % del olivo del Perú, pero cada campaña se decide a ciegas:un año sobra fruta, y a la sigueinte falta",
+    "description": "En 2024, los productores de La Yarada reportaron mermas de hasta 90 %. En setiembre de 2025, un repunte histórico. No son dos noticias distintas: son las dos caras del mismo ciclo ON/OFF.",
+    "metrics": [
+      {
+        "value": "81 %",
+        "label": "del área olivarera del Perú"
+      },
+      {
+        "value": "90 %",
+        "label": "de merma en la campaña 2024"
+      },
+      {
+        "value": "1 de 2",
+        "label": "campañas termina en año OFF"
+      }
+    ]
+  }
 }
