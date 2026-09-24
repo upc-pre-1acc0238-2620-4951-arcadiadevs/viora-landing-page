@@ -3014,6 +3014,220 @@
       </dialog>
     </main>
 
+    <!-- Footer: a cross-stitch storyboard of one season with Viora, then the links -->
+    <footer class="footer" data-footer>
+      <figure class="footer__tapestry" data-footer-tapestry data-nav-tone="dark">
+        <div class="footer__loom" data-footer-loom>
+          <canvas
+            class="footer__canvas"
+            role="img"
+            aria-label="Cross-stitch storyboard of one season in a Tacna grove: a grower tracks winter chill on her phone, samples the bloom, thins an overloaded tree in the window Viora marks, and fills her crates with an even harvest."
+            data-i18n-attr="aria-label:footer.storyLabel"
+            data-footer-canvas
+          ></canvas>
+        </div>
+        <figcaption class="footer__story">
+          <p class="footer__caption" aria-live="polite" data-footer-caption>
+            <span class="footer__caption-number" data-footer-number>01</span>
+            <span
+              class="footer__caption-months"
+              data-i18n="footer.chapter1Months"
+              data-footer-months
+              >Jun – Aug</span
+            >
+            <span class="footer__caption-title" data-i18n="footer.chapter1Title" data-footer-title
+              >Chill builds up</span
+            >
+            <span class="footer__caption-copy" data-i18n="footer.chapter1Copy" data-footer-copy
+              >Viora counts every cold hour of the winter.</span
+            >
+          </p>
+          <div class="footer__controls">
+            <ol class="footer__ticks">
+              <li>
+                <button
+                  class="footer__tick"
+                  type="button"
+                  aria-label="Chapter 1"
+                  data-footer-chapter="0"
+                >
+                  <span>01</span>
+                </button>
+              </li>
+              <li>
+                <button
+                  class="footer__tick"
+                  type="button"
+                  aria-label="Chapter 2"
+                  data-footer-chapter="1"
+                >
+                  <span>02</span>
+                </button>
+              </li>
+              <li>
+                <button
+                  class="footer__tick"
+                  type="button"
+                  aria-label="Chapter 3"
+                  data-footer-chapter="2"
+                >
+                  <span>03</span>
+                </button>
+              </li>
+              <li>
+                <button
+                  class="footer__tick"
+                  type="button"
+                  aria-label="Chapter 4"
+                  data-footer-chapter="3"
+                >
+                  <span>04</span>
+                </button>
+              </li>
+            </ol>
+            <button
+              class="footer__pause"
+              type="button"
+              aria-pressed="false"
+              aria-label="Pause the story"
+              data-footer-pause
+            >
+              <svg viewBox="0 0 16 16" aria-hidden="true">
+                <path class="footer__pause-bars" d="M5 3v10M11 3v10" />
+                <path class="footer__play-arrow" d="M5 3l8 5-8 5z" />
+              </svg>
+            </button>
+          </div>
+          <span class="footer__progress" aria-hidden="true"
+            ><span data-footer-progress></span
+          ></span>
+        </figcaption>
+      </figure>
+
+      <div class="footer__body" data-nav-tone="light">
+        <div class="footer__cta">
+          <h2 class="footer__title" data-i18n-html="footer.title" data-footer-title-reveal>
+            Start measuring<br />your next season
+          </h2>
+          <div class="footer__aside">
+            <p class="footer__lead" data-i18n="footer.lead" data-footer-reveal>
+              Fruit load, winter chill and thinning in one app, built for the Tacna olive grove.
+            </p>
+            <p class="footer__stores" data-footer-reveal>
+              <button
+                class="footer__store footer__store--dark"
+                type="button"
+                data-hero-dialog="download"
+              >
+                <img src="/assets/icons/app-store.webp" alt="" width="24" height="24" />
+                <span data-i18n="footer.appStore">App Store</span>
+              </button>
+              <button class="footer__store" type="button" data-hero-dialog="download">
+                <img src="/assets/icons/play-store-tile.webp" alt="" width="24" height="24" />
+                <span data-i18n="footer.googlePlay">Google Play</span>
+              </button>
+            </p>
+          </div>
+        </div>
+
+        <nav class="footer__nav" aria-label="Footer" data-i18n-attr="aria-label:footer.navLabel">
+          <span class="footer__rule" aria-hidden="true" data-footer-rule></span>
+          <div class="footer__columns">
+            <div class="footer__column">
+              <h3 class="footer__heading" data-i18n="footer.productTitle" data-footer-reveal>
+                Product
+              </h3>
+              <ul class="footer__links">
+                <li data-footer-reveal>
+                  <a href="#features" data-i18n="footer.product_features">Features</a>
+                </li>
+                <li data-footer-reveal>
+                  <a href="#cases" data-i18n="footer.product_cases">Use cases</a>
+                </li>
+                <li data-footer-reveal>
+                  <a href="#intro" data-i18n="footer.product_video">Product video</a>
+                </li>
+              </ul>
+            </div>
+            <div class="footer__column">
+              <h3 class="footer__heading" data-i18n="footer.segmentsTitle" data-footer-reveal>
+                Segments
+              </h3>
+              <ul class="footer__links">
+                <li data-footer-reveal>
+                  <a href="#tacna" data-i18n="footer.segments_tacna">Tacna harvests</a>
+                </li>
+                <li data-footer-reveal>
+                  <a href="#audience" data-i18n="footer.segments_grower">Grower</a>
+                </li>
+                <li data-footer-reveal>
+                  <a href="#audience" data-i18n="footer.segments_manager">Manager / Advisor</a>
+                </li>
+              </ul>
+            </div>
+            <div class="footer__column">
+              <h3 class="footer__heading" data-i18n="footer.accessTitle" data-footer-reveal>
+                Access
+              </h3>
+              <ul class="footer__links">
+                <li data-footer-reveal>
+                  <a href="#pricing" data-i18n="footer.access_growerPlan">Grower plan</a>
+                </li>
+                <li data-footer-reveal>
+                  <a href="#pricing" data-i18n="footer.access_coopPlan">Cooperative plan</a>
+                </li>
+                <li data-footer-reveal>
+                  <a href="#pricing" data-i18n="footer.access_advisor">Advisor invitation</a>
+                </li>
+              </ul>
+            </div>
+            <div class="footer__column">
+              <h3 class="footer__heading" data-i18n="footer.aboutTitle" data-footer-reveal>
+                About us
+              </h3>
+              <ul class="footer__links">
+                <li data-footer-reveal><a href="#team" data-i18n="footer.about_team">Team</a></li>
+                <li data-footer-reveal>
+                  <a href="#team" data-i18n="footer.about_arcadia">ArcadiaDevs</a>
+                </li>
+                <li data-footer-reveal>
+                  <a href="#team" data-i18n="footer.about_teamVideo">Team video</a>
+                </li>
+              </ul>
+            </div>
+            <div class="footer__column">
+              <h3 class="footer__heading" data-i18n="footer.legalTitle" data-footer-reveal>
+                Legal
+              </h3>
+              <ul class="footer__links">
+                <li data-footer-reveal>
+                  <a href="#terms" data-i18n="footer.legal_terms">Terms of service</a>
+                </li>
+                <li data-footer-reveal>
+                  <a href="#privacy" data-i18n="footer.legal_privacy">Privacy policy</a>
+                </li>
+                <li data-footer-reveal>
+                  <a href="#download" data-i18n="footer.legal_download">Download the app</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <span class="footer__rule" aria-hidden="true" data-footer-rule></span>
+        </nav>
+
+        <div class="footer__base">
+          <p class="footer__copyright" data-i18n="footer.copyright">
+            © 2026 ArcadiaDevs — Viora. UPC academic project.
+          </p>
+          <p class="footer__locales">
+            <button type="button" data-locale-switch="es" lang="es">ES</button>
+            <span aria-hidden="true">/</span>
+            <button type="button" data-locale-switch="en" lang="en">EN</button>
+          </p>
+        </div>
+      </div>
+    </footer>
+
     <!-- Legal documents (US39): opened from the footer via #terms / #privacy -->
     <dialog
       id="terms"

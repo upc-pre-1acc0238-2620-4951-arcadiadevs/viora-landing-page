@@ -1,0 +1,424 @@
+/*
+ * Footer — Figma desktop 78:2798.
+ *
+ * The placeholder painting became a live cross-stitch storyboard
+ * (sections/footer/tapestry.js): 320 × 116 stitches, each shown as a whole
+ * number of screen pixels (--cell, set by Footer.js) with a thread texture on
+ * top, so it stays crisp at any width. The strip under it names the chapter,
+ * and its ticks jump between them. Below: the closing call and the links.
+ */
+
+.footer {
+  --cell: 4px;
+  --ink: var(--color-brand);
+
+  position: relative;
+  background: #f9f6f1;
+  color: var(--ink);
+}
+
+/* ── Tapestry ─────────────────────────────────────────── */
+
+.footer__tapestry {
+  position: relative;
+  margin: 0;
+}
+
+/* The loom crops the stitched canvas to the page width, centred. */
+.footer__loom {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  height: calc(var(--cell) * 116);
+  overflow: clip;
+  background: #7d6a4f;
+}
+
+.footer__canvas {
+  flex: none;
+  width: calc(var(--cell) * 320);
+  height: calc(var(--cell) * 116);
+  image-rendering: pixelated;
+}
+
+/* Thread texture: every stitch gets a soft round shade and a diagonal sheen. */
+.footer__loom::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      135deg,
+      rgb(255 255 255 / 16%),
+      transparent 45%,
+      transparent 55%,
+      rgb(0 0 0 / 10%)
+    ),
+    radial-gradient(circle at 50% 50%, transparent 42%, rgb(30 20 10 / 26%) 78%);
+  background-position: center top;
+  background-size: var(--cell) var(--cell);
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+
+/* The storyboard strip, stitched to the bottom of the panel. */
+.footer__story {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--space-4) var(--space-8);
+  align-items: center;
+  padding: var(--space-4) var(--gutter) var(--space-5);
+  border-bottom: 1px solid rgb(46 74 58 / 18%);
+  background: #f3efe4;
+}
+
+.footer__caption {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  gap: 0.2rem 1rem;
+  align-items: baseline;
+  margin: 0;
+  font-family: var(--font-sans);
+}
+
+.footer__caption > span {
+  display: block;
+}
+
+.footer__caption-number {
+  grid-row: span 2;
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 3vw, 2.75rem);
+  line-height: 1;
+}
+
+.footer__caption-months {
+  font-size: 0.75rem;
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.footer__caption-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.25rem, 1.6vw, 1.5rem);
+  font-style: italic;
+  line-height: 1.1;
+}
+
+.footer__caption-copy {
+  grid-column: 2 / -1;
+  font-size: 0.875rem;
+  opacity: 0.8;
+}
+
+.footer__controls {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+}
+
+.footer__ticks {
+  display: flex;
+  gap: 0.375rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer__tick,
+.footer__pause {
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border: 1px solid rgb(46 74 58 / 30%);
+  border-radius: 50%;
+  background: transparent;
+  color: inherit;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: var(--weight-medium);
+  cursor: pointer;
+  transition:
+    background-color var(--duration-base),
+    color var(--duration-base),
+    border-color var(--duration-base);
+}
+
+.footer__tick[aria-current='step'] {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: #f9f6f1;
+}
+
+.footer__tick:hover,
+.footer__pause:hover {
+  border-color: var(--ink);
+}
+
+.footer__pause svg {
+  width: 0.875rem;
+}
+
+.footer__pause path {
+  fill: none;
+  stroke: currentcolor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+}
+
+.footer__play-arrow,
+.footer__pause[aria-pressed='true'] .footer__pause-bars {
+  display: none;
+}
+
+.footer__pause[aria-pressed='true'] .footer__play-arrow {
+  display: block;
+  fill: currentcolor;
+}
+
+/* Time through the whole season. */
+.footer__progress {
+  position: absolute;
+  inset-inline: 0;
+  bottom: -1px;
+  height: 2px;
+}
+
+.footer__progress span {
+  display: block;
+  height: 100%;
+  background: var(--color-accent);
+  transform-origin: 0 50%;
+  scale: var(--season, 0) 1;
+}
+
+@media (width < 600px) {
+  .footer__story {
+    grid-template-columns: 1fr;
+  }
+
+  .footer__caption-copy {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ── Closing call ─────────────────────────────────────── */
+
+.footer__body {
+  padding: clamp(4rem, 5.6vw, 5rem) var(--gutter) var(--space-12);
+}
+
+.footer__cta {
+  display: grid;
+  gap: var(--space-8);
+}
+
+.footer__title {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 1.6rem + 2.6vw, 3.5rem);
+  font-weight: var(--weight-regular);
+  line-height: 1.18;
+  letter-spacing: -0.01em;
+}
+
+.footer__title .footer__line {
+  display: block;
+  padding-bottom: 0.06em;
+  overflow: clip;
+}
+
+.footer__lead {
+  max-width: 32em;
+  margin: 0;
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: var(--weight-medium);
+  line-height: 1.5;
+}
+
+.footer__stores {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+  margin: var(--space-6) 0 0;
+}
+
+.footer__store {
+  display: inline-flex;
+  gap: 0.625rem;
+  align-items: center;
+  padding: 0.875rem 1.625rem 0.875rem 1.375rem;
+  border: 1px solid rgb(46 74 58 / 25%);
+  border-radius: 999px;
+  background: #f9f6f1;
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: var(--weight-medium);
+  line-height: 1.33;
+  cursor: pointer;
+  transition:
+    translate var(--duration-base) var(--ease-out-expo),
+    box-shadow var(--duration-base);
+}
+
+.footer__store img {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 0.35rem;
+}
+
+.footer__store--dark {
+  border-color: var(--viora-neutral-900);
+  background: var(--viora-neutral-900);
+  color: #f9f6f1;
+}
+
+.footer__store:hover,
+.footer__store:focus-visible {
+  box-shadow: var(--shadow-2);
+  translate: 0 -2px;
+}
+
+/* ── Links ────────────────────────────────────────────── */
+
+.footer__nav {
+  position: relative;
+  margin-top: clamp(4rem, 7.5vw, 6.75rem);
+  padding-block: clamp(2.5rem, 3.8vw, 3.375rem) clamp(2.5rem, 4.4vw, 4rem);
+}
+
+.footer__rule {
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  height: 1px;
+  background: rgb(46 74 58 / 18%);
+  transform-origin: 0 50%;
+}
+
+.footer__rule:last-child {
+  top: auto;
+  bottom: 0;
+}
+
+.footer__columns {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-10) var(--space-8);
+}
+
+.footer__heading {
+  margin: 0 0 var(--space-5);
+  color: var(--color-brand-dark);
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: var(--weight-medium);
+  line-height: 1.5;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.footer__links {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer__links a {
+  position: relative;
+  display: inline-block;
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: var(--weight-book);
+  line-height: 2.125;
+  text-decoration: none;
+}
+
+/* Underline that stitches itself in from the left. */
+.footer__links a::after {
+  content: '';
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0.45em;
+  height: 1px;
+  background: currentcolor;
+  scale: 0 1;
+  transform-origin: 100% 50%;
+  transition: scale 0.5s var(--ease-out-expo);
+}
+
+.footer__links a:hover::after,
+.footer__links a:focus-visible::after {
+  scale: 1 1;
+  transform-origin: 0 50%;
+}
+
+.footer__base {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--space-8);
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+}
+
+.footer__copyright {
+  margin: 0;
+  color: rgb(46 74 58 / 55%);
+}
+
+.footer__locales {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin: 0;
+  color: rgb(46 74 58 / 75%);
+  letter-spacing: 0.06em;
+}
+
+.footer__locales button {
+  padding: 0.25rem;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.footer__locales button[aria-pressed='true'] {
+  color: var(--ink);
+  font-weight: var(--weight-bold);
+}
+
+@media (width >= 840px) {
+  .footer__story {
+    padding-inline: calc(48 * 100vw / 1440);
+  }
+
+  .footer__body {
+    padding-inline: calc(48 * 100vw / 1440);
+  }
+
+  .footer__cta {
+    grid-template-columns: 1fr calc(512 * 100vw / 1440);
+    gap: var(--space-8);
+  }
+
+  .footer__columns {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
