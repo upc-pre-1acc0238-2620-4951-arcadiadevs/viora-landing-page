@@ -22,7 +22,7 @@ const WINDOW = { top: 150, height: 500, width: 395, left: 318, right: 727 };
 /** How far each window starts off the line, up or down. */
 const DRIFT = 120;
 /** Pinned scroll, in viewport heights. */
-const PIN = 4.6;
+const PIN = 5.2;
 
 const mix = (from, to, amount) => ({
   x: lerp(from.x, to.x, amount),
@@ -48,6 +48,7 @@ export const segments = {
     const cards = rows.map((row) => [...row.querySelectorAll('[data-segments-card]')]);
     const slot = rows[0].querySelector('[data-segments-slot]');
     const title = element.querySelector('[data-segments-title]');
+    const scrim = element.querySelector('[data-segments-scrim]');
     const branches = [...element.querySelectorAll('[data-segments-branch]')];
     const cleanups = [];
 
@@ -169,13 +170,7 @@ export const segments = {
           cut(pairA, mix(mix(joined, { x: 0, y: 0, w: W, h: H }, grow), portrait, collapse));
         };
 
-        // Lining up happens as the section scrolls in, before it pins.
-        gsap.to(state, {
-          align: 1,
-          ease: 'none',
-          onUpdate: render,
-          scrollTrigger: { trigger: element, start: 'top 85%', end: 'top top', scrub: true },
-        });
+        // The branches rise into the corners as the section scrolls in.
         gsap.fromTo(
           branches,
           { yPercent: 35 },
@@ -202,10 +197,13 @@ export const segments = {
           },
         });
         timeline
+          // Once the stage is pinned: the windows line up, then close the gap.
+          .to(state, { align: 1, duration: 0.7, ease: 'power1.inOut' })
           .to(state, { close: 1, duration: 0.4, ease: 'power1.inOut' })
           .addLabel('grow')
           .to(state, { grow: 1, duration: 1.2, ease: 'power2.inOut' }, 'grow')
           .fromTo(title, { scale: 0.8 }, { scale: 1, duration: 1.2, ease: 'power1.out' }, 'grow')
+          .fromTo(scrim, { opacity: 0 }, { opacity: 1, duration: 0.7 }, 'grow+=0.35')
           .fromTo(
             split.chars,
             { yPercent: 115 },
@@ -229,6 +227,7 @@ export const segments = {
             { yPercent: -115, duration: 0.45, stagger: 0.02, ease: 'power2.in' },
             'collapse',
           )
+          .to(scrim, { opacity: 0, duration: 0.5 }, 'collapse')
           .fromTo(
             faces[0],
             { opacity: 1, clipPath: 'inset(100% 0% 0% 0%)' },

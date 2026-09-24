@@ -61,7 +61,22 @@
   text-align: center;
   text-transform: uppercase;
   white-space: nowrap;
-  text-shadow: 0 2px 30px rgb(31 44 38 / 18%);
+  text-shadow: 0 2px 40px rgb(31 44 38 / 35%);
+}
+
+/* Shade behind the title: the painting is bright and busy where the letters
+   sit, so a forest-tinted falloff from the top gives the white its contrast
+   (the reference gets it for free from a flat blue sky). */
+.segments__scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    rgb(31 44 38 / 62%),
+    rgb(31 44 38 / 38%) 22%,
+    rgb(31 44 38 / 10%) 42%,
+    rgb(31 44 38 / 0%) 58%
+  );
+  pointer-events: none;
 }
 
 /* The pair window, the portraits riding window A and the branches only
