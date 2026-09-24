@@ -27,5 +27,27 @@
     "privacy": {
       "title": "Política de privacidad"
     }
+  },
+  "header": {
+    "brand": "Viora"
+  },
+  "hero_section": {
+    "top_label": "Vecería",
+    "main_title": "Anticipa la Próxima Cosecha",
+    "download_button": "Descarga la app",
+    "app_info_card": {
+      "title": "Viora App - Tu olivar al día",
+      "description": "Tu olivar medido árbol por árbol: frío invernal, carga y aclareo en una sola app.",
+      "time": "01:45:00",
+      "action": "Ver"
+    },
+    "right_section": {
+      "title": "EQUILIBRA TU OLIVAR",
+      "description": "Una historia sobre años buenos, años difíciles y la plataforma que aprendió a equilibrarlos."
+    },
+    "alert_widget": {
+      "title": "Ventana de aclareo",
+      "detail": "Parcela 3 - cierra 15 oct"
+    }
   }
 }
