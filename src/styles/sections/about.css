@@ -1,0 +1,591 @@
+/*
+ * About us — Figma desktop 57:3544 (quote), 57:3546 (illustration), 67:2796
+ * (intro), 69:2797 (members), 66:3576 (video), 72:2798 (mission and vision).
+ *
+ * The member list follows doubleplay.studio/about: on hover a row fills with
+ * cream from the side the pointer came in, the name slides over and the
+ * portrait pops in. The drawing is cut in three bands so the team can lift
+ * the trophy (About.js). Sizes are Figma pixels through --u (1440 wide).
+ */
+
+.about {
+  --u: calc(100vw / 1440);
+  --ink: var(--color-text);
+  --cream: #f9f6f1;
+
+  position: relative;
+  background: var(--color-surface);
+  color: var(--ink);
+}
+
+/* ── Quote and drawing ────────────────────────────────── */
+
+.about__opening {
+  display: grid;
+  justify-items: center;
+  padding: clamp(5rem, calc(122 * var(--u)), 8rem) var(--gutter)
+    clamp(2rem, calc(72 * var(--u)), 5rem);
+  text-align: center;
+}
+
+.about__quote {
+  display: grid;
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: clamp(3rem, calc(128 * var(--u)), 9rem);
+  font-weight: var(--weight-bold);
+  line-height: 0.78;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+/* Each line rises inside its own mask (About.js). */
+.about__quote > span {
+  display: block;
+  padding-block: 0.06em;
+  overflow: clip;
+}
+
+.about__question {
+  margin: clamp(2rem, calc(50 * var(--u)), 3.5rem) 0 0;
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, calc(40 * var(--u)), 2.75rem);
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+
+.about__cheer {
+  width: min(100%, calc(838 * var(--u)), 58rem);
+  min-width: min(100%, 30rem);
+  margin: clamp(3rem, calc(120 * var(--u)), 8rem) 0 0;
+}
+
+.about__art {
+  position: relative;
+  aspect-ratio: 1536 / 1024;
+}
+
+/* A band of the drawing: rows --from → --to of the 1024 px source. */
+.about__slice {
+  position: absolute;
+  inset-inline: 0;
+  top: calc(var(--from) / 1024 * 100%);
+  height: calc((var(--to) - var(--from)) / 1024 * 100%);
+  overflow: clip;
+}
+
+.about__slice img,
+.about__gleam {
+  position: absolute;
+  left: 0;
+  top: calc(var(--from) / (var(--to) - var(--from)) * -100%);
+  width: 100%;
+  height: calc(1024 / (var(--to) - var(--from)) * 100%);
+}
+
+/* Overlap by a hair so the cuts never show a seam while they move. */
+.about__slice--top {
+  height: calc((var(--to) - var(--from) + 1) / 1024 * 100%);
+  will-change: transform;
+}
+
+.about__slice--band {
+  transform-origin: 50% 100%;
+  will-change: transform;
+}
+
+/* A shine across the cup, masked to the trophy's drawn pixels. */
+.about__gleam {
+  background: linear-gradient(
+    105deg,
+    transparent calc(var(--shine, -0.3) * 100% - 12%),
+    rgb(255 255 255 / 90%) calc(var(--shine, -0.3) * 100%),
+    transparent calc(var(--shine, -0.3) * 100% + 12%)
+  );
+  mix-blend-mode: screen;
+  mask: url('/assets/images/about/trophy-mask.png') 0 0 / 100% 100% no-repeat;
+  pointer-events: none;
+}
+
+.about__sparks {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.about__star-shape {
+  fill: #fff;
+  stroke: var(--viora-neutral-900);
+  stroke-linejoin: round;
+  stroke-width: 9;
+}
+
+.about__flick {
+  fill: none;
+  stroke: var(--viora-neutral-900);
+  stroke-dasharray: 1;
+  stroke-linecap: round;
+  stroke-width: 9;
+}
+
+.about__confetti {
+  stroke: var(--viora-neutral-900);
+  stroke-linejoin: round;
+  stroke-width: 5;
+}
+
+/* ── Intro bar and idea ───────────────────────────────── */
+
+.about__intro {
+  padding: 0 0 clamp(4rem, calc(94 * var(--u)), 7rem);
+}
+
+.about__bar {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--space-4);
+  align-items: center;
+  padding: clamp(1.25rem, calc(34 * var(--u)), 2.25rem) var(--gutter);
+}
+
+.about__rule {
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  height: 1px;
+  background: var(--viora-neutral-900);
+  transform-origin: 0 50%;
+}
+
+.about__bar p {
+  margin: 0;
+}
+
+.about__team {
+  font-family: var(--font-serif);
+  font-size: clamp(2.25rem, calc(56 * var(--u)), 3.5rem);
+  line-height: 1.1;
+}
+
+.about__motto,
+.about__count {
+  display: none;
+}
+
+.about__year {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: clamp(3.25rem, calc(64 * var(--u)), 4rem);
+  aspect-ratio: 1;
+  font-size: 0.8125rem;
+  font-weight: var(--weight-medium);
+  line-height: 1.2;
+  text-align: center;
+}
+
+.about__year svg {
+  position: absolute;
+  inset: 0;
+  overflow: visible;
+}
+
+.about__year circle {
+  fill: none;
+  stroke: var(--viora-neutral-900);
+  stroke-dasharray: 1;
+  stroke-dashoffset: var(--draw, 0);
+}
+
+.about__idea {
+  margin: clamp(3rem, calc(150 * var(--u)), 9.5rem) var(--gutter) 0;
+  font-family: var(--font-sans);
+  font-size: clamp(1.625rem, calc(44 * var(--u)), 3rem);
+  font-weight: var(--weight-medium);
+  line-height: 1.38;
+  letter-spacing: -0.01em;
+  text-indent: calc(170 * var(--u));
+}
+
+.about__idea em,
+.about__mission-copy em {
+  font-family: var(--font-serif);
+  font-size: 1.09em;
+  font-style: italic;
+  font-weight: var(--weight-regular);
+}
+
+/* Words light up as the paragraph scrolls by (About.js); the indent belongs
+   to the paragraph, not to every word. */
+.about__word {
+  text-indent: 0;
+  opacity: var(--lit, 1);
+}
+
+@media (width >= 840px) {
+  .about__bar {
+    grid-template-columns: calc(460 * var(--u)) calc(340 * var(--u)) 1fr auto;
+    gap: 0;
+  }
+
+  .about__motto,
+  .about__count {
+    display: block;
+  }
+
+  .about__motto {
+    font-size: max(0.75rem, calc(14 * var(--u)));
+    line-height: 1.4;
+  }
+
+  .about__count {
+    font-size: max(1rem, calc(22 * var(--u)));
+    font-weight: var(--weight-medium);
+  }
+
+  .about__idea {
+    margin-inline: calc(100 * var(--u));
+  }
+}
+
+/* ── Members ──────────────────────────────────────────── */
+
+.about__crew {
+  padding: clamp(4rem, calc(140 * var(--u)), 9rem) 0 clamp(4rem, calc(86 * var(--u)), 6rem);
+  background: var(--color-brand);
+  color: var(--cream);
+}
+
+.about__crew-head {
+  display: grid;
+  gap: var(--space-6);
+  padding-inline: var(--gutter);
+}
+
+.about__crew-title {
+  display: flex;
+  align-items: flex-start;
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: clamp(2.75rem, calc(64 * var(--u)), 4rem);
+  font-weight: var(--weight-regular);
+  line-height: 1.1;
+}
+
+.about__crew-title sup {
+  margin-left: 0.4em;
+  font-family: var(--font-display);
+  font-size: 0.34em;
+  line-height: 1;
+}
+
+.about__crew-copy {
+  max-width: 32em;
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: clamp(1rem, calc(19 * var(--u)), 1.1875rem);
+  font-weight: var(--weight-medium);
+  line-height: 1.5;
+}
+
+.about__members {
+  margin: clamp(4rem, calc(200 * var(--u)), 12.5rem) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.about__member {
+  --lift: 0;
+  --over: 0;
+
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--space-2) var(--space-4);
+  align-items: end;
+  padding: var(--space-6) var(--gutter);
+  border-bottom: 1px solid rgb(249 246 241 / 35%);
+  color: var(--cream);
+  transition: color var(--duration-base) var(--ease-out-quart);
+}
+
+.about__member:last-child {
+  border-bottom: 0;
+}
+
+/* Cream fill, wiped in from the side the pointer entered (About.js). */
+.about__member-fill {
+  position: absolute;
+  inset: 0;
+  background: var(--cream);
+  clip-path: inset(var(--wipe, 100% 0 0 0));
+  transition: clip-path 0.5s var(--ease-out-expo);
+}
+
+.about__member > :not(.about__member-fill) {
+  position: relative;
+}
+
+.about__role {
+  grid-row: 2;
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: clamp(0.9375rem, calc(17 * var(--u)), 1.0625rem);
+  font-weight: var(--weight-medium);
+  line-height: 1.4;
+}
+
+.about__name {
+  display: flex;
+  gap: 0.18em;
+  align-items: center;
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: clamp(3.25rem, calc(108 * var(--u)), 6.75rem);
+  font-weight: var(--weight-regular);
+  line-height: 1.1;
+}
+
+.about__avatar {
+  width: 0.8em;
+  height: 0.8em;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.about__arrow {
+  grid-row: 2;
+  width: 1.5rem;
+  height: 1.5rem;
+  transition: translate var(--duration-base) var(--ease-out-expo);
+}
+
+.about__arrow path {
+  fill: none;
+  stroke: currentcolor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.6;
+}
+
+.about__crew-logo {
+  display: block;
+  width: clamp(7rem, calc(144 * var(--u)), 9rem);
+  height: auto;
+  margin: clamp(3rem, calc(60 * var(--u)), 4rem) auto 0;
+}
+
+@media (width >= 840px) {
+  .about__crew-head {
+    grid-template-columns: 1fr calc(600 * var(--u));
+    align-items: start;
+    padding-inline: calc(48 * var(--u));
+  }
+
+  .about__member {
+    grid-template-columns: 1fr auto 1fr;
+    height: calc(180 * var(--u));
+    padding: 0 calc(48 * var(--u)) calc(26 * var(--u));
+  }
+
+  .about__role,
+  .about__arrow {
+    grid-row: 1;
+    align-self: end;
+    margin-bottom: calc(2 * var(--u));
+  }
+
+  .about__role {
+    grid-column: 1;
+  }
+
+  .about__arrow {
+    grid-column: 3;
+    justify-self: end;
+  }
+
+  /* The name holds the centre; the portrait sits outside its box and the
+     pair slides left by half a portrait on hover, like the reference. */
+  .about__name {
+    position: relative;
+    grid-column: 2;
+    grid-row: 1;
+    margin-bottom: calc(-8 * var(--u));
+    transition: translate 0.6s var(--ease-out-expo);
+  }
+
+  .about__avatar {
+    position: absolute;
+    left: calc(100% + 0.2em);
+    scale: 0;
+    rotate: -20deg;
+    transition:
+      scale 0.5s var(--ease-out-expo),
+      rotate 0.5s var(--ease-out-expo);
+  }
+
+  .about__member.is-over {
+    color: var(--color-brand);
+  }
+
+  .about__member.is-over .about__name {
+    translate: -0.5em 0;
+  }
+
+  .about__member.is-over .about__avatar {
+    scale: 1;
+    rotate: 0deg;
+  }
+
+  .about__member.is-over .about__arrow {
+    translate: 0.4rem 0;
+  }
+}
+
+/* ── Video ────────────────────────────────────────────── */
+
+.about__film {
+  position: relative;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: calc(18 * var(--u));
+  min-height: max(34rem, calc(816 * var(--u)));
+  overflow: clip;
+  color: var(--cream);
+  text-align: center;
+}
+
+.about__poster {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about__film::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: radial-gradient(closest-side, rgb(20 22 18 / 35%), transparent);
+}
+
+.about__slogan {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: clamp(3.5rem, calc(108 * var(--u)), 6.75rem);
+  line-height: 1;
+  text-shadow: 0 2px 30px rgb(0 0 0 / 25%);
+}
+
+.about__slogan > * {
+  display: block;
+  padding-block: 0.04em;
+  overflow: clip;
+}
+
+.about__slogan em {
+  font-style: italic;
+}
+
+.about__watch {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  gap: 1.5rem;
+  align-items: center;
+  padding: 1.1rem 2rem 1.1rem 2.25rem;
+  border-radius: 999px;
+  color: var(--viora-white);
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, calc(32 * var(--u)), 2rem);
+  line-height: 1;
+  cursor: pointer;
+}
+
+.about__watch svg {
+  width: 1.5rem;
+  transition: translate var(--duration-base) var(--ease-out-expo);
+}
+
+.about__watch path {
+  fill: none;
+  stroke: currentcolor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+}
+
+.about__watch:hover svg,
+.about__watch:focus-visible svg {
+  translate: 0.3rem 0;
+}
+
+/* ── Mission and vision ───────────────────────────────── */
+
+.about__mission {
+  display: grid;
+  gap: var(--space-8);
+  padding: clamp(4rem, calc(100 * var(--u)), 6.5rem) var(--gutter)
+    clamp(4rem, calc(120 * var(--u)), 8rem);
+  color: var(--color-brand);
+}
+
+.about__mission-title {
+  display: grid;
+  align-content: start;
+  gap: 0.1em;
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, calc(64 * var(--u)), 4rem);
+  font-weight: var(--weight-regular);
+  line-height: 0.8;
+}
+
+.about__mission-copy {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: clamp(1.0625rem, calc(21 * var(--u)), 1.3125rem);
+  font-weight: var(--weight-medium);
+  line-height: 1.62;
+}
+
+.about__marks {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  justify-content: center;
+  margin: clamp(2.5rem, calc(85 * var(--u)), 5.5rem) 0 0;
+}
+
+.about__marks span {
+  width: 1px;
+  height: 2.875rem;
+  background: rgb(46 74 58 / 30%);
+}
+
+.about__marks img {
+  width: auto;
+  height: 3.25rem;
+}
+
+@media (width >= 840px) {
+  .about__mission {
+    grid-template-columns: 1fr calc(577 * var(--u));
+    gap: calc(100 * var(--u));
+    padding-inline: calc(59 * var(--u)) calc(60 * var(--u));
+  }
+
+  .about__mission-title {
+    padding-top: calc(11 * var(--u));
+  }
+}
