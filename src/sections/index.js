@@ -9,11 +9,25 @@ import { cases } from './cases/Cases.js';
 import { features } from './features/Features.js';
 import { intro } from './intro/Intro.js';
 import { modules } from './modules/Modules.js';
+import { plansPhone } from './plans/phone.js';
+import { plans } from './plans/Plans.js';
 import { reasons } from './reasons/Reasons.js';
 import { segments } from './segments/Segments.js';
 import { sky } from './sky/Sky.js';
 import { tacna } from './tacna/Tacna.js';
 
-const registry = [hero, intro, features, modules, cases, tacna, sky, segments, reasons];
+const registry = [
+  hero,
+  intro,
+  features,
+  modules,
+  cases,
+  tacna,
+  sky,
+  segments,
+  reasons,
+  plans,
+  plansPhone,
+];
 
 export const mountSections = (root = document) => mountAll(registry, root);
