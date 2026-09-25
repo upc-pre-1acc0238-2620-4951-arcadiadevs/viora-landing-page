@@ -86,8 +86,30 @@ export const about = {
       dialog.removeEventListener('close', closedVideo);
     });
 
-    // ── Member rows: cream wipes in from where the pointer came ──
+    // ── Member rows: cream wipes in on hover (fine pointer) or tap (coarse/touch) ──
     const fine = window.matchMedia(media.finePointer);
+    let activeRow = null;
+
+    const deactivate = (row) => {
+      if (!row) return;
+      row.style.setProperty('--wipe', '100% 0 0 0');
+      row.classList.remove('is-over', 'is-active');
+      if (activeRow === row) activeRow = null;
+    };
+
+    const activate = (row, startEdge = '100% 0 0 0') => {
+      if (activeRow && activeRow !== row) {
+        deactivate(activeRow);
+      }
+      row.style.transition = 'none';
+      row.style.setProperty('--wipe', startEdge);
+      row.offsetHeight; // commit the start edge before wiping in
+      row.style.transition = '';
+      row.style.setProperty('--wipe', '0 0 0 0');
+      row.classList.add('is-over', 'is-active');
+      activeRow = row;
+    };
+
     members.forEach((row) => {
       const side = (event) => {
         const box = row.getBoundingClientRect();
@@ -95,24 +117,40 @@ export const about = {
       };
       const enter = (event) => {
         if (!fine.matches) return;
-        row.style.transition = 'none';
-        row.style.setProperty('--wipe', side(event));
-        row.offsetHeight; // commit the start edge before wiping in
-        row.style.transition = '';
-        row.style.setProperty('--wipe', '0 0 0 0');
-        row.classList.add('is-over');
+        activate(row, side(event));
       };
       const leave = (event) => {
+        if (!fine.matches) return;
         row.style.setProperty('--wipe', side(event));
-        row.classList.remove('is-over');
+        row.classList.remove('is-over', 'is-active');
+        if (activeRow === row) activeRow = null;
+      };
+      const tap = (event) => {
+        if (fine.matches) return;
+        if (activeRow === row) {
+          deactivate(row);
+        } else {
+          activate(row, side(event));
+        }
       };
       row.addEventListener('pointerenter', enter);
       row.addEventListener('pointerleave', leave);
+      row.addEventListener('click', tap);
       cleanups.push(() => {
         row.removeEventListener('pointerenter', enter);
         row.removeEventListener('pointerleave', leave);
+        row.removeEventListener('click', tap);
       });
     });
+
+    const outside = (event) => {
+      if (fine.matches || !activeRow) return;
+      if (!event.target.closest('[data-about-member]')) {
+        deactivate(activeRow);
+      }
+    };
+    document.addEventListener('click', outside);
+    cleanups.push(() => document.removeEventListener('click', outside));
 
     // ── The cheer: lift, flick, shine, confetti ─────────
     const state = { lift: 0 };
