@@ -63,18 +63,20 @@
   pointer-events: none;
 }
 
-/* Frosted: panels that carry text keep the lens rim but diffuse the backdrop. */
+/* Frosted: panels that carry text (settings, language). Neutral smoked glass like
+ * the macOS Control Center: heavy blur, no brand tint, dark enough for cream text
+ * over the cream sections. */
 [data-glass='liquid'] .glass--frosted:not([data-glass='classic'] .glass) {
   background: linear-gradient(
     160deg,
-    rgb(46 74 58 / 58%) 0%,
-    rgb(31 44 38 / 66%) 55%,
-    rgb(31 44 38 / 72%) 100%
+    rgb(78 78 80 / 52%) 0%,
+    rgb(40 40 42 / 60%) 55%,
+    rgb(30 30 32 / 66%) 100%
   );
-  backdrop-filter: blur(16px) saturate(1.5) brightness(0.92);
+  backdrop-filter: blur(30px) saturate(1.8) brightness(0.82);
   box-shadow:
-    inset 0 0 0 0.5px rgb(255 255 255 / 22%),
-    inset 1.5px 1.5px 1px -0.5px rgb(255 255 255 / 45%),
-    inset -1px -1px 1px -0.5px rgb(255 255 255 / 20%),
-    0 24px 48px rgb(12 18 15 / 30%);
+    inset 0 0 0 0.5px rgb(255 255 255 / 24%),
+    inset 1.5px 1.5px 1px -0.5px rgb(255 255 255 / 42%),
+    inset -1px -1px 1px -0.5px rgb(255 255 255 / 18%),
+    0 24px 48px rgb(12 12 14 / 28%);
 }
