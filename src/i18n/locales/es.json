@@ -285,10 +285,10 @@
     "loadBody": "Muestrea tus árboles, incluso sin señal, y conoce la carga real de cada lote antes de que la campaña decida por ti.",
     "loadCta": "medir mi carga",
     "chillTitle": "Frío<br />invernal",
-    "chillBody": "Viora suma las porciones de frío de cada invierno y te avisa cuando un invierno cálido pone en riesgo tu floración.",
+    "chillBody": "Viora suma las porciones de frío de cada invierno según tu variedad, de mesa o de aceite, y te avisa si un invierno cálido pone en riesgo tu floración.",
     "chillCta": "seguir mi frío",
     "thinningTitle": "Plan de<br />aclareo",
-    "thinningBody": "Sabes cuánto aclarear y hasta cuándo. Registras lo hecho y tu próxima campaña deja de ser una apuesta.",
+    "thinningBody": "Sabes cuánto aclarar y hasta cuándo, para lograr calibres más parejos y que la próxima campaña no colapse.",
     "thinningCta": "planear mi aclareo"
   },
   "cases": {
@@ -439,7 +439,7 @@
     "phoneCodeLabel": "Código de activación",
     "phoneCodeRedeem": "Canjear",
     "phoneCodeDone": "¡Listo! Ya eres socio",
-    "phoneCodeDoneCopy": "Cooperativa de ejemplo · licencia colectiva activa hasta dic 2027",
+    "phoneCodeDoneCopy": "Cooperativa de ejemplo · licencia colectiva activa hasta dic. 2027",
     "phoneCodeFine": "Datos de ejemplo",
     "phoneCodeNote": "sin pago ✓<br />un código, un socio ✓",
     "growerName": "Plan<br />Productor",
