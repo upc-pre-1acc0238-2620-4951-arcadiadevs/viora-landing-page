@@ -21,6 +21,7 @@ import { emitIntro, INTRO_END, INTRO_OPEN, INTRO_REVEAL } from '@/core/intro.js'
 import { startScroll, stopScroll } from '@/core/scroll.js';
 import { t } from '@/i18n/index.js';
 import { qsa } from '@/utils/dom.js';
+import { whenImageReady } from '@/utils/image.js';
 import { createGrower } from './grower.js';
 import { createNotes } from './notes.js';
 
@@ -44,14 +45,8 @@ const settle = (promise) =>
   );
 const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-/** `decode()` can stall in background tabs; load events are enough here. */
-const imageLoaded = (image) =>
-  image.complete
-    ? Promise.resolve()
-    : new Promise((resolve) => {
-        image.addEventListener('load', resolve, { once: true });
-        image.addEventListener('error', resolve, { once: true });
-      });
+/** A broken image is requested again (utils/image.js); a failure never blocks the intro. */
+const imageLoaded = (image) => whenImageReady(image);
 
 function readSeen() {
   try {
