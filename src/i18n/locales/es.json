@@ -38,7 +38,9 @@
     "title": "Ajustes",
     "distortion": "Distorsión",
     "sound": "Sonido",
-    "soon": "Pronto"
+    "soon": "Pronto",
+    "on": "Activada",
+    "off": "Desactivada"
   },
   "hero": {
     "intro": "Viora App — Tu olivar al día",
