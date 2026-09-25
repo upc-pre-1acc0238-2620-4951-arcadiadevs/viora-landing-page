@@ -86,57 +86,58 @@
   },
   "legal": {
     "close": "Cerrar",
+    "contents": "Contenido",
     "terms": {
       "title": "Términos y condiciones",
       "updated": "Última actualización: febrero de 2026 (v1.0.0)",
       "notice": "Borrador académico de ArcadiaDevs (UPC 1ACC0238, 2026-20). No es asesoría legal. Para usuarios en Perú, prevalece esta versión en español en caso de conflicto.",
       "sections": {
         "nature": {
-          "heading": "1. Identificación de las partes y naturaleza del proyecto",
+          "heading": "Identificación de las partes y naturaleza del proyecto",
           "body": "Viora es un SaaS B2B para la vecería del olivo en Tacna, desarrollado por ArcadiaDevs como proyecto académico. Este documento regula únicamente el sitio web estático. «Usted» es el visitante del sitio. «Nosotros» es ArcadiaDevs."
         },
         "acceptance": {
-          "heading": "2. Aceptación y modalidad de contratación",
+          "heading": "Aceptación y modalidad de contratación",
           "body": "Navegar por este sitio y abrir este diálogo es navegación informada: sin cuenta, sin suscripción y sin acceso a la app. La contratación del SaaS ocurre solo dentro de la app móvil con registro expreso y aceptación separada de los Términos de la App."
         },
         "scope": {
-          "heading": "3. Alcance del servicio de la landing page",
+          "heading": "Alcance del servicio de la landing page",
           "body": "Solo informativo: propuesta de valor, módulos (carga frutal, frío invernal, plan de raleo), casos, video, equipo y precios orientativos. Sin formularios, sin registro, sin pagos y sin asesoría agronómica personalizada en este sitio."
         },
         "disclaimer": {
-          "heading": "4. Exención de responsabilidad agronómica",
+          "heading": "Exención de responsabilidad agronómica",
           "body": "El índice BBI de Hoblyn, las porciones de frío de Erez, la ventana de raleo (20 %–50 %) y las proyecciones de cosecha son apoyos a la decisión, no diagnósticos fitosanitarios ni garantías de toneladas, calibres o fin de la vecería. Nada aquí constituye asesoría agronómica profesional."
         },
         "force": {
-          "heading": "5. Fuerza mayor y dependencia de datos de terceros",
+          "heading": "Fuerza mayor y dependencia de datos de terceros",
           "body": "Los modelos dependen de SENAMHI / OpenWeather y de la red de sensores. Las interrupciones de esas fuentes, y El Niño / La Niña y demás eventos climáticos (Código Civil, art. 1315), exoneran a ArcadiaDevs de responsabilidad por pérdidas de cultivo o lucro cesante. Conforme al art. 1328 del Código Civil, ninguna exoneración cubre dolo o culpa inexcusable."
         },
         "confidentiality": {
-          "heading": "6. Confidencialidad comercial",
+          "heading": "Confidencialidad comercial",
           "body": "Este sitio no le pide sus volúmenes, calibres ni precios. En la app, esos datos se tratan como secreto empresarial (Decisión 486 CAN, art. 260) con medidas razonables de reserva. La consolidación cooperativa requiere su consentimiento expreso; no vendemos datos individuales."
         },
         "pricing": {
-          "heading": "7. Precios, moneda y facturación",
+          "heading": "Precios, moneda y facturación",
           "body": "Los precios PEN / USD mostrados son referenciales e incluyen IGV (18 %) cuando aplica. Hacer clic en descargar o ver precios no cobra nada. La compra ocurre solo en la app vía Mercado Pago Checkout Pro. ArcadiaDevs emite el comprobante electrónico según normas SUNAT."
         },
         "downloads": {
-          "heading": "8. Descargas, tiendas y enlaces externos",
+          "heading": "Descargas, tiendas y enlaces externos",
           "body": "Los botones de descarga abren un diálogo informativo de disponibilidad; mientras no haya URLs oficiales, no redirigen fuera. Cuando enlacen a Google Play / App Store, esas tiendas tienen sus propios términos, ajenos a ArcadiaDevs."
         },
         "ip": {
-          "heading": "9. Propiedad intelectual",
+          "heading": "Propiedad intelectual",
           "body": "Código, algoritmos, marcas, logos y diseños pertenecen a ArcadiaDevs. Los componentes open source (Three.js, GSAP, Lenis) conservan sus licencias MIT / Apache 2.0. No se concede licencia más allá de visualizar este sitio."
         },
         "disputes": {
-          "heading": "10. Libro de Reclamaciones y controversias",
+          "heading": "Libro de Reclamaciones y controversias",
           "body": "Conforme al D.S. N.º 011-2011-PCM, el footer enlaza el Libro de Reclamaciones Virtual (respuesta en máximo 15 días hábiles). Estos Términos se rigen por las leyes del Perú (Ley N.º 29733, Ley N.º 29571, Código Civil). Competencia: jueces de Lima o Tacna según la norma de consumo aplicable."
         },
         "amendments": {
-          "heading": "11. Modificaciones y versiones",
+          "heading": "Modificaciones y versiones",
           "body": "Los cambios sustanciales se avisan con al menos 15 días de anticipación mediante aviso destacado en el sitio o la app. El uso posterior a la vigencia implica aceptación. Este texto se versiona con el tag SemVer del repo."
         },
         "contact": {
-          "heading": "12. Contacto",
+          "heading": "Contacto",
           "body": "Privacidad y derechos ARCO: privacidad@viora.pe. Reclamaciones de consumo: Libro de Reclamaciones del sitio."
         }
       }
@@ -147,39 +148,39 @@
       "notice": "Esta política cubre solo la landing page. Los datos de la app se rigen por una Política de la App separada, aceptada expresamente al registrarse.",
       "sections": {
         "tracking": {
-          "heading": "1. Declaración de cero rastreo",
+          "heading": "Declaración de cero rastreo",
           "body": "Este sitio web estático no usa cookies de rastreo, píxeles publicitarios ni analítica de terceros. Solo usamos el almacenamiento local de su navegador (localStorage) para recordar idioma y ajustes de interfaz. Estos datos nunca salen de su navegador y pueden borrarse en cualquier momento."
         },
         "storage": {
-          "heading": "2. Qué guardamos en su navegador",
+          "heading": "Qué guardamos en su navegador",
           "body": "Preferencia de idioma, preferencia de efectos visuales (viora_pref_distortion) y preferencia de audio (viora_pref_sound). Base: necesidad técnica e interés legítimo. Sin perfilado ni cesión."
         },
         "logs": {
-          "heading": "3. Logs de infraestructura",
+          "heading": "Logs de infraestructura",
           "body": "El CDN de Vercel procesa pasivamente registros técnicos (IP, User-Agent, fecha y hora) para entregar el contenido y mitigar DDoS, con conservación típica de 30 días. Vercel Inc. actúa como encargado según la Ley N.º 29733."
         },
         "gateway": {
-          "heading": "4. Lo que esta landing NO le pide",
+          "heading": "Lo que esta landing NO le pide",
           "body": "Sin formularios, newsletter, cuentas ni pagos aquí: usted no entrega nombre, DNI, email, teléfono, parcelas, cosechas ni datos de tarjeta. El registro en la app se rige por separado con consentimiento expreso."
         },
         "arco": {
-          "heading": "5. Derechos ARCO y reclamación ante la ANPD",
+          "heading": "Derechos ARCO y reclamación ante la ANPD",
           "body": "Ejerza Acceso, Rectificación, Cancelación y Oposición vía privacidad@viora.pe con su DNI, el derecho invocado y una dirección de notificación. Plazos: Acceso 20 días hábiles; Rectificación, Cancelación y Oposición 10 días hábiles cada uno. Estos derechos son irrenunciables."
         },
         "processors": {
-          "heading": "6. Encargados y transferencias",
+          "heading": "Encargados y transferencias",
           "body": "Vercel (hosting/CDN), Mercado Pago (pagos en la app), Twilio (mensajería en la app) y Google FCM (push en la app) actúan como encargados. Los datos de clima usan solo coordenadas, sin datos personales."
         },
         "communications": {
-          "heading": "7. Comunicaciones",
+          "heading": "Comunicaciones",
           "body": "Esta landing no envía mensajes. En la app, las alertas de raleo, heladas o riego son ejecución contractual; lo promocional requiere opt-in separado y puede revocarse en cualquier momento."
         },
         "security": {
-          "heading": "8. Seguridad, conservación y menores",
+          "heading": "Seguridad, conservación y menores",
           "body": "Salvaguardas razonables de la industria; en la app: TLS 1.3, SQLCipher local, JWT rotativos de 15 min y RLS por cooperativa. Los pagos tienen retención fiscal de 5 años (SUNAT). Este servicio no está dirigido a menores de edad."
         },
         "changes": {
-          "heading": "9. Cambios, versiones y contacto",
+          "heading": "Cambios, versiones y contacto",
           "body": "Cambios sustanciales con aviso destacado de 15 días; versión alineada al tag SemVer. Contacto ARCO: privacidad@viora.pe. Reclamaciones de consumo: Libro de Reclamaciones (15 días hábiles). Ley aplicable: Perú."
         }
       }
