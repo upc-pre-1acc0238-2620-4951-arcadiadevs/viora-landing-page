@@ -225,7 +225,7 @@
 }
 
 .bottle__plan path,
-.bottle__cursor path {
+.bottle__cursor-icon path {
   fill: none;
   stroke: currentcolor;
   stroke-linecap: round;
@@ -251,46 +251,65 @@
   opacity: 0.55;
 }
 
-/* The drag badge that follows a fine pointer over the bottle. */
+/* The drag badge (santionispirits.com): a disc hanging off the grab hand,
+ * half a disc down and towards the centre. It stretches along the pointer's
+ * speed (squash and stretch) and inks whatever copy it covers in a deep tone
+ * of the room, through a clone of the stage kept still inside it (Bottle.js).
+ * 80 px at 1600 wide, 60 px at 960, like the reference. */
 .bottle__cursor {
+  --tint: color-mix(in srgb, var(--room) 72%, #000);
+  --size: max(3.5rem, calc(30px + 3.125vw));
+
   position: absolute;
   top: 0;
   left: 0;
   z-index: 3;
   display: none;
-  place-content: center;
-  justify-items: center;
-  gap: 0.15rem;
-  width: 5.5rem;
-  height: 5.5rem;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.bottle__cursor-disc {
+  position: absolute;
+  top: calc(var(--size) / -2);
+  left: calc(var(--size) / -2);
+  width: var(--size);
+  height: var(--size);
+  overflow: hidden;
   border-radius: 50%;
   background: var(--cream);
-  color: var(--room);
-  font-family: var(--font-sans);
-  font-size: 0.6875rem;
-  font-weight: var(--weight-bold);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  pointer-events: none;
-  scale: 0;
+}
+
+/* The palette flips inside the disc: cream copy turns to ink, ink to cream. */
+.bottle__cursor-ink {
+  --cream: var(--tint);
+  --room: #f9f6f1;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: var(--cream);
+  transform-origin: 0 0;
+}
+
+.bottle__cursor-ink .bottle__meta img {
+  filter: brightness(0.2);
 }
 
 .bottle__cursor-icon {
-  width: 1.4rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(var(--size) / 4);
+  max-width: none; /* the badge root is a 0 × 0 anchor */
+  color: var(--tint);
+  translate: -50% -50%;
 }
 
 @media (hover: hover) and (pointer: fine) {
   .bottle__cursor {
-    display: grid;
-  }
-
-  .bottle__stage,
-  .bottle.is-dragging .bottle__stage {
-    cursor: none;
-  }
-
-  .bottle__stage :is(a, button) {
-    cursor: pointer;
+    display: block;
   }
 }
 
@@ -321,7 +340,7 @@
   .bottle__store {
     position: absolute;
     top: 50%;
-    z-index: 2;
+    z-index: auto; /* under the cursor, which inks it */
     width: calc(230 * var(--u));
     gap: var(--space-3);
     margin-top: 0;
@@ -353,7 +372,7 @@
     position: absolute;
     inset-inline: 0;
     bottom: calc(46 * var(--u));
-    z-index: 2;
+    z-index: auto;
     gap: var(--space-4);
     margin-top: 0;
     padding-bottom: 0;
@@ -361,5 +380,11 @@
 
   .bottle__hint {
     display: none;
+  }
+
+  /* Between the headline and the bottle: the disc inks the copy but passes
+     behind the glass, the way a thing in the room would. */
+  .bottle__cursor {
+    z-index: 0;
   }
 }

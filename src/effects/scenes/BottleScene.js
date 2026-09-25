@@ -28,6 +28,12 @@ import { gsap } from '@/core/gsap.js';
 import { WebGLStage } from '../webgl/WebGLStage.js';
 
 const TAU = Math.PI * 2;
+/** Per-second rate of santionispirits.com's 0.1-per-frame (60 fps) lerp. */
+const FOLLOW = -Math.log(0.9) * 60;
+/** Sideways travel at the section's edge, as a share of the visible width. */
+const REACH = 0.11;
+/** Turntable speed once the pointer has picked a direction (rad/s). */
+const TURN = 1;
 
 /** Half-profile of the bottle, bottom to lip: [radius, y]. */
 const GLASS = [
@@ -313,6 +319,11 @@ export default class BottleScene extends WebGLStage {
     // Where the pointer rests across the section (−1 left … 1 right), eased.
     this.hoverTarget = 0;
     this.hoverValue = 0;
+    // Last horizontal pointer direction: the bottle keeps turning that way.
+    this.direction = 0;
+    this.turn = 0;
+    this.sway = 1;
+    this.reach = 1;
     this.from = 0;
     this.to = 0;
     this.drift = 0;
@@ -432,12 +443,19 @@ export default class BottleScene extends WebGLStage {
     const fit = 3.9 / 0.7 / (2 * Math.tan((this.camera.fov * Math.PI) / 360));
     const narrow = Math.max(1, (0.42 * height) / width);
     this.camera.position.set(0, -0.5, fit * narrow ** 0.5);
+    const visible = 2 * this.camera.position.z * Math.tan((this.camera.fov * Math.PI) / 360);
+    this.reach = REACH * visible * this.camera.aspect;
     this.dirty = true;
   }
 
   /** Pointer position across the section, −1…1: the bottle leans towards it. */
   hover(amount) {
     this.hoverTarget = amount;
+  }
+
+  /** Horizontal pointer direction (−1 or 1): the turntable follows it. */
+  steer(direction) {
+    this.direction = direction;
   }
 
   /** Dragging: `amount` in −1…1, before the swap is decided. */
@@ -525,19 +543,25 @@ export default class BottleScene extends WebGLStage {
   update(time, delta) {
     const dt = Math.min(delta, 1 / 30);
     const { state } = this;
-    // A slow sway rather than a full turn: the label keeps facing out.
-    this.drift = Math.sin(time * 0.45) * 0.42;
+    // Until a mouse moves, a slow sway keeps the label facing out; after it,
+    // the bottle turns on towards the pointer's last direction (the reference).
+    this.sway += ((this.direction ? 0 : 1) - this.sway) * (1 - Math.exp(-dt * 2));
+    this.drift = Math.sin(time * 0.45) * 0.42 * this.sway;
+    if (Math.abs(state.drag) < 0.01) this.turn += this.direction * TURN * dt;
 
     const rise = 1 - state.entry;
     const y = -rise * 4.2 + Math.sin(time * 0.9) * 0.04;
-    this.hoverValue += (this.hoverTarget - this.hoverValue) * (1 - Math.exp(-dt * 3.2));
+    // The pointer pulls the bottle to its side, turns it half round and tips
+    // its cap back towards the centre: 0.75 units, π and π/12 in the reference.
+    this.hoverValue += (this.hoverTarget - this.hoverValue) * (1 - Math.exp(-dt * FOLLOW));
     const hover = this.hoverValue;
-    const shift = state.shift + state.drag * 0.55 + hover * 0.42;
-    const tilt = state.tilt - state.drag * 0.42 - hover * 0.32;
+    const shift = state.shift + state.drag * 0.55 + hover * this.reach;
+    const tilt =
+      state.tilt - state.drag * 0.42 + hover * (Math.PI / 12) + Math.cos(time * 0.1) * 0.01;
     this.bottle.position.set(shift, y, 0);
     this.bottle.rotation.set(
-      hover * 0.12,
-      state.spin + this.drift + state.drag * 0.9 + hover * 0.35,
+      0,
+      state.spin + this.turn + this.drift + state.drag * 0.9 + hover * Math.PI,
       tilt + rise * 0.35,
     );
     this.bottle.updateMatrixWorld();
