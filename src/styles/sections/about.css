@@ -39,10 +39,13 @@
   text-transform: uppercase;
 }
 
-/* Each line rises inside its own mask (About.js). */
+/* Each line rises inside its own mask (About.js). The caps (and the quote marks)
+ * rise above the 0.78 line box, so the mask gets extra headroom that the negative
+ * margin gives back: the lines sit exactly where they did. */
 .about__quote > span {
   display: block;
-  padding-block: 0.06em;
+  margin-top: -0.12em;
+  padding-block: 0.18em 0.06em;
   overflow: clip;
 }
 
