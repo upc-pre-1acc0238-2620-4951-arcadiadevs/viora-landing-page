@@ -11,7 +11,7 @@ import { PLANS_SLIDE } from './Plans.js';
  * sections registry; Plans.js does not depend on it.
  */
 
-const PRICE_PER_HECTARE = 9;
+const PRICE_PER_HECTARE = 55;
 const CODE = 'VIO-7K4Q-29';
 
 const demos = {
