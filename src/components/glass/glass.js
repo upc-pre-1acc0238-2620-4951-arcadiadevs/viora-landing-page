@@ -4,12 +4,14 @@
  *
  * Two materials, selected on <html data-glass="…">:
  * - `liquid` (default): iOS-style clear glass. A convex bezel pulls the backdrop
- *   inward near the rim, with slight per-channel dispersion; `.glass--frosted`
- *   adds a heavy frost for panels that carry text.
+ *   inward near the rim, with slight per-channel dispersion.
  * - `classic`: the previous thin lens. Remove the attribute (or set it to
  *   `classic`) to restore it; CSS in styles/components/glass.css follows.
  * The nearest `data-glass` ancestor wins, so one piece can opt out of the page
  * material, e.g. <div data-glass="classic">.
+ *
+ * `.glass--frosted` panels (settings, language) get no lens: its sharp rim cut
+ * through the heavy blur, so they keep the plain CSS frost (Control Center look).
  */
 let instances = 0;
 
@@ -146,10 +148,7 @@ const liquid = {
     });
   },
   scale: (bezel) => bezel * 1.9,
-  backdrop: (panel) =>
-    panel.classList.contains('glass--frosted')
-      ? 'blur(16px) saturate(1.5) brightness(0.92)'
-      : 'blur(0.6px) saturate(1.45) brightness(1.06)',
+  backdrop: () => 'blur(0.6px) saturate(1.45) brightness(1.06)',
 };
 
 export function mountGlass(root) {
@@ -159,7 +158,7 @@ export function mountGlass(root) {
   const defs = element('defs', {});
   svg.append(defs);
   root.append(svg);
-  const panels = [...root.querySelectorAll('.glass')];
+  const panels = [...root.querySelectorAll('.glass:not(.glass--frosted)')];
   const filters = panels.map((panel, index) => {
     const material = materialOf(panel);
     const id = `${scope}-${index}`;

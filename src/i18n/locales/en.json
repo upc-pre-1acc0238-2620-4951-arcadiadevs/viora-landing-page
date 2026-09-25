@@ -38,7 +38,9 @@
     "title": "Settings",
     "distortion": "Distortion",
     "sound": "Sound",
-    "soon": "Soon"
+    "soon": "Soon",
+    "on": "On",
+    "off": "Off"
   },
   "hero": {
     "intro": "Viora App — Your grove, daily",

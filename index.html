@@ -142,51 +142,65 @@
             data-navbar-panel
           >
             <p class="navbar__eyebrow" data-i18n="settings.title">Settings</p>
-            <ul class="navbar__settings">
-              <li class="navbar__setting" data-navbar-reveal>
-                <svg
-                  class="navbar__setting-icon"
-                  viewBox="0 0 24 24"
-                  width="20"
-                  height="20"
-                  aria-hidden="true"
-                >
-                  <path d="M3 12c1.5-3.5 3-3.5 4.5 0s3 3.5 4.5 0 3-3.5 4.5 0 3 3.5 4.5 0" />
-                </svg>
-                <span id="setting-distortion" data-i18n="settings.distortion">Distortion</span>
+            <ul class="navbar__pills">
+              <li data-navbar-reveal>
                 <button
-                  class="switch"
+                  class="control"
                   type="button"
                   role="switch"
                   aria-checked="true"
                   aria-labelledby="setting-distortion"
                   data-preference="distortion"
-                ></button>
+                >
+                  <span class="control__icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="20" height="20">
+                      <path d="M3 12c1.5-3.5 3-3.5 4.5 0s3 3.5 4.5 0 3-3.5 4.5 0 3 3.5 4.5 0" />
+                    </svg>
+                  </span>
+                  <span class="control__text">
+                    <span
+                      class="control__label"
+                      id="setting-distortion"
+                      data-i18n="settings.distortion"
+                      >Distortion</span
+                    >
+                    <span class="control__state control__state--on" data-i18n="settings.on"
+                      >On</span
+                    >
+                    <span class="control__state control__state--off" data-i18n="settings.off"
+                      >Off</span
+                    >
+                  </span>
+                </button>
               </li>
-              <li class="navbar__setting" data-navbar-reveal>
-                <svg
-                  class="navbar__setting-icon"
-                  viewBox="0 0 24 24"
-                  width="20"
-                  height="20"
-                  aria-hidden="true"
-                >
-                  <path d="M4 9.5h3l4.5-4v13L7 14.5H4z" />
-                  <path d="M15 9.5a3.5 3.5 0 0 1 0 5M17.5 7a7 7 0 0 1 0 10" />
-                </svg>
-                <span id="setting-sound"
-                  ><span data-i18n="settings.sound">Sound</span>
-                  <span class="navbar__badge" data-i18n="settings.soon">Soon</span></span
-                >
+              <li data-navbar-reveal>
                 <button
-                  class="switch"
+                  class="control"
                   type="button"
                   role="switch"
                   aria-checked="false"
-                  aria-labelledby="setting-sound"
+                  aria-labelledby="setting-sound setting-sound-soon"
                   aria-disabled="true"
                   data-preference="sound"
-                ></button>
+                >
+                  <span class="control__icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="20" height="20">
+                      <path d="M4 9.5h3l4.5-4v13L7 14.5H4z" />
+                      <path d="M15 9.5a3.5 3.5 0 0 1 0 5M17.5 7a7 7 0 0 1 0 10" />
+                    </svg>
+                  </span>
+                  <span class="control__text">
+                    <span class="control__label" id="setting-sound" data-i18n="settings.sound"
+                      >Sound</span
+                    >
+                    <span
+                      class="control__state control__state--soon"
+                      id="setting-sound-soon"
+                      data-i18n="settings.soon"
+                      >Soon</span
+                    >
+                  </span>
+                </button>
               </li>
             </ul>
           </div>
@@ -220,27 +234,29 @@
             data-navbar-panel
           >
             <p class="navbar__eyebrow" data-i18n="nav.language">Language</p>
-            <ul class="navbar__options">
+            <ul class="navbar__pills">
               <li data-navbar-reveal>
                 <button
-                  class="navbar__option"
+                  class="control"
                   type="button"
                   lang="en"
                   data-locale-switch="en"
                   aria-pressed="true"
                 >
-                  English <span class="navbar__code" aria-hidden="true">EN</span>
+                  <span class="control__icon control__icon--code" aria-hidden="true">EN</span>
+                  <span class="control__text"><span class="control__label">English</span></span>
                 </button>
               </li>
               <li data-navbar-reveal>
                 <button
-                  class="navbar__option"
+                  class="control"
                   type="button"
                   lang="es"
                   data-locale-switch="es"
                   aria-pressed="false"
                 >
-                  Español <span class="navbar__code" aria-hidden="true">ES</span>
+                  <span class="control__icon control__icon--code" aria-hidden="true">ES</span>
+                  <span class="control__text"><span class="control__label">Español</span></span>
                 </button>
               </li>
             </ul>
@@ -3300,9 +3316,7 @@
             treated as a trade secret (Andean Decision 486, art. 260) with reasonable safeguards.
             Cooperative aggregation requires your express consent; we do not sell individual data.
           </p>
-          <h3 data-i18n="legal.terms.sections.pricing.heading">
-            7. Pricing, currency, billing
-          </h3>
+          <h3 data-i18n="legal.terms.sections.pricing.heading">7. Pricing, currency, billing</h3>
           <p data-i18n="legal.terms.sections.pricing.body">
             PEN / USD prices shown are indicative and include IGV (18%) where applicable. Clicking
             download or viewing prices charges nothing. Purchase happens only in the app via Mercado
@@ -3369,8 +3383,8 @@
         <div class="legal-dialog__body">
           <p data-i18n="legal.privacy.updated">Last updated: February 2026 (v1.0.0)</p>
           <p data-i18n="legal.privacy.notice">
-            This policy covers the landing page only. App data is governed by a separate App
-            Privacy Policy accepted expressly at sign-up.
+            This policy covers the landing page only. App data is governed by a separate App Privacy
+            Policy accepted expressly at sign-up.
           </p>
           <h3 data-i18n="legal.privacy.sections.tracking.heading">1. Zero-tracking statement</h3>
           <p data-i18n="legal.privacy.sections.tracking.body">
@@ -3388,21 +3402,18 @@
           </p>
           <h3 data-i18n="legal.privacy.sections.logs.heading">3. Infrastructure logs</h3>
           <p data-i18n="legal.privacy.sections.logs.body">
-            The Vercel CDN passively processes technical logs (IP, User-Agent, timestamp) to
-            deliver content and mitigate DDoS, typically retained 30 days. Vercel Inc. acts as
-            processor under Law 29733.
+            The Vercel CDN passively processes technical logs (IP, User-Agent, timestamp) to deliver
+            content and mitigate DDoS, typically retained 30 days. Vercel Inc. acts as processor
+            under Law 29733.
           </p>
           <h3 data-i18n="legal.privacy.sections.gateway.heading">
             4. What this landing does NOT ask
           </h3>
           <p data-i18n="legal.privacy.sections.gateway.body">
-            No forms, newsletter, accounts, or payments here: you provide no name, ID, email,
-            phone, plots, harvests, or card data. App sign-up is governed separately with express
-            consent.
+            No forms, newsletter, accounts, or payments here: you provide no name, ID, email, phone,
+            plots, harvests, or card data. App sign-up is governed separately with express consent.
           </p>
-          <h3 data-i18n="legal.privacy.sections.arco.heading">
-            5. ARCO rights and ANPD complaint
-          </h3>
+          <h3 data-i18n="legal.privacy.sections.arco.heading">5. ARCO rights and ANPD complaint</h3>
           <p data-i18n="legal.privacy.sections.arco.body">
             Exercise Access, Rectification, Erasure, and Objection via privacidad@viora.pe with your
             ID, the right invoked, and a notification address. Deadlines: Access 20 business days;
