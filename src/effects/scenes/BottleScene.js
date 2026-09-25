@@ -26,8 +26,30 @@ import {
 } from 'three';
 import { gsap } from '@/core/gsap.js';
 import { WebGLStage } from '../webgl/WebGLStage.js';
+import {
+  collarFragment,
+  paintReserveLabel,
+  RESERVE,
+  RESERVE_INKS,
+  reserveFragment,
+  reserveVertex,
+} from './reserveLabel.js';
+
+/**
+ * Which dress the bottle wears: 'reserve' (tall foil front label, neck collar,
+ * smooth glass; reserveLabel.js) or 'classic' (the first wrap-around band on
+ * fluted glass). Switch back here if the new one ever needs to go.
+ */
+const LABEL_STYLE = 'reserve';
+const RESERVE_STYLE = LABEL_STYLE === 'reserve';
 
 const TAU = Math.PI * 2;
+/** Per-second rate of santionispirits.com's 0.1-per-frame (60 fps) lerp. */
+const FOLLOW = -Math.log(0.9) * 60;
+/** Sideways travel at the section's edge, as a share of the visible width. */
+const REACH = 0.11;
+/** Turntable speed once the pointer has picked a direction (rad/s). */
+const TURN = 1;
 
 /** Half-profile of the bottle, bottom to lip: [radius, y]. */
 const GLASS = [
@@ -118,6 +140,7 @@ const glassVertex = /* glsl */ `
 const glassFragment = /* glsl */ `
   uniform vec3 uTint;
   uniform float uBack;
+  uniform float uFlutes;
   varying vec3 vWorld;
   varying vec3 vNormal;
   varying vec3 vLocal;
@@ -128,7 +151,7 @@ const glassFragment = /* glsl */ `
     float body = smoothstep(-1.8, -1.7, vLocal.y) * smoothstep(0.5, 0.35, vLocal.y);
     float angle = atan(vLocal.z, vLocal.x);
     vec3 around = normalize(vec3(-sin(angle), 0.0, cos(angle)));
-    n = normalize(n + around * sin(angle * 36.0) * 0.22 * body);
+    n = normalize(n + around * sin(angle * 36.0) * 0.22 * body * uFlutes);
     vec3 view = normalize(cameraPosition - vWorld);
     float facing = clamp(dot(n, view), 0.0, 1.0);
     float fresnel = pow(1.0 - facing, 3.0);
@@ -313,7 +336,11 @@ export default class BottleScene extends WebGLStage {
     // Where the pointer rests across the section (−1 left … 1 right), eased.
     this.hoverTarget = 0;
     this.hoverValue = 0;
-    this.from = 0;
+    // Last horizontal pointer direction: the bottle keeps turning that way.
+    this.direction = 0;
+    this.turn = 0;
+    this.sway = 1;
+    this.reach = 1;
     this.to = 0;
     this.drift = 0;
 
@@ -327,7 +354,11 @@ export default class BottleScene extends WebGLStage {
     const glassBack = new ShaderMaterial({
       vertexShader: glassVertex,
       fragmentShader: glassFragment,
-      uniforms: { uTint: { value: new Color('#dfe7d6') }, uBack: { value: 0.55 } },
+      uniforms: {
+        uTint: { value: new Color('#dfe7d6') },
+        uBack: { value: 0.55 },
+        uFlutes: { value: RESERVE_STYLE ? 0 : 1 },
+      },
       transparent: true,
       depthWrite: false,
       side: BackSide,
@@ -384,6 +415,16 @@ export default class BottleScene extends WebGLStage {
     );
     this.cap.renderOrder = 5;
 
+    if (RESERVE_STYLE) this.dressReserve();
+    else this.dressClassic();
+    this.bottle.add(back, oil, this.label, front, this.cap);
+    if (this.collar) this.bottle.add(this.collar);
+    this.fillPoint = new Vector3();
+    this.dirty = true;
+  }
+
+  /** The first dress: a 200° band across the body. */
+  dressClassic() {
     // Label: 200° of the body, facing the camera at rest.
     this.labelCanvases = [0, 1].map(() => {
       const canvas = document.createElement('canvas');
@@ -413,16 +454,88 @@ export default class BottleScene extends WebGLStage {
     );
     this.label.position.y = -0.62;
     this.label.renderOrder = 3;
+  }
 
-    this.bottle.add(back, oil, this.label, front, this.cap);
-    this.fillPoint = new Vector3();
-    this.dirty = true;
+  /** The reserve dress: a tall front label with foil, and a neck collar. */
+  dressReserve() {
+    const make = (width, height) =>
+      [0, 1].map(() => {
+        const canvas = document.createElement('canvas');
+        canvas.width = width;
+        canvas.height = height;
+        return canvas;
+      });
+    const texture = (canvas, color) => {
+      const map = new CanvasTexture(canvas);
+      if (color) map.colorSpace = SRGBColorSpace;
+      map.anisotropy = 8;
+      return map;
+    };
+    this.labelCanvases = make(RESERVE.width, RESERVE.height);
+    this.foilCanvases = make(RESERVE.width / 2, RESERVE.height / 2);
+    this.labelTextures = this.labelCanvases.map((canvas) => texture(canvas, true));
+    this.foilTextures = this.foilCanvases.map((canvas) => texture(canvas, false));
+
+    // As wide as the canvas's aspect allows: about a third of the way round.
+    const height = RESERVE.top - RESERVE.bottom;
+    const arc = ((RESERVE.width / RESERVE.height) * height) / RESERVE.radius;
+    this.label = new Mesh(
+      new CylinderGeometry(RESERVE.radius, RESERVE.radius, height, 96, 1, true, -arc / 2, arc),
+      new ShaderMaterial({
+        vertexShader: reserveVertex,
+        fragmentShader: reserveFragment(STUDIO),
+        uniforms: {
+          uMap: { value: this.labelTextures[0] },
+          uNext: { value: this.labelTextures[1] },
+          uFoil: { value: this.foilTextures[0] },
+          uFoilNext: { value: this.foilTextures[1] },
+          uSwap: { value: 0 },
+          uTime: { value: 0 },
+          uTexel: { value: new Vector2(2 / RESERVE.width, 2 / RESERVE.height) },
+        },
+        side: DoubleSide,
+      }),
+    );
+    this.label.position.y = (RESERVE.top + RESERVE.bottom) / 2;
+    this.label.renderOrder = 3;
+
+    this.collar = new Mesh(
+      new CylinderGeometry(0.149, 0.149, 0.24, 64, 1, true).translate(0, 1.29, 0),
+      new ShaderMaterial({
+        vertexShader: glassVertex,
+        fragmentShader: collarFragment(STUDIO),
+        uniforms: {
+          uGround: { value: new Color(RESERVE_INKS[0].collar) },
+          uGold: { value: new Color(RESERVE_INKS[0].gold) },
+          uTime: { value: 0 },
+        },
+      }),
+    );
+    this.collar.renderOrder = 5;
+  }
+
+  /** Points the label at segment `from`, ready to turn over to `to`. */
+  faceLabel(from, to = from) {
+    const { uniforms } = this.label.material;
+    uniforms.uMap.value = this.labelTextures[from];
+    uniforms.uNext.value = this.labelTextures[to];
+    uniforms.uSwap.value = 0;
+    if (this.foilTextures) {
+      uniforms.uFoil.value = this.foilTextures[from];
+      uniforms.uFoilNext.value = this.foilTextures[to];
+    }
   }
 
   /** Paints both labels; call again after a language change. */
   paint(texts, mark) {
-    this.labelCanvases.forEach((canvas, i) => paintLabel(canvas, SEGMENTS[i], texts[i], mark));
-    this.labelTextures.forEach((texture) => (texture.needsUpdate = true));
+    this.labelCanvases.forEach((canvas, i) =>
+      RESERVE_STYLE
+        ? paintReserveLabel(canvas, this.foilCanvases[i], RESERVE_INKS[i], texts[i], mark)
+        : paintLabel(canvas, SEGMENTS[i], texts[i], mark),
+    );
+    [...this.labelTextures, ...(this.foilTextures ?? [])].forEach(
+      (texture) => (texture.needsUpdate = true),
+    );
     this.dirty = true;
   }
 
@@ -432,12 +545,19 @@ export default class BottleScene extends WebGLStage {
     const fit = 3.9 / 0.7 / (2 * Math.tan((this.camera.fov * Math.PI) / 360));
     const narrow = Math.max(1, (0.42 * height) / width);
     this.camera.position.set(0, -0.5, fit * narrow ** 0.5);
+    const visible = 2 * this.camera.position.z * Math.tan((this.camera.fov * Math.PI) / 360);
+    this.reach = REACH * visible * this.camera.aspect;
     this.dirty = true;
   }
 
   /** Pointer position across the section, −1…1: the bottle leans towards it. */
   hover(amount) {
     this.hoverTarget = amount;
+  }
+
+  /** Horizontal pointer direction (−1 or 1): the turntable follows it. */
+  steer(direction) {
+    this.direction = direction;
   }
 
   /** Dragging: `amount` in −1…1, before the swap is decided. */
@@ -462,9 +582,9 @@ export default class BottleScene extends WebGLStage {
       bright: new Color(to.bright),
       surface: new Color(to.surface),
     };
-    this.label.material.uniforms.uMap.value = this.labelTextures[this.to];
-    this.label.material.uniforms.uNext.value = this.labelTextures[index];
-    this.label.material.uniforms.uSwap.value = 0;
+    this.faceLabel(this.to, index);
+    const collar = this.collar?.material.uniforms.uGround.value;
+    const grounds = [this.to, index].map((i) => new Color(RESERVE_INKS[i].collar));
     this.to = index;
     const timeline = gsap.timeline();
     timeline
@@ -491,6 +611,7 @@ export default class BottleScene extends WebGLStage {
             blend.uDeep.value.copy(a.deep).lerp(b.deep, colors.k);
             blend.uBright.value.copy(a.bright).lerp(b.bright, colors.k);
             blend.uSurface.value.copy(a.surface).lerp(b.surface, colors.k);
+            collar?.copy(grounds[0]).lerp(grounds[1], colors.k);
           },
         },
         0.35,
@@ -512,8 +633,8 @@ export default class BottleScene extends WebGLStage {
     this.oil.uniforms.uDeep.value.set(look.deep);
     this.oil.uniforms.uBright.value.set(look.bright);
     this.oil.uniforms.uSurface.value.set(look.surface);
-    this.label.material.uniforms.uMap.value = this.labelTextures[index];
-    this.label.material.uniforms.uSwap.value = 0;
+    this.faceLabel(index);
+    this.collar?.material.uniforms.uGround.value.set(RESERVE_INKS[index].collar);
     this.dirty = true;
   }
 
@@ -525,19 +646,25 @@ export default class BottleScene extends WebGLStage {
   update(time, delta) {
     const dt = Math.min(delta, 1 / 30);
     const { state } = this;
-    // A slow sway rather than a full turn: the label keeps facing out.
-    this.drift = Math.sin(time * 0.45) * 0.42;
+    // Until a mouse moves, a slow sway keeps the label facing out; after it,
+    // the bottle turns on towards the pointer's last direction (the reference).
+    this.sway += ((this.direction ? 0 : 1) - this.sway) * (1 - Math.exp(-dt * 2));
+    this.drift = Math.sin(time * 0.45) * 0.42 * this.sway;
+    if (Math.abs(state.drag) < 0.01) this.turn += this.direction * TURN * dt;
 
     const rise = 1 - state.entry;
     const y = -rise * 4.2 + Math.sin(time * 0.9) * 0.04;
-    this.hoverValue += (this.hoverTarget - this.hoverValue) * (1 - Math.exp(-dt * 3.2));
+    // The pointer pulls the bottle to its side, turns it half round and tips
+    // its cap back towards the centre: 0.75 units, π and π/12 in the reference.
+    this.hoverValue += (this.hoverTarget - this.hoverValue) * (1 - Math.exp(-dt * FOLLOW));
     const hover = this.hoverValue;
-    const shift = state.shift + state.drag * 0.55 + hover * 0.42;
-    const tilt = state.tilt - state.drag * 0.42 - hover * 0.32;
+    const shift = state.shift + state.drag * 0.55 + hover * this.reach;
+    const tilt =
+      state.tilt - state.drag * 0.42 + hover * (Math.PI / 12) + Math.cos(time * 0.1) * 0.01;
     this.bottle.position.set(shift, y, 0);
     this.bottle.rotation.set(
-      hover * 0.12,
-      state.spin + this.drift + state.drag * 0.9 + hover * 0.35,
+      0,
+      state.spin + this.turn + this.drift + state.drag * 0.9 + hover * Math.PI,
       tilt + rise * 0.35,
     );
     this.bottle.updateMatrixWorld();
@@ -567,6 +694,7 @@ export default class BottleScene extends WebGLStage {
     this.bottle.localToWorld(this.fillPoint);
     this.oil.uniforms.uFillPoint.value.copy(this.fillPoint);
     this.oil.uniforms.uTime.value = time;
+    if (this.label.material.uniforms.uTime) this.label.material.uniforms.uTime.value = time;
   }
 
   /** Reduced motion: no loop, but still one correct frame whenever it changes. */

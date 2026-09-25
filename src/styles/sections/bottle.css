@@ -28,12 +28,12 @@
   display: grid;
   grid-template:
     'title title' auto
-    'art art' minmax(max(24rem, 58svh), 1fr)
+    'art art' minmax(max(22rem, 55svh), 1fr)
     'apple google' auto
     'foot foot' auto / 1fr 1fr;
-  gap: var(--space-6) var(--space-4);
+  gap: 0.75rem var(--space-4);
   min-height: 100svh;
-  padding: calc(var(--header-height) + var(--space-8)) var(--gutter) var(--space-12);
+  padding: calc(var(--header-height) + 1rem) var(--gutter) 2.75rem; /* room for the hint */
   overflow: clip;
   cursor: grab; /* the whole stage is the drag handle */
   touch-action: pan-y;
@@ -46,9 +46,9 @@
   display: grid;
   margin: 0;
   font-family: var(--font-serif);
-  font-size: clamp(2.75rem, 11vw, calc(118 * var(--u)));
+  font-size: clamp(2.25rem, 9.5vw, calc(118 * var(--u)));
   font-weight: var(--weight-regular);
-  line-height: 0.95;
+  line-height: 0.98;
   letter-spacing: -0.02em;
   text-align: center;
   text-transform: uppercase;
@@ -89,24 +89,31 @@
 /* ── Stores ───────────────────────────────────────────── */
 
 .bottle__store {
+  position: relative;
+  z-index: 2;
   display: grid;
-  gap: var(--space-3);
+  gap: 0.35rem;
   justify-items: center;
+  margin-top: calc(-1 * clamp(4.5rem, 12vh, 7rem));
   font-family: var(--font-sans);
-  font-size: 0.8125rem;
+  font-size: 0.75rem;
   font-weight: var(--weight-medium);
-  line-height: 1.55;
-  letter-spacing: 0.06em;
+  line-height: 1.35;
+  letter-spacing: 0.05em;
   text-align: center;
   text-transform: uppercase;
 }
 
 .bottle__store--apple {
   grid-area: apple;
+  justify-self: end;
+  margin-right: clamp(0.5rem, 2.5vw, 1rem);
 }
 
 .bottle__store--google {
   grid-area: google;
+  justify-self: start;
+  margin-left: clamp(0.5rem, 2.5vw, 1rem);
 }
 
 .bottle__store p {
@@ -124,8 +131,8 @@
 
 .bottle__store-button img {
   display: block;
-  width: 3.5rem;
-  height: 3.5rem;
+  width: 3.25rem;
+  height: 3.25rem;
   border-radius: inherit;
 }
 
@@ -138,9 +145,12 @@
 
 .bottle__foot {
   grid-area: foot;
+  position: relative;
+  z-index: 2;
   display: grid;
-  gap: var(--space-5);
+  gap: 0.6rem;
   justify-items: center;
+  margin-top: 0.75rem;
   font-family: var(--font-sans);
 }
 
@@ -215,7 +225,7 @@
 }
 
 .bottle__plan path,
-.bottle__cursor path {
+.bottle__cursor-icon path {
   fill: none;
   stroke: currentcolor;
   stroke-linecap: round;
@@ -241,46 +251,65 @@
   opacity: 0.55;
 }
 
-/* The drag badge that follows a fine pointer over the bottle. */
+/* The drag badge (santionispirits.com): a disc hanging off the grab hand,
+ * half a disc down and towards the centre. It stretches along the pointer's
+ * speed (squash and stretch) and inks whatever copy it covers in a deep tone
+ * of the room, through a clone of the stage kept still inside it (Bottle.js).
+ * 80 px at 1600 wide, 60 px at 960, like the reference. */
 .bottle__cursor {
+  --tint: color-mix(in srgb, var(--room) 72%, #000);
+  --size: max(3.5rem, calc(30px + 3.125vw));
+
   position: absolute;
   top: 0;
   left: 0;
   z-index: 3;
   display: none;
-  place-content: center;
-  justify-items: center;
-  gap: 0.15rem;
-  width: 5.5rem;
-  height: 5.5rem;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.bottle__cursor-disc {
+  position: absolute;
+  top: calc(var(--size) / -2);
+  left: calc(var(--size) / -2);
+  width: var(--size);
+  height: var(--size);
+  overflow: hidden;
   border-radius: 50%;
   background: var(--cream);
-  color: var(--room);
-  font-family: var(--font-sans);
-  font-size: 0.6875rem;
-  font-weight: var(--weight-bold);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  pointer-events: none;
-  scale: 0;
+}
+
+/* The palette flips inside the disc: cream copy turns to ink, ink to cream. */
+.bottle__cursor-ink {
+  --cream: var(--tint);
+  --room: #f9f6f1;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: var(--cream);
+  transform-origin: 0 0;
+}
+
+.bottle__cursor-ink .bottle__meta img {
+  filter: brightness(0.2);
 }
 
 .bottle__cursor-icon {
-  width: 1.4rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(var(--size) / 4);
+  max-width: none; /* the badge root is a 0 × 0 anchor */
+  color: var(--tint);
+  translate: -50% -50%;
 }
 
 @media (hover: hover) and (pointer: fine) {
   .bottle__cursor {
-    display: grid;
-  }
-
-  .bottle__stage,
-  .bottle.is-dragging .bottle__stage {
-    cursor: none;
-  }
-
-  .bottle__stage :is(a, button) {
-    cursor: pointer;
+    display: block;
   }
 }
 
@@ -311,18 +340,26 @@
   .bottle__store {
     position: absolute;
     top: 50%;
-    z-index: 2;
+    z-index: auto; /* under the cursor, which inks it */
     width: calc(230 * var(--u));
+    gap: var(--space-3);
+    margin-top: 0;
     font-size: max(0.75rem, calc(14 * var(--u)));
+    line-height: 1.55;
+    letter-spacing: 0.06em;
     translate: -50% -50%;
   }
 
   .bottle__store--apple {
     left: calc(163 * var(--u) + (100vw - 1440 * var(--u)) / 2);
+    justify-self: auto;
+    margin-right: 0;
   }
 
   .bottle__store--google {
     left: calc(1277 * var(--u) + (100vw - 1440 * var(--u)) / 2);
+    justify-self: auto;
+    margin-left: 0;
   }
 
   .bottle__store-button img {
@@ -335,11 +372,19 @@
     position: absolute;
     inset-inline: 0;
     bottom: calc(46 * var(--u));
-    z-index: 2;
+    z-index: auto;
     gap: var(--space-4);
+    margin-top: 0;
+    padding-bottom: 0;
   }
 
   .bottle__hint {
     display: none;
+  }
+
+  /* Between the headline and the bottle: the disc inks the copy but passes
+     behind the glass, the way a thing in the room would. */
+  .bottle__cursor {
+    z-index: 0;
   }
 }

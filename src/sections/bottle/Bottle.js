@@ -9,6 +9,9 @@ const COMMIT = 90;
 /** Pixels of drag for the full preview lean. */
 const RANGE = 320;
 
+/** santionispirits.com's per-frame lerp, normalised to the real frame time. */
+const follow = (alpha, frames) => 1 - (1 - alpha) ** frames;
+
 /**
  * Closing CTA (santionispirits.com). A WebGL olive oil bottle per segment
  * stands in front of a huge headline. Drag it (or pick a tab) and it turns
@@ -86,11 +89,13 @@ export const bottle = {
         node.textContent = t(key);
       });
       splitLines();
+      inkCopy();
     };
 
     const select = (index) => {
       element.dataset.segment = String(index);
       tabs.forEach((tab, i) => tab.setAttribute('aria-selected', String(i === index)));
+      inkCopy();
     };
 
     // ── Swap ────────────────────────────────────────────
@@ -145,22 +150,140 @@ export const bottle = {
       cleanups.push(() => tab.removeEventListener('click', pick));
     });
 
+    // ── Cursor (santionispirits.com) ────────────────────
+    // A disc hangs off the grab hand, half a disc down and towards the centre.
+    // It trails the pointer and stretches along its smoothed speed (squash and
+    // stretch); inside it, a clone of the stage copy is counter-transformed so
+    // it stays put, which reads as the disc inking the letters it covers.
+    const disc = cursor.querySelector('[data-bottle-cursor-disc]');
+    const ink = cursor.querySelector('[data-bottle-cursor-ink]');
+    const icon = cursor.querySelector('[data-bottle-cursor-icon]');
+    const wide = window.matchMedia(media.desktop);
+    const client = { x: 0, y: 0 };
+    const last = { x: 0, y: 0 };
+    const speed = { x: 0, y: 0 };
+    const at = { x: 0, y: 0 };
+    const badge = { scale: 0 };
+    let size = 0;
+    let angle = 0;
+    let over = false;
+    let ghosts = [];
+
+    function inkCopy() {
+      ghosts = [];
+      if (!fine.matches || !wide.matches) {
+        ink.replaceChildren();
+        return;
+      }
+      const parts = stage.querySelectorAll(
+        ':scope > :is(.bottle__title, .bottle__store, .bottle__foot)',
+      );
+      ink.replaceChildren(
+        ...[...parts].map((part) => {
+          const copy = part.cloneNode(true);
+          // Hooks off, so neither i18n nor the section ever reach the clone.
+          [copy, ...copy.querySelectorAll('*')].forEach((node) => {
+            [...node.attributes]
+              .filter(({ name }) => name === 'id' || name.startsWith('data-'))
+              .forEach(({ name }) => node.removeAttribute(name));
+          });
+          return copy;
+        }),
+      );
+      // The letters scatter through inline styles: mirrored every frame.
+      const copies = ink.querySelectorAll('.bottle__char');
+      ghosts = [...title.querySelectorAll('.bottle__char')].map((char, i) => [char, copies[i]]);
+    }
+
+    const measure = () => {
+      size = disc.offsetWidth;
+      ink.style.width = `${stage.offsetWidth}px`;
+      ink.style.height = `${stage.offsetHeight}px`;
+    };
+    const resized = new ResizeObserver(measure);
+    resized.observe(stage);
+    const refit = () => {
+      measure();
+      inkCopy();
+    };
+    wide.addEventListener('change', refit);
+    fine.addEventListener('change', refit);
+
+    const draw = (_time, deltaMs) => {
+      const frames = Math.min(deltaMs, 100) / (1000 / 60) || 1;
+      // Speed in px per 60 fps frame, eased like the reference's uVelocity.
+      const ease = follow(0.1, frames);
+      speed.x += ((client.x - last.x) / frames - speed.x) * ease;
+      speed.y += ((client.y - last.y) / frames - speed.y) * ease;
+      last.x = client.x;
+      last.y = client.y;
+      const hidden = !over && badge.scale < 0.001;
+      cursor.style.visibility = hidden ? 'hidden' : '';
+      if (hidden) return;
+
+      const box = stage.getBoundingClientRect();
+      const x = client.x - box.left;
+      const y = client.y - box.top;
+      const side = x > box.width / 2 ? 1 : -1;
+      const glide = follow(0.2, frames);
+      at.x += (x - (side * size) / 2 - at.x) * glide;
+      at.y += (y + size / 2 - at.y) * glide;
+      // The arrow points out towards the pointer's side.
+      angle += ((side > 0 ? 0 : 180) - angle) * ease;
+
+      // Stretch along the motion, pinch 10 % across it: M = R · diag · Rᵀ.
+      const stretch = Math.min(Math.hypot(speed.x, speed.y) * 0.03, 1);
+      const heading = Math.atan2(speed.y, speed.x);
+      const cos = Math.cos(heading);
+      const sin = Math.sin(heading);
+      const along = 1 + stretch;
+      const across = 1 - stretch * 0.1;
+      const a = along * cos * cos + across * sin * sin;
+      const b = (along - across) * cos * sin;
+      const d = along * sin * sin + across * cos * cos;
+      const det = a * d - b * b;
+      const scale = Math.max(badge.scale, 0.01);
+
+      cursor.style.transform = `translate(${at.x}px, ${at.y}px) scale(${scale})`;
+      disc.style.transform = `matrix(${a}, ${b}, ${b}, ${d}, 0, 0)`;
+      // The inverse of all of the above, so the inked copy never moves.
+      ink.style.transform =
+        `translate(${size / 2}px, ${size / 2}px) ` +
+        `matrix(${d / det}, ${-b / det}, ${-b / det}, ${a / det}, 0, 0) ` +
+        `scale(${1 / scale}) translate(${-at.x}px, ${-at.y}px)`;
+      icon.style.transform = `rotate(${angle}deg)`;
+      ghosts.forEach(([from, to]) => {
+        to.style.transform = from.style.transform;
+        to.style.opacity = from.style.opacity;
+      });
+    };
+    gsap.ticker.add(draw);
+
+    const showCursor = (on) => {
+      if (on === over) return;
+      over = on;
+      if (on && badge.scale < 0.001) {
+        // Appear at the pointer rather than fly in from the last spot.
+        const box = stage.getBoundingClientRect();
+        const x = client.x - box.left;
+        const side = x > box.width / 2 ? 1 : -1;
+        at.x = x - (side * size) / 2;
+        at.y = client.y - box.top + size / 2;
+        angle = side > 0 ? 0 : 180;
+      }
+      gsap.to(badge, {
+        scale: on ? 1 : 0,
+        duration: on ? 0.6 : 0.3,
+        ease: 'power2.out',
+        overwrite: 'auto',
+      });
+    };
+
     // ── Drag ────────────────────────────────────────────
     let start = null;
     let dx = 0;
     // The whole stage is the handle; its buttons and links stay clickable.
     const interactive = (event) => event.target.closest('a, button');
-    let over = false;
-    const showCursor = (on) => {
-      if (on === over) return;
-      over = on;
-      gsap.to(cursor, {
-        scale: on ? 1 : 0,
-        duration: on ? 0.5 : 0.3,
-        ease: on ? 'back.out(2)' : 'power2.in',
-        overwrite: 'auto',
-      });
-    };
     const down = (event) => {
       if (busy || event.button > 0 || interactive(event)) return;
       start = { x: event.clientX, y: event.clientY, id: event.pointerId };
@@ -173,20 +296,16 @@ export const bottle = {
         event.clientX <= box.right &&
         event.clientY >= box.top &&
         event.clientY <= box.bottom;
-      // Resting pointer: the bottle leans towards it, like the reference.
-      if (inside && event.pointerType === 'mouse') {
-        scene?.hover(((event.clientX - box.left) / box.width) * 2 - 1);
+      if (event.pointerType === 'mouse') {
+        // The bottle keeps turning the way the mouse last went (the reference).
+        const step = event.clientX - client.x;
+        if (Math.abs(step) > 0.01) scene?.steer(Math.sign(step));
+        // Resting pointer: the bottle follows it to its side.
+        if (inside) scene?.hover(((event.clientX - box.left) / box.width) * 2 - 1);
       }
-      if (fine.matches && cursor) {
-        showCursor(inside && !interactive(event));
-        gsap.to(cursor, {
-          x: event.clientX - box.left - cursor.offsetWidth / 2,
-          y: event.clientY - box.top - cursor.offsetHeight / 2,
-          duration: 0.5,
-          ease: 'power3.out',
-          overwrite: 'auto',
-        });
-      }
+      client.x = event.clientX;
+      client.y = event.clientY;
+      if (fine.matches) showCursor(inside && !interactive(event));
       if (!start || event.pointerId !== start.id) return;
       dx = event.clientX - start.x;
       const dy = event.clientY - start.y;
@@ -223,6 +342,10 @@ export const bottle = {
     window.addEventListener('pointerup', up);
     window.addEventListener('pointercancel', up);
     cleanups.push(() => {
+      gsap.ticker.remove(draw);
+      resized.disconnect();
+      wide.removeEventListener('change', refit);
+      fine.removeEventListener('change', refit);
       stage.removeEventListener('pointerdown', down);
       stage.removeEventListener('pointerleave', leave);
       window.removeEventListener('pointermove', move);
