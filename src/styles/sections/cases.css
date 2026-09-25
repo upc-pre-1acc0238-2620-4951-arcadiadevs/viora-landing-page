@@ -28,7 +28,7 @@
   position: absolute;
   top: calc(50% + 7.5rem);
   left: 50%;
-  width: max(86.8vw, 46rem);
+  width: min(max(86.8vw, 46rem), 76rem); /* capped like the book: tips stay inside the clip */
   max-width: none;
   height: auto;
   translate: -50% -50%;

@@ -32,7 +32,9 @@
   width: min(100%, 70.56vw);
   color: var(--color-brand);
   font-family: var(--font-sans);
-  font-size: clamp(2.75rem, 0.5rem + 7.1vw, 6.875rem); /* 110 @1440 */
+
+  /* 110 @1440, then the 1440 proportion (Lusion): the slide to the indent never outgrows the words */
+  font-size: max(clamp(2.75rem, 0.5rem + 7.1vw, 6.875rem), min(7.639vw, 12.25rem));
   font-weight: var(--weight-book);
   line-height: 0.95;
   letter-spacing: -0.02em;
@@ -61,13 +63,15 @@
 .intro__copy {
   grid-column: 2;
   grid-row: 2;
-  max-width: 734px;
+  max-width: max(734px, 50.97vw); /* 734 @1440, then proportional */
   margin-top: clamp(2rem, 1.2rem + 2.5vw, 3.3rem);
 }
 
 .intro__description {
   color: var(--color-text-muted);
-  font-size: clamp(1.0625rem, 0.898rem + 0.669vw, 1.5rem); /* 17 → 24 */
+
+  /* 17 → 24 @1440, then proportional */
+  font-size: max(clamp(1.0625rem, 0.898rem + 0.669vw, 1.5rem), min(1.667vw, 2.5rem));
   line-height: 1.08;
 }
 

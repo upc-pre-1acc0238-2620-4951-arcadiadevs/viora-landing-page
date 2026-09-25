@@ -3253,108 +3253,282 @@
       data-lenis-prevent
     >
       <div class="legal-dialog__panel">
-        <div class="legal-dialog__header">
+        <div class="legal-dialog__aside">
+          <img
+            class="legal-dialog__burst"
+            src="/assets/images/modules/burst.svg"
+            alt=""
+            width="1250"
+            height="1250"
+            loading="lazy"
+          />
+          <p class="legal-dialog__eyebrow" data-i18n="footer.legalTitle">Legal</p>
           <h2 id="terms-title" class="legal-dialog__title" data-i18n="legal.terms.title">
             Terms and conditions
           </h2>
-          <button
-            class="legal-dialog__close"
-            type="button"
-            aria-label="Close"
-            data-i18n-attr="aria-label:legal.close"
-            data-dialog-close
-          >
-            <span aria-hidden="true">✕</span>
-          </button>
+          <p class="legal-dialog__updated" data-i18n="legal.terms.updated">
+            Last updated: February 2026 (v1.0.0)
+          </p>
+          <p id="terms-contents" class="visually-hidden" data-i18n="legal.contents">Contents</p>
+          <ol class="legal-dialog__index" data-legal-index></ol>
+          <div class="legal-dialog__progress" aria-hidden="true"><span></span></div>
         </div>
-        <div class="legal-dialog__body">
-          <p data-i18n="legal.terms.updated">Last updated: February 2026 (v1.0.0)</p>
-          <p data-i18n="legal.terms.notice">
+        <div class="legal-dialog__body" data-legal-body>
+          <p class="legal-dialog__notice" data-i18n="legal.terms.notice">
             Academic draft by ArcadiaDevs (UPC 1ACC0238, 2026-20). Not legal advice. For users in
             Peru, the Spanish version prevails in case of conflict.
           </p>
-          <h3 data-i18n="legal.terms.sections.nature.heading">1. Parties and project nature</h3>
-          <p data-i18n="legal.terms.sections.nature.body">
-            Viora is a B2B SaaS for olive alternate bearing in Tacna, built by ArcadiaDevs as an
-            academic project. This document governs only the static website. You is the site
-            visitor. We is ArcadiaDevs.
-          </p>
-          <h3 data-i18n="legal.terms.sections.acceptance.heading">
-            2. Acceptance and contracting mode
-          </h3>
-          <p data-i18n="legal.terms.sections.acceptance.body">
-            Browsing this site and opening this dialog is informed browsing: no account, no
-            subscription, no app access. The SaaS contract happens only inside the mobile app with
-            express sign-up and a separate App ToS acceptance.
-          </p>
-          <h3 data-i18n="legal.terms.sections.scope.heading">3. Landing scope</h3>
-          <p data-i18n="legal.terms.sections.scope.body">
-            Informational only: value proposition, modules (fruit load, winter chill, thinning
-            plan), cases, video, team, and indicative pricing. No forms, no sign-up, no payments,
-            and no personalized agronomic advice on this site.
-          </p>
-          <h3 data-i18n="legal.terms.sections.disclaimer.heading">4. Agronomic disclaimer</h3>
-          <p data-i18n="legal.terms.sections.disclaimer.body">
-            BBI Hoblyn index, Erez chill portions, thinning window (20%-50%), and yield projections
-            are decision-support outputs, not phytosanitary diagnoses and not guarantees of tonnes,
-            calibres, or end of alternate bearing. Nothing here is professional agronomic advice.
-          </p>
-          <h3 data-i18n="legal.terms.sections.force.heading">
-            5. Force majeure and third-party data
-          </h3>
-          <p data-i18n="legal.terms.sections.force.body">
-            Models depend on SENAMHI / OpenWeather and sensor networks. Outages of those sources,
-            and El Nino / La Nina and other climate events (Civil Code art. 1315), release
-            ArcadiaDevs from liability for crop loss or lost profits. Per Civil Code art. 1328, no
-            exclusion covers willful misconduct or gross negligence.
-          </p>
-          <h3 data-i18n="legal.terms.sections.confidentiality.heading">
-            6. Commercial confidentiality
-          </h3>
-          <p data-i18n="legal.terms.sections.confidentiality.body">
-            This site does not ask for your volumes, calibres, or prices. In the app, that data is
-            treated as a trade secret (Andean Decision 486, art. 260) with reasonable safeguards.
-            Cooperative aggregation requires your express consent; we do not sell individual data.
-          </p>
-          <h3 data-i18n="legal.terms.sections.pricing.heading">7. Pricing, currency, billing</h3>
-          <p data-i18n="legal.terms.sections.pricing.body">
-            PEN / USD prices shown are indicative and include IGV (18%) where applicable. Clicking
-            download or viewing prices charges nothing. Purchase happens only in the app via Mercado
-            Pago Checkout Pro. ArcadiaDevs issues the electronic receipt per SUNAT rules.
-          </p>
-          <h3 data-i18n="legal.terms.sections.downloads.heading">
-            8. Downloads, stores, external links
-          </h3>
-          <p data-i18n="legal.terms.sections.downloads.body">
-            Download buttons open an informational availability dialog; until official URLs ship,
-            they do not navigate away. When they link to Google Play / App Store, those stores have
-            their own terms, outside ArcadiaDevs.
-          </p>
-          <h3 data-i18n="legal.terms.sections.ip.heading">9. Intellectual property</h3>
-          <p data-i18n="legal.terms.sections.ip.body">
-            Code, algorithms, marks, logos, and designs belong to ArcadiaDevs. Open-source
-            components (Three.js, GSAP, Lenis) keep their MIT / Apache 2.0 licenses. No license is
-            granted beyond viewing this site.
-          </p>
-          <h3 data-i18n="legal.terms.sections.disputes.heading">
-            10. Complaints book and disputes
-          </h3>
-          <p data-i18n="legal.terms.sections.disputes.body">
-            Per D.S. 011-2011-PCM, the footer links the virtual Complaints Book (reply within 15
-            business days). These Terms are governed by Peruvian law (Law 29733, Law 29571, Civil
-            Code). Venue: courts of Lima or Tacna per applicable consumer rules.
-          </p>
-          <h3 data-i18n="legal.terms.sections.amendments.heading">11. Amendments and versions</h3>
-          <p data-i18n="legal.terms.sections.amendments.body">
-            Material changes are notified at least 15 days in advance via prominent site or app
-            notice. Continued use after effectiveness means acceptance. This text is versioned with
-            the repo SemVer tag.
-          </p>
-          <h3 data-i18n="legal.terms.sections.contact.heading">12. Contact</h3>
-          <p data-i18n="legal.terms.sections.contact.body">
-            Privacy and ARCO rights: privacidad@viora.pe. Consumer claims: the site Complaints Book.
-          </p>
+          <section
+            class="legal-dialog__section"
+            id="terms-nature"
+            aria-labelledby="terms-nature-title"
+            data-legal-section
+          >
+            <h3
+              id="terms-nature-title"
+              class="legal-dialog__heading"
+              data-i18n="legal.terms.sections.nature.heading"
+            >
+              Parties and project nature
+            </h3>
+            <p data-i18n="legal.terms.sections.nature.body">
+              Viora is a B2B SaaS for olive alternate bearing in Tacna, built by ArcadiaDevs as an
+              academic project. This document governs only the static website. You is the site
+              visitor. We is ArcadiaDevs.
+            </p>
+          </section>
+          <section
+            class="legal-dialog__section"
+            id="terms-acceptance"
+            aria-labelledby="terms-acceptance-title"
+            data-legal-section
+          >
+            <h3
+              id="terms-acceptance-title"
+              class="legal-dialog__heading"
+              data-i18n="legal.terms.sections.acceptance.heading"
+            >
+              Acceptance and contracting mode
+            </h3>
+            <p data-i18n="legal.terms.sections.acceptance.body">
+              Browsing this site and opening this dialog is informed browsing: no account, no
+              subscription, no app access. The SaaS contract happens only inside the mobile app with
+              express sign-up and a separate App ToS acceptance.
+            </p>
+          </section>
+          <section
+            class="legal-dialog__section"
+            id="terms-scope"
+            aria-labelledby="terms-scope-title"
+            data-legal-section
+          >
+            <h3
+              id="terms-scope-title"
+              class="legal-dialog__heading"
+              data-i18n="legal.terms.sections.scope.heading"
+            >
+              Landing scope
+            </h3>
+            <p data-i18n="legal.terms.sections.scope.body">
+              Informational only: value proposition, modules (fruit load, winter chill, thinning
+              plan), cases, video, team, and indicative pricing. No forms, no sign-up, no payments,
+              and no personalized agronomic advice on this site.
+            </p>
+          </section>
+          <section
+            class="legal-dialog__section"
+            id="terms-disclaimer"
+            aria-labelledby="terms-disclaimer-title"
+            data-legal-section
+          >
+            <h3
+              id="terms-disclaimer-title"
+              class="legal-dialog__heading"
+              data-i18n="legal.terms.sections.disclaimer.heading"
+            >
+              Agronomic disclaimer
+            </h3>
+            <p data-i18n="legal.terms.sections.disclaimer.body">
+              BBI Hoblyn index, Erez chill portions, thinning window (20%-50%), and yield
+              projections are decision-support outputs, not phytosanitary diagnoses and not
+              guarantees of tonnes, calibres, or end of alternate bearing. Nothing here is
+              professional agronomic advice.
+            </p>
+          </section>
+          <section
+            class="legal-dialog__section"
+            id="terms-force"
+            aria-labelledby="terms-force-title"
+            data-legal-section
+          >
+            <h3
+              id="terms-force-title"
+              class="legal-dialog__heading"
+              data-i18n="legal.terms.sections.force.heading"
+            >
+              Force majeure and third-party data
+            </h3>
+            <p data-i18n="legal.terms.sections.force.body">
+              Models depend on SENAMHI / OpenWeather and sensor networks. Outages of those sources,
+              and El Nino / La Nina and other climate events (Civil Code art. 1315), release
+              ArcadiaDevs from liability for crop loss or lost profits. Per Civil Code art. 1328, no
+              exclusion covers willful misconduct or gross negligence.
+            </p>
+          </section>
+          <section
+            class="legal-dialog__section"
+            id="terms-confidentiality"
+            aria-labelledby="terms-confidentiality-title"
+            data-legal-section
+          >
+            <h3
+              id="terms-confidentiality-title"
+              class="legal-dialog__heading"
+              data-i18n="legal.terms.sections.confidentiality.heading"
+            >
+              Commercial confidentiality
+            </h3>
+            <p data-i18n="legal.terms.sections.confidentiality.body">
+              This site does not ask for your volumes, calibres, or prices. In the app, that data is
+              treated as a trade secret (Andean Decision 486, art. 260) with reasonable safeguards.
+              Cooperative aggregation requires your express consent; we do not sell individual data.
+            </p>
+          </section>
+          <section
+            class="legal-dialog__section"
+            id="terms-pricing"
+            aria-labelledby="terms-pricing-title"
+            data-legal-section
+          >
+            <h3
+              id="terms-pricing-title"
+              class="legal-dialog__heading"
+              data-i18n="legal.terms.sections.pricing.heading"
+            >
+              Pricing, currency, billing
+            </h3>
+            <p data-i18n="legal.terms.sections.pricing.body">
+              PEN / USD prices shown are indicative and include IGV (18%) where applicable. Clicking
+              download or viewing prices charges nothing. Purchase happens only in the app via
+              Mercado Pago Checkout Pro. ArcadiaDevs issues the electronic receipt per SUNAT rules.
+            </p>
+          </section>
+          <section
+            class="legal-dialog__section"
+            id="terms-downloads"
+            aria-labelledby="terms-downloads-title"
+            data-legal-section
+          >
+            <h3
+              id="terms-downloads-title"
+              class="legal-dialog__heading"
+              data-i18n="legal.terms.sections.downloads.heading"
+            >
+              Downloads, stores, external links
+            </h3>
+            <p data-i18n="legal.terms.sections.downloads.body">
+              Download buttons open an informational availability dialog; until official URLs ship,
+              they do not navigate away. When they link to Google Play / App Store, those stores
+              have their own terms, outside ArcadiaDevs.
+            </p>
+          </section>
+          <section
+            class="legal-dialog__section"
+            id="terms-ip"
+            aria-labelledby="terms-ip-title"
+            data-legal-section
+          >
+            <h3
+              id="terms-ip-title"
+              class="legal-dialog__heading"
+              data-i18n="legal.terms.sections.ip.heading"
+            >
+              Intellectual property
+            </h3>
+            <p data-i18n="legal.terms.sections.ip.body">
+              Code, algorithms, marks, logos, and designs belong to ArcadiaDevs. Open-source
+              components (Three.js, GSAP, Lenis) keep their MIT / Apache 2.0 licenses. No license is
+              granted beyond viewing this site.
+            </p>
+          </section>
+          <section
+            class="legal-dialog__section"
+            id="terms-disputes"
+            aria-labelledby="terms-disputes-title"
+            data-legal-section
+          >
+            <h3
+              id="terms-disputes-title"
+              class="legal-dialog__heading"
+              data-i18n="legal.terms.sections.disputes.heading"
+            >
+              Complaints book and disputes
+            </h3>
+            <p data-i18n="legal.terms.sections.disputes.body">
+              Per D.S. 011-2011-PCM, the footer links the virtual Complaints Book (reply within 15
+              business days). These Terms are governed by Peruvian law (Law 29733, Law 29571, Civil
+              Code). Venue: courts of Lima or Tacna per applicable consumer rules.
+            </p>
+          </section>
+          <section
+            class="legal-dialog__section"
+            id="terms-amendments"
+            aria-labelledby="terms-amendments-title"
+            data-legal-section
+          >
+            <h3
+              id="terms-amendments-title"
+              class="legal-dialog__heading"
+              data-i18n="legal.terms.sections.amendments.heading"
+            >
+              Amendments and versions
+            </h3>
+            <p data-i18n="legal.terms.sections.amendments.body">
+              Material changes are notified at least 15 days in advance via prominent site or app
+              notice. Continued use after effectiveness means acceptance. This text is versioned
+              with the repo SemVer tag.
+            </p>
+          </section>
+          <section
+            class="legal-dialog__section"
+            id="terms-contact"
+            aria-labelledby="terms-contact-title"
+            data-legal-section
+          >
+            <h3
+              id="terms-contact-title"
+              class="legal-dialog__heading"
+              data-i18n="legal.terms.sections.contact.heading"
+            >
+              Contact
+            </h3>
+            <p data-i18n="legal.terms.sections.contact.body">
+              Privacy and ARCO rights: privacidad@viora.pe. Consumer claims: the site Complaints
+              Book.
+            </p>
+          </section>
+          <div class="legal-dialog__end" aria-hidden="true">
+            <img
+              src="/assets/images/tacna/isotipo.svg"
+              alt=""
+              width="48"
+              height="48"
+              loading="lazy"
+            />
+            <span>ArcadiaDevs — Viora · 2026</span>
+          </div>
         </div>
+        <button
+          class="legal-dialog__close"
+          type="button"
+          aria-label="Close"
+          data-i18n-attr="aria-label:legal.close"
+          data-dialog-close
+        >
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+            <path d="M6 6l12 12M18 6 6 18" />
+          </svg>
+        </button>
       </div>
     </dialog>
 
@@ -3366,86 +3540,225 @@
       data-lenis-prevent
     >
       <div class="legal-dialog__panel">
-        <div class="legal-dialog__header">
+        <div class="legal-dialog__aside">
+          <img
+            class="legal-dialog__burst"
+            src="/assets/images/modules/burst.svg"
+            alt=""
+            width="1250"
+            height="1250"
+            loading="lazy"
+          />
+          <p class="legal-dialog__eyebrow" data-i18n="footer.legalTitle">Legal</p>
           <h2 id="privacy-title" class="legal-dialog__title" data-i18n="legal.privacy.title">
             Privacy policy
           </h2>
-          <button
-            class="legal-dialog__close"
-            type="button"
-            aria-label="Close"
-            data-i18n-attr="aria-label:legal.close"
-            data-dialog-close
-          >
-            <span aria-hidden="true">✕</span>
-          </button>
+          <p class="legal-dialog__updated" data-i18n="legal.privacy.updated">
+            Last updated: February 2026 (v1.0.0)
+          </p>
+          <p id="privacy-contents" class="visually-hidden" data-i18n="legal.contents">Contents</p>
+          <ol class="legal-dialog__index" data-legal-index></ol>
+          <div class="legal-dialog__progress" aria-hidden="true"><span></span></div>
         </div>
-        <div class="legal-dialog__body">
-          <p data-i18n="legal.privacy.updated">Last updated: February 2026 (v1.0.0)</p>
-          <p data-i18n="legal.privacy.notice">
+        <div class="legal-dialog__body" data-legal-body>
+          <p class="legal-dialog__notice" data-i18n="legal.privacy.notice">
             This policy covers the landing page only. App data is governed by a separate App Privacy
             Policy accepted expressly at sign-up.
           </p>
-          <h3 data-i18n="legal.privacy.sections.tracking.heading">1. Zero-tracking statement</h3>
-          <p data-i18n="legal.privacy.sections.tracking.body">
-            This static website does not use tracking cookies, advertising pixels, or third-party
-            analytics. We only use your browser local storage (localStorage) to remember language
-            and interface settings. This data never leaves your browser and can be cleared anytime.
-          </p>
-          <h3 data-i18n="legal.privacy.sections.storage.heading">
-            2. What we store in your browser
-          </h3>
-          <p data-i18n="legal.privacy.sections.storage.body">
-            Language preference, visual-effects preference (viora_pref_distortion), and audio
-            preference (viora_pref_sound). Basis: technical necessity and legitimate interest. No
-            profiling, no sharing.
-          </p>
-          <h3 data-i18n="legal.privacy.sections.logs.heading">3. Infrastructure logs</h3>
-          <p data-i18n="legal.privacy.sections.logs.body">
-            The Vercel CDN passively processes technical logs (IP, User-Agent, timestamp) to deliver
-            content and mitigate DDoS, typically retained 30 days. Vercel Inc. acts as processor
-            under Law 29733.
-          </p>
-          <h3 data-i18n="legal.privacy.sections.gateway.heading">
-            4. What this landing does NOT ask
-          </h3>
-          <p data-i18n="legal.privacy.sections.gateway.body">
-            No forms, newsletter, accounts, or payments here: you provide no name, ID, email, phone,
-            plots, harvests, or card data. App sign-up is governed separately with express consent.
-          </p>
-          <h3 data-i18n="legal.privacy.sections.arco.heading">5. ARCO rights and ANPD complaint</h3>
-          <p data-i18n="legal.privacy.sections.arco.body">
-            Exercise Access, Rectification, Erasure, and Objection via privacidad@viora.pe with your
-            ID, the right invoked, and a notification address. Deadlines: Access 20 business days;
-            Rectification, Erasure, and Objection 10 business days each. These rights cannot be
-            waived.
-          </p>
-          <h3 data-i18n="legal.privacy.sections.processors.heading">6. Processors and transfers</h3>
-          <p data-i18n="legal.privacy.sections.processors.body">
-            Vercel (hosting/CDN), Mercado Pago (in-app payments), Twilio (in-app messaging), and
-            Google FCM (in-app push) act as processors. Weather data uses coordinates only, without
-            personal data.
-          </p>
-          <h3 data-i18n="legal.privacy.sections.communications.heading">7. Communications</h3>
-          <p data-i18n="legal.privacy.sections.communications.body">
-            This landing sends no messages. In the app, thinning, frost, or irrigation alerts are
-            contract performance; marketing needs separate opt-in and can be revoked anytime.
-          </p>
-          <h3 data-i18n="legal.privacy.sections.security.heading">
-            8. Security, retention, minors
-          </h3>
-          <p data-i18n="legal.privacy.sections.security.body">
-            Reasonable industry safeguards; in the app: TLS 1.3, on-device SQLCipher, 15-minute
-            rotating JWTs, and per-cooperative RLS. Payments carry a 5-year tax retention (SUNAT).
-            This service is not directed at minors.
-          </p>
-          <h3 data-i18n="legal.privacy.sections.changes.heading">9. Changes, versions, contact</h3>
-          <p data-i18n="legal.privacy.sections.changes.body">
-            Material changes with 15-day prominent notice; version aligned to the SemVer tag. ARCO
-            contact: privacidad@viora.pe. Consumer claims: Complaints Book (15 business days).
-            Governing law: Peru.
-          </p>
+          <section
+            class="legal-dialog__section"
+            id="privacy-tracking"
+            aria-labelledby="privacy-tracking-title"
+            data-legal-section
+          >
+            <h3
+              id="privacy-tracking-title"
+              class="legal-dialog__heading"
+              data-i18n="legal.privacy.sections.tracking.heading"
+            >
+              Zero-tracking statement
+            </h3>
+            <p data-i18n="legal.privacy.sections.tracking.body">
+              This static website does not use tracking cookies, advertising pixels, or third-party
+              analytics. We only use your browser local storage (localStorage) to remember language
+              and interface settings. This data never leaves your browser and can be cleared
+              anytime.
+            </p>
+          </section>
+          <section
+            class="legal-dialog__section"
+            id="privacy-storage"
+            aria-labelledby="privacy-storage-title"
+            data-legal-section
+          >
+            <h3
+              id="privacy-storage-title"
+              class="legal-dialog__heading"
+              data-i18n="legal.privacy.sections.storage.heading"
+            >
+              What we store in your browser
+            </h3>
+            <p data-i18n="legal.privacy.sections.storage.body">
+              Language preference, visual-effects preference (viora_pref_distortion), and audio
+              preference (viora_pref_sound). Basis: technical necessity and legitimate interest. No
+              profiling, no sharing.
+            </p>
+          </section>
+          <section
+            class="legal-dialog__section"
+            id="privacy-logs"
+            aria-labelledby="privacy-logs-title"
+            data-legal-section
+          >
+            <h3
+              id="privacy-logs-title"
+              class="legal-dialog__heading"
+              data-i18n="legal.privacy.sections.logs.heading"
+            >
+              Infrastructure logs
+            </h3>
+            <p data-i18n="legal.privacy.sections.logs.body">
+              The Vercel CDN passively processes technical logs (IP, User-Agent, timestamp) to
+              deliver content and mitigate DDoS, typically retained 30 days. Vercel Inc. acts as
+              processor under Law 29733.
+            </p>
+          </section>
+          <section
+            class="legal-dialog__section"
+            id="privacy-gateway"
+            aria-labelledby="privacy-gateway-title"
+            data-legal-section
+          >
+            <h3
+              id="privacy-gateway-title"
+              class="legal-dialog__heading"
+              data-i18n="legal.privacy.sections.gateway.heading"
+            >
+              What this landing does NOT ask
+            </h3>
+            <p data-i18n="legal.privacy.sections.gateway.body">
+              No forms, newsletter, accounts, or payments here: you provide no name, ID, email,
+              phone, plots, harvests, or card data. App sign-up is governed separately with express
+              consent.
+            </p>
+          </section>
+          <section
+            class="legal-dialog__section"
+            id="privacy-arco"
+            aria-labelledby="privacy-arco-title"
+            data-legal-section
+          >
+            <h3
+              id="privacy-arco-title"
+              class="legal-dialog__heading"
+              data-i18n="legal.privacy.sections.arco.heading"
+            >
+              ARCO rights and ANPD complaint
+            </h3>
+            <p data-i18n="legal.privacy.sections.arco.body">
+              Exercise Access, Rectification, Erasure, and Objection via privacidad@viora.pe with
+              your ID, the right invoked, and a notification address. Deadlines: Access 20 business
+              days; Rectification, Erasure, and Objection 10 business days each. These rights cannot
+              be waived.
+            </p>
+          </section>
+          <section
+            class="legal-dialog__section"
+            id="privacy-processors"
+            aria-labelledby="privacy-processors-title"
+            data-legal-section
+          >
+            <h3
+              id="privacy-processors-title"
+              class="legal-dialog__heading"
+              data-i18n="legal.privacy.sections.processors.heading"
+            >
+              Processors and transfers
+            </h3>
+            <p data-i18n="legal.privacy.sections.processors.body">
+              Vercel (hosting/CDN), Mercado Pago (in-app payments), Twilio (in-app messaging), and
+              Google FCM (in-app push) act as processors. Weather data uses coordinates only,
+              without personal data.
+            </p>
+          </section>
+          <section
+            class="legal-dialog__section"
+            id="privacy-communications"
+            aria-labelledby="privacy-communications-title"
+            data-legal-section
+          >
+            <h3
+              id="privacy-communications-title"
+              class="legal-dialog__heading"
+              data-i18n="legal.privacy.sections.communications.heading"
+            >
+              Communications
+            </h3>
+            <p data-i18n="legal.privacy.sections.communications.body">
+              This landing sends no messages. In the app, thinning, frost, or irrigation alerts are
+              contract performance; marketing needs separate opt-in and can be revoked anytime.
+            </p>
+          </section>
+          <section
+            class="legal-dialog__section"
+            id="privacy-security"
+            aria-labelledby="privacy-security-title"
+            data-legal-section
+          >
+            <h3
+              id="privacy-security-title"
+              class="legal-dialog__heading"
+              data-i18n="legal.privacy.sections.security.heading"
+            >
+              Security, retention, minors
+            </h3>
+            <p data-i18n="legal.privacy.sections.security.body">
+              Reasonable industry safeguards; in the app: TLS 1.3, on-device SQLCipher, 15-minute
+              rotating JWTs, and per-cooperative RLS. Payments carry a 5-year tax retention (SUNAT).
+              This service is not directed at minors.
+            </p>
+          </section>
+          <section
+            class="legal-dialog__section"
+            id="privacy-changes"
+            aria-labelledby="privacy-changes-title"
+            data-legal-section
+          >
+            <h3
+              id="privacy-changes-title"
+              class="legal-dialog__heading"
+              data-i18n="legal.privacy.sections.changes.heading"
+            >
+              Changes, versions, contact
+            </h3>
+            <p data-i18n="legal.privacy.sections.changes.body">
+              Material changes with 15-day prominent notice; version aligned to the SemVer tag. ARCO
+              contact: privacidad@viora.pe. Consumer claims: Complaints Book (15 business days).
+              Governing law: Peru.
+            </p>
+          </section>
+          <div class="legal-dialog__end" aria-hidden="true">
+            <img
+              src="/assets/images/tacna/isotipo.svg"
+              alt=""
+              width="48"
+              height="48"
+              loading="lazy"
+            />
+            <span>ArcadiaDevs — Viora · 2026</span>
+          </div>
         </div>
+        <button
+          class="legal-dialog__close"
+          type="button"
+          aria-label="Close"
+          data-i18n-attr="aria-label:legal.close"
+          data-dialog-close
+        >
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+            <path d="M6 6l12 12M18 6 6 18" />
+          </svg>
+        </button>
       </div>
     </dialog>
   </body>

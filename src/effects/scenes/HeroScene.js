@@ -13,6 +13,7 @@ import {
 import { gsap } from '@/core/gsap.js';
 import { INTRO_REVEAL, whenIntro } from '@/core/intro.js';
 import { getPreference, PREFERENCES_CHANGE } from '@/core/preferences.js';
+import { whenImageReady } from '@/utils/image.js';
 import { FluidSimulation } from '../webgl/FluidSimulation.js';
 import { WebGLStage } from '../webgl/WebGLStage.js';
 import { createDragonflies } from './dragonflies.js';
@@ -142,20 +143,13 @@ export default class HeroScene extends WebGLStage {
   /** Reuses the already-decoded DOM images as textures: no second download. */
   async createLayers() {
     const images = [...this.hero.querySelectorAll('.hero__layer')];
+    // Real pixels only (a broken image would upload as a black plane); a layer
+    // that still fails rejects, and the Hero keeps its static artwork.
     // `decode()` can stall in background tabs; the GPU upload decodes anyway.
-    await Promise.all(
-      images.map(
-        (image) =>
-          image.complete ||
-          new Promise((resolve, reject) => {
-            image.addEventListener('load', resolve, { once: true });
-            image.addEventListener('error', reject, { once: true });
-          }),
-      ),
-    );
+    await Promise.all(images.map((image) => whenImageReady(image)));
     if (this.disposed) return;
     images.forEach((image) => {
-      const name = image.src.match(/\/([a-z]+)\.webp$/)?.[1];
+      const name = new URL(image.src).pathname.match(/\/([a-z]+)\.webp$/)?.[1];
       const spec = LAYERS[name];
       if (!spec) return;
       const size = spec.size ?? 1;
