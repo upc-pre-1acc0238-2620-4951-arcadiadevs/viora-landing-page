@@ -3,7 +3,7 @@ import { gsap } from '@/core/gsap.js';
 import { PLANS_SLIDE } from './Plans.js';
 
 /**
- * Example app screens for the plans (placeholders until the real mockups).
+ * Animated app screens for the plans.
  * Each screen loops a small demo while it is the one on show: the hectare
  * stepper prices the plan, the licence counters fill, the code types itself
  * in and redeems. Self-contained on purpose — to swap in real screenshots,
