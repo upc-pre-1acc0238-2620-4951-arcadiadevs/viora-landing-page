@@ -51,6 +51,7 @@
     "titleSecond": "Next Harvest",
     "download": "Get the app",
     "watch": "Watch",
+    "watchFilm": "Watch the Viora film",
     "notificationTitle": "Thinning window",
     "notificationBody": "Plot 3 · closes Dec 15",
     "storyFirst": "BALANCE",
@@ -58,11 +59,7 @@
     "storyDescription": "A story of good years, difficult years, and the platform that learned to balance them.",
     "close": "Close",
     "downloadTitle": "A more balanced harvest starts here.",
-    "downloadBody": "Viora is growing. Official app downloads will be available here when the app launches.",
-    "filmTitle": "Every harvest has a story.",
-    "filmBody": "The Viora film is coming soon. This preview image is a temporary placeholder.",
-    "storyTitle": "Good years. Difficult years. A better balance.",
-    "storyBody": "Viora brings winter chill, fruit load and thinning guidance together, helping olive growers plan the next harvest, tree by tree."
+    "downloadBody": "Viora is growing. Official app downloads will be available here when the app launches."
   },
   "intro": {
     "titleFirst": "<strong>Field</strong> <em>Data</em>,",

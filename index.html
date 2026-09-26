@@ -455,20 +455,21 @@
         <button
           class="hero__film"
           type="button"
-          data-hero-dialog="film"
+          data-intro-open
           aria-label="Watch the Viora film"
+          data-i18n-attr="aria-label:hero.watchFilm"
           data-hero-reveal
         >
           <span class="hero__film-shell glass"
             ><span class="hero__film-inner glass"
               ><img
-                src="/assets/icons/video-placeholder.png"
+                src="/assets/images/intro/reel-poster.webp"
                 alt=""
-                width="512"
-                height="678" /></span
+                width="1362"
+                height="686" /></span
           ></span>
           <span class="hero__film-caption"
-            ><span>01:45</span
+            ><span>01:21</span
             ><span
               ><img src="/assets/icons/chevron-light.svg" alt="" width="20" height="20" /><span
                 data-i18n="hero.watch"
@@ -521,15 +522,6 @@
             A story of good years, difficult years, and the platform that learned to balance them.
           </p>
         </div>
-        <button
-          class="hero__explore"
-          type="button"
-          data-hero-dialog="story"
-          aria-label="Explore the Viora story"
-          data-hero-reveal
-        >
-          <img src="/assets/icons/arrow-back.svg" alt="" width="64" height="64" />
-        </button>
       </section>
 
       <!-- Intro: headline → the reel flies to centre (WebGL bend) → full-bleed "About" -->
@@ -572,10 +564,10 @@
           </div>
           <div class="intro__slot" data-intro-slot aria-hidden="true">
             <img
-              src="/assets/images/intro/dock.webp"
+              src="/assets/images/intro/reel-poster.webp"
               alt=""
-              width="736"
-              height="973"
+              width="1362"
+              height="686"
               loading="lazy"
               decoding="async"
             />
@@ -2927,7 +2919,6 @@
             <span data-i18n="about.watch">Watch video</span>
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 6.5 15 12l-5.5 5.5" /></svg>
           </button>
-          <!-- Placeholder: the intro reel until the team video is ready. -->
           <dialog
             class="intro-dialog"
             aria-label="ArcadiaDevs team video"
@@ -3110,7 +3101,7 @@
           Close
         </button>
         <p class="hero-dialog__eyebrow">VIORA</p>
-        <h2 id="hero-dialog-title">Every harvest has a story.</h2>
+        <h2 id="hero-dialog-title">A more balanced harvest starts here.</h2>
         <p class="hero-dialog__body"></p>
       </dialog>
     </main>

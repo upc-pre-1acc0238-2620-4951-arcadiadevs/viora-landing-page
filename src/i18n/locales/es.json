@@ -51,6 +51,7 @@
     "titleSecond": "Próxima Cosecha",
     "download": "Descarga la app",
     "watch": "Ver",
+    "watchFilm": "Ver el video de Viora",
     "notificationTitle": "Ventana de aclareo",
     "notificationBody": "Parcela 3 · cierra 15 dic",
     "storyFirst": "EQUILIBRA",
@@ -58,11 +59,7 @@
     "storyDescription": "Una historia sobre años buenos, años difíciles y la plataforma que aprendió a equilibrarlos.",
     "close": "Cerrar",
     "downloadTitle": "Una cosecha más pareja empieza aquí.",
-    "downloadBody": "Viora está creciendo. Las descargas oficiales de la app estarán disponibles aquí cuando se lance.",
-    "filmTitle": "Cada cosecha tiene una historia.",
-    "filmBody": "La película de Viora llega pronto. Esta imagen de vista previa es provisional.",
-    "storyTitle": "Años buenos. Años difíciles. Un mejor equilibrio.",
-    "storyBody": "Viora reúne el frío invernal, la carga frutal y la orientación de aclareo para ayudar a los olivicultores a planificar la próxima cosecha, árbol por árbol."
+    "downloadBody": "Viora está creciendo. Las descargas oficiales de la app estarán disponibles aquí cuando se lance."
   },
   "intro": {
     "titleFirst": "<strong>Datos</strong> <em>del Campo</em>,",
