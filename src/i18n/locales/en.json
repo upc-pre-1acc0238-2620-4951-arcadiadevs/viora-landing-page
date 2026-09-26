@@ -17,15 +17,469 @@
     "plans": "Plans",
     "team": "Team",
     "download": "Get the app",
-    "language": "Language"
+    "language": "Language",
+    "brand": "Viora home",
+    "menu": "Menu",
+    "close": "Close",
+    "sections": "Sections",
+    "settings": "Settings",
+    "plansTitle": "Compare plans for your grove",
+    "plansAction": "See plans"
+  },
+  "preloader": {
+    "loading": "Loading Viora",
+    "fieldNotes": "Field notes",
+    "notes": "on-year|off-year|fruit load|chill hours|thinning|bloom|harvest|yield|tree by tree|Tacna|340 h|12 kg/tree|±38%",
+    "country": "Peru",
+    "tagline": "Your grove, daily.",
+    "skip": "Skip intro",
+    "soundOn": "Enter with sound",
+    "soundOff": "Enter in silence"
+  },
+  "settings": {
+    "title": "Settings",
+    "distortion": "Distortion",
+    "sound": "Sound",
+    "on": "On",
+    "off": "Off"
+  },
+  "hero": {
+    "intro": "Viora App — Your grove, daily",
+    "description": "Your grove, tree by tree: winter chill, fruit load and thinning, all in one app.",
+    "eyebrow": "Alternate bearing",
+    "titleFirst": "Anticipate your",
+    "titleSecond": "Next Harvest",
+    "download": "Get the app",
+    "watch": "Watch",
+    "watchFilm": "Watch the Viora film",
+    "notificationTitle": "Thinning window",
+    "notificationBody": "Plot 3 · closes Dec 15",
+    "storyFirst": "BALANCE",
+    "storySecond": "YOUR GROVE",
+    "storyDescription": "A story of good years, difficult years, and the platform that learned to balance them.",
+    "close": "Close",
+    "downloadTitle": "A more balanced harvest starts here.",
+    "downloadBody": "Viora is growing. Official app downloads will be available here when the app launches."
+  },
+  "intro": {
+    "titleFirst": "<strong>Field</strong> <em>Data</em>,",
+    "titleSecond": "<em>Timely</em> <strong>Decisions</strong>",
+    "description": "We combine field sensors, weather forecasts and tree-by-tree sampling to turn alternate bearing into decisions. From the first chill alert to the end of the season, Viora tells you what to do and how much to expect from your harvest.",
+    "download": "Get the app",
+    "play": "Play",
+    "reel": "Reel",
+    "playLabel": "Play the Viora reel",
+    "playReel": "Play reel",
+    "watch": "Watch video",
+    "aboutTitle": "We're Viora.",
+    "aboutBody": "A Peruvian platform that manages alternate bearing in olive groves. We measure winter chill, fruit load and thinning with field nodes and offline sampling, so every season depends on data, not on each year's luck.",
+    "shapesLabel": "What Viora measures",
+    "shapeOlive": "Olive grove",
+    "shapeThinning": "Thinning",
+    "shapeYield": "Yield",
+    "shapeChill": "Winter chill",
+    "shapeBalance": "Crop balance",
+    "dialogLabel": "Viora reel",
+    "close": "Close"
   },
   "legal": {
     "close": "Close",
+    "contents": "Contents",
     "terms": {
-      "title": "Terms and conditions"
+      "title": "Terms and conditions",
+      "updated": "Last updated: February 2026 (v1.0.0)",
+      "notice": "Academic draft by ArcadiaDevs (UPC 1ACC0238, 2026-20). Not legal advice. For users in Peru, the Spanish version prevails in case of conflict.",
+      "sections": {
+        "nature": {
+          "heading": "Parties and project nature",
+          "body": "Viora is a B2B SaaS for olive alternate bearing in Tacna, built by ArcadiaDevs as an academic project. This document governs only the static website. You is the site visitor. We is ArcadiaDevs."
+        },
+        "acceptance": {
+          "heading": "Acceptance and contracting mode",
+          "body": "Browsing this site and opening this dialog is informed browsing: no account, no subscription, no app access. The SaaS contract happens only inside the mobile app with express sign-up and a separate App ToS acceptance."
+        },
+        "scope": {
+          "heading": "Landing scope",
+          "body": "Informational only: value proposition, modules (fruit load, winter chill, thinning plan), cases, video, team, and indicative pricing. No forms, no sign-up, no payments, and no personalized agronomic advice on this site."
+        },
+        "disclaimer": {
+          "heading": "Agronomic disclaimer",
+          "body": "BBI Hoblyn index, Erez chill portions, thinning window (20%-50%), and yield projections are decision-support outputs, not phytosanitary diagnoses and not guarantees of tonnes, calibres, or end of alternate bearing. Nothing here is professional agronomic advice."
+        },
+        "force": {
+          "heading": "Force majeure and third-party data",
+          "body": "Models depend on SENAMHI / OpenWeather and sensor networks. Outages of those sources, and El Nino / La Nina and other climate events (Civil Code art. 1315), release ArcadiaDevs from liability for crop loss or lost profits. Per Civil Code art. 1328, no exclusion covers willful misconduct or gross negligence."
+        },
+        "confidentiality": {
+          "heading": "Commercial confidentiality",
+          "body": "This site does not ask for your volumes, calibres, or prices. In the app, that data is treated as a trade secret (Andean Decision 486, art. 260) with reasonable safeguards. Cooperative aggregation requires your express consent; we do not sell individual data."
+        },
+        "pricing": {
+          "heading": "Pricing, currency, billing",
+          "body": "PEN / USD prices shown are indicative and include IGV (18%) where applicable. Clicking download or viewing prices charges nothing. Purchase happens only in the app via Mercado Pago Checkout Pro. ArcadiaDevs issues the electronic receipt per SUNAT rules."
+        },
+        "downloads": {
+          "heading": "Downloads, stores, external links",
+          "body": "Download buttons open an informational availability dialog; until official URLs ship, they do not navigate away. When they link to Google Play / App Store, those stores have their own terms, outside ArcadiaDevs."
+        },
+        "ip": {
+          "heading": "Intellectual property",
+          "body": "Code, algorithms, marks, logos, and designs belong to ArcadiaDevs. Open-source components (Three.js, GSAP, Lenis) keep their MIT / Apache 2.0 licenses. No license is granted beyond viewing this site."
+        },
+        "disputes": {
+          "heading": "Complaints book and disputes",
+          "body": "Per D.S. 011-2011-PCM, the footer links the virtual Complaints Book (reply within 15 business days). These Terms are governed by Peruvian law (Law 29733, Law 29571, Civil Code). Venue: courts of Lima or Tacna per applicable consumer rules."
+        },
+        "amendments": {
+          "heading": "Amendments and versions",
+          "body": "Material changes are notified at least 15 days in advance via prominent site or app notice. Continued use after effectiveness means acceptance. This text is versioned with the repo SemVer tag."
+        },
+        "contact": {
+          "heading": "Contact",
+          "body": "Privacy and ARCO rights: privacidad@viora.pe. Consumer claims: the site Complaints Book."
+        }
+      }
     },
     "privacy": {
-      "title": "Privacy policy"
+      "title": "Privacy policy",
+      "updated": "Last updated: February 2026 (v1.0.0)",
+      "notice": "This policy covers the landing page only. App data is governed by a separate App Privacy Policy accepted expressly at sign-up.",
+      "sections": {
+        "tracking": {
+          "heading": "Zero-tracking statement",
+          "body": "This static website does not use tracking cookies, advertising pixels, or third-party analytics. We only use your browser local storage (localStorage) to remember language and interface settings. This data never leaves your browser and can be cleared anytime."
+        },
+        "storage": {
+          "heading": "What we store in your browser",
+          "body": "Language preference, visual-effects preference (viora_pref_distortion), and audio preference (viora_pref_sound). Basis: technical necessity and legitimate interest. No profiling, no sharing."
+        },
+        "logs": {
+          "heading": "Infrastructure logs",
+          "body": "The Vercel CDN passively processes technical logs (IP, User-Agent, timestamp) to deliver content and mitigate DDoS, typically retained 30 days. Vercel Inc. acts as processor under Law 29733."
+        },
+        "gateway": {
+          "heading": "What this landing does NOT ask",
+          "body": "No forms, newsletter, accounts, or payments here: you provide no name, ID, email, phone, plots, harvests, or card data. App sign-up is governed separately with express consent."
+        },
+        "arco": {
+          "heading": "ARCO rights and ANPD complaint",
+          "body": "Exercise Access, Rectification, Erasure, and Objection via privacidad@viora.pe with your ID, the right invoked, and a notification address. Deadlines: Access 20 business days; Rectification, Erasure, and Objection 10 business days each. These rights cannot be waived."
+        },
+        "processors": {
+          "heading": "Processors and transfers",
+          "body": "Vercel (hosting/CDN), Mercado Pago (in-app payments), Twilio (in-app messaging), and Google FCM (in-app push) act as processors. Weather data uses coordinates only, without personal data."
+        },
+        "communications": {
+          "heading": "Communications",
+          "body": "This landing sends no messages. In the app, thinning, frost, or irrigation alerts are contract performance; marketing needs separate opt-in and can be revoked anytime."
+        },
+        "security": {
+          "heading": "Security, retention, minors",
+          "body": "Reasonable industry safeguards; in the app: TLS 1.3, on-device SQLCipher, 15-minute rotating JWTs, and per-cooperative RLS. Payments carry a 5-year tax retention (SUNAT). This service is not directed at minors."
+        },
+        "changes": {
+          "heading": "Changes, versions, contact",
+          "body": "Material changes with 15-day prominent notice; version aligned to the SemVer tag. ARCO contact: privacidad@viora.pe. Consumer claims: Complaints Book (15 business days). Governing law: Peru."
+        }
+      }
     }
+  },
+  "features": {
+    "line1": "Viora reads the load <span class=\"features__slot\" data-shape=\"olive\" aria-hidden=\"true\"></span> of your grove,",
+    "line2": "tracks the chill <span class=\"features__slot\" data-shape=\"chill\" aria-hidden=\"true\"></span> of every winter",
+    "line3": "and tells you when to thin. <span class=\"features__slot\" data-shape=\"thinning\" aria-hidden=\"true\"></span>",
+    "line4": "Steadier <span class=\"features__slot\" data-shape=\"balance\" aria-hidden=\"true\"></span> <span class=\"features__slot\" data-shape=\"yield\" aria-hidden=\"true\"></span> harvests."
+  },
+  "modules": {
+    "titleFirst": "Ready for a",
+    "titleSecond": "more even harvest",
+    "titleThird": "every year?",
+    "lead": "This is how Viora supports every stage of your season, from winter to harvest.",
+    "loadTitle": "Fruit<br />load",
+    "loadBody": "Sample your trees, even without signal, and know the real load of every lot before the season decides for you.",
+    "loadCta": "measure my load",
+    "chillTitle": "Winter<br />chill",
+    "chillBody": "Viora adds up each winter's chill portions for your variety, table or oil, and warns you when a warm winter puts your bloom at risk.",
+    "chillCta": "track my chill",
+    "thinningTitle": "Thinning<br />plan",
+    "thinningBody": "Know how much to thin and until when, for more even calibres and a next season that doesn’t collapse.",
+    "thinningCta": "plan my thinning"
+  },
+  "cases": {
+    "titleFirst": "Does any of these",
+    "titleSecond": "years sound familiar?",
+    "cta": "see the module",
+    "prev": "Previous case",
+    "next": "Next case",
+    "status": "Case {current} of {total}: {label}",
+    "off": {
+      "label": "Off year",
+      "who": "Grower · La Yarada",
+      "quote": "“I don’t know how much I’ll harvest until it’s too late.”",
+      "pain": "A loaded year, then an empty one. The season is planned blind.",
+      "tag": "Grower app",
+      "title": "Viora gives you the number before harvest.",
+      "body": "Sample a few trees from your phone, even without signal, and the app works out the target load of the lot and the yield you can expect this season.",
+      "module": "Fruit load",
+      "moduleSub": "Harvest estimate"
+    },
+    "chill": {
+      "label": "Low chill",
+      "who": "Grower · Magollo",
+      "quote": "“This winter just wasn’t cold.”",
+      "pain": "Without enough chill, bloom comes uneven and the fruit set falls short.",
+      "tag": "Grower app",
+      "title": "Viora counts every hour of cold.",
+      "body": "Weather data adds up the chill portions for your variety, table or oil, and warns you when a warm winter or an El Niño year puts your bloom at risk.",
+      "module": "Winter chill",
+      "moduleSub": "Chill and ENSO risk"
+    },
+    "late": {
+      "label": "Late thinning",
+      "who": "Grower · Los Palos",
+      "quote": "“By the time I wanted to thin, it was already late.”",
+      "pain": "Too much fruit on the tree: small calibres now, a collapse next season.",
+      "tag": "Grower app",
+      "title": "Viora opens your thinning window.",
+      "body": "It tells you how much fruit to remove and by when, tree by tree, so calibres even out and next year’s crop holds.",
+      "module": "Thinning plan",
+      "moduleSub": "Intervention window"
+    },
+    "intake": {
+      "label": "Uncertain intake",
+      "who": "Cooperative manager · Tacna",
+      "quote": "“I don’t know how much we’ll collect this year.”",
+      "pain": "Contracts, crews and storage are all set on guesswork.",
+      "tag": "Cooperative panel",
+      "title": "Viora projects your whole intake.",
+      "body": "It rolls every member’s estimate into one projection, so contracts, crews and storage are planned before the harvest starts.",
+      "module": "Intake projection",
+      "moduleSub": "Cooperative view"
+    }
+  },
+  "tacna": {
+    "eyebrow": "The context",
+    "statement": "Tacna grows 81% of Peru's olives, yet every season is decided blind: one year there's fruit to spare, the next there's not enough.",
+    "copy": "In 2024, growers in La Yarada reported losses of up to 90%. In September 2025, a record rebound. They aren't two different stories: they're the two faces of the same ON/OFF cycle.",
+    "statArea": "81%",
+    "statAreaLabel": "of Peru's olive acreage",
+    "statLoss": "90%",
+    "statLossLabel": "lost in the 2024 season",
+    "statOff": "1 in 2",
+    "statOffLabel": "seasons end in an OFF year",
+    "pictureAlt": "A young grower looks up, dreaming of a branch heavy with olives",
+    "lineOne": "Even",
+    "lineTwo": "harvest",
+    "lineThree": "ahead",
+    "plans": "See<br />the plans",
+    "placeTitle": "Between La Yarada and Los Palos",
+    "placeCopy": "Sand, sun and wells: this is where most of the country's olives are grown. Viora orders this grove's season — it measures the load, tracks the chill and sets the thinning window — so next year stops depending on chance.",
+    "wishOne": "The harvest you wanted",
+    "wishTwo": "yours",
+    "wishThree": "this year",
+    "stepChill": "Chill builds up",
+    "stepChillWhen": "May – Aug",
+    "stepBloom": "Bloom",
+    "stepBloomWhen": "September",
+    "stepSet": "Fruit-set sampling",
+    "stepSetWhen": "November",
+    "stepThin": "Thinning window",
+    "stepThinWhen": "December",
+    "stepHarvest": "Harvest",
+    "stepHarvestWhen": "Apr – May"
+  },
+  "sky": {
+    "place": "Yarada los Palos",
+    "region": "Tacna",
+    "country": "Peru",
+    "alt": "Aerial view of olive groves and irrigation ponds along the road through La Yarada, Tacna"
+  },
+  "segments": {
+    "title": "Who it's for",
+    "panelAlt": "A grower and a technical manager check an olive branch together in the grove",
+    "growerAlt": "Portrait of an olive grower in his hat, with the grove behind him",
+    "managerAlt": "Portrait of a technical manager with glasses and a clipboard at the collection centre",
+    "growersTitle": "Olive growers",
+    "growersCopy": "Know your grove's chill, each tree's load and when to thin, from your phone and even with no signal in the field.",
+    "swingTitle": "One year too much, the next too little",
+    "swingCopy": "Selling well one season and barely covering costs the next shouldn't be normal. Viora was born to smooth out that swing.",
+    "managersTitle": "Technical managers",
+    "managersCopy": "See the alternate-bearing risk of every member on a map by sector, and forecast the intake before the harvest arrives.",
+    "fieldTitle": "You can't be at every plot",
+    "fieldCopy": "Visiting every farm, writing it in a notebook and typing it into Excel costs you weeks. Viora brings the field to your screen, on time."
+  },
+  "reasons": {
+    "title": "A bad season costs more than Viora",
+    "copy": "Pick the access that fits your grove: one plan for growers and another for cooperatives that bring their advisors along.",
+    "scienceTitle": "Agronomic science",
+    "scienceCopy": "Winter chill, alternate-bearing index and ENSO risk, calculated with agronomic models built for the olive tree.",
+    "windowTitle": "Decisions with a date",
+    "windowCopy": "Viora tells you when the thinning window opens and closes, so the right moment never slips by.",
+    "fieldTitle": "Made for the field",
+    "fieldCopy": "Record samples tree by tree with no signal and sync when you're back online.",
+    "coopTitle": "With your cooperative",
+    "coopCopy": "Your cooperative and its advisor work from the same data you do, without waiting for the next visit."
+  },
+  "plans": {
+    "title": "Plans",
+    "lead": "Chill. Load. Thinning. Harvest. Everything you need to get ahead of your season, with plans in soles for the grower and <em>for the whole cooperative.</em>",
+    "star": "How it works",
+    "phoneBrand": "Viora",
+    "phoneGrowerEyebrow": "Subscription",
+    "phoneGrowerTitle": "Grower plan",
+    "phoneGrowerHectares": "Your hectares",
+    "phoneGrowerFeature1": "Alternate-bearing diagnosis (BBI)",
+    "phoneGrowerFeature2": "Accumulated chill and water-stress alerts",
+    "phoneGrowerFeature3": "Thinning sampling and prescription",
+    "phoneGrowerTotal": "Monthly total",
+    "phoneGrowerPay": "Pay with Mercado Pago",
+    "phoneGrowerFine": "Sample reference price",
+    "phoneGrowerNote": "secure payment ✓<br />instant activation ✓",
+    "phoneCoopEyebrow": "Technical manager",
+    "phoneCoopTitle": "Collective licence",
+    "phoneCoopMembers": "Linked members",
+    "phoneCoopHectares": "Committed hectares",
+    "phoneCoopLight": "Territory traffic light",
+    "phoneCoopOptimal": "Optimal",
+    "phoneCoopWatch": "Watch",
+    "phoneCoopOverload": "Overload",
+    "phoneCoopIntake": "Projected intake",
+    "phoneCoopSplit": "62% green · 38% black",
+    "phoneCoopFine": "Sample data",
+    "phoneCoopNote": "portfolio ✓<br />traffic light ✓ intake ✓",
+    "phoneCodeEyebrow": "Membership",
+    "phoneCodeTitle": "Redeem your code",
+    "phoneCodeHint": "Your cooperative's technical manager gives it to you.",
+    "phoneCodeLabel": "Activation code",
+    "phoneCodeRedeem": "Redeem",
+    "phoneCodeDone": "Done! You're a member",
+    "phoneCodeDoneCopy": "Sample cooperative · collective licence active until Dec 2027",
+    "phoneCodeFine": "Sample data",
+    "phoneCodeNote": "no payment ✓<br />one code, one member ✓",
+    "growerName": "Grower<br />plan",
+    "growerTagline": "You pay for what you grow.",
+    "growerCopy": "A rate in soles based on your grove's hectares. Pay online and instantly unlock the alternate-bearing diagnosis, accumulated chill and the thinning prescription.",
+    "growerPrice": "S/ 55",
+    "growerUnit": "per hectare a month · reference",
+    "growerCta": "I want it",
+    "growerMore": "See what's included",
+    "coopName": "Cooperative<br />plan",
+    "coopTagline": "One licence for the whole organisation.",
+    "coopCopy": "The cooperative buys a quota of members and hectares. The technical manager oversees the portfolio, follows the territory traffic light and forecasts the season's intake.",
+    "coopPrice": "Tailored",
+    "coopUnit": "by members and hectares · in soles",
+    "coopCta": "I want it",
+    "coopMore": "See what's included",
+    "codeName": "Cooperative<br />code",
+    "codeTagline": "If your cooperative is already in, you don't pay.",
+    "codeCopy": "The manager issues activation codes with an expiry date. Members redeem theirs in the app and join the collective licence at no individual cost.",
+    "codePrice": "S/ 0",
+    "codeUnit": "for the member · covered by the licence",
+    "codeCta": "Redeem code",
+    "codeMore": "How do I get my code?",
+    "growerStep1": "Choose your hectares: the rate is based on your grove",
+    "growerStep2": "Pay online with Mercado Pago, no middlemen",
+    "growerStep3": "Instant access to the whole plan from your phone",
+    "coopStep1": "The cooperative buys a quota of members and hectares",
+    "coopStep2": "The manager oversees the portfolio and the territory traffic light",
+    "coopStep3": "Forecast the green and black olive intake before the harvest",
+    "codeStep1": "The manager issues a batch of codes with an expiry date",
+    "codeStep2": "Shares them with the cooperative's eligible members",
+    "codeStep3": "The member redeems the code and joins without paying"
+  },
+  "about": {
+    "quoteOne": "‘But it’s",
+    "quoteTwo": "just a",
+    "quoteThree": "project’",
+    "question": "Why not the best one?",
+    "artAlt": "Illustration of the five ArcadiaDevs members raising a trophy together",
+    "team": "Our team",
+    "motto": "From data<br />to the field",
+    "count": "5 members",
+    "idea": "The idea behind <em>Viora</em> is simple: no season should be decided blind. We are <em>ArcadiaDevs</em>, five UPC students who turned the Tacna olive grove’s problem into a product. From data to the field.",
+    "members": "Members",
+    "membersCopy": "Five profiles, one product. Each member leads a front of Viora, from design to architecture and quality.",
+    "smallBut": "Small but",
+    "powerful": "Powerful",
+    "teamWord": "team",
+    "watch": "Watch video",
+    "missionOne": "Mission and vision",
+    "missionTwo": "of ArcadiaDevs",
+    "mission": "Viora exists so that alternate bearing stops being a lottery. Our <em>mission</em> is to turn complex agronomic data into simple, timely decisions within reach of any grower. Our <em>vision</em> is that no olive harvest in southern Peru is lost for lack of information or left to the luck of the season.",
+    "roleVictor": "CEO & Product Owner",
+    "roleDiana": "CMO & UX Lead",
+    "roleFabrizio": "CPO & System Architect",
+    "roleJahat": "CTO & DevOps Integrator",
+    "rolePiero": "COO, Researcher & QA",
+    "videoLabel": "ArcadiaDevs team video"
+  },
+  "bottle": {
+    "growerLine1": "Fewer off years",
+    "growerLine2": "More harvest",
+    "growerLine3": "Every season",
+    "coopLine1": "Every member",
+    "coopLine2": "One map",
+    "coopLine3": "No guesswork",
+    "appStore": "Download on<br />App Store",
+    "googlePlay": "Available on<br />Google Play",
+    "growerKind": "Grower",
+    "growerBatch": "N.01",
+    "growerHarvest": "Early harvest",
+    "coopKind": "Cooperative",
+    "coopBatch": "N.02",
+    "coopHarvest": "Ripe harvest",
+    "volume": "500 ml",
+    "growerPlan": "See the grower plan",
+    "coopPlan": "See the cooperative plan",
+    "hint": "Drag the bottle to switch",
+    "choose": "Choose your segment",
+    "labelTop": "Extra virgin · Tacna, Peru",
+    "labelBottom": "Harvest 2026",
+    "canvasLabel": "A bottle of Viora olive oil"
+  },
+  "footer": {
+    "chapter1Months": "Jun – Aug",
+    "chapter1Title": "Chill builds up",
+    "chapter1Copy": "Viora counts every cold hour of the winter.",
+    "chapter2Months": "Sep – Nov",
+    "chapter2Title": "Bloom and sampling",
+    "chapter2Copy": "She samples the flowers, tree by tree.",
+    "chapter3Months": "December",
+    "chapter3Title": "The thinning window",
+    "chapter3Copy": "The app marks the days; the extra fruit comes off.",
+    "chapter4Months": "Apr – May",
+    "chapter4Title": "An even harvest",
+    "chapter4Copy": "Full crates, and the next season already planned.",
+    "storyLabel": "Cross-stitch storyboard of one season in a Tacna grove: a grower tracks winter chill on her phone, samples the bloom, thins an overloaded tree in the window Viora marks, and fills her crates with an even harvest.",
+    "chapters": "Story chapters",
+    "chapterGo": "Chapter",
+    "pause": "Pause the story",
+    "play": "Play the story",
+    "title": "Start measuring<br />your next season",
+    "lead": "Fruit load, winter chill and thinning in one app, built for the Tacna olive grove.",
+    "appStore": "App Store",
+    "googlePlay": "Google Play",
+    "navLabel": "Footer",
+    "productTitle": "Product",
+    "product_features": "Features",
+    "product_cases": "Use cases",
+    "product_video": "Product video",
+    "segmentsTitle": "Segments",
+    "segments_tacna": "Tacna harvests",
+    "segments_grower": "Grower",
+    "segments_manager": "Manager / Advisor",
+    "accessTitle": "Access",
+    "access_growerPlan": "Grower plan",
+    "access_coopPlan": "Cooperative plan",
+    "access_advisor": "Advisor invitation",
+    "aboutTitle": "About us",
+    "about_team": "Team",
+    "about_arcadia": "ArcadiaDevs",
+    "about_teamVideo": "Team video",
+    "legalTitle": "Legal",
+    "legal_terms": "Terms of service",
+    "legal_privacy": "Privacy policy",
+    "legal_download": "Download the app",
+    "copyright": "© 2026 ArcadiaDevs — Viora. UPC academic project."
   }
 }

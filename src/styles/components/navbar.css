@@ -1,0 +1,532 @@
+/*
+ * Fixed navbar with liquid-glass controls and solid disclosure panels.
+ * `data-tone` follows the section beneath: dark (artwork, forest) or light (cream).
+ */
+.navbar {
+  --navbar-ink: var(--color-text-inverse);
+  --navbar-control: 48px;
+
+  position: fixed;
+  z-index: var(--z-header);
+  inset: 0 3.19vw auto 5.556vw;
+  height: max(70px, min(6.111vw, 9.3417dvh));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--navbar-ink);
+  transition: color var(--duration-base) var(--ease-out-quart);
+}
+
+.navbar[data-tone='light'] {
+  --navbar-ink: var(--color-brand);
+}
+
+.navbar__brand {
+  display: block;
+  width: max(76px, min(6.46vw, 9.8752dvh));
+  aspect-ratio: 93 / 56;
+  border-radius: var(--radius-sm);
+}
+
+.navbar__wordmark {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: currentcolor;
+  mask: url('/assets/icons/wordmark.svg') center / contain no-repeat;
+}
+
+.navbar__controls {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ── Controls: glass menu pill, bare icons ─────────── */
+.navbar__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: var(--navbar-control);
+  height: var(--navbar-control);
+  padding: 0;
+  border-radius: var(--radius-pill);
+  color: inherit;
+  cursor: pointer;
+  transition:
+    scale var(--duration-base) var(--ease-out-expo),
+    background-color var(--duration-base) var(--ease-out-quart),
+    border-color var(--duration-base) var(--ease-out-quart);
+}
+
+.navbar__button--menu {
+  width: auto;
+  min-width: 124px;
+  padding-inline: 22px 20px;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.navbar__icon {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentcolor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.navbar__button:hover {
+  scale: 1.06;
+}
+
+.navbar__button:active {
+  scale: 0.96;
+}
+
+.navbar[data-tone='light'] .navbar__button--menu {
+  background: rgb(31 44 38 / 8%);
+  border-color: rgb(31 44 38 / 16%);
+}
+
+.navbar__button--menu[aria-expanded='true'] {
+  background: rgb(243 240 234 / 24%);
+}
+
+.navbar[data-tone='light'] .navbar__button--menu[aria-expanded='true'] {
+  background: rgb(31 44 38 / 16%);
+}
+
+/* Settings and language: bare floating icons, no glass shell. */
+.navbar__button--icon {
+  width: 40px;
+  background: none;
+  border: 0;
+}
+
+.navbar__button--icon .navbar__icon {
+  width: 24px;
+  height: 24px;
+  filter: drop-shadow(0 1px 2px rgb(12 18 15 / 45%));
+}
+
+.navbar[data-tone='light'] .navbar__button--icon .navbar__icon {
+  filter: none;
+}
+
+.navbar__knob {
+  transition: translate var(--duration-slow) var(--ease-out-expo);
+}
+
+.navbar__button:hover .navbar__knob,
+.navbar__button[aria-expanded='true'] .navbar__knob {
+  translate: -4px 0;
+}
+
+.navbar__button:hover .navbar__knob--low,
+.navbar__button[aria-expanded='true'] .navbar__knob--low {
+  translate: 6px 0;
+}
+
+.navbar__meridian {
+  transform-origin: center;
+  transform-box: fill-box;
+  transition: scale var(--duration-slow) var(--ease-out-expo);
+}
+
+.navbar__button:hover .navbar__meridian,
+.navbar__button[aria-expanded='true'] .navbar__meridian {
+  scale: 0.25 1;
+}
+
+/* Two dots (menu) turn vertical (close), as in the reference. */
+.navbar__dots {
+  position: relative;
+  width: 12px;
+  height: 12px;
+  transition: rotate var(--duration-slow) var(--ease-out-expo);
+}
+
+.navbar__dots::before,
+.navbar__dots::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 5px;
+  height: 5px;
+  margin-top: -2.5px;
+  border-radius: 50%;
+  background: currentcolor;
+}
+
+.navbar__dots::before {
+  left: 0;
+}
+
+.navbar__dots::after {
+  right: 0;
+}
+
+.navbar__button[aria-expanded='true'] .navbar__dots {
+  rotate: 90deg;
+}
+
+/* ── Solid panels ───────────────────────────────────── */
+.navbar__panel ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.navbar__panel {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  width: min(320px, calc(100vw - 32px));
+  padding: 22px 24px;
+  border-radius: var(--radius-lg);
+  background: var(--color-brand-dark);
+  color: var(--color-text-inverse);
+  border: 1px solid rgb(243 240 234 / 10%);
+  box-shadow:
+    inset 0 1px 0 rgb(243 240 234 / 8%),
+    0 24px 48px rgb(12 18 15 / 32%);
+  transform-origin: top right;
+}
+
+.navbar__panel[hidden] {
+  display: none;
+}
+
+/* Settings and language: Control Center module holding pill controls. */
+.navbar__panel--settings,
+.navbar__panel--language {
+  width: min(264px, calc(100vw - 32px));
+  padding: 14px;
+  border-radius: var(--radius-xl);
+}
+
+.navbar__panel--language {
+  width: min(232px, calc(100vw - 32px));
+}
+
+.navbar__eyebrow {
+  margin: 2px 0 12px 10px;
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-inverse-muted);
+}
+
+/* ── Control pills (macOS Control Center) ───────────── */
+.navbar__pills {
+  display: grid;
+  gap: 8px;
+}
+
+.control {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 56px;
+  padding: 8px 18px 8px 8px;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: rgb(255 255 255 / 9%);
+  box-shadow:
+    inset 0 0 0 0.5px rgb(255 255 255 / 20%),
+    inset 0 1px 0.5px rgb(255 255 255 / 28%),
+    inset 0 -1px 0.5px rgb(255 255 255 / 8%),
+    0 1px 3px rgb(0 0 0 / 14%);
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color var(--duration-fast) var(--ease-out-quart);
+}
+
+.control:hover {
+  background: rgb(255 255 255 / 14%);
+}
+
+.control:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.control__icon {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgb(255 255 255 / 16%);
+  box-shadow: inset 0 1px 0.5px rgb(255 255 255 / 22%);
+  color: var(--color-text-inverse);
+  transition:
+    background-color var(--duration-base) var(--ease-out-quart),
+    color var(--duration-base) var(--ease-out-quart);
+}
+
+.control__icon svg {
+  fill: none;
+  stroke: currentcolor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.control__icon--code {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  letter-spacing: 0.06em;
+}
+
+/* Active: the circle lights up, like Bluetooth "On". */
+.control[aria-checked='true'] .control__icon,
+.control[aria-pressed='true'] .control__icon {
+  background: var(--color-text-inverse);
+  color: var(--color-brand);
+}
+
+.control__text {
+  display: grid;
+  line-height: 1.2;
+}
+
+.control__label {
+  font-size: var(--text-base);
+  font-weight: var(--weight-semibold);
+}
+
+.control__state {
+  font-size: var(--text-sm);
+  color: var(--color-text-inverse-muted);
+}
+
+.control[aria-checked='true'] .control__state--off,
+.control:not([aria-checked='true']) .control__state--on {
+  display: none;
+}
+
+.control[aria-disabled='true'] {
+  cursor: not-allowed;
+}
+
+.control[aria-disabled='true']:hover {
+  background: rgb(255 255 255 / 9%);
+}
+
+.control[aria-disabled='true'] .control__icon,
+.control[aria-disabled='true'] .control__label {
+  opacity: 0.55;
+}
+
+/* ── Section menu: three stacked cards (links, CTA, download) ── */
+.navbar__panel--menu {
+  display: grid;
+  gap: 8px;
+  width: min(340px, calc(100vw - 32px));
+  padding: 0;
+  background: none;
+  border: 0;
+  box-shadow: none;
+  color: var(--color-text);
+}
+
+.navbar__card {
+  padding: 18px 20px;
+  border-radius: var(--radius-lg);
+  background: var(--color-surface-raised);
+  box-shadow: var(--shadow-3);
+}
+
+.navbar__links {
+  display: grid;
+}
+
+.navbar__link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7px 0;
+  font-size: var(--text-xl);
+  line-height: var(--leading-snug);
+  text-transform: uppercase;
+  text-decoration: none;
+  color: inherit;
+  transition:
+    translate var(--duration-base) var(--ease-out-expo),
+    color var(--duration-fast) var(--ease-out-quart);
+}
+
+.navbar__link:hover {
+  translate: 6px 0;
+  color: var(--color-brand);
+}
+
+.navbar__link[aria-current]::after {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentcolor;
+}
+
+.navbar__card--cta {
+  display: grid;
+  gap: 16px;
+  padding-block: 20px;
+}
+
+.navbar__cta-title {
+  font-size: var(--text-xl);
+  line-height: var(--leading-snug);
+  text-wrap: balance;
+}
+
+.navbar__cta-action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  color: var(--color-brand);
+  font-size: var(--text-base);
+  text-decoration: none;
+  transition: background-color var(--duration-fast) var(--ease-out-quart);
+}
+
+.navbar__cta-action:hover {
+  background: var(--color-border);
+}
+
+.navbar__arrow {
+  fill: none;
+  stroke: currentcolor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: translate var(--duration-base) var(--ease-out-expo);
+}
+
+.navbar__cta-action:hover .navbar__arrow {
+  translate: 4px 0;
+}
+
+.navbar__card--download {
+  display: grid;
+  gap: 14px;
+  background: var(--color-brand);
+  color: var(--color-text-inverse);
+}
+
+.navbar__download-title {
+  font-size: var(--text-lg);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.navbar__stores {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.navbar__store {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border: 1px solid rgb(243 240 234 / 22%);
+  border-radius: var(--radius-md);
+  background: rgb(243 240 234 / 6%);
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    background-color var(--duration-fast) var(--ease-out-quart),
+    border-color var(--duration-fast) var(--ease-out-quart),
+    translate var(--duration-base) var(--ease-out-expo);
+}
+
+.navbar__store img {
+  flex: none;
+  width: 22px;
+  height: 22px;
+}
+
+.navbar__store-label {
+  display: grid;
+  font-size: var(--text-sm);
+  line-height: 1.2;
+}
+
+.navbar__store-hint {
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--color-text-inverse-muted);
+}
+
+.navbar__store:hover {
+  translate: 0 -2px;
+  background: rgb(243 240 234 / 14%);
+  border-color: rgb(243 240 234 / 40%);
+}
+
+/* ── Focus ──────────────────────────────────────────── */
+.navbar :focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+@media (width <= 840px) {
+  .navbar {
+    --navbar-control: 44px;
+
+    inset: 8px 22px auto;
+  }
+
+  .navbar__brand {
+    width: 85px;
+  }
+
+  .navbar__controls {
+    gap: 8px;
+  }
+
+  .navbar__button--menu {
+    min-width: 0;
+    padding-inline: 16px 14px;
+    gap: 10px;
+  }
+}
+
+@media (width <= 600px) {
+  .navbar__panel {
+    position: fixed;
+    top: 76px;
+    right: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navbar__button,
+  .navbar__knob,
+  .navbar__meridian,
+  .navbar__dots,
+  .navbar__link,
+  .navbar__arrow,
+  .control,
+  .control__icon {
+    transition: none;
+  }
+}

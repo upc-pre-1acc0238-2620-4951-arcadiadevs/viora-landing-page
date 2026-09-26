@@ -17,15 +17,469 @@
     "plans": "Planes",
     "team": "Equipo",
     "download": "Descargar app",
-    "language": "Idioma"
+    "language": "Idioma",
+    "brand": "Inicio de Viora",
+    "menu": "Menú",
+    "close": "Cerrar",
+    "sections": "Secciones",
+    "settings": "Ajustes",
+    "plansTitle": "Compara los planes para tu olivar",
+    "plansAction": "Ver planes"
+  },
+  "preloader": {
+    "loading": "Cargando Viora",
+    "fieldNotes": "Notas de campo",
+    "notes": "año ON|año OFF|carga frutal|horas de frío|aclareo|floración|cosecha|rendimiento|árbol por árbol|Tacna|340 h|12 kg/árbol|±38%",
+    "country": "Perú",
+    "tagline": "Tu olivar, al día.",
+    "skip": "Saltar intro",
+    "soundOn": "Entrar con sonido",
+    "soundOff": "Entrar en silencio"
+  },
+  "settings": {
+    "title": "Ajustes",
+    "distortion": "Distorsión",
+    "sound": "Sonido",
+    "on": "Activada",
+    "off": "Desactivada"
+  },
+  "hero": {
+    "intro": "Viora App — Tu olivar al día",
+    "description": "Tu olivar medido árbol por árbol: frío invernal, carga y aclareo en una sola app.",
+    "eyebrow": "Vecería",
+    "titleFirst": "Anticipa la",
+    "titleSecond": "Próxima Cosecha",
+    "download": "Descarga la app",
+    "watch": "Ver",
+    "watchFilm": "Ver el video de Viora",
+    "notificationTitle": "Ventana de aclareo",
+    "notificationBody": "Parcela 3 · cierra 15 dic",
+    "storyFirst": "EQUILIBRA",
+    "storySecond": "TU OLIVAR",
+    "storyDescription": "Una historia sobre años buenos, años difíciles y la plataforma que aprendió a equilibrarlos.",
+    "close": "Cerrar",
+    "downloadTitle": "Una cosecha más pareja empieza aquí.",
+    "downloadBody": "Viora está creciendo. Las descargas oficiales de la app estarán disponibles aquí cuando se lance."
+  },
+  "intro": {
+    "titleFirst": "<strong>Datos</strong> <em>del Campo</em>,",
+    "titleSecond": "<strong>Decisiones</strong> <em>a Tiempo</em>",
+    "description": "Unimos sensores en campo, pronóstico del clima y muestreo árbol por árbol para convertir la vecería en decisiones. Desde la primera alerta de frío hasta el cierre de campaña, Viora te dice qué hacer y cuánto esperar de tu cosecha.",
+    "download": "Descarga la app",
+    "play": "Ver",
+    "reel": "Reel",
+    "playLabel": "Reproducir el reel de Viora",
+    "playReel": "Ver reel",
+    "watch": "Ver video",
+    "aboutTitle": "Somos Viora.",
+    "aboutBody": "Una plataforma peruana que gestiona la vecería del olivo. Medimos frío invernal, carga frutal y aclareo con nodos en campo y muestreo sin conexión, para que cada campaña dependa de datos y no de la suerte de cada año.",
+    "shapesLabel": "Lo que mide Viora",
+    "shapeOlive": "Olivar",
+    "shapeThinning": "Aclareo",
+    "shapeYield": "Rendimiento",
+    "shapeChill": "Frío invernal",
+    "shapeBalance": "Equilibrio de cosecha",
+    "dialogLabel": "Reel de Viora",
+    "close": "Cerrar"
   },
   "legal": {
     "close": "Cerrar",
+    "contents": "Contenido",
     "terms": {
-      "title": "Términos y condiciones"
+      "title": "Términos y condiciones",
+      "updated": "Última actualización: febrero de 2026 (v1.0.0)",
+      "notice": "Borrador académico de ArcadiaDevs (UPC 1ACC0238, 2026-20). No es asesoría legal. Para usuarios en Perú, prevalece esta versión en español en caso de conflicto.",
+      "sections": {
+        "nature": {
+          "heading": "Identificación de las partes y naturaleza del proyecto",
+          "body": "Viora es un SaaS B2B para la vecería del olivo en Tacna, desarrollado por ArcadiaDevs como proyecto académico. Este documento regula únicamente el sitio web estático. «Usted» es el visitante del sitio. «Nosotros» es ArcadiaDevs."
+        },
+        "acceptance": {
+          "heading": "Aceptación y modalidad de contratación",
+          "body": "Navegar por este sitio y abrir este diálogo es navegación informada: sin cuenta, sin suscripción y sin acceso a la app. La contratación del SaaS ocurre solo dentro de la app móvil con registro expreso y aceptación separada de los Términos de la App."
+        },
+        "scope": {
+          "heading": "Alcance del servicio de la landing page",
+          "body": "Solo informativo: propuesta de valor, módulos (carga frutal, frío invernal, plan de raleo), casos, video, equipo y precios orientativos. Sin formularios, sin registro, sin pagos y sin asesoría agronómica personalizada en este sitio."
+        },
+        "disclaimer": {
+          "heading": "Exención de responsabilidad agronómica",
+          "body": "El índice BBI de Hoblyn, las porciones de frío de Erez, la ventana de raleo (20 %–50 %) y las proyecciones de cosecha son apoyos a la decisión, no diagnósticos fitosanitarios ni garantías de toneladas, calibres o fin de la vecería. Nada aquí constituye asesoría agronómica profesional."
+        },
+        "force": {
+          "heading": "Fuerza mayor y dependencia de datos de terceros",
+          "body": "Los modelos dependen de SENAMHI / OpenWeather y de la red de sensores. Las interrupciones de esas fuentes, y El Niño / La Niña y demás eventos climáticos (Código Civil, art. 1315), exoneran a ArcadiaDevs de responsabilidad por pérdidas de cultivo o lucro cesante. Conforme al art. 1328 del Código Civil, ninguna exoneración cubre dolo o culpa inexcusable."
+        },
+        "confidentiality": {
+          "heading": "Confidencialidad comercial",
+          "body": "Este sitio no le pide sus volúmenes, calibres ni precios. En la app, esos datos se tratan como secreto empresarial (Decisión 486 CAN, art. 260) con medidas razonables de reserva. La consolidación cooperativa requiere su consentimiento expreso; no vendemos datos individuales."
+        },
+        "pricing": {
+          "heading": "Precios, moneda y facturación",
+          "body": "Los precios PEN / USD mostrados son referenciales e incluyen IGV (18 %) cuando aplica. Hacer clic en descargar o ver precios no cobra nada. La compra ocurre solo en la app vía Mercado Pago Checkout Pro. ArcadiaDevs emite el comprobante electrónico según normas SUNAT."
+        },
+        "downloads": {
+          "heading": "Descargas, tiendas y enlaces externos",
+          "body": "Los botones de descarga abren un diálogo informativo de disponibilidad; mientras no haya URLs oficiales, no redirigen fuera. Cuando enlacen a Google Play / App Store, esas tiendas tienen sus propios términos, ajenos a ArcadiaDevs."
+        },
+        "ip": {
+          "heading": "Propiedad intelectual",
+          "body": "Código, algoritmos, marcas, logos y diseños pertenecen a ArcadiaDevs. Los componentes open source (Three.js, GSAP, Lenis) conservan sus licencias MIT / Apache 2.0. No se concede licencia más allá de visualizar este sitio."
+        },
+        "disputes": {
+          "heading": "Libro de Reclamaciones y controversias",
+          "body": "Conforme al D.S. N.º 011-2011-PCM, el footer enlaza el Libro de Reclamaciones Virtual (respuesta en máximo 15 días hábiles). Estos Términos se rigen por las leyes del Perú (Ley N.º 29733, Ley N.º 29571, Código Civil). Competencia: jueces de Lima o Tacna según la norma de consumo aplicable."
+        },
+        "amendments": {
+          "heading": "Modificaciones y versiones",
+          "body": "Los cambios sustanciales se avisan con al menos 15 días de anticipación mediante aviso destacado en el sitio o la app. El uso posterior a la vigencia implica aceptación. Este texto se versiona con el tag SemVer del repo."
+        },
+        "contact": {
+          "heading": "Contacto",
+          "body": "Privacidad y derechos ARCO: privacidad@viora.pe. Reclamaciones de consumo: Libro de Reclamaciones del sitio."
+        }
+      }
     },
     "privacy": {
-      "title": "Política de privacidad"
+      "title": "Política de privacidad",
+      "updated": "Última actualización: febrero de 2026 (v1.0.0)",
+      "notice": "Esta política cubre solo la landing page. Los datos de la app se rigen por una Política de la App separada, aceptada expresamente al registrarse.",
+      "sections": {
+        "tracking": {
+          "heading": "Declaración de cero rastreo",
+          "body": "Este sitio web estático no usa cookies de rastreo, píxeles publicitarios ni analítica de terceros. Solo usamos el almacenamiento local de su navegador (localStorage) para recordar idioma y ajustes de interfaz. Estos datos nunca salen de su navegador y pueden borrarse en cualquier momento."
+        },
+        "storage": {
+          "heading": "Qué guardamos en su navegador",
+          "body": "Preferencia de idioma, preferencia de efectos visuales (viora_pref_distortion) y preferencia de audio (viora_pref_sound). Base: necesidad técnica e interés legítimo. Sin perfilado ni cesión."
+        },
+        "logs": {
+          "heading": "Logs de infraestructura",
+          "body": "El CDN de Vercel procesa pasivamente registros técnicos (IP, User-Agent, fecha y hora) para entregar el contenido y mitigar DDoS, con conservación típica de 30 días. Vercel Inc. actúa como encargado según la Ley N.º 29733."
+        },
+        "gateway": {
+          "heading": "Lo que esta landing NO le pide",
+          "body": "Sin formularios, newsletter, cuentas ni pagos aquí: usted no entrega nombre, DNI, email, teléfono, parcelas, cosechas ni datos de tarjeta. El registro en la app se rige por separado con consentimiento expreso."
+        },
+        "arco": {
+          "heading": "Derechos ARCO y reclamación ante la ANPD",
+          "body": "Ejerza Acceso, Rectificación, Cancelación y Oposición vía privacidad@viora.pe con su DNI, el derecho invocado y una dirección de notificación. Plazos: Acceso 20 días hábiles; Rectificación, Cancelación y Oposición 10 días hábiles cada uno. Estos derechos son irrenunciables."
+        },
+        "processors": {
+          "heading": "Encargados y transferencias",
+          "body": "Vercel (hosting/CDN), Mercado Pago (pagos en la app), Twilio (mensajería en la app) y Google FCM (push en la app) actúan como encargados. Los datos de clima usan solo coordenadas, sin datos personales."
+        },
+        "communications": {
+          "heading": "Comunicaciones",
+          "body": "Esta landing no envía mensajes. En la app, las alertas de raleo, heladas o riego son ejecución contractual; lo promocional requiere opt-in separado y puede revocarse en cualquier momento."
+        },
+        "security": {
+          "heading": "Seguridad, conservación y menores",
+          "body": "Salvaguardas razonables de la industria; en la app: TLS 1.3, SQLCipher local, JWT rotativos de 15 min y RLS por cooperativa. Los pagos tienen retención fiscal de 5 años (SUNAT). Este servicio no está dirigido a menores de edad."
+        },
+        "changes": {
+          "heading": "Cambios, versiones y contacto",
+          "body": "Cambios sustanciales con aviso destacado de 15 días; versión alineada al tag SemVer. Contacto ARCO: privacidad@viora.pe. Reclamaciones de consumo: Libro de Reclamaciones (15 días hábiles). Ley aplicable: Perú."
+        }
+      }
     }
+  },
+  "features": {
+    "line1": "Viora lee la carga <span class=\"features__slot\" data-shape=\"olive\" aria-hidden=\"true\"></span> de tu olivar,",
+    "line2": "sigue el frío <span class=\"features__slot\" data-shape=\"chill\" aria-hidden=\"true\"></span> de cada invierno",
+    "line3": "y te dice cuándo aclarear. <span class=\"features__slot\" data-shape=\"thinning\" aria-hidden=\"true\"></span>",
+    "line4": "Cosechas <span class=\"features__slot\" data-shape=\"balance\" aria-hidden=\"true\"></span> <span class=\"features__slot\" data-shape=\"yield\" aria-hidden=\"true\"></span> más parejas."
+  },
+  "modules": {
+    "titleFirst": "¿Listo para una",
+    "titleSecond": "cosecha más pareja",
+    "titleThird": "cada año?",
+    "lead": "Así acompaña Viora cada etapa de tu campaña, del invierno a la cosecha.",
+    "loadTitle": "Carga<br />frutal",
+    "loadBody": "Muestrea tus árboles, incluso sin señal, y conoce la carga real de cada lote antes de que la campaña decida por ti.",
+    "loadCta": "medir mi carga",
+    "chillTitle": "Frío<br />invernal",
+    "chillBody": "Viora suma las porciones de frío de cada invierno según tu variedad, de mesa o de aceite, y te avisa si un invierno cálido pone en riesgo tu floración.",
+    "chillCta": "seguir mi frío",
+    "thinningTitle": "Plan de<br />aclareo",
+    "thinningBody": "Sabes cuánto aclarar y hasta cuándo, para lograr calibres más parejos y que la próxima campaña no colapse.",
+    "thinningCta": "planear mi aclareo"
+  },
+  "cases": {
+    "titleFirst": "¿Te suena alguno",
+    "titleSecond": "de estos años?",
+    "cta": "ver el módulo",
+    "prev": "Caso anterior",
+    "next": "Caso siguiente",
+    "status": "Caso {current} de {total}: {label}",
+    "off": {
+      "label": "Año OFF",
+      "who": "Productor · La Yarada",
+      "quote": "“No sé cuánto voy a cosechar hasta que ya es tarde.”",
+      "pain": "Un año cargado, el siguiente vacío. La campaña se planifica a ciegas.",
+      "tag": "App del productor",
+      "title": "Viora te da el número antes de la cosecha.",
+      "body": "Muestreas unos árboles desde el celular, incluso sin señal, y la app calcula la carga objetivo del lote y el rendimiento que puedes esperar esta campaña.",
+      "module": "Carga frutal",
+      "moduleSub": "Estimación de cosecha"
+    },
+    "chill": {
+      "label": "Frío escaso",
+      "who": "Productor · Magollo",
+      "quote": "“Este invierno no hizo frío.”",
+      "pain": "Sin frío suficiente, la floración llega dispareja y el cuajado se queda corto.",
+      "tag": "App del productor",
+      "title": "Viora cuenta cada hora de frío.",
+      "body": "Con datos del clima suma las porciones de frío de tu variedad, de mesa o de aceite, y te avisa cuando un invierno cálido o un año de El Niño pone en riesgo tu floración.",
+      "module": "Frío invernal",
+      "moduleSub": "Frío y riesgo ENSO"
+    },
+    "late": {
+      "label": "Aclareo tardío",
+      "who": "Productor · Los Palos",
+      "quote": "“Cuando quise aclarear, ya era tarde.”",
+      "pain": "Demasiada fruta en el árbol: calibres chicos ahora y un desplome la próxima campaña.",
+      "tag": "App del productor",
+      "title": "Viora abre tu ventana de aclareo.",
+      "body": "Te dice cuánta fruta retirar y hasta cuándo, árbol por árbol, para que los calibres se emparejen y la cosecha del próximo año se sostenga.",
+      "module": "Plan de aclareo",
+      "moduleSub": "Ventana de intervención"
+    },
+    "intake": {
+      "label": "Acopio incierto",
+      "who": "Gestor de cooperativa · Tacna",
+      "quote": "“No sé cuánto vamos a acopiar este año.”",
+      "pain": "Contratos, cuadrillas y almacenes se definen al tanteo.",
+      "tag": "Panel de cooperativa",
+      "title": "Viora proyecta todo tu acopio.",
+      "body": "Reúne la estimación de cada socio en una sola proyección, para planificar contratos, cuadrillas y almacenes antes de que empiece la cosecha.",
+      "module": "Proyección de acopio",
+      "moduleSub": "Vista de cooperativa"
+    }
+  },
+  "tacna": {
+    "eyebrow": "El contexto",
+    "statement": "Tacna concentra el 81 % del olivo del Perú, pero cada campaña se decide a ciegas: un año sobra fruta y al siguiente falta.",
+    "copy": "En 2024, los productores de La Yarada reportaron mermas de hasta 90 %. En setiembre de 2025, un repunte histórico. No son dos noticias distintas: son las dos caras del mismo ciclo ON/OFF.",
+    "statArea": "81 %",
+    "statAreaLabel": "del área olivarera del Perú",
+    "statLoss": "90 %",
+    "statLossLabel": "de merma en la campaña 2024",
+    "statOff": "1 de 2",
+    "statOffLabel": "campañas termina en año OFF",
+    "pictureAlt": "Un joven productor mira hacia arriba y sueña con una rama cargada de aceitunas",
+    "lineOne": "Nueva",
+    "lineTwo": "cosecha",
+    "lineThree": "pareja",
+    "plans": "Conoce<br />los planes",
+    "placeTitle": "Entre La Yarada y Los Palos",
+    "placeCopy": "Arena, sol y pozos: aquí se produce la mayor parte de la aceituna del país. Viora ordena la campaña de este olivar —mide la carga, sigue el frío y fija la ventana de aclareo— para que el próximo año deje de depender del azar.",
+    "wishOne": "La cosecha que querías",
+    "wishTwo": "tuya",
+    "wishThree": "este año",
+    "stepChill": "Frío acumulado",
+    "stepChillWhen": "may – ago",
+    "stepBloom": "Floración",
+    "stepBloomWhen": "setiembre",
+    "stepSet": "Muestreo de cuajado",
+    "stepSetWhen": "noviembre",
+    "stepThin": "Ventana de aclareo",
+    "stepThinWhen": "diciembre",
+    "stepHarvest": "Cosecha",
+    "stepHarvestWhen": "abr – may"
+  },
+  "sky": {
+    "place": "Yarada los Palos",
+    "region": "Tacna",
+    "country": "Perú",
+    "alt": "Vista aérea de olivares y reservorios de riego junto a la carretera que atraviesa La Yarada, Tacna"
+  },
+  "segments": {
+    "title": "Para quién",
+    "panelAlt": "Un productor y un gestor técnico revisan juntos una rama de olivo en el campo",
+    "growerAlt": "Retrato de un productor olivarero con sombrero, con el olivar detrás",
+    "managerAlt": "Retrato de un gestor técnico con lentes y un portapapeles en el centro de acopio",
+    "growersTitle": "Productores olivareros",
+    "growersCopy": "Conoce el frío acumulado de tu olivar, la carga de cada árbol y cuándo aclarar, desde el celular y aun sin señal en campo.",
+    "swingTitle": "Un año sobra, el otro falta",
+    "swingCopy": "Vender bien una campaña y apenas cubrir costos en la siguiente no debería ser normal. Viora nace para suavizar ese vaivén.",
+    "managersTitle": "Gestores técnicos",
+    "managersCopy": "Mira el riesgo de vecería de todos tus socios en un mapa por sector y proyecta el acopio antes de que llegue la cosecha.",
+    "fieldTitle": "No puedes estar en cada parcela",
+    "fieldCopy": "Visitar cada chacra, anotar en cuaderno y pasarlo a Excel te cuesta semanas. Viora trae el campo a tu pantalla, a tiempo."
+  },
+  "reasons": {
+    "title": "Una mala campaña cuesta más que Viora",
+    "copy": "Elige el acceso que va con tu olivar: un plan para productores y otro para cooperativas que suman a sus asesores.",
+    "scienceTitle": "Ciencia agronómica",
+    "scienceCopy": "Frío invernal, índice de vecería y riesgo ENSO, calculados con modelos agronómicos pensados para el olivo.",
+    "windowTitle": "Decisiones con fecha",
+    "windowCopy": "Viora te avisa cuándo abre y cierra la ventana de aclareo, para que el momento justo no se te pase.",
+    "fieldTitle": "Hecha para el campo",
+    "fieldCopy": "Registra muestreos sin señal y sincroniza cuando vuelvas a tener conexión.",
+    "coopTitle": "Con tu cooperativa",
+    "coopCopy": "Tu cooperativa y su asesor trabajan con los mismos datos que tú, sin esperar a la próxima visita."
+  },
+  "plans": {
+    "title": "Planes",
+    "lead": "Frío. Carga. Aclareo. Cosecha. Todo lo que necesitas para anticipar tu campaña, con planes en soles para el productor y <em>para toda su cooperativa.</em>",
+    "star": "Cómo funciona",
+    "phoneBrand": "Viora",
+    "phoneGrowerEyebrow": "Suscripción",
+    "phoneGrowerTitle": "Plan Productor",
+    "phoneGrowerHectares": "Tus hectáreas",
+    "phoneGrowerFeature1": "Diagnóstico de vecería (BBI)",
+    "phoneGrowerFeature2": "Frío acumulado y alertas de estrés hídrico",
+    "phoneGrowerFeature3": "Muestreo y prescripción de aclareo",
+    "phoneGrowerTotal": "Total mensual",
+    "phoneGrowerPay": "Pagar con Mercado Pago",
+    "phoneGrowerFine": "Precio referencial de ejemplo",
+    "phoneGrowerNote": "pago seguro ✓<br />activación inmediata ✓",
+    "phoneCoopEyebrow": "Gestor técnico",
+    "phoneCoopTitle": "Licencia colectiva",
+    "phoneCoopMembers": "Socios vinculados",
+    "phoneCoopHectares": "Hectáreas comprometidas",
+    "phoneCoopLight": "Semáforo del territorio",
+    "phoneCoopOptimal": "Óptimo",
+    "phoneCoopWatch": "Vigilar",
+    "phoneCoopOverload": "Sobrecarga",
+    "phoneCoopIntake": "Acopio proyectado",
+    "phoneCoopSplit": "62 % verde · 38 % negra",
+    "phoneCoopFine": "Datos de ejemplo",
+    "phoneCoopNote": "cartera ✓<br />semáforo ✓ acopio ✓",
+    "phoneCodeEyebrow": "Membresía",
+    "phoneCodeTitle": "Canjea tu código",
+    "phoneCodeHint": "Te lo entrega el gestor técnico de tu cooperativa.",
+    "phoneCodeLabel": "Código de activación",
+    "phoneCodeRedeem": "Canjear",
+    "phoneCodeDone": "¡Listo! Ya eres socio",
+    "phoneCodeDoneCopy": "Cooperativa de ejemplo · licencia colectiva activa hasta dic. 2027",
+    "phoneCodeFine": "Datos de ejemplo",
+    "phoneCodeNote": "sin pago ✓<br />un código, un socio ✓",
+    "growerName": "Plan<br />Productor",
+    "growerTagline": "Pagas por lo que siembras.",
+    "growerCopy": "Una tarifa en soles según las hectáreas de tu olivar. Pagas en línea y activas al instante el diagnóstico de vecería, el frío acumulado y la prescripción de aclareo.",
+    "growerPrice": "S/ 55",
+    "growerUnit": "por hectárea al mes · referencial",
+    "growerCta": "Lo quiero",
+    "growerMore": "Ver qué incluye",
+    "coopName": "Plan<br />Cooperativa",
+    "coopTagline": "Una licencia para toda la organización.",
+    "coopCopy": "La cooperativa contrata un cupo de socios y hectáreas. El gestor técnico supervisa la cartera, sigue el semáforo del territorio y proyecta el acopio de la campaña.",
+    "coopPrice": "A medida",
+    "coopUnit": "según socios y hectáreas · en soles",
+    "coopCta": "Lo quiero",
+    "coopMore": "Ver qué incluye",
+    "codeName": "Código de<br />cooperativa",
+    "codeTagline": "Si tu cooperativa ya es parte, tú no pagas.",
+    "codeCopy": "El gestor genera códigos de activación con fecha de vigencia. El socio lo canjea en la app y queda vinculado a la licencia colectiva, sin costo individual.",
+    "codePrice": "S/ 0",
+    "codeUnit": "para el socio · lo cubre la licencia",
+    "codeCta": "Canjear código",
+    "codeMore": "¿Cómo obtengo mi código?",
+    "growerStep1": "Elige tus hectáreas: la tarifa se calcula según tu olivar",
+    "growerStep2": "Paga en línea con Mercado Pago, sin intermediarios",
+    "growerStep3": "Acceso inmediato a todo el plan desde tu celular",
+    "coopStep1": "La cooperativa contrata un cupo de socios y hectáreas",
+    "coopStep2": "El gestor supervisa la cartera y el semáforo del territorio",
+    "coopStep3": "Proyecta el acopio verde y negro antes de la cosecha",
+    "codeStep1": "El gestor genera un lote de códigos con fecha de vigencia",
+    "codeStep2": "Los comparte con los socios elegibles de la cooperativa",
+    "codeStep3": "El socio canjea su código y queda vinculado sin pagar"
+  },
+  "about": {
+    "quoteOne": "‘Pero si es",
+    "quoteTwo": "solo un",
+    "quoteThree": "proyecto’",
+    "question": "¿Por qué no el mejor?",
+    "artAlt": "Ilustración de los cinco integrantes de ArcadiaDevs levantando juntos un trofeo",
+    "team": "Nuestro equipo",
+    "motto": "Del dato<br />al campo",
+    "count": "5 integrantes",
+    "idea": "La idea detrás de <em>Viora</em> es simple: que ninguna campaña se decida a ciegas. Somos <em>ArcadiaDevs</em>, cinco estudiantes de la UPC que convirtieron el problema del olivar tacneño en un producto. Del dato al campo.",
+    "members": "Integrantes",
+    "membersCopy": "Cinco perfiles, un mismo producto. Cada integrante lidera un frente de Viora, del diseño a la arquitectura y la calidad.",
+    "smallBut": "Pequeño pero",
+    "powerful": "Poderoso",
+    "teamWord": "equipo",
+    "watch": "Ver video",
+    "missionOne": "Misión y visión",
+    "missionTwo": "de ArcadiaDevs",
+    "mission": "Viora nace para que la vecería deje de ser una lotería. Nuestra <em>misión</em> es traducir datos agronómicos complejos en decisiones simples y oportunas, al alcance de cualquier productor. Nuestra <em>visión</em> es que ninguna cosecha de olivo en el sur del Perú se pierda por falta de información ni dependa de la suerte de la campaña.",
+    "roleVictor": "CEO & Product Owner",
+    "roleDiana": "CMO & UX Lead",
+    "roleFabrizio": "CPO & System Architect",
+    "roleJahat": "CTO & Integrador DevOps",
+    "rolePiero": "COO, Researcher & QA",
+    "videoLabel": "Video del equipo ArcadiaDevs"
+  },
+  "bottle": {
+    "growerLine1": "Menos vecería",
+    "growerLine2": "Más cosecha",
+    "growerLine3": "Cada campaña",
+    "coopLine1": "Cada socio",
+    "coopLine2": "Un solo mapa",
+    "coopLine3": "Sin tanteos",
+    "appStore": "Descárgala en<br />App Store",
+    "googlePlay": "Disponible en<br />Google Play",
+    "growerKind": "Productor",
+    "growerBatch": "N.01",
+    "growerHarvest": "Cosecha temprana",
+    "coopKind": "Cooperativa",
+    "coopBatch": "N.02",
+    "coopHarvest": "Cosecha madura",
+    "volume": "500 ml",
+    "growerPlan": "Ver el plan productor",
+    "coopPlan": "Ver el plan cooperativa",
+    "hint": "Arrastra la botella para cambiar",
+    "choose": "Elige tu segmento",
+    "labelTop": "Extra virgen · Tacna, Perú",
+    "labelBottom": "Cosecha 2026",
+    "canvasLabel": "Una botella de aceite de oliva Viora"
+  },
+  "footer": {
+    "chapter1Months": "jun – ago",
+    "chapter1Title": "Se acumula el frío",
+    "chapter1Copy": "Viora cuenta cada hora fría del invierno.",
+    "chapter2Months": "set – nov",
+    "chapter2Title": "Floración y muestreo",
+    "chapter2Copy": "Ella muestrea las flores, árbol por árbol.",
+    "chapter3Months": "diciembre",
+    "chapter3Title": "La ventana de aclareo",
+    "chapter3Copy": "La app marca los días; la fruta de más se retira.",
+    "chapter4Months": "abr – may",
+    "chapter4Title": "Una cosecha pareja",
+    "chapter4Copy": "Jabas llenas y la próxima campaña ya planificada.",
+    "storyLabel": "Storyboard en punto de cruz de una campaña en un olivar de Tacna: una productora sigue el frío invernal en su celular, muestrea la floración, aclarea un árbol sobrecargado en la ventana que marca Viora y llena sus jabas con una cosecha pareja.",
+    "chapters": "Capítulos de la historia",
+    "chapterGo": "Capítulo",
+    "pause": "Pausar la historia",
+    "play": "Reproducir la historia",
+    "title": "Empieza a medir<br />tu próxima campaña",
+    "lead": "Carga frutal, frío invernal y aclareo en una sola app, pensada para el olivar de Tacna.",
+    "appStore": "App Store",
+    "googlePlay": "Google Play",
+    "navLabel": "Pie de página",
+    "productTitle": "Producto",
+    "product_features": "Funcionalidades",
+    "product_cases": "Casos de uso",
+    "product_video": "Video del producto",
+    "segmentsTitle": "Segmentos",
+    "segments_tacna": "Cosechas de Tacna",
+    "segments_grower": "Productor",
+    "segments_manager": "Gestor / Asesor",
+    "accessTitle": "Acceso",
+    "access_growerPlan": "Plan Productor",
+    "access_coopPlan": "Plan Cooperativa",
+    "access_advisor": "Invitación de asesor",
+    "aboutTitle": "Nosotros",
+    "about_team": "Equipo",
+    "about_arcadia": "ArcadiaDevs",
+    "about_teamVideo": "Video del equipo",
+    "legalTitle": "Legal",
+    "legal_terms": "Términos de servicio",
+    "legal_privacy": "Política de privacidad",
+    "legal_download": "Descargar la app",
+    "copyright": "© 2026 ArcadiaDevs — Viora. Proyecto académico UPC."
   }
 }

@@ -12,6 +12,7 @@ export class WebGLStage {
   constructor(container, { fov = 35, near = 0.1, far = 100 } = {}) {
     this.container = container;
     this.isVisible = false;
+    this.reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
     this.renderer = new WebGLRenderer({
       alpha: true,
@@ -56,8 +57,13 @@ export class WebGLStage {
   onResize(_width, _height) {}
 
   tick(time, deltaMs) {
-    if (!this.isVisible) return;
+    if (!this.isVisible || document.hidden || this.reducedMotion.matches) return;
     this.update(time, deltaMs / 1000);
+    this.render();
+  }
+
+  /** Draws a frame; override for multi-pass pipelines. */
+  render() {
     this.renderer.render(this.scene, this.camera);
   }
 

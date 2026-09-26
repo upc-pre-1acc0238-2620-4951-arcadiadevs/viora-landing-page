@@ -1,1 +1,15 @@
 /* Landing sections — one file per section, imported in page order. */
+
+@import './hero.css';
+@import './intro.css';
+@import './features.css';
+@import './modules.css';
+@import './cases.css';
+@import './tacna.css';
+@import './sky.css';
+@import './segments.css';
+@import './reasons.css';
+@import './plans.css';
+@import './about.css';
+@import './bottle.css';
+@import './footer.css';

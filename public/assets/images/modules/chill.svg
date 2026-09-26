@@ -1,0 +1,16 @@
+<svg width="240" height="240" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Shape">
+<rect id="Petal" x="101" y="5" width="38" height="82" rx="19" fill="#2E4A3A"/>
+<rect id="Petal_2" x="210.093" y="46.0455" width="38" height="82" rx="19" transform="rotate(60 210.093 46.0455)" fill="#2E4A3A"/>
+<rect id="Petal_3" x="229.093" y="161.046" width="38" height="82" rx="19" transform="rotate(120 229.093 161.046)" fill="#2E4A3A"/>
+<rect id="Petal_4" x="139" y="235" width="38" height="82" rx="19" transform="rotate(180 139 235)" fill="#2E4A3A"/>
+<rect id="Petal_5" x="29.9071" y="193.954" width="38" height="82" rx="19" transform="rotate(-120 29.9071 193.954)" fill="#2E4A3A"/>
+<rect id="Petal_6" x="10.9071" y="78.9545" width="38" height="82" rx="19" transform="rotate(-60 10.9071 78.9545)" fill="#2E4A3A"/>
+<circle id="Crystal" cx="156" cy="57.6462" r="12" fill="#2E4A3A"/>
+<circle id="Crystal_2" cx="192" cy="120" r="12" fill="#2E4A3A"/>
+<circle id="Crystal_3" cx="156" cy="182.354" r="12" fill="#2E4A3A"/>
+<circle id="Crystal_4" cx="84" cy="182.354" r="12" fill="#2E4A3A"/>
+<circle id="Crystal_5" cx="48" cy="120" r="12" fill="#2E4A3A"/>
+<circle id="Crystal_6" cx="84" cy="57.6462" r="12" fill="#2E4A3A"/>
+</g>
+</svg>
