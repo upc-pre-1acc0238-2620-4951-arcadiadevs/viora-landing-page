@@ -14,10 +14,15 @@
  * Phases are broadcast through core/intro.js. Returning visitors (same tab
  * session) get a shorter notebook, "Skip intro" accelerates everything, and
  * reduced motion swaps the show for a still drawing and a simple fade.
+ *
+ * On a first visit the notebook also asks "Enter with sound / in silence"
+ * (lusion.co, why.zero.university) and waits for the answer before it opens:
+ * that click is the gesture browsers require to start audio.
  */
 import { media } from '@/config/breakpoints.js';
 import { gsap, SplitText } from '@/core/gsap.js';
 import { emitIntro, INTRO_END, INTRO_OPEN, INTRO_REVEAL } from '@/core/intro.js';
+import { getPreference, setPreference } from '@/core/preferences.js';
 import { startScroll, stopScroll } from '@/core/scroll.js';
 import { t } from '@/i18n/index.js';
 import { qsa } from '@/utils/dom.js';
@@ -88,6 +93,7 @@ export function mountPreloader({ ready: external = [] } = {}) {
   const stage = root.querySelector('[data-preloader-stage]');
   const frame = root.querySelector('[data-preloader-frame]');
   const skip = root.querySelector('[data-preloader-skip]');
+  const choice = root.querySelector('[data-preloader-sound]');
   const blocked = [document.querySelector('[data-navbar]'), document.getElementById('main')];
 
   const calm = window.matchMedia(media.reducedMotion).matches;
@@ -142,8 +148,37 @@ export function mountPreloader({ ready: external = [] } = {}) {
     progress.value = value;
   };
 
+  // ── Sound question (first visit only) ────────────────────────────────────
+  let answered = !choice || getPreference('soundAsked');
+  let onAnswered = () => {};
+  const answer = new Promise((resolve) => {
+    onAnswered = resolve;
+    if (answered) resolve();
+  });
+  const settleChoice = () => {
+    answered = true;
+    onAnswered();
+    choice?.removeEventListener('click', onChoice);
+    if (choice && !choice.hidden) {
+      gsap.to(choice, { autoAlpha: 0, y: 8, duration: 0.5, ease: 'power2.in' });
+    }
+  };
+  function onChoice(event) {
+    const button = event.target.closest('[data-sound-choice]');
+    if (!button) return;
+    setPreference('soundAsked', true);
+    setPreference('sound', button.dataset.soundChoice === 'on');
+    settleChoice();
+  }
+  if (!answered) {
+    choice.hidden = false;
+    choice.addEventListener('click', onChoice);
+    if (!calm)
+      gsap.from(choice, { autoAlpha: 0, y: 10, duration: 1, delay: 0.6, ease: 'expo.out' });
+  }
+
   const canLeave = () =>
-    loaded && shown >= 100 && (skipped || seen || (harvested && grower.resting));
+    answered && loaded && shown >= 100 && (skipped || seen || (harvested && grower.resting));
 
   function frameStep() {
     const elapsed = performance.now() - started;
@@ -354,6 +389,7 @@ export function mountPreloader({ ready: external = [] } = {}) {
     gsap.ticker.remove(tick);
     window.removeEventListener('resize', layout);
     skip.removeEventListener('click', onSkip);
+    choice?.removeEventListener('click', onChoice);
     notes.destroy();
     grower.destroy();
     splits.forEach((split) => split.revert());
@@ -365,6 +401,8 @@ export function mountPreloader({ ready: external = [] } = {}) {
 
   function onSkip() {
     skipped = true;
+    // Skipping answers "not now": sound stays as it is and is asked next visit.
+    if (!answered) settleChoice();
     outro?.timeScale(2.6);
     skip.disabled = true;
   }
@@ -380,7 +418,7 @@ export function mountPreloader({ ready: external = [] } = {}) {
       paintCounter();
     };
     gsap.ticker.add(calmTick);
-    Promise.race([Promise.all(tasks), wait(MAX_WAIT)]).then(() => {
+    Promise.all([Promise.race([Promise.all(tasks), wait(MAX_WAIT)]), answer]).then(() => {
       gsap.ticker.remove(calmTick);
       shown = 100;
       paintCounter();

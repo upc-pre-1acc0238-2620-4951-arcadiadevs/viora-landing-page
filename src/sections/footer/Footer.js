@@ -1,5 +1,6 @@
 import { media } from '@/config/breakpoints.js';
 import { gsap } from '@/core/gsap.js';
+import { syncBed } from '@/core/sound.js';
 import { I18N_CHANGE, t } from '@/i18n/index.js';
 import { ACT, chapterAt, createTapestry, H, LOOP, W } from './tapestry.js';
 
@@ -99,9 +100,16 @@ export const footer = {
     gsap.ticker.add(tick);
     cleanups.push(() => gsap.ticker.remove(tick));
 
+    // The footer music box (core/sound.js) plays the same 36 s story: tell it
+    // where the loom is whenever the clock jumps, stops or starts.
+    const tell = () => syncBed('musicbox', clock, visible && !paused && !document.hidden);
+    document.addEventListener('visibilitychange', tell);
+    cleanups.push(() => document.removeEventListener('visibilitychange', tell));
+
     const jump = (index) => {
       clock = still() ? STILLS[index] : index * ACT + 0.01;
       paint(still() ? STILLS[index] : clock);
+      tell();
     };
     ticks.forEach((button, index) => {
       const go = () => jump(index);
@@ -111,6 +119,7 @@ export const footer = {
 
     const setPaused = (value) => {
       paused = value;
+      tell();
       pause.setAttribute('aria-pressed', String(paused));
       pause.setAttribute('aria-label', t(paused ? 'footer.play' : 'footer.pause'));
     };
@@ -140,11 +149,13 @@ export const footer = {
     const sight = new IntersectionObserver(
       ([entry]) => {
         visible = entry.isIntersecting;
+        tell();
         if (!visible || started || !draw) return;
         started = true;
         if (reduced.matches) return;
         clock = 0;
         paint(0);
+        tell();
         // 29 steps: the rows of stitches appearing, four at a time.
         gsap.fromTo(
           loom,

@@ -11,6 +11,7 @@ import { mountPreloader } from '@/components/preloader/preloader.js';
 import { ScrollTrigger } from '@/core/gsap.js';
 import { INTRO_REVEAL, whenIntro } from '@/core/intro.js';
 import { destroySmoothScroll, initSmoothScroll } from '@/core/scroll.js';
+import { initSound } from '@/core/sound.js';
 import { mountDirectives } from '@/directives/index.js';
 import { mountEffects } from '@/effects/index.js';
 import { initI18n } from '@/i18n/index.js';
@@ -25,7 +26,7 @@ export class App {
     initI18n();
     initSmoothScroll();
 
-    this.#cleanups.push(mountComponents(), mountSections());
+    this.#cleanups.push(initSound(), mountComponents(), mountSections());
 
     // Effects start loading right away; the preloader waits for their textures.
     const effects = document.fonts.ready.then(() => mountEffects());

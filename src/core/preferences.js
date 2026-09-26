@@ -2,7 +2,10 @@
  * Visitor experience preferences (settings panel), persisted in localStorage.
  *
  * - distortion: pointer-driven fluid distortion of the Hero artwork.
- * - sound: ambient audio, off by default until the soundtrack ships.
+ * - sound: music beds and interface cues (core/sound.js), off by default:
+ *   browsers only start audio from a gesture, and silence is the courteous default.
+ * - soundAsked: the visitor already answered the preloader's "with sound / in
+ *   silence" question, so it is not asked again.
  *
  * Emits `preferences:change` on document with `{ key, value }` so effects can
  * react live without importing the settings UI.
@@ -16,6 +19,7 @@ export const PREFERENCES_CHANGE = 'preferences:change';
 const defaults = () => ({
   distortion: !window.matchMedia(media.reducedMotion).matches,
   sound: false,
+  soundAsked: false,
 });
 
 function read() {

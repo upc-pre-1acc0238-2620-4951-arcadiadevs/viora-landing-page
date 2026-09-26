@@ -32,13 +32,14 @@
     "notes": "año ON|año OFF|carga frutal|horas de frío|aclareo|floración|cosecha|rendimiento|árbol por árbol|Tacna|340 h|12 kg/árbol|±38%",
     "country": "Perú",
     "tagline": "Tu olivar, al día.",
-    "skip": "Saltar intro"
+    "skip": "Saltar intro",
+    "soundOn": "Entrar con sonido",
+    "soundOff": "Entrar en silencio"
   },
   "settings": {
     "title": "Ajustes",
     "distortion": "Distorsión",
     "sound": "Sonido",
-    "soon": "Pronto",
     "on": "Activada",
     "off": "Desactivada"
   },

@@ -105,6 +105,27 @@
           <span>Viora</span><span data-i18n="preloader.tagline">Your grove, daily.</span>
         </p>
       </div>
+      <div class="preloader__sound" hidden data-preloader-sound>
+        <button
+          class="preloader__choice"
+          type="button"
+          data-sound-choice="on"
+          data-sound-cue="none"
+        >
+          <span class="preloader__choice-bars" aria-hidden="true"
+            ><i></i><i></i><i></i><i></i
+          ></span>
+          <span data-i18n="preloader.soundOn">Enter with sound</span>
+        </button>
+        <button
+          class="preloader__choice"
+          type="button"
+          data-sound-choice="off"
+          data-sound-cue="none"
+        >
+          <span data-i18n="preloader.soundOff">Enter in silence</span>
+        </button>
+      </div>
       <button class="preloader__skip" type="button" data-preloader-skip data-i18n="preloader.skip">
         Skip intro
       </button>
@@ -179,8 +200,7 @@
                   type="button"
                   role="switch"
                   aria-checked="false"
-                  aria-labelledby="setting-sound setting-sound-soon"
-                  aria-disabled="true"
+                  aria-labelledby="setting-sound"
                   data-preference="sound"
                 >
                   <span class="control__icon" aria-hidden="true">
@@ -193,11 +213,11 @@
                     <span class="control__label" id="setting-sound" data-i18n="settings.sound"
                       >Sound</span
                     >
-                    <span
-                      class="control__state control__state--soon"
-                      id="setting-sound-soon"
-                      data-i18n="settings.soon"
-                      >Soon</span
+                    <span class="control__state control__state--on" data-i18n="settings.on"
+                      >On</span
+                    >
+                    <span class="control__state control__state--off" data-i18n="settings.off"
+                      >Off</span
                     >
                   </span>
                 </button>
@@ -270,6 +290,7 @@
             aria-controls="navbar-menu"
             data-navbar-toggle
             data-navbar-menu
+            data-sound-cue="open"
           >
             <span class="navbar__menu-label" data-i18n="nav.menu">Menu</span>
             <span class="navbar__dots" aria-hidden="true"></span>
@@ -338,6 +359,25 @@
       </div>
     </header>
 
+    <!-- Sound toggle (santionispirits.com): bars follow the music, dots when off -->
+    <button
+      class="sound-toggle"
+      type="button"
+      aria-pressed="false"
+      aria-label="Sound"
+      data-i18n-attr="aria-label:settings.sound"
+      data-sound-toggle
+      data-sound-cue="none"
+      data-tone="dark"
+    >
+      <svg class="sound-toggle__bars" viewBox="0 0 24 24" aria-hidden="true">
+        <line x1="6.75" x2="6.75" y1="12" y2="12" data-sound-bar />
+        <line x1="10.25" x2="10.25" y1="12" y2="12" data-sound-bar />
+        <line x1="13.75" x2="13.75" y1="12" y2="12" data-sound-bar />
+        <line x1="17.25" x2="17.25" y1="12" y2="12" data-sound-bar />
+      </svg>
+    </button>
+
     <!-- Scrollbar (pensatori-irrazionali.com): shows while scrolling or near the edge -->
     <div class="scrollbar" aria-hidden="true" data-scrollbar data-tone="dark">
       <span class="scrollbar__track" data-scrollbar-track></span>
@@ -345,7 +385,14 @@
     </div>
 
     <main id="main">
-      <section class="hero" id="hero" aria-labelledby="hero-title" data-hero data-nav-tone="dark">
+      <section
+        class="hero"
+        id="hero"
+        aria-labelledby="hero-title"
+        data-hero
+        data-sound-zone="theme"
+        data-nav-tone="dark"
+      >
         <div class="hero__art" aria-hidden="true">
           <img
             class="hero__still"
@@ -486,7 +533,13 @@
       </section>
 
       <!-- Intro: headline → the reel flies to centre (WebGL bend) → full-bleed "About" -->
-      <section class="intro" id="intro" aria-labelledby="intro-title" data-intro>
+      <section
+        class="intro"
+        id="intro"
+        aria-labelledby="intro-title"
+        data-intro
+        data-sound-zone="theme"
+      >
         <div class="intro__lead" data-nav-tone="light">
           <h2 class="intro__title" id="intro-title">
             <span
@@ -696,7 +749,13 @@
         </dialog>
       </section>
       <!-- Features: the About shapes take colour, fall in, gather and land in the statement -->
-      <section class="features" id="features" data-features data-nav-tone="light">
+      <section
+        class="features"
+        id="features"
+        data-features
+        data-sound-zone="theme"
+        data-nav-tone="light"
+      >
         <div class="features__stage" data-features-stage>
           <h2 class="features__statement">
             <span class="features__line"
@@ -773,7 +832,13 @@
       </section>
 
       <!-- Modules: the lead card spins out from under the title into the forest band -->
-      <section class="modules" id="product" aria-labelledby="modules-title" data-modules>
+      <section
+        class="modules"
+        id="product"
+        aria-labelledby="modules-title"
+        data-modules
+        data-sound-zone="theme"
+      >
         <div class="modules__head" data-nav-tone="light">
           <h2 class="modules__title" id="modules-title">
             <span class="modules__title-serif" data-i18n="modules.titleFirst">Ready for a</span>
@@ -922,6 +987,7 @@
       <!-- Use cases: a field notebook of four difficult years; drag to turn the page -->
       <section
         class="cases"
+        data-sound-zone="cases"
         id="cases"
         aria-labelledby="cases-title"
         data-cases
@@ -1440,6 +1506,7 @@
       <!-- Tacna: the context, the new campaign and the season, on one horizontal rail -->
       <section
         class="tacna"
+        data-sound-zone="tacna"
         id="tacna"
         aria-labelledby="tacna-title"
         data-tacna
@@ -1656,7 +1723,7 @@
       </section>
 
       <!-- Sky: clouds drift over the seam, then the groves of La Yarada open below -->
-      <section class="sky" id="sky" aria-labelledby="sky-title" data-sky>
+      <section class="sky" id="sky" aria-labelledby="sky-title" data-sky data-sound-zone="sky">
         <span class="sky__tone sky__tone--haze" aria-hidden="true" data-nav-tone="light"></span>
         <span class="sky__tone sky__tone--view" aria-hidden="true" data-nav-tone="dark"></span>
         <div class="sky__clouds" aria-hidden="true">
@@ -1786,6 +1853,7 @@
       <!-- Who it's for: two windows on one grove close into one picture, then open onto each segment -->
       <section
         class="segments"
+        data-sound-zone="theme"
         id="audience"
         aria-labelledby="segments-title"
         data-segments
@@ -2006,6 +2074,7 @@
       <!-- Plans lead-in: why Viora pays for itself, four cards flipping onto one stack -->
       <section
         class="reasons"
+        data-sound-zone="plans"
         id="plans"
         aria-labelledby="reasons-title"
         data-reasons
@@ -2085,6 +2154,7 @@
       <!-- Plans (crency.agency/services): three windows scroll through each plan in step -->
       <section
         class="plans"
+        data-sound-zone="plans"
         id="pricing"
         aria-labelledby="plans-title"
         data-plans
@@ -2557,7 +2627,13 @@
       </section>
 
       <!-- About us: the team behind Viora (doubleplay.studio/about for the members) -->
-      <section class="about" id="team" aria-labelledby="about-title" data-about>
+      <section
+        class="about"
+        id="team"
+        aria-labelledby="about-title"
+        data-about
+        data-sound-zone="about"
+      >
         <div class="about__opening" data-nav-tone="light">
           <h2 class="about__quote" id="about-title">
             <span data-i18n="about.quoteOne" data-about-line>‘But it’s</span>
@@ -2920,6 +2996,7 @@
         aria-labelledby="bottle-title"
         data-bottle
         data-segment="0"
+        data-sound-zone="notturno"
         data-nav-tone="dark"
       >
         <div class="bottle__stage" data-bottle-stage>
@@ -3039,7 +3116,7 @@
     </main>
 
     <!-- Footer: a cross-stitch storyboard of one season with Viora, then the links -->
-    <footer class="footer" data-footer>
+    <footer class="footer" data-footer data-sound-zone="musicbox">
       <figure class="footer__tapestry" data-footer-tapestry data-nav-tone="dark">
         <div class="footer__loom" data-footer-loom>
           <canvas
