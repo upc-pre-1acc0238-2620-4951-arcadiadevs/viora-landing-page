@@ -316,10 +316,6 @@
   display: none;
 }
 
-.control__state--soon {
-  color: var(--color-accent);
-}
-
 .control[aria-disabled='true'] {
   cursor: not-allowed;
 }

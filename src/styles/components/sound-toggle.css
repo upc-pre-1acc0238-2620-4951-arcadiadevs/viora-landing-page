@@ -1,0 +1,103 @@
+/*
+ * Sound toggle (santionispirits.com): bare bars in the bottom-right corner.
+ * The bars' heights are drawn by JS; CSS owns the ink, which follows the
+ * background beneath (`data-tone`: dark artwork/forest or light cream).
+ */
+.sound-toggle {
+  --sound-ink: var(--color-text-inverse);
+
+  position: fixed;
+  z-index: var(--z-header);
+  right: max(6px, calc(3.19vw - 16px));
+  bottom: max(10px, calc(2.2vw - 6px));
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  padding: 0;
+  border-radius: var(--radius-pill);
+  color: var(--sound-ink);
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  translate: 0 12px;
+  transition:
+    color var(--duration-base) var(--ease-out-quart),
+    opacity var(--duration-slow) var(--ease-out-quart),
+    translate var(--duration-slow) var(--ease-out-expo),
+    visibility 0s linear var(--duration-slow);
+}
+
+.sound-toggle[data-tone='light'] {
+  --sound-ink: var(--color-brand-dark);
+}
+
+.sound-toggle.is-ready {
+  opacity: 1;
+  visibility: visible;
+  translate: 0 0;
+  transition:
+    color var(--duration-base) var(--ease-out-quart),
+    opacity var(--duration-slow) var(--ease-out-quart),
+    translate var(--duration-slow) var(--ease-out-expo),
+    visibility 0s;
+}
+
+/* A soft halo on hover/focus, drawn in the same ink so it suits any ground. */
+.sound-toggle::before {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border-radius: inherit;
+  background: currentcolor;
+  opacity: 0;
+  scale: 0.6;
+  transition:
+    opacity var(--duration-base) var(--ease-out-quart),
+    scale var(--duration-slow) var(--ease-out-expo);
+}
+
+.sound-toggle:focus-visible::before {
+  opacity: 0.1;
+  scale: 1;
+}
+
+@media (hover: hover) {
+  .sound-toggle:hover::before {
+    opacity: 0.1;
+    scale: 1;
+  }
+}
+
+.sound-toggle__bars {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  overflow: visible;
+  fill: none;
+  stroke: currentcolor;
+  stroke-width: 2.1;
+  stroke-linecap: round;
+  transition: scale var(--duration-base) var(--ease-out-expo);
+}
+
+.sound-toggle:active .sound-toggle__bars {
+  scale: 0.88;
+}
+
+/* Legible on busy artwork without a plate behind it. */
+.sound-toggle[data-tone='dark'] .sound-toggle__bars {
+  filter: drop-shadow(0 1px 2px rgb(12 18 15 / 45%));
+}
+
+@media (width < 600px) {
+  .sound-toggle {
+    width: 52px;
+    height: 52px;
+  }
+
+  .sound-toggle__bars {
+    width: 34px;
+    height: 34px;
+  }
+}

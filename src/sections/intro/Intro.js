@@ -58,7 +58,8 @@ export const intro = {
     };
     const backdrop = (event) => event.target === dialog && close();
     const closeButton = dialog.querySelector('[data-intro-close]');
-    element.addEventListener('click', open);
+    // Document-level: the Hero's film card opens the same reel.
+    document.addEventListener('click', open);
     closeButton.addEventListener('click', close);
     dialog.addEventListener('click', backdrop);
     dialog.addEventListener('close', closed);
@@ -374,7 +375,7 @@ export const intro = {
     return () => {
       motion.revert();
       destroyGlass();
-      element.removeEventListener('click', open);
+      document.removeEventListener('click', open);
       closeButton.removeEventListener('click', close);
       dialog.removeEventListener('click', backdrop);
       dialog.removeEventListener('close', closed);

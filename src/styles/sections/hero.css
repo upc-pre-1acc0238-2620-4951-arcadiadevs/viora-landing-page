@@ -211,10 +211,8 @@
 
 .hero__film-inner img {
   width: 100%;
-  height: 277%;
-  max-width: none;
+  height: 100%;
   object-fit: cover;
-  transform: translateY(-11.5%);
   transition: scale 1s var(--ease-out-expo);
 }
 
@@ -343,51 +341,6 @@
   margin-top: min(28px, 3cqh);
   font-size: min(1.389cqw, 2.1233cqh);
   line-height: 1.2;
-}
-
-.hero__explore {
-  position: absolute;
-  bottom: 2.6%;
-  right: 1.4%;
-  width: 64px;
-  height: 64px;
-  display: grid;
-  place-items: center;
-  padding: 0;
-  background: none;
-  border: 0;
-  cursor: pointer;
-}
-
-.hero__explore img {
-  transform: rotate(-138.63deg);
-  transition: translate 500ms var(--ease-out-expo);
-}
-
-.hero__explore:is(:hover, :focus-visible) img {
-  translate: 3px 3px;
-}
-
-@keyframes hero-arrow-drift {
-  0%,
-  65%,
-  100% {
-    translate: 0 0;
-  }
-
-  35% {
-    translate: 5px 5px;
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .hero__explore img {
-    animation: hero-arrow-drift 3.6s cubic-bezier(0.45, 0, 0.25, 1) infinite;
-  }
-
-  .hero__explore:is(:hover, :focus-visible) img {
-    animation-play-state: paused;
-  }
 }
 
 .hero-dialog {
@@ -540,18 +493,6 @@
     height: 78px;
     padding: 8px;
     border-radius: 20px;
-  }
-
-  .hero__explore {
-    right: 12px;
-    bottom: 10px;
-    width: 40px;
-    height: 40px;
-  }
-
-  .hero__explore img {
-    width: 40px;
-    height: 40px;
   }
 }
 
@@ -849,11 +790,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero__explore img {
-    transition: none;
-    translate: none;
-  }
-
   .hero--live .hero__scene {
     visibility: hidden;
   }
