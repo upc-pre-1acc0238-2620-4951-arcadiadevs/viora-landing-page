@@ -364,13 +364,16 @@
   transform-origin: 0 50%;
 }
 
+/* Locales and copyright on the left, the credit on the right. The fixed sound
+   toggle lands at the end of this row when the page bottoms out, so the row
+   leaves it room instead of running underneath it. */
 .footer__base {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-4);
+  gap: var(--space-2) var(--space-6);
   align-items: center;
-  justify-content: space-between;
   padding-top: var(--space-8);
+  padding-inline-end: 72px;
   font-family: var(--font-sans);
   font-size: 0.8125rem;
   line-height: 1.5;
@@ -381,11 +384,27 @@
   color: rgb(46 74 58 / 55%);
 }
 
+.footer__credit {
+  margin: 0 0 0 auto;
+  color: rgb(46 74 58 / 45%);
+  letter-spacing: 0.02em;
+}
+
+@media (width < 600px) {
+  .footer__base {
+    padding-inline-end: 56px;
+  }
+
+  .footer__credit {
+    margin-left: 0;
+  }
+}
+
 .footer__locales {
   display: flex;
   gap: 0.5rem;
   align-items: center;
-  margin: 0;
+  margin: 0 0 0 -0.25rem;
   color: rgb(46 74 58 / 75%);
   letter-spacing: 0.06em;
 }
