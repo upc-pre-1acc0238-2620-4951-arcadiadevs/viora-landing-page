@@ -185,26 +185,6 @@ def pads(part, harmony=H, vel=52, octave=0):
     return part
 
 
-def brushes(part, density=1.0, vel=52):
-    # GS brush kit: 38 tap, 39 slap, 40 swirl, 44 pedal hat, 36 kick
-    for bar in range(BARS):
-        b = bar * 4
-        part.add(b, 1.9, 40, vel)  # swirl on 1
-        part.add(b + 2, 1.9, 40, vel - 6)  # swirl on 3
-        part.add(b + 1, 0.3, 44, vel - 14)
-        part.add(b + 3, 0.3, 44, vel - 14)
-        if density > 0.5:
-            part.add(b + 1, 0.3, 38, vel - 8)
-            part.add(b + 3, 0.3, 38, vel - 4)
-            part.add(b + 2.5, 0.2, 38, vel - 22)
-        if density > 0.8:
-            part.add(b, 0.4, 36, vel - 10)
-            part.add(b + 2.5, 0.3, 36, vel - 20)
-            if bar % 4 == 3:
-                part.add(b + 3.5, 0.3, 39, vel - 6)
-    return part
-
-
 def ride_swing(part, vel=60):
     for bar in range(BARS):
         b = bar * 4
@@ -248,9 +228,8 @@ def theme():
     rhodes = comp(Part('rhodes', 4, bank=8, pan=52, gain=0.9, send=0.3, chorus=True), vel=56)
     bass = bossa_bass(Part('bass', 32, pan=64, gain=1.25, send=0.08, lowcut=40))
     guitar = melody(Part('nylon', 24, pan=78, gain=1.0, send=0.32), vel=80)
-    kit = brushes(Part('brush', 40, drums=True, pan=70, gain=0.6, send=0.2), density=0.6, vel=48)
     pad = pads(Part('pad', 89, pan=64, gain=0.28, send=0.5, width=1.4), vel=46)
-    return [rhodes, bass, guitar, kit, pad]
+    return [rhodes, bass, guitar, pad]
 
 
 def tacna():
@@ -290,8 +269,7 @@ def plans():
     vibes = melody(Part('vibes', 11, pan=80, gain=0.9, send=0.35), vel=82)
     guitar = comp(Part('guitar', 24, pan=36, gain=0.45, send=0.2),
                   pattern=((0, 0.45), (1, 0.4), (1.5, 0.4), (2.5, 0.45), (3, 0.4)), vel=50, roll=0.018)
-    kit = brushes(Part('brush', 40, drums=True, pan=70, gain=0.75, send=0.18), density=1.0, vel=56)
-    return [piano, bass, vibes, guitar, kit]
+    return [piano, bass, vibes, guitar]
 
 
 def cases():
@@ -356,11 +334,8 @@ def notturno():
         bass.add(bar * 4 + beat, min(length, 2) * 0.95, root, 74)
         if length == 4:
             bass.add(bar * 4 + 2, 1.9, fifth, 64)
-    kit = Part('swirl', 40, drums=True, pan=70, gain=0.35, send=0.2)
-    for bar in range(BARS):
-        kit.add(bar * 4, 3.8, 40, 40)
     muted = melody(Part('muted', 59, pan=30, gain=0.45, send=0.75), vel=62, only=range(8, 12), octave=-1)
-    return [piano, bass, kit, muted]
+    return [piano, bass, muted]
 
 
 # ── Footer music box: 3/4, 80 BPM, 16 bars = 36 s, four 9 s chapters ─────
@@ -436,14 +411,14 @@ def musicbox():
 
 # Mix: dB relative to the lead line (perceived loudness, see studio.render).
 LEVELS = {
-    'theme': {'nylon': 0, 'rhodes': -5, 'bass': -4, 'brush': -11, 'pad': -13},
+    'theme': {'nylon': 0, 'rhodes': -5, 'bass': -4, 'pad': -13},
     'tacna': {'quena': 0, 'charango': -6, 'rhodes': -10, 'bass': -5, 'bombo': -10,
               'birds': -16, 'birds2': -18},
     'sky': {'warm': -2, 'halo': -6, 'arco': -8, 'celeste': 0, 'flute': -3},
-    'plans': {'vibes': 0, 'piano': -5, 'bass': -3, 'guitar': -8, 'brush': -8},
+    'plans': {'vibes': 0, 'piano': -5, 'bass': -3, 'guitar': -8},
     'cases': {'piano': 0, 'arco': -6, 'pizz': -11, 'clarinet': -4, 'pad': -12},
     'about': {'trumpet': 0, 'horns': -4, 'sax': -9, 'piano': -7, 'bass': -3, 'ride': -8},
-    'notturno': {'piano': 0, 'bass': -5, 'swirl': -16, 'muted': -6},
+    'notturno': {'piano': 0, 'bass': -5, 'muted': -6},
     'musicbox': {'celeste': 0, 'frost': -10, 'box': 0, 'glock': -9, 'flute': -8, 'pizz': -4,
                  'vibes': -4, 'marimba': -5, 'bass': -6},
 }
