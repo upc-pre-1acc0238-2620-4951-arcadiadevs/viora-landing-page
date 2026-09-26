@@ -12,6 +12,7 @@ import { media } from '@/config/breakpoints.js';
 import { gsap, ScrollTrigger } from '@/core/gsap.js';
 import { INTRO_REVEAL, introReached, whenIntro } from '@/core/intro.js';
 import { getPreference, PREFERENCES_CHANGE, setPreference } from '@/core/preferences.js';
+import { toneAt, toneZones } from '@/core/tone.js';
 import { I18N_CHANGE, t } from '@/i18n/index.js';
 import { qsa } from '@/utils/dom.js';
 
@@ -128,26 +129,15 @@ export const navbar = {
     if (reducedMotion.matches) distortion.setAttribute('aria-disabled', 'true');
     syncSwitches();
 
-    // Tone of whatever sits under the navbar's vertical centre, read from the
-    // live layout each frame the scroll moves (not from trigger ranges), so
-    // pinned scenes and their spacers can never put it out of step. Among the
-    // zones under that line, the last in the document wins: nested zones and
-    // later sections sliding over earlier ones.
-    const setTone = (tone) => {
-      if (element.dataset.tone !== tone) element.dataset.tone = tone;
-    };
-    const zones = qsa('[data-nav-tone]').filter((zone) => !element.contains(zone));
+    // Tone of whatever sits under the navbar's vertical centre, sampled each
+    // frame the scroll moves.
+    const zones = toneZones(element);
     let lastScroll = -1;
     const sampleTone = () => {
       if (window.scrollY === lastScroll) return;
       lastScroll = window.scrollY;
-      const y = element.offsetHeight / 2;
-      let tone;
-      zones.forEach((zone) => {
-        const box = zone.getBoundingClientRect();
-        if (box.height && box.top <= y && box.bottom > y) tone = zone.dataset.navTone;
-      });
-      if (tone) setTone(tone);
+      const tone = toneAt(zones, element.offsetHeight / 2);
+      if (tone && element.dataset.tone !== tone) element.dataset.tone = tone;
     };
     gsap.ticker.add(sampleTone);
 
