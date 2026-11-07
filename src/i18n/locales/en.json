@@ -129,8 +129,8 @@
           "body": "Code, algorithms, marks, logos, and designs belong to ArcadiaDevs. Open-source components (Three.js, GSAP, Lenis) keep their MIT / Apache 2.0 licenses. No license is granted beyond viewing this site."
         },
         "disputes": {
-          "heading": "Complaints book and disputes",
-          "body": "Per D.S. 011-2011-PCM, the footer links the virtual Complaints Book (reply within 15 business days). These Terms are governed by Peruvian law (Law 29733, Law 29571, Civil Code). Venue: courts of Lima or Tacna per applicable consumer rules."
+          "heading": "Claims and disputes",
+          "body": "Per D.S. 011-2011-PCM, consumer claims are received at arcadiaprueba8@gmail.com and answered within 15 business days. These Terms are governed by Peruvian law (Law 29733, Law 29571, Civil Code). Venue: courts of Lima or Tacna per applicable consumer rules."
         },
         "amendments": {
           "heading": "Amendments and versions",
@@ -138,7 +138,7 @@
         },
         "contact": {
           "heading": "Contact",
-          "body": "Privacy and ARCO rights: privacidad@viora.pe. Consumer claims: the site Complaints Book."
+          "body": "Privacy, ARCO rights and consumer claims: arcadiaprueba8@gmail.com."
         }
       }
     },
@@ -165,7 +165,7 @@
         },
         "arco": {
           "heading": "ARCO rights and ANPD complaint",
-          "body": "Exercise Access, Rectification, Erasure, and Objection via privacidad@viora.pe with your ID, the right invoked, and a notification address. Deadlines: Access 20 business days; Rectification, Erasure, and Objection 10 business days each. These rights cannot be waived."
+          "body": "Exercise Access, Rectification, Erasure, and Objection via arcadiaprueba8@gmail.com with your ID, the right invoked, and a notification address. Deadlines: Access 20 business days; Rectification, Erasure, and Objection 10 business days each. These rights cannot be waived."
         },
         "processors": {
           "heading": "Processors and transfers",
@@ -177,11 +177,11 @@
         },
         "security": {
           "heading": "Security, retention, minors",
-          "body": "Reasonable industry safeguards; in the app: TLS 1.3, on-device SQLCipher, 15-minute rotating JWTs, and per-cooperative RLS. Payments carry a 5-year tax retention (SUNAT). This service is not directed at minors."
+          "body": "Reasonable industry safeguards: TLS-encrypted connections, access tokens that expire every 15 minutes, and each manager's access limited to their own licence, checked on the server. Payments carry a 5-year tax retention (SUNAT). This service is not directed at minors."
         },
         "changes": {
           "heading": "Changes, versions, contact",
-          "body": "Material changes with 15-day prominent notice; version aligned to the SemVer tag. ARCO contact: privacidad@viora.pe. Consumer claims: Complaints Book (15 business days). Governing law: Peru."
+          "body": "Material changes with 15-day prominent notice; version aligned to the SemVer tag. ARCO and consumer claims contact: arcadiaprueba8@gmail.com (reply within 15 business days). Governing law: Peru."
         }
       }
     }
