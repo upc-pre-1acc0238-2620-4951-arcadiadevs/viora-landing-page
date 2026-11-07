@@ -24,7 +24,9 @@
     "sections": "Sections",
     "settings": "Settings",
     "plansTitle": "Compare plans for your grove",
-    "plansAction": "See plans"
+    "plansAction": "See plans",
+    "quoteTitle": "Quote the Cooperative plan",
+    "quoteAction": "Request a quote"
   },
   "preloader": {
     "loading": "Loading Viora",
@@ -127,8 +129,8 @@
           "body": "Code, algorithms, marks, logos, and designs belong to ArcadiaDevs. Open-source components (Three.js, GSAP, Lenis) keep their MIT / Apache 2.0 licenses. No license is granted beyond viewing this site."
         },
         "disputes": {
-          "heading": "Complaints book and disputes",
-          "body": "Per D.S. 011-2011-PCM, the footer links the virtual Complaints Book (reply within 15 business days). These Terms are governed by Peruvian law (Law 29733, Law 29571, Civil Code). Venue: courts of Lima or Tacna per applicable consumer rules."
+          "heading": "Claims and disputes",
+          "body": "Per D.S. 011-2011-PCM, consumer claims are received at arcadiaprueba8@gmail.com and answered within 15 business days. These Terms are governed by Peruvian law (Law 29733, Law 29571, Civil Code). Venue: courts of Lima or Tacna per applicable consumer rules."
         },
         "amendments": {
           "heading": "Amendments and versions",
@@ -136,7 +138,7 @@
         },
         "contact": {
           "heading": "Contact",
-          "body": "Privacy and ARCO rights: privacidad@viora.pe. Consumer claims: the site Complaints Book."
+          "body": "Privacy, ARCO rights and consumer claims: arcadiaprueba8@gmail.com."
         }
       }
     },
@@ -163,7 +165,7 @@
         },
         "arco": {
           "heading": "ARCO rights and ANPD complaint",
-          "body": "Exercise Access, Rectification, Erasure, and Objection via privacidad@viora.pe with your ID, the right invoked, and a notification address. Deadlines: Access 20 business days; Rectification, Erasure, and Objection 10 business days each. These rights cannot be waived."
+          "body": "Exercise Access, Rectification, Erasure, and Objection via arcadiaprueba8@gmail.com with your ID, the right invoked, and a notification address. Deadlines: Access 20 business days; Rectification, Erasure, and Objection 10 business days each. These rights cannot be waived."
         },
         "processors": {
           "heading": "Processors and transfers",
@@ -175,11 +177,11 @@
         },
         "security": {
           "heading": "Security, retention, minors",
-          "body": "Reasonable industry safeguards; in the app: TLS 1.3, on-device SQLCipher, 15-minute rotating JWTs, and per-cooperative RLS. Payments carry a 5-year tax retention (SUNAT). This service is not directed at minors."
+          "body": "Reasonable industry safeguards: TLS-encrypted connections, access tokens that expire every 15 minutes, and each manager's access limited to their own licence, checked on the server. Payments carry a 5-year tax retention (SUNAT). This service is not directed at minors."
         },
         "changes": {
           "heading": "Changes, versions, contact",
-          "body": "Material changes with 15-day prominent notice; version aligned to the SemVer tag. ARCO contact: privacidad@viora.pe. Consumer claims: Complaints Book (15 business days). Governing law: Peru."
+          "body": "Material changes with 15-day prominent notice; version aligned to the SemVer tag. ARCO and consumer claims contact: arcadiaprueba8@gmail.com (reply within 15 business days). Governing law: Peru."
         }
       }
     }
@@ -368,7 +370,7 @@
     "coopCopy": "The cooperative buys a quota of members and hectares. The technical manager oversees the portfolio, follows the territory traffic light and forecasts the season's intake.",
     "coopPrice": "Tailored",
     "coopUnit": "by members and hectares · in soles",
-    "coopCta": "I want it",
+    "coopCta": "Request a quote",
     "coopMore": "See what's included",
     "codeName": "Cooperative<br />code",
     "codeTagline": "If your cooperative is already in, you don't pay.",
@@ -471,7 +473,8 @@
     "accessTitle": "Access",
     "access_growerPlan": "Grower plan",
     "access_coopPlan": "Cooperative plan",
-    "access_advisor": "Advisor invitation",
+    "access_advisor": "Cooperative code",
+    "access_contact": "Contact",
     "aboutTitle": "About us",
     "about_team": "Team",
     "about_arcadia": "ArcadiaDevs",
@@ -481,5 +484,18 @@
     "legal_privacy": "Privacy policy",
     "legal_download": "Download the app",
     "copyright": "© 2026 ArcadiaDevs — Viora. UPC academic project."
+  },
+  "quote": {
+    "close": "Close",
+    "eyebrow": "Cooperative plan",
+    "title": "Let's talk about your <em>cooperative.</em>",
+    "body": "Tell us how many members and hectares you want to cover and we'll send you a tailored quote, in soles.",
+    "whatsapp": "WhatsApp",
+    "email": "Email",
+    "copyEmail": "Copy the email address",
+    "copied": "Copied",
+    "whatsappMessage": "Hi, I'd like a quote for Viora's Cooperative plan. We are ___ members with ___ hectares in ___.",
+    "emailSubject": "Cooperative plan quote",
+    "emailBody": "Hi Viora team,\n\nI'd like a quote for the Cooperative plan.\n\nOrganisation:\nMembers:\nHectares:\nArea:\n\nThank you."
   }
 }

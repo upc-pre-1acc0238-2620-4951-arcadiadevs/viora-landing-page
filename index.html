@@ -320,7 +320,13 @@
             <span class="navbar__menu-label" data-i18n="nav.menu">Menu</span>
             <span class="navbar__dots" aria-hidden="true"></span>
           </button>
-          <div class="navbar__panel navbar__panel--menu" id="navbar-menu" hidden data-navbar-panel>
+          <div
+            class="navbar__panel navbar__panel--menu"
+            id="navbar-menu"
+            hidden
+            data-navbar-panel
+            data-lenis-prevent
+          >
             <nav
               class="navbar__card"
               aria-label="Sections"
@@ -351,6 +357,21 @@
               </p>
               <a class="navbar__cta-action" href="#plans">
                 <span data-i18n="nav.plansAction">See plans</span>
+                <svg
+                  class="navbar__arrow"
+                  viewBox="0 0 24 24"
+                  width="20"
+                  height="20"
+                  aria-hidden="true"
+                >
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </a>
+            </div>
+            <div class="navbar__card navbar__card--cta" data-navbar-reveal>
+              <p class="navbar__cta-title" data-i18n="nav.quoteTitle">Quote the Cooperative plan</p>
+              <a class="navbar__cta-action" href="#quote">
+                <span data-i18n="nav.quoteAction">Request a quote</span>
                 <svg
                   class="navbar__arrow"
                   viewBox="0 0 24 24"
@@ -2251,14 +2272,14 @@
                   <p class="plans__unit" data-i18n="plans.coopUnit">
                     by members and hectares · in soles
                   </p>
-                  <a class="plans__cta" href="#download">
-                    <span class="plans__cta-label" data-i18n="plans.coopCta">I want it</span>
+                  <a class="plans__cta" href="#quote">
+                    <span class="plans__cta-label" data-i18n="plans.coopCta">Request a quote</span>
                     <svg class="plans__arrow" viewBox="0 0 72 72" aria-hidden="true">
                       <rect width="72" height="72" rx="36" />
                       <path d="M25 25L47 47M29 47H47V29" />
                     </svg>
                   </a>
-                  <a class="plans__more" href="#product" data-i18n="plans.coopMore"
+                  <a class="plans__more" href="#audience" data-i18n="plans.coopMore"
                     >See what's included</a
                   >
                 </article>
@@ -3129,6 +3150,85 @@
         <h2 id="hero-dialog-title">A more balanced harvest starts here.</h2>
         <p class="hero-dialog__body"></p>
       </dialog>
+
+      <dialog
+        id="quote"
+        class="quote-dialog"
+        aria-labelledby="quote-title"
+        data-quote-dialog
+        data-lenis-prevent
+      >
+        <button class="quote-dialog__close" type="button" data-dialog-close data-i18n="quote.close">
+          Close
+        </button>
+        <p class="quote-dialog__eyebrow" data-quote-rise data-i18n="quote.eyebrow">
+          Cooperative plan
+        </p>
+        <h2
+          class="quote-dialog__title"
+          id="quote-title"
+          data-quote-rise
+          data-i18n-html="quote.title"
+        >
+          Let's talk about your <em>cooperative.</em>
+        </h2>
+        <p class="quote-dialog__body" data-quote-rise data-i18n="quote.body">
+          Tell us how many members and hectares you want to cover and we'll send you a tailored
+          quote, in soles.
+        </p>
+        <ul class="quote-dialog__options">
+          <li class="quote-dialog__row" data-quote-rise>
+            <a
+              class="quote-dialog__option"
+              href="https://wa.me/51933855712"
+              target="_blank"
+              rel="noopener"
+              data-quote-whatsapp
+            >
+              <span class="quote-dialog__channel">
+                <span class="quote-dialog__label" data-i18n="quote.whatsapp">WhatsApp</span>
+                <span class="quote-dialog__value">+51 933 855 712</span>
+              </span>
+              <svg class="quote-dialog__arrow" viewBox="0 0 72 72" aria-hidden="true">
+                <rect width="72" height="72" rx="36" />
+                <path d="M25 25L47 47M29 47H47V29" />
+              </svg>
+            </a>
+          </li>
+          <li class="quote-dialog__row quote-dialog__row--email" data-quote-rise>
+            <a class="quote-dialog__option" href="mailto:arcadiaprueba8@gmail.com" data-quote-email>
+              <span class="quote-dialog__channel">
+                <span class="quote-dialog__label" data-i18n="quote.email">Email</span>
+                <span class="quote-dialog__value">arcadiaprueba8@<wbr />gmail.com</span>
+              </span>
+              <svg class="quote-dialog__arrow" viewBox="0 0 72 72" aria-hidden="true">
+                <rect width="72" height="72" rx="36" />
+                <path d="M25 25L47 47M29 47H47V29" />
+              </svg>
+            </a>
+            <button
+              class="quote-dialog__copy"
+              type="button"
+              aria-label="Copy the email address"
+              data-quote-copy
+              data-i18n-attr="aria-label:quote.copyEmail"
+            >
+              <svg class="quote-dialog__copy-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
+                />
+              </svg>
+              <svg class="quote-dialog__copy-done" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" />
+              </svg>
+              <span class="quote-dialog__copied" aria-hidden="true" data-i18n="quote.copied"
+                >Copied</span
+              >
+              <span class="visually-hidden" aria-live="polite" data-quote-copy-status></span>
+            </button>
+          </li>
+        </ul>
+      </dialog>
     </main>
 
     <!-- Footer: a cross-stitch storyboard of one season with Viora, then the links -->
@@ -3294,7 +3394,10 @@
                   <a href="#pricing" data-i18n="footer.access_coopPlan">Cooperative plan</a>
                 </li>
                 <li data-footer-reveal>
-                  <a href="#pricing" data-i18n="footer.access_advisor">Advisor invitation</a>
+                  <a href="#plans-code-steps" data-i18n="footer.access_advisor">Cooperative code</a>
+                </li>
+                <li data-footer-reveal>
+                  <a href="#quote" data-i18n="footer.access_contact">Contact</a>
                 </li>
               </ul>
             </div>
@@ -3565,12 +3668,12 @@
               class="legal-dialog__heading"
               data-i18n="legal.terms.sections.disputes.heading"
             >
-              Complaints book and disputes
+              Claims and disputes
             </h3>
             <p data-i18n="legal.terms.sections.disputes.body">
-              Per D.S. 011-2011-PCM, the footer links the virtual Complaints Book (reply within 15
-              business days). These Terms are governed by Peruvian law (Law 29733, Law 29571, Civil
-              Code). Venue: courts of Lima or Tacna per applicable consumer rules.
+              Per D.S. 011-2011-PCM, consumer claims are received at arcadiaprueba8@gmail.com and
+              answered within 15 business days. These Terms are governed by Peruvian law (Law 29733,
+              Law 29571, Civil Code). Venue: courts of Lima or Tacna per applicable consumer rules.
             </p>
           </section>
           <section
@@ -3606,8 +3709,7 @@
               Contact
             </h3>
             <p data-i18n="legal.terms.sections.contact.body">
-              Privacy and ARCO rights: privacidad@viora.pe. Consumer claims: the site Complaints
-              Book.
+              Privacy, ARCO rights and consumer claims: arcadiaprueba8@gmail.com.
             </p>
           </section>
           <div class="legal-dialog__end" aria-hidden="true">
@@ -3759,10 +3861,10 @@
               ARCO rights and ANPD complaint
             </h3>
             <p data-i18n="legal.privacy.sections.arco.body">
-              Exercise Access, Rectification, Erasure, and Objection via privacidad@viora.pe with
-              your ID, the right invoked, and a notification address. Deadlines: Access 20 business
-              days; Rectification, Erasure, and Objection 10 business days each. These rights cannot
-              be waived.
+              Exercise Access, Rectification, Erasure, and Objection via arcadiaprueba8@gmail.com
+              with your ID, the right invoked, and a notification address. Deadlines: Access 20
+              business days; Rectification, Erasure, and Objection 10 business days each. These
+              rights cannot be waived.
             </p>
           </section>
           <section
@@ -3816,9 +3918,10 @@
               Security, retention, minors
             </h3>
             <p data-i18n="legal.privacy.sections.security.body">
-              Reasonable industry safeguards; in the app: TLS 1.3, on-device SQLCipher, 15-minute
-              rotating JWTs, and per-cooperative RLS. Payments carry a 5-year tax retention (SUNAT).
-              This service is not directed at minors.
+              Reasonable industry safeguards: TLS-encrypted connections, access tokens that expire
+              every 15 minutes, and each manager's access limited to their own licence, checked on
+              the server. Payments carry a 5-year tax retention (SUNAT). This service is not
+              directed at minors.
             </p>
           </section>
           <section
@@ -3836,7 +3939,7 @@
             </h3>
             <p data-i18n="legal.privacy.sections.changes.body">
               Material changes with 15-day prominent notice; version aligned to the SemVer tag. ARCO
-              contact: privacidad@viora.pe. Consumer claims: Complaints Book (15 business days).
+              and consumer claims contact: arcadiaprueba8@gmail.com (reply within 15 business days).
               Governing law: Peru.
             </p>
           </section>
