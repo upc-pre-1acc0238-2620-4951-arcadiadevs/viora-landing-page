@@ -24,7 +24,9 @@
     "sections": "Sections",
     "settings": "Settings",
     "plansTitle": "Compare plans for your grove",
-    "plansAction": "See plans"
+    "plansAction": "See plans",
+    "quoteTitle": "Quote the Cooperative plan for your organisation",
+    "quoteAction": "Request a quote"
   },
   "preloader": {
     "loading": "Loading Viora",
@@ -368,7 +370,7 @@
     "coopCopy": "The cooperative buys a quota of members and hectares. The technical manager oversees the portfolio, follows the territory traffic light and forecasts the season's intake.",
     "coopPrice": "Tailored",
     "coopUnit": "by members and hectares · in soles",
-    "coopCta": "I want it",
+    "coopCta": "Request a quote",
     "coopMore": "See what's included",
     "codeName": "Cooperative<br />code",
     "codeTagline": "If your cooperative is already in, you don't pay.",
@@ -472,6 +474,7 @@
     "access_growerPlan": "Grower plan",
     "access_coopPlan": "Cooperative plan",
     "access_advisor": "Advisor invitation",
+    "access_contact": "Contact",
     "aboutTitle": "About us",
     "about_team": "Team",
     "about_arcadia": "ArcadiaDevs",
@@ -481,5 +484,18 @@
     "legal_privacy": "Privacy policy",
     "legal_download": "Download the app",
     "copyright": "© 2026 ArcadiaDevs — Viora. UPC academic project."
+  },
+  "quote": {
+    "close": "Close",
+    "eyebrow": "Cooperative plan",
+    "title": "Let's talk about your <em>cooperative.</em>",
+    "body": "Tell us how many members and hectares you want to cover and we'll send you a tailored quote, in soles.",
+    "whatsapp": "WhatsApp",
+    "email": "Email",
+    "copyEmail": "Copy the email address",
+    "copied": "Copied",
+    "whatsappMessage": "Hi, I'd like a quote for Viora's Cooperative plan. We are ___ members with ___ hectares in ___.",
+    "emailSubject": "Cooperative plan quote",
+    "emailBody": "Hi Viora team,\n\nI'd like a quote for the Cooperative plan.\n\nOrganisation:\nMembers:\nHectares:\nArea:\n\nThank you."
   }
 }

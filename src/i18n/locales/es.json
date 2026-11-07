@@ -24,7 +24,9 @@
     "sections": "Secciones",
     "settings": "Ajustes",
     "plansTitle": "Compara los planes para tu olivar",
-    "plansAction": "Ver planes"
+    "plansAction": "Ver planes",
+    "quoteTitle": "Cotiza el Plan Cooperativa para tu organización",
+    "quoteAction": "Solicitar cotización"
   },
   "preloader": {
     "loading": "Cargando Viora",
@@ -368,7 +370,7 @@
     "coopCopy": "La cooperativa contrata un cupo de socios y hectáreas. El gestor técnico supervisa la cartera, sigue el semáforo del territorio y proyecta el acopio de la campaña.",
     "coopPrice": "A medida",
     "coopUnit": "según socios y hectáreas · en soles",
-    "coopCta": "Lo quiero",
+    "coopCta": "Solicitar cotización",
     "coopMore": "Ver qué incluye",
     "codeName": "Código de<br />cooperativa",
     "codeTagline": "Si tu cooperativa ya es parte, tú no pagas.",
@@ -472,6 +474,7 @@
     "access_growerPlan": "Plan Productor",
     "access_coopPlan": "Plan Cooperativa",
     "access_advisor": "Invitación de asesor",
+    "access_contact": "Contacto",
     "aboutTitle": "Nosotros",
     "about_team": "Equipo",
     "about_arcadia": "ArcadiaDevs",
@@ -481,5 +484,18 @@
     "legal_privacy": "Política de privacidad",
     "legal_download": "Descargar la app",
     "copyright": "© 2026 ArcadiaDevs — Viora. Proyecto académico UPC."
+  },
+  "quote": {
+    "close": "Cerrar",
+    "eyebrow": "Plan Cooperativa",
+    "title": "Hablemos de tu <em>cooperativa.</em>",
+    "body": "Cuéntanos cuántos socios y hectáreas quieres cubrir y te enviamos una cotización a medida, en soles.",
+    "whatsapp": "WhatsApp",
+    "email": "Correo",
+    "copyEmail": "Copiar el correo",
+    "copied": "Copiado",
+    "whatsappMessage": "Hola, quiero cotizar el Plan Cooperativa de Viora. Somos ___ socios con ___ hectáreas en ___.",
+    "emailSubject": "Cotización del Plan Cooperativa",
+    "emailBody": "Hola, equipo de Viora:\n\nQuiero cotizar el Plan Cooperativa.\n\nOrganización:\nSocios:\nHectáreas:\nZona:\n\nGracias."
   }
 }
