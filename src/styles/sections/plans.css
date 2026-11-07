@@ -257,6 +257,8 @@
   transition: translate var(--duration-base) var(--ease-out-expo);
 }
 
+/* The longer labels (Request a quote, Redeem code) take the compact size. */
+.plans__plan--coop .plans__cta-label,
 .plans__plan--code .plans__cta-label {
   padding-inline: calc(36 * var(--p));
   font-size: calc(22 * var(--p));

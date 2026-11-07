@@ -518,6 +518,19 @@
   }
 }
 
+/*
+ * Only where the four cards don't fit does the menu scroll on its own. A scrolling box clips the
+ * shadows of the cards, so taller screens keep the menu as it is.
+ */
+@media (height <= 700px) {
+  .navbar__panel--menu {
+    max-height: calc(100dvh - 96px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .navbar__button,
   .navbar__knob,

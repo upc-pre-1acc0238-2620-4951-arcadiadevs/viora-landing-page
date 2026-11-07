@@ -6,9 +6,10 @@
 import { mountAll } from '@/utils/mount.js';
 import { legalDialog } from './legal-dialog/legalDialog.js';
 import { navbar } from './navbar/navbar.js';
+import { quoteDialog } from './quote-dialog/quoteDialog.js';
 import { scrollbar } from './scrollbar/scrollbar.js';
 import { soundToggle } from './sound/sound.js';
 
-const registry = [navbar, legalDialog, scrollbar, soundToggle];
+const registry = [navbar, legalDialog, quoteDialog, scrollbar, soundToggle];
 
 export const mountComponents = (root = document) => mountAll(registry, root);

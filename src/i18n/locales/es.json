@@ -24,7 +24,9 @@
     "sections": "Secciones",
     "settings": "Ajustes",
     "plansTitle": "Compara los planes para tu olivar",
-    "plansAction": "Ver planes"
+    "plansAction": "Ver planes",
+    "quoteTitle": "Cotiza el Plan Cooperativa",
+    "quoteAction": "Solicitar cotización"
   },
   "preloader": {
     "loading": "Cargando Viora",
@@ -127,8 +129,8 @@
           "body": "Código, algoritmos, marcas, logos y diseños pertenecen a ArcadiaDevs. Los componentes open source (Three.js, GSAP, Lenis) conservan sus licencias MIT / Apache 2.0. No se concede licencia más allá de visualizar este sitio."
         },
         "disputes": {
-          "heading": "Libro de Reclamaciones y controversias",
-          "body": "Conforme al D.S. N.º 011-2011-PCM, el footer enlaza el Libro de Reclamaciones Virtual (respuesta en máximo 15 días hábiles). Estos Términos se rigen por las leyes del Perú (Ley N.º 29733, Ley N.º 29571, Código Civil). Competencia: jueces de Lima o Tacna según la norma de consumo aplicable."
+          "heading": "Reclamaciones y controversias",
+          "body": "Conforme al D.S. N.º 011-2011-PCM, las reclamaciones de consumo se reciben en arcadiaprueba8@gmail.com y se responden en un plazo máximo de 15 días hábiles. Estos Términos se rigen por las leyes del Perú (Ley N.º 29733, Ley N.º 29571, Código Civil). Competencia: jueces de Lima o Tacna según la norma de consumo aplicable."
         },
         "amendments": {
           "heading": "Modificaciones y versiones",
@@ -136,7 +138,7 @@
         },
         "contact": {
           "heading": "Contacto",
-          "body": "Privacidad y derechos ARCO: privacidad@viora.pe. Reclamaciones de consumo: Libro de Reclamaciones del sitio."
+          "body": "Privacidad, derechos ARCO y reclamaciones de consumo: arcadiaprueba8@gmail.com."
         }
       }
     },
@@ -163,7 +165,7 @@
         },
         "arco": {
           "heading": "Derechos ARCO y reclamación ante la ANPD",
-          "body": "Ejerza Acceso, Rectificación, Cancelación y Oposición vía privacidad@viora.pe con su DNI, el derecho invocado y una dirección de notificación. Plazos: Acceso 20 días hábiles; Rectificación, Cancelación y Oposición 10 días hábiles cada uno. Estos derechos son irrenunciables."
+          "body": "Ejerza Acceso, Rectificación, Cancelación y Oposición vía arcadiaprueba8@gmail.com con su DNI, el derecho invocado y una dirección de notificación. Plazos: Acceso 20 días hábiles; Rectificación, Cancelación y Oposición 10 días hábiles cada uno. Estos derechos son irrenunciables."
         },
         "processors": {
           "heading": "Encargados y transferencias",
@@ -175,11 +177,11 @@
         },
         "security": {
           "heading": "Seguridad, conservación y menores",
-          "body": "Salvaguardas razonables de la industria; en la app: TLS 1.3, SQLCipher local, JWT rotativos de 15 min y RLS por cooperativa. Los pagos tienen retención fiscal de 5 años (SUNAT). Este servicio no está dirigido a menores de edad."
+          "body": "Salvaguardas razonables de la industria: conexión cifrada con TLS, tokens de acceso que vencen cada 15 minutos y acceso de cada gestor limitado a su licencia, verificado en el servidor. Los pagos tienen retención fiscal de 5 años (SUNAT). Este servicio no está dirigido a menores de edad."
         },
         "changes": {
           "heading": "Cambios, versiones y contacto",
-          "body": "Cambios sustanciales con aviso destacado de 15 días; versión alineada al tag SemVer. Contacto ARCO: privacidad@viora.pe. Reclamaciones de consumo: Libro de Reclamaciones (15 días hábiles). Ley aplicable: Perú."
+          "body": "Cambios sustanciales con aviso destacado de 15 días; versión alineada al tag SemVer. Contacto ARCO y reclamaciones de consumo: arcadiaprueba8@gmail.com (respuesta en 15 días hábiles). Ley aplicable: Perú."
         }
       }
     }
@@ -368,7 +370,7 @@
     "coopCopy": "La cooperativa contrata un cupo de socios y hectáreas. El gestor técnico supervisa la cartera, sigue el semáforo del territorio y proyecta el acopio de la campaña.",
     "coopPrice": "A medida",
     "coopUnit": "según socios y hectáreas · en soles",
-    "coopCta": "Lo quiero",
+    "coopCta": "Solicitar cotización",
     "coopMore": "Ver qué incluye",
     "codeName": "Código de<br />cooperativa",
     "codeTagline": "Si tu cooperativa ya es parte, tú no pagas.",
@@ -471,7 +473,8 @@
     "accessTitle": "Acceso",
     "access_growerPlan": "Plan Productor",
     "access_coopPlan": "Plan Cooperativa",
-    "access_advisor": "Invitación de asesor",
+    "access_advisor": "Código de cooperativa",
+    "access_contact": "Contacto",
     "aboutTitle": "Nosotros",
     "about_team": "Equipo",
     "about_arcadia": "ArcadiaDevs",
@@ -481,5 +484,18 @@
     "legal_privacy": "Política de privacidad",
     "legal_download": "Descargar la app",
     "copyright": "© 2026 ArcadiaDevs — Viora. Proyecto académico UPC."
+  },
+  "quote": {
+    "close": "Cerrar",
+    "eyebrow": "Plan Cooperativa",
+    "title": "Hablemos de tu <em>cooperativa.</em>",
+    "body": "Cuéntanos cuántos socios y hectáreas quieres cubrir y te enviamos una cotización a medida, en soles.",
+    "whatsapp": "WhatsApp",
+    "email": "Correo",
+    "copyEmail": "Copiar el correo",
+    "copied": "Copiado",
+    "whatsappMessage": "Hola, quiero cotizar el Plan Cooperativa de Viora. Somos ___ socios con ___ hectáreas en ___.",
+    "emailSubject": "Cotización del Plan Cooperativa",
+    "emailBody": "Hola, equipo de Viora:\n\nQuiero cotizar el Plan Cooperativa.\n\nOrganización:\nSocios:\nHectáreas:\nZona:\n\nGracias."
   }
 }
