@@ -387,7 +387,9 @@ export function initSound() {
   const duck = () => {
     if (!ctx) return;
     const open = qsa('dialog[open]');
-    const level = playing.size ? DUCK.video : open.length ? DUCK.dialog : 1;
+    // An embedded (YouTube) video can't report play/pause, so its open dialog counts as playing.
+    const embedded = qsa('dialog[open] [data-youtube]').length;
+    const level = playing.size || embedded ? DUCK.video : open.length ? DUCK.dialog : 1;
     glide(music.gain, level, FADE.duck);
   };
   const dialogs = new MutationObserver(duck);
