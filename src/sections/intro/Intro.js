@@ -4,6 +4,7 @@ import { gsap, ScrollTrigger, SplitText } from '@/core/gsap.js';
 import { startScroll, stopScroll } from '@/core/scroll.js';
 import { I18N_BEFORE_CHANGE, I18N_CHANGE } from '@/i18n/index.js';
 import { clamp, lerp } from '@/utils/math.js';
+import { createVideoPlayer } from '@/utils/videoPlayer.js';
 
 /** Pinned-reel choreography, as fractions of the pinned scroll. */
 const EXPAND = [0.1, 0.5];
@@ -37,7 +38,7 @@ export const intro = {
     const destroyGlass = mountGlass(element);
     const video = element.querySelector('[data-intro-video]');
     const dialog = element.querySelector('[data-intro-dialog]');
-    const player = dialog.querySelector('[data-intro-player]');
+    const player = createVideoPlayer(dialog, '[data-intro-player]');
 
     // ── Reel dialog ───────────────────────────────────────
     let opener;
@@ -47,12 +48,11 @@ export const intro = {
       opener = button;
       dialog.showModal();
       stopScroll();
-      player.currentTime = 0;
-      player.play().catch(() => {});
+      player.play();
     };
     const close = () => dialog.close();
     const closed = () => {
-      player.pause();
+      player.stop();
       startScroll();
       opener?.focus({ preventScroll: true });
     };

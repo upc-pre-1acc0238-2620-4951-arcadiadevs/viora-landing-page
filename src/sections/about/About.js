@@ -3,6 +3,7 @@ import { mountGlass } from '@/components/glass/glass.js';
 import { gsap, SplitText } from '@/core/gsap.js';
 import { startScroll, stopScroll } from '@/core/scroll.js';
 import { I18N_BEFORE_CHANGE, I18N_CHANGE } from '@/i18n/index.js';
+import { createVideoPlayer } from '@/utils/videoPlayer.js';
 
 const SVG = 'http://www.w3.org/2000/svg';
 /** How far the trophy rises at the top of a cheer, in source pixels. */
@@ -57,19 +58,18 @@ export const about = {
 
     cleanups.push(mountGlass(element.querySelector('[data-about-film]')));
 
-    // ── Team video: the intro reel stands in until the real one lands ──
+    // ── Team video (About-the-Team, embedded from YouTube) ──
     const watch = element.querySelector('[data-about-watch]');
     const dialog = element.querySelector('[data-about-dialog]');
-    const player = dialog.querySelector('[data-about-player]');
+    const player = createVideoPlayer(dialog, '[data-about-player]');
     const openVideo = () => {
       dialog.showModal();
       stopScroll();
-      player.currentTime = 0;
-      player.play().catch(() => {});
+      player.play();
     };
     const closeVideo = () => dialog.close();
     const closedVideo = () => {
-      player.pause();
+      player.stop();
       startScroll();
       watch.focus({ preventScroll: true });
     };
