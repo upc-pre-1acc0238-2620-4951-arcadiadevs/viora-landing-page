@@ -61,7 +61,12 @@
     "storyDescription": "A story of good years, difficult years, and the platform that learned to balance them.",
     "close": "Close",
     "downloadTitle": "A more balanced harvest starts here.",
-    "downloadBody": "Viora is growing. Official app downloads will be available here when the app launches."
+    "downloadBody": "Choose the app for your role. Each link opens its release on Firebase App Distribution.",
+    "growerHint": "Android · Grower",
+    "growerApp": "Grower app",
+    "managerHint": "Flutter · Cooperative manager",
+    "managerApp": "Manager app",
+    "downloadNote": "Beta release: sign in with the email you were invited with as a tester."
   },
   "intro": {
     "titleFirst": "<strong>Field</strong> <em>Data</em>,",

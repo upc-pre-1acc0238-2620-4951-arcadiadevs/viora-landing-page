@@ -346,7 +346,9 @@
 .hero-dialog {
   margin: auto;
   width: min(560px, calc(100% - 32px));
+  max-height: calc(100dvh - 32px);
   padding: 48px;
+  overflow-y: auto;
   border: 1px solid rgb(243 240 234 / 25%);
   border-radius: 24px;
   background: var(--color-brand-dark);
@@ -388,6 +390,101 @@
   margin-top: 24px;
   line-height: 1.7;
   color: var(--color-text-inverse-muted);
+}
+
+/* One row per role app, the pill and yellow arrow of the quote dialog. */
+.hero-dialog__apps {
+  display: grid;
+  gap: 12px;
+  margin: 32px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hero-dialog__app {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  min-height: 84px;
+  padding: 14px 14px 14px 20px;
+  border: 1px solid rgb(243 240 234 / 18%);
+  border-radius: 999px;
+  background: rgb(243 240 234 / 6%);
+  color: inherit;
+  text-decoration: none;
+  transition:
+    background-color var(--duration-base) var(--ease-out-expo),
+    border-color var(--duration-base) var(--ease-out-expo);
+}
+
+.hero-dialog__app:hover,
+.hero-dialog__app:focus-visible {
+  border-color: rgb(232 185 35 / 60%);
+  background: rgb(243 240 234 / 10%);
+}
+
+.hero-dialog__app img {
+  flex: none;
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.hero-dialog__channel {
+  display: grid;
+  flex: 1;
+  gap: 2px;
+  min-width: 0;
+}
+
+.hero-dialog__label {
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-inverse-muted);
+}
+
+.hero-dialog__value {
+  font-size: clamp(17px, 3.4vw, 21px);
+  font-weight: var(--weight-medium);
+}
+
+.hero-dialog__arrow {
+  flex: none;
+  width: 56px;
+  height: 56px;
+  transition: rotate var(--duration-base) var(--ease-out-expo);
+}
+
+.hero-dialog__arrow rect {
+  fill: var(--color-accent);
+}
+
+.hero-dialog__arrow path {
+  fill: none;
+  stroke: var(--color-brand-dark);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 4;
+}
+
+.hero-dialog__app:hover .hero-dialog__arrow,
+.hero-dialog__app:focus-visible .hero-dialog__arrow {
+  rotate: -45deg;
+}
+
+.hero-dialog__note {
+  margin-top: 20px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--color-text-inverse-muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-dialog__app,
+  .hero-dialog__arrow {
+    transition: none;
+  }
 }
 
 @media (width <= 840px) {
@@ -773,6 +870,16 @@
 
   .hero-dialog {
     padding: 28px;
+  }
+
+  .hero-dialog__app {
+    min-height: 72px;
+    padding-left: 16px;
+  }
+
+  .hero-dialog__arrow {
+    width: 48px;
+    height: 48px;
   }
 }
 
