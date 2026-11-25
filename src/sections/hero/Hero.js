@@ -1,6 +1,5 @@
 import { gsap } from '@/core/gsap.js';
 import { INTRO_OPEN, INTRO_REVEAL, introReached, whenIntro } from '@/core/intro.js';
-import { t } from '@/i18n/index.js';
 import { mountGlass } from '@/components/glass/glass.js';
 
 export const hero = {
@@ -102,9 +101,6 @@ export const hero = {
       const button = event.target.closest('[data-hero-dialog]');
       if (!button) return;
       opener = button;
-      const key = button.dataset.heroDialog;
-      modal.querySelector('h2').textContent = t(`hero.${key}Title`);
-      modal.querySelector('.hero-dialog__body').textContent = t(`hero.${key}Body`);
       modal.showModal();
     };
     const dismiss = () => modal.close();
@@ -120,7 +116,7 @@ export const hero = {
       )
         dismiss();
     };
-    // Document-level: the navbar's store buttons open the same download notice.
+    // Document-level: every store button on the page opens the same app chooser.
     document.addEventListener('click', open);
     close.addEventListener('click', dismiss);
     modal.addEventListener('click', backdrop);

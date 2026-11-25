@@ -61,7 +61,12 @@
     "storyDescription": "Una historia sobre años buenos, años difíciles y la plataforma que aprendió a equilibrarlos.",
     "close": "Cerrar",
     "downloadTitle": "Una cosecha más pareja empieza aquí.",
-    "downloadBody": "Viora está creciendo. Las descargas oficiales de la app estarán disponibles aquí cuando se lance."
+    "downloadBody": "Elige la app de tu rol. Cada enlace abre su release en Firebase App Distribution.",
+    "growerHint": "Android · Productor",
+    "growerApp": "App del productor",
+    "managerHint": "Flutter · Gestor de cooperativa",
+    "managerApp": "App del gestor",
+    "downloadNote": "Versión beta: inicia sesión con el correo con el que te invitaron como tester."
   },
   "intro": {
     "titleFirst": "<strong>Datos</strong> <em>del Campo</em>,",
@@ -122,7 +127,7 @@
         },
         "downloads": {
           "heading": "Descargas, tiendas y enlaces externos",
-          "body": "Los botones de descarga abren un diálogo informativo de disponibilidad; mientras no haya URLs oficiales, no redirigen fuera. Cuando enlacen a Google Play / App Store, esas tiendas tienen sus propios términos, ajenos a ArcadiaDevs."
+          "body": "Los botones de descarga abren un diálogo para elegir la app del productor o la del gestor; cada una enlaza a su release en Firebase App Distribution (Google), que tiene sus propios términos, ajenos a ArcadiaDevs. Cuando las apps lleguen a Google Play / App Store, regirán los términos de esas tiendas."
         },
         "ip": {
           "heading": "Propiedad intelectual",

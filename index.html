@@ -3151,8 +3151,53 @@
           Close
         </button>
         <p class="hero-dialog__eyebrow">VIORA</p>
-        <h2 id="hero-dialog-title">A more balanced harvest starts here.</h2>
-        <p class="hero-dialog__body"></p>
+        <h2 id="hero-dialog-title" data-i18n="hero.downloadTitle">
+          A more balanced harvest starts here.
+        </h2>
+        <p class="hero-dialog__body" data-i18n="hero.downloadBody">
+          Choose the app for your role. Each link opens its release on Firebase App Distribution.
+        </p>
+        <ul class="hero-dialog__apps">
+          <li>
+            <a
+              class="hero-dialog__app"
+              href="https://appdistribution.firebase.google.com/testerapps/1:1085458528165:android:956ca686ddeaa2f2b95a4c/releases/77ij2ab7v84rg"
+              target="_blank"
+              rel="noopener"
+            >
+              <img src="/assets/icons/play-store.webp" alt="" width="40" height="40" />
+              <span class="hero-dialog__channel">
+                <span class="hero-dialog__label" data-i18n="hero.growerHint">Android · Grower</span>
+                <span class="hero-dialog__value" data-i18n="hero.growerApp">Grower app</span>
+              </span>
+              <svg class="hero-dialog__arrow" viewBox="0 0 72 72" aria-hidden="true">
+                <rect width="72" height="72" rx="36" />
+                <path d="M25 25L47 47M29 47H47V29" />
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a
+              class="hero-dialog__app"
+              href="https://appdistribution.firebase.google.com/testerapps/1:1085458528165:android:3695f62d8ffc995eb95a4c/releases/6lm9pvam81j9o"
+              target="_blank"
+              rel="noopener"
+            >
+              <img src="/assets/icons/app-store.webp" alt="" width="40" height="40" />
+              <span class="hero-dialog__channel">
+                <span class="hero-dialog__label" data-i18n="hero.managerHint">Flutter · Cooperative manager</span>
+                <span class="hero-dialog__value" data-i18n="hero.managerApp">Manager app</span>
+              </span>
+              <svg class="hero-dialog__arrow" viewBox="0 0 72 72" aria-hidden="true">
+                <rect width="72" height="72" rx="36" />
+                <path d="M25 25L47 47M29 47H47V29" />
+              </svg>
+            </a>
+          </li>
+        </ul>
+        <p class="hero-dialog__note" data-i18n="hero.downloadNote">
+          Beta release: sign in with the email you were invited with as a tester.
+        </p>
       </dialog>
 
       <dialog
