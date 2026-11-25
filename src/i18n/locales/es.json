@@ -127,7 +127,7 @@
         },
         "downloads": {
           "heading": "Descargas, tiendas y enlaces externos",
-          "body": "Los botones de descarga abren un diálogo informativo de disponibilidad; mientras no haya URLs oficiales, no redirigen fuera. Cuando enlacen a Google Play / App Store, esas tiendas tienen sus propios términos, ajenos a ArcadiaDevs."
+          "body": "Los botones de descarga abren un diálogo para elegir la app del productor o la del gestor; cada una enlaza a su release en Firebase App Distribution (Google), que tiene sus propios términos, ajenos a ArcadiaDevs. Cuando las apps lleguen a Google Play / App Store, regirán los términos de esas tiendas."
         },
         "ip": {
           "heading": "Propiedad intelectual",

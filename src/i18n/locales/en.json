@@ -127,7 +127,7 @@
         },
         "downloads": {
           "heading": "Downloads, stores, external links",
-          "body": "Download buttons open an informational availability dialog; until official URLs ship, they do not navigate away. When they link to Google Play / App Store, those stores have their own terms, outside ArcadiaDevs."
+          "body": "Download buttons open a dialog where you pick the grower app or the manager app; each one links to its release on Firebase App Distribution (Google), which has its own terms, outside ArcadiaDevs. When the apps reach Google Play / App Store, those stores' terms will apply."
         },
         "ip": {
           "heading": "Intellectual property",
